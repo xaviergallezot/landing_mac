@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F7F4EE; }
+    html { scroll-snap-type: y mandatory; scroll-padding-top: 64px; scroll-behavior: smooth; }
+    body { font-family: 'Archivo', Helvetica, sans-serif; color: #14120F; -webkit-font-smoothing: antialiased; }
+    a { color: #E0261F; }
+    a:hover { color: #14120F; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chevron { transform: rotate(45deg); }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  </style>
+</helmet>
+
+<div style="background: #F7F4EE; min-width: 320px; overflow-x: clip">
+
+  <!-- ============ BARRE STICKY ============ -->
+  <header data-screen-label="Barre sticky" style="position: sticky; top: 0; z-index: 60; background: rgba(247,244,238,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(20,18,15,0.08)">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <span style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: #14120F">Method <span style="color: #E0261F">Acting</span> Center</span>
+      <nav style="display: flex; align-items: center; gap: 26px">
+        <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Stages</a>
+        <a href="#formation" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Formation</a>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease" style-hover="background: #E0261F; color: #FFFFFF">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section data-screen-label="Hero" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 60px 24px 0; display: flex; flex-direction: column; gap: 26px">
+      <div data-reveal style="display: flex; align-items: center; gap: 12px">
+        <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Method Acting Center &middot; Paris &middot; depuis 1999</span>
+      </div>
+      <h1 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(48px, 7.5vw, 104px); line-height: 0.96; text-transform: uppercase; margin: 0; letter-spacing: 0.5px; max-width: 12ch">
+        Vous voulez devenir <span style="color: transparent; -webkit-text-stroke: 2px #E0261F">acteur&nbsp;?</span>
+      </h1>
+      <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 22px; max-width: 58ch">
+          <p style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: clamp(22px, 2.6vw, 32px); text-transform: uppercase; margin: 0; color: #E0261F; letter-spacing: 1px">Commencez par apprendre &agrave; jouer vrai.</p>
+          <p style="font-size: 19px; line-height: 1.7; color: #3B362F; margin: 0">
+            Depuis plus de 25&nbsp;ans, nous formons des g&eacute;n&eacute;rations d&rsquo;acteurs et d&rsquo;actrices &agrave; d&eacute;clencher de vraies &eacute;motions gr&acirc;ce &agrave; la <strong style="color: #14120F">M&eacute;thode Stanislavski</strong>, dont s&rsquo;est inspir&eacute; l&rsquo;Actors Studio.
+          </p>
+        </div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap">
+          <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je d&eacute;couvre la M&eacute;thode</a>
+          <a href="#formation" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; display: inline-block; border: 1px solid rgba(20,18,15,0.3); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">La formation annuelle</a>
+        </div>
+      </div>
+      <div data-reveal style="width: 100%; aspect-ratio: 3 / 1; border-radius: 24px; overflow: hidden; margin-top: 8px; position: relative">
+        <sc-for list="{{ heroSlides }}" as="hs" hint-placeholder-count="0">
+          <div role="img" aria-label="{{ hs.alt }}" style="{{ hs.style }}"></div>
+        </sc-for>
+        <div style="position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; z-index: 2">
+          <sc-for list="{{ heroSlides }}" as="hd" hint-placeholder-count="4">
+            <button onClick="{{ hd.go }}" aria-label="{{ hd.alt }}" style="{{ hd.dotStyle }}"></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div data-screen-label="Marquee" style="overflow: hidden; padding: 36px 0 0; white-space: nowrap; background: #F7F4EE">
+    <div style="display: inline-flex; gap: 0; animation: marquee 26s linear infinite; will-change: transform">
+      <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
+      <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ ARGUMENTS ============ -->
+  <section data-screen-label="Arguments" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always; min-height: 100svh; display: flex; align-items: center; box-sizing: border-box">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px; width: 100%; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: clamp(40px, 6vw, 80px); align-items: center">
+      <div data-reveal style="display: flex; flex-direction: column; gap: 26px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Pourquoi Method Acting Center</span>
+        </div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(38px, 4.5vw, 64px); text-transform: uppercase; line-height: 1.0; margin: 0">Une &eacute;cole pens&eacute;e<br>par des acteurs,<br><span style="color: #E0261F">pour des acteurs.</span></h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 48ch">La M&eacute;thode ne s&rsquo;apprend pas dans les livres&nbsp;: elle se transmet, exercice apr&egrave;s exercice, aupr&egrave;s de coaches qui tournent, castent et montent sur les plateaux toute l&rsquo;ann&eacute;e.</p>
+        <div style="display: flex; gap: clamp(32px, 5vw, 64px); flex-wrap: wrap; margin-top: 6px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: 'Oswald', sans-serif; font-size: clamp(40px, 4vw, 56px); font-weight: 700; line-height: 1; color: #14120F">25+</span>
+            <span style="font-size: 14px; color: #6B655C">ans d&rsquo;exp&eacute;rience &agrave; Paris</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-family: 'Oswald', sans-serif; font-size: clamp(40px, 4vw, 56px); font-weight: 700; line-height: 1; color: #14120F">5,0<span style="color: #E0261F">/5</span></span>
+            <span style="font-size: 14px; color: #6B655C">sur 93 avis Google</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <div data-reveal style="background: #FFFFFF; border-radius: 20px; padding: 34px 38px; display: grid; grid-template-columns: clamp(52px, 5vw, 72px) 1fr; gap: 24px; align-items: start; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateX(6px); box-shadow: 0 20px 40px rgba(20,18,15,0.08)">
+          <span style="font-family: 'Oswald', sans-serif; font-size: clamp(36px, 3.6vw, 52px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">01</span>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; text-transform: uppercase; margin: 0">Un jeu sinc&egrave;re et juste</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #6B655C">Sans jamais renoncer &agrave; qui vous &ecirc;tes. La M&eacute;thode r&eacute;v&egrave;le votre singularit&eacute;, elle ne la formate pas.</p>
+          </div>
+        </div>
+        <div data-reveal style="background: #FFFFFF; border-radius: 20px; padding: 34px 38px; display: grid; grid-template-columns: clamp(52px, 5vw, 72px) 1fr; gap: 24px; align-items: start; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateX(6px); box-shadow: 0 20px 40px rgba(20,18,15,0.08)">
+          <span style="font-family: 'Oswald', sans-serif; font-size: clamp(36px, 3.6vw, 52px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">02</span>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; text-transform: uppercase; margin: 0">Des coaches en activit&eacute;</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #6B655C">Progressez avec des professionnels qui vivent les r&eacute;alit&eacute;s du m&eacute;tier&nbsp;: plateaux, castings, tournages.</p>
+          </div>
+        </div>
+        <div data-reveal style="background: #FFFFFF; border-radius: 20px; padding: 34px 38px; display: grid; grid-template-columns: clamp(52px, 5vw, 72px) 1fr; gap: 24px; align-items: start; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateX(6px); box-shadow: 0 20px 40px rgba(20,18,15,0.08)">
+          <span style="font-family: 'Oswald', sans-serif; font-size: clamp(36px, 3.6vw, 52px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">03</span>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; text-transform: uppercase; margin: 0">Un vrai r&eacute;seau</h3>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #6B655C">Rencontrez acteurs, sc&eacute;naristes et r&eacute;alisateurs, et collaborez sur des projets concrets d&egrave;s la formation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TALENT / METHODE ============ -->
+  <section data-screen-label="La Methode" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 64px">
+      <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 64px; align-items: start">
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 84px); text-transform: uppercase; line-height: 0.98; margin: 0; position: sticky; top: 100px">Ce n&rsquo;est pas<br>le talent qui fait<br><span style="color: #E0261F">l&rsquo;acteur.</span></h2>
+        <div style="font-size: 19px; line-height: 1.8; color: #B7B0A6; display: flex; flex-direction: column; gap: 22px">
+          <p style="margin: 0">Beaucoup de personnes pensent que les grands acteurs ont simplement un talent naturel. Qu&rsquo;ils savent pleurer sur commande. Qu&rsquo;ils sont &laquo;&nbsp;n&eacute;s pour &ccedil;a&nbsp;&raquo;.</p>
+          <p style="margin: 0">En r&eacute;alit&eacute;, les plus grands acteurs ne laissent jamais leurs &eacute;motions au hasard. Ils apprennent &agrave; les comprendre. &Agrave; les d&eacute;clencher. &Agrave; les ma&icirc;triser. &Agrave; les retrouver avec pr&eacute;cision, sc&egrave;ne apr&egrave;s sc&egrave;ne.</p>
+          <p style="margin: 0">C&rsquo;est toute la force de la <strong style="color: #F4F1EC">M&eacute;thode Stanislavski</strong>, dont s&rsquo;est inspir&eacute; l&rsquo;Actors Studio. Une m&eacute;thode qui n&rsquo;apprend pas &agrave; devenir quelqu&rsquo;un d&rsquo;autre, mais &agrave; utiliser ce que vous &ecirc;tes pour donner vie &agrave; un personnage.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; scroll-snap-align: start; scroll-margin-top: 90px">
+        <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
+          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-3.jpg" alt="Actrice riant aux &eacute;clats en sc&egrave;ne, &eacute;motion spontan&eacute;e" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">01</span>
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">D&eacute;clencher</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Faites na&icirc;tre de vraies &eacute;motions en explorant votre v&eacute;cu, votre imagination et les circonstances du personnage. Vous ne les imitez plus. Vous les vivez.</p>
+        </div>
+        <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
+          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img src="uploads/V1-0001_Antichrist_Screenshot_Horizontal00087169.jpg" alt="Actrice concentr&eacute;e dans une sc&egrave;ne film&eacute;e exigeante" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">02</span>
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">Ma&icirc;triser</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Dosez, canalisez et dirigez vos &eacute;motions pour rester juste, m&ecirc;me sous la pression d&rsquo;un plateau. Votre &eacute;motion devient un outil. Plus le fruit du hasard.</p>
+        </div>
+        <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
+          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-272.jpg" alt="Sc&egrave;ne dramatique sous lumi&egrave;re rouge, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">03</span>
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">Reproduire</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Retrouvez les m&ecirc;mes &eacute;motions avec pr&eacute;cision, autant de fois que n&eacute;cessaire. C&rsquo;est ce qui distingue un acteur juste&hellip; d&rsquo;un acteur juste &agrave; chaque prise.</p>
+        </div>
+      </div>
+
+      <p data-reveal style="margin: 0; font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.6vw, 46px); text-transform: uppercase; line-height: 1.2; font-weight: 600; max-width: 24ch">
+        Le r&eacute;sultat&nbsp;? Un jeu sinc&egrave;re. Profond&eacute;ment &agrave; vous. <span style="color: #E0261F">Et que vous ma&icirc;trisez.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ STAGES ETE ============ -->
+  <section id="stages" data-screen-label="Stages ete" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 48px">
+      <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 18px">
+          <div style="display: flex; align-items: center; gap: 12px">
+            <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+            <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">&Eacute;t&eacute; 2026 &middot; Le Caf&eacute; de la danse, Paris 11&#7497;</span>
+          </div>
+          <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">R&eacute;servez votre<br>stage d&rsquo;&eacute;t&eacute;</h2>
+        </div>
+        <p style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 44ch">Cette ann&eacute;e, nous avons acc&egrave;s &agrave; la sublime salle Le Caf&eacute; de la danse. 2&nbsp;formats, plusieurs dates&nbsp;: trouvez l&rsquo;offre adapt&eacute;e &agrave; vos envies.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 32px; scroll-snap-align: start; scroll-margin-top: 84px">
+        <article data-reveal style="background: #FFFFFF; border-radius: 28px; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-8px); box-shadow: 0 32px 64px rgba(20,18,15,0.1)">
+          <div style="padding: 52px 48px 0; display: flex; flex-direction: column; gap: 20px; flex: 1">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 34px; text-transform: uppercase; margin: 0; line-height: 1.08">La M&eacute;thode<br>&amp; les Classiques</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #6B655C"><strong style="color: #14120F">Le bon choix si&hellip;</strong> vous souhaitez d&eacute;couvrir la M&eacute;thode et v&eacute;rifier qu&rsquo;elle vous correspond avant d&rsquo;aller plus loin.</p>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #6B655C"><strong style="color: #14120F">Vous allez apprendre &agrave;&hellip;</strong> porter un nouveau regard sur les textes classiques et briser leurs clich&eacute;s en les abordant de fa&ccedil;on vibrante et vivante.</p>
+            <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #EEE9DF; padding-top: 22px; font-size: 15px; color: #14120F">
+              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: #6B655C">Rythme</span><span style="text-align: right">2 soir&eacute;es cons&eacute;cutives</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: #6B655C">Dates</span><span style="text-align: right">20&ndash;21 juillet &middot; 18h&ndash;22h</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline"><span style="color: #6B655C">Tarif</span><span style="font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 600">130&nbsp;&euro;</span></div>
+            </div>
+          </div>
+          <div style="padding: 32px 48px 48px">
+            <a href="https://www.methodacting.fr/stage-intensif-acting/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 18px 0; display: block; text-align: center; border-radius: 999px; transition: background .15s ease" style-hover="background: #E0261F; color: #FFFFFF">Je r&eacute;serve ma place</a>
+          </div>
+        </article>
+        <article data-reveal style="background: #E0261F; color: #FFFFFF; border-radius: 28px; display: flex; flex-direction: column; position: relative; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-8px); box-shadow: 0 32px 64px rgba(224,38,31,0.25)">
+          <div style="position: absolute; top: -16px; left: 48px; background: #14120F; color: #FFFFFF; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 8px 16px; border-radius: 999px">Le plus complet</div>
+          <div style="padding: 52px 48px 0; display: flex; flex-direction: column; gap: 20px; flex: 1">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 34px; text-transform: uppercase; margin: 0; line-height: 1.08">Cycle<br>Actors Studio</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.82)"><strong style="color: #FFFFFF">Le bon choix si&hellip;</strong> vous voulez approfondir votre jeu et explorer progressivement les diff&eacute;rentes &eacute;tapes de la M&eacute;thode.</p>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.82)"><strong style="color: #FFFFFF">Vous allez apprendre &agrave;&hellip;</strong> approfondir la M&eacute;thode &agrave; travers 2&nbsp;&eacute;tapes&nbsp;: l&rsquo;initiation et le travail de sc&egrave;ne, puis la composition du personnage.</p>
+            <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.25); padding-top: 22px; font-size: 15px; color: #FFFFFF">
+              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: rgba(255,255,255,0.75)">Rythme</span><span style="text-align: right">2 week-ends progressifs (s&eacute;parables)</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: rgba(255,255,255,0.75)">Dates</span><span style="text-align: right">18&ndash;19 &middot; 25&ndash;26 juillet</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline"><span style="color: rgba(255,255,255,0.75)">Tarif</span><span style="text-align: right"><span style="font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 600">160&nbsp;&euro;</span><span style="color: rgba(255,255,255,0.75); font-size: 14px"> / week-end</span><br><span style="color: rgba(255,255,255,0.75); font-size: 14px">ou 290&nbsp;&euro; les deux</span></span></div>
+            </div>
+          </div>
+          <div style="padding: 32px 48px 48px">
+            <a href="https://www.methodacting.fr/stage-intensif-acting/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #FFFFFF; color: #E0261F; text-decoration: none; padding: 18px 0; display: block; text-align: center; border-radius: 999px; transition: background .15s ease" style-hover="background: #14120F; color: #FFFFFF">Je r&eacute;serve ma place</a>
+          </div>
+        </article>
+      </div>
+      <p data-reveal style="margin: 0; font-size: 14px; color: #6B655C; display: flex; align-items: center; gap: 10px">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: #E0261F; display: inline-block; animation: pulse-dot 1.6s ease-in-out infinite"></span>
+        Places limit&eacute;es &mdash; les stages d&rsquo;&eacute;t&eacute; affichent complet chaque ann&eacute;e.
+      </p>
+
+      <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px">
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-22.jpg" alt="Acteur en chemise et cravate, regard baiss&eacute;, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-98.jpg" alt="Acteur en costume sous lumi&egrave;re bleue, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-213.jpg" alt="Acteur &agrave; genoux en pleine sc&egrave;ne dramatique, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORMATION ANNUELLE ============ -->
+  <section id="formation" data-screen-label="Formation annuelle" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 48px">
+      <div data-reveal style="display: flex; flex-direction: column; gap: 18px; max-width: 70ch">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Formation annuelle &middot; Rentr&eacute;e 2026/2027</span>
+        </div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">D&eacute;j&agrave; pr&ecirc;t &agrave; construire<br>votre carri&egrave;re&nbsp;?</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 48px 40px">
+        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">Apprendre &agrave; jouer vrai</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">D&eacute;clenchez, ma&icirc;trisez et reproduisez vos &eacute;motions, jusqu&rsquo;&agrave; incarner des personnages toujours plus complexes.</p>
+        </div>
+        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">R&eacute;v&eacute;ler votre singularit&eacute;</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">Une m&eacute;thode de travail qui respecte votre personnalit&eacute; et vous rend progressivement autonome.</p>
+        </div>
+        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">Cr&eacute;er votre r&eacute;seau</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">Acteurs, sc&eacute;naristes et r&eacute;alisateurs collaborent sur des sc&egrave;nes, des tournages et des projets concrets.</p>
+        </div>
+        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">Pr&eacute;parer vos castings</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">Face cam&eacute;ra, tournages, et vos outils pour d&eacute;marcher&nbsp;: sc&egrave;nes film&eacute;es, book photo et bande d&eacute;mo.</p>
+        </div>
+      </div>
+
+      <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px">
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-154.jpg" alt="Acteur en veste militaire, &eacute;motion intense, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-163.jpg" alt="Deux acteurs au salut militaire, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-269.jpg" alt="Sc&egrave;ne de tension sous lumi&egrave;re verte, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      </div>
+
+      <div data-reveal style="background: #FFFFFF; border-radius: 28px; padding: clamp(32px, 4vw, 56px); display: flex; flex-direction: column; gap: 36px; scroll-snap-align: start; scroll-margin-top: 84px">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; align-items: center; gap: 12px">
+              <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+              <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Le programme Acting Pro &middot; Actors Studio</span>
+            </div>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3vw, 42px); text-transform: uppercase; margin: 0; line-height: 1.05">4 ann&eacute;es pour devenir<br>un acteur complet</h3>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <sc-for list="{{ programYears }}" as="py" hint-placeholder-count="4">
+              <button onClick="{{ py.select }}" style="{{ py.tabStyle }}">{{ py.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 28px">
+          <p style="margin: 0; font-family: 'Oswald', sans-serif; font-size: clamp(20px, 2vw, 26px); text-transform: uppercase; letter-spacing: 1px; color: #E0261F; font-weight: 500">{{ activeYearTitle }}</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 28px">
+            <sc-for list="{{ activeAteliers }}" as="at" hint-placeholder-count="3">
+              <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #E0261F; padding-top: 18px">
+                <h4 style="font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; margin: 0">{{ at.name }}</h4>
+                <p style="margin: 0; font-size: 14px; font-style: italic; color: #E0261F">{{ at.tagline }}</p>
+                <p style="margin: 0; font-size: 15px; line-height: 1.65; color: #6B655C">{{ at.desc }}</p>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ hasDeliverables }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #EEE9DF; padding-top: 24px">
+              <p style="margin: 0; font-size: 15px; font-weight: 600; color: #14120F">&Agrave; la sortie de cet atelier, vous repartez avec&nbsp;:</p>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap">
+                <sc-for list="{{ activeDeliverables }}" as="dl" hint-placeholder-count="5">
+                  <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; background: #F7F4EE; color: #14120F; padding: 10px 16px; border-radius: 999px">{{ dl }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+
+      <sc-if value="{{ showPromo }}" hint-placeholder-val="{{ true }}">
+        <div data-reveal style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: 52px 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="font-family: 'Oswald', sans-serif; font-size: clamp(24px, 2.6vw, 34px); text-transform: uppercase; font-weight: 700; line-height: 1.12"><span style="color: #E0261F">100&nbsp;&euro; de remise</span> sur les frais d&rsquo;inscription</div>
+            <div style="font-size: 14px; color: rgba(255,255,255,0.7)">Pour toute inscription &agrave; la rentr&eacute;e 2026&ndash;2027 &mdash; offre valable jusqu&rsquo;au 05/07/2026.</div>
+          </div>
+          <a href="https://www.methodacting.fr/inscriptions-method-acting/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je m&rsquo;inscris pour la rentr&eacute;e</a>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ============ NOS ACTEURS TOURNENT (carrousel continu) ============ -->
+  <section data-screen-label="Nos acteurs tournent" style="background: #F7F4EE; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 40px; display: flex; flex-direction: column; gap: 22px">
+      <h2 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">Nos acteurs tournent&nbsp;!</h2>
+      <p data-reveal style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 74ch">&Ecirc;tre acteur n&rsquo;est pas un m&eacute;tier de sprinter mais de coureur de fond. <em style="color: #14120F">Laissez votre passion vous armer de patience&nbsp;!</em></p>
+    </div>
+    <div style="display: flex; width: max-content; animation: marquee 40s linear infinite; will-change: transform; padding-bottom: 100px">
+      <div style="display: flex; gap: 28px; padding-right: 28px">
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Le_Proces_Goldman_Affiche.webp" alt="Affiche du film Le Proc&egrave;s Goldman" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg" alt="Affiche de la s&eacute;rie Les 7 vies de L&eacute;a" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Quantum-of-Solace-Olga-Kurylenko.jpg" alt="Affiche du film Quantum of Solace" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg" alt="Affiche du film Ni cha&icirc;nes ni ma&icirc;tres" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Sans-repit-Jemima-West.jpg" alt="Affiche du film Sans r&eacute;pit" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-invisibles_Deborah_Krey.jpg" alt="Affiche de la s&eacute;rie Les Invisibles" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Dirty-Diffficult-Dangerous.jpg" alt="Affiche du film Dirty Difficult Dangerous" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Martyrs_Mylene_Jampanoi.jpg" alt="Affiche du film Martyrs" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      </div>
+      <div aria-hidden="true" style="display: flex; gap: 28px; padding-right: 28px">
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Le_Proces_Goldman_Affiche.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Quantum-of-Solace-Olga-Kurylenko.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Sans-repit-Jemima-West.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-invisibles_Deborah_Krey.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Dirty-Diffficult-Dangerous.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Martyrs_Mylene_Jampanoi.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVIS ============ -->
+  <section data-screen-label="Avis" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always; min-height: 100svh; display: flex; align-items: center; box-sizing: border-box">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 48px; width: 100%">
+      <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 64px); text-transform: uppercase; line-height: 1.02; margin: 0">Les avis de nos acteurs</h2>
+        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #6B655C">
+          <span style="color: #F5B301; font-size: 18px; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span><strong style="color: #14120F">5,0</strong> &middot; 93 avis Google</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px">
+        <blockquote data-reveal style="margin: 0; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-4px); box-shadow: 0 24px 48px rgba(20,18,15,0.08)">
+          <span style="color: #F5B301; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #14120F">&laquo;&nbsp;Quelle &eacute;cole incroyable&nbsp;! Formation et formateurs au top&nbsp;!&nbsp;&raquo;</p>
+          <footer style="font-size: 14px; color: #6B655C">Quentin B. &mdash; avis Google</footer>
+        </blockquote>
+        <blockquote data-reveal style="margin: 0; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-4px); box-shadow: 0 24px 48px rgba(20,18,15,0.08)">
+          <span style="color: #F5B301; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #14120F">&laquo;&nbsp;The best experience ever! The best school in Paris&hellip;&nbsp;&raquo;</p>
+          <footer style="font-size: 14px; color: #6B655C">Jake F. &mdash; avis Google</footer>
+        </blockquote>
+        <blockquote data-reveal style="margin: 0; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-4px); box-shadow: 0 24px 48px rgba(20,18,15,0.08)">
+          <span style="color: #F5B301; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #14120F">&laquo;&nbsp;Excellente &eacute;cole :) rien &agrave; dire, je recommande vivement&nbsp;!!&nbsp;&raquo;</p>
+          <footer style="font-size: 14px; color: #6B655C">Alix A. &mdash; avis Google</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" data-screen-label="FAQ" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 880px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 52px">
+      <h2 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">Vos derni&egrave;res<br><span style="color: #E0261F">questions</span></h2>
+      <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Je n&rsquo;ai jamais jou&eacute;, est-ce un probl&egrave;me&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Pas du tout. La M&eacute;thode s&rsquo;apprend pas &agrave; pas, et nos groupes accueillent chaque ann&eacute;e de grands d&eacute;butants. Les stages d&rsquo;&eacute;t&eacute; sont d&rsquo;ailleurs une excellente premi&egrave;re porte d&rsquo;entr&eacute;e.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">J&rsquo;ai d&eacute;j&agrave; fait du th&eacute;&acirc;tre, vais-je apprendre quelque chose&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Oui. La M&eacute;thode apporte des outils concrets pour d&eacute;clencher et reproduire vos &eacute;motions &mdash; un travail diff&eacute;rent et compl&eacute;mentaire du th&eacute;&acirc;tre classique, sp&eacute;cialement adapt&eacute; au jeu cam&eacute;ra.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Quel &acirc;ge faut-il avoir&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Les stages et la formation annuelle s&rsquo;adressent aux adultes, sans limite d&rsquo;&acirc;ge. Un programme d&eacute;di&eacute; existe aussi pour les ados.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Peut-on devenir acteur sans exp&eacute;rience&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Oui. Ce n&rsquo;est pas le talent qui fait l&rsquo;acteur, c&rsquo;est la m&eacute;thode. Nos coaches vous accompagnent depuis les premiers exercices jusqu&rsquo;aux outils professionnels&nbsp;: sc&egrave;nes film&eacute;es, book photo, bande d&eacute;mo.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Stage ou formation annuelle&nbsp;: comment choisir&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Le stage est id&eacute;al pour d&eacute;couvrir la M&eacute;thode et v&eacute;rifier qu&rsquo;elle vous correspond. La formation annuelle est le parcours complet pour construire votre carri&egrave;re, avec un accompagnement progressif sur l&rsquo;ann&eacute;e.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Les stages sont-ils un pr&eacute;requis pour la formation annuelle&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Non. Vous pouvez int&eacute;grer directement la formation annuelle. Le stage reste un bon moyen de go&ucirc;ter &agrave; la p&eacute;dagogie avant de vous engager.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Puis-je visiter l&rsquo;&eacute;cole avant de m&rsquo;inscrire&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Oui&nbsp;! Prenez un rendez-vous d&rsquo;information ou venez nous rencontrer lors de nos journ&eacute;es portes ouvertes&nbsp;: masterclasses, travail de sc&egrave;ne, ateliers&hellip; et c&rsquo;est totalement gratuit.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" data-screen-label="Contact" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0; scroll-snap-align: start; scroll-snap-stop: always">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
+      <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">R&eacute;ponse sous 48h</span>
+        </div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">Parlons de<br><span style="color: #E0261F">votre projet</span></h2>
+        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Une question sur les stages, la formation annuelle ou la M&eacute;thode&nbsp;? Laissez-nous vos coordonn&eacute;es&nbsp;: un membre de l&rsquo;&eacute;quipe vous rappelle pour un rendez-vous d&rsquo;information gratuit.</p>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #F4F1EC">
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Sans engagement</span></li>
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Visite de l&rsquo;&eacute;cole possible</span></li>
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Conseil personnalis&eacute; sur le parcours adapt&eacute;</span></li>
+        </ul>
+        <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; margin-top: 12px"><img src="uploads/Malcolm_And_Marie_Horizontal00086407_V1.jpg" alt="Deux acteurs en travail de sc&egrave;ne, noir et blanc" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      </div>
+      <div data-reveal>
+        <sc-if value="{{ formVisible }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="background: #141210; border: 1px solid rgba(244,241,236,0.12); border-radius: 28px; padding: 48px; display: flex; flex-direction: column; gap: 22px">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
+              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Pr&eacute;nom
+                <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Nom
+                <input name="nom" type="text" required placeholder="Votre nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+              </label>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
+              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Email
+                <input name="email" type="email" required placeholder="vous@exemple.fr" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+              </label>
+              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">T&eacute;l&eacute;phone
+                <input name="telephone" type="tel" placeholder="06 12 34 56 78" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+              </label>
+            </div>
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Je suis int&eacute;ress&eacute;(e) par
+              <select name="interet" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%; appearance: none" style-focus="border-color: #E0261F">
+                <option>Un stage d&rsquo;&eacute;t&eacute;</option>
+                <option>La formation annuelle</option>
+                <option>Un rendez-vous d&rsquo;information</option>
+                <option>Autre</option>
+              </select>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
+              <textarea name="message" rows="4" placeholder="Parlez-nous de vous, de votre exp&eacute;rience, de vos envies&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
+            </label>
+            <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je veux &ecirc;tre rappel&eacute;(e)</button>
+            <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
+          </form>
+        </sc-if>
+        <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+          <div style="background: #141210; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 56px; color: #E0261F; line-height: 1">&#10003;</span>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Message envoy&eacute;&nbsp;!</h3>
+            <p style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 40ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour organiser votre rendez-vous d&rsquo;information.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section data-screen-label="CTA final" style="background: #0B0A0A; color: #F4F1EC; scroll-snap-align: start; scroll-snap-stop: always; min-height: 100svh; display: flex; align-items: center; box-sizing: border-box">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%; text-align: center">
+      <h2 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 88px); text-transform: uppercase; line-height: 1.0; margin: 0">
+        Le talent,<br>&ccedil;a s&rsquo;apprend.<br>
+        <span style="color: transparent; -webkit-text-stroke: 1.5px #E0261F">C&rsquo;est une question de m&eacute;thode.</span>
+      </h2>
+      <div data-reveal style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center">
+        <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve mon stage d&rsquo;&eacute;t&eacute;</a>
+        <a href="https://www.methodacting.fr/inscriptions-method-acting/" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #F4F1EC; text-decoration: none; padding: 20px 42px; border-radius: 999px; display: inline-block; border: 1px solid rgba(244,241,236,0.35); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #F4F1EC; transform: translateY(-2px)">Je m&rsquo;inscris &agrave; la formation</a>
+      </div>
+      <a data-reveal href="#contact" style="font-size: 15px; color: #B7B0A6; text-decoration: underline" style-hover="color: #F4F1EC">Ou prenez d&rsquo;abord un rendez-vous d&rsquo;information gratuit</a>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPromo&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Offres&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false, year: 0, heroIdx: 0 };
+  static HERO_SLIDES = [
+    { src: 'uploads/Kramer_Horizontal00086408_V1.jpg', alt: 'Actrice en pleine intensit\u00e9 \u00e9motionnelle, sc\u00e8ne film\u00e9e' },
+    { src: 'uploads/Felure_Horizontal00086406_V1.jpg', alt: 'Actrice souriante en sc\u00e8ne film\u00e9e, lumi\u00e8re chaude' },
+    { src: 'uploads/Joseph-Breaking-Bad.jpg', alt: 'Acteur au t\u00e9l\u00e9phone, tension contenue en sc\u00e8ne film\u00e9e' },
+    { src: 'uploads/King_Horizontal00086407_V1.jpg', alt: 'Acteur en larmes dans une sc\u00e8ne dramatique film\u00e9e' },
+  ];
+  static PROGRAM = [
+    {
+      label: '1\u00e8re ann\u00e9e',
+      title: 'Les bases de la M\u00e9thode',
+      ateliers: [
+        { name: 'Exploration 1', tagline: 'Le training de fond de l\u2019acting', desc: 'Faire surgir vos \u00e9motions, enrichir votre imaginaire, vous d\u00e9barrasser du trac, aiguiser votre concentration et votre \u00e9coute.' },
+        { name: 'Backstory', tagline: 'Vivre r\u00e9ellement des situations imaginaires', desc: 'La premi\u00e8re approche des sc\u00e8nes \u00e0 deux\u00a0: de l\u2019improvisation vers la sc\u00e8ne \u00e9crite, jusqu\u2019aux sc\u00e8nes tir\u00e9es de pi\u00e8ces et de sc\u00e9narios.' },
+        { name: 'Sc\u00e8nes 1', tagline: 'Sculpter le silence', desc: 'Le travail de fond du sous-texte\u00a0: construire une sc\u00e8ne seul, sans texte ni mime, port\u00e9e par le langage du corps et des \u00e9motions.' },
+      ],
+    },
+    {
+      label: '2\u00e8me ann\u00e9e',
+      title: 'Faire de la M\u00e9thode sa m\u00e9thode',
+      ateliers: [
+        { name: 'Exploration 2', tagline: 'Approfondir corps, imaginaire et \u00e9motions', desc: 'Le training aborde des th\u00e9matiques sp\u00e9cifiques\u00a0: l\u2019horreur, la s\u00e9duction, la com\u00e9die\u2026' },
+        { name: 'Sc\u00e8nes 2', tagline: 'La science du jeu', desc: 'Un atelier exclusif, partag\u00e9 seulement avec le HB Studio de New York\u00a0: de nouveaux outils pour enrichir vos performances.' },
+        { name: 'Sc\u00e8nes 3', tagline: 'De la sc\u00e8ne \u00e0 la cam\u00e9ra', desc: 'Sc\u00e8nes tir\u00e9es de pi\u00e8ces et de sc\u00e9narios, d\u00e9but du jeu face cam\u00e9ra, et d\u00e9veloppement personnel pour tenir la distance.' },
+      ],
+    },
+    {
+      label: '3\u00e8me ann\u00e9e',
+      title: 'Ma\u00eetriser la composition de personnages',
+      ateliers: [
+        { name: 'Composition A & Exploration 3', tagline: 'L\u2019art de la m\u00e9tamorphose', desc: 'Enqu\u00eate minutieuse et exploration profonde de votre personnage. L\u2019ultime stade de l\u2019acting\u00a0: devenir quelqu\u2019un d\u2019autre.' },
+        { name: 'Composition B', tagline: 'L\u2019incarnation de votre personnage', desc: 'Composer votre personnage sc\u00e8ne apr\u00e8s sc\u00e8ne, dans la perspective du r\u00f4le tout entier.' },
+        { name: 'Suivi de carri\u00e8re & d\u00e9veloppement personnel', tagline: 'Aborder les march\u00e9s professionnels', desc: 'Comprendre les march\u00e9s, s\u2019outiller (book photos, bande d\u00e9mo) et trouver les ressources pour donner le meilleur de vous-m\u00eame en casting.' },
+      ],
+    },
+    {
+      label: '4\u00e8me ann\u00e9e',
+      title: 'Acting cam\u00e9ra \u2014 4\u00e8me ann\u00e9e ou sur audition',
+      ateliers: [
+        { name: 'Acting Cam\u00e9ra & Tournages', tagline: 'G\u00e9rer les imp\u00e9ratifs du cin\u00e9ma dans votre jeu', desc: 'Un atelier de sc\u00e8nes tourn\u00e9es dans les conditions r\u00e9elles d\u2019un plateau\u00a0: les r\u00e9flexes qui manquent trop souvent aux acteurs d\u00e9butants.' },
+      ],
+      deliverables: ['3 sc\u00e8nes film\u00e9es & mont\u00e9es', 'Book photos', 'Vid\u00e9o de pr\u00e9sentation', 'Bande d\u00e9mo', 'Votre CV'],
+    },
+  ];
+  componentDidMount() {
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .55s ease, transform .55s ease';
+    });
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-reveal]').forEach((el) => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          });
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.08 });
+    document.querySelectorAll('section[data-screen-label]').forEach((s) => io.observe(s));
+    this._io = io;
+    this._heroTimer = setInterval(() => {
+      this.setState((s) => ({ heroIdx: (s.heroIdx + 1) % Component.HERO_SLIDES.length }));
+    }, 4500);
+  }
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+    if (this._heroTimer) clearInterval(this._heroTimer);
+  }
+  renderVals() {
+    const program = Component.PROGRAM;
+    const active = program[this.state.year];
+    const heroIdx = this.state.heroIdx;
+    return {
+      heroSlides: Component.HERO_SLIDES.map((sl, i) => ({
+        src: sl.src,
+        alt: sl.alt,
+        style: { position: 'absolute', inset: 0, width: '100%', height: '100%', backgroundImage: "url('" + sl.src.replace(/'/g, "%27") + "')", backgroundSize: 'cover', backgroundPosition: 'center', opacity: i === heroIdx ? 1 : 0, transition: 'opacity 1s ease' },
+        go: () => this.setState({ heroIdx: i }),
+        dotStyle: { width: i === heroIdx ? '26px' : '8px', height: '8px', borderRadius: '999px', border: 'none', cursor: 'pointer', padding: 0, background: i === heroIdx ? '#E0261F' : 'rgba(255,255,255,0.65)', transition: 'all .3s ease' },
+      })),
+      programYears: program.map((y, i) => ({
+        label: y.label,
+        select: () => this.setState({ year: i }),
+        tabStyle: {
+          fontFamily: "'Oswald', sans-serif",
+          fontSize: '14px',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          fontWeight: 600,
+          padding: '12px 20px',
+          borderRadius: '999px',
+          cursor: 'pointer',
+          border: '1px solid ' + (i === this.state.year ? '#E0261F' : 'rgba(20,18,15,0.2)'),
+          background: i === this.state.year ? '#E0261F' : 'transparent',
+          color: i === this.state.year ? '#FFFFFF' : '#6B655C',
+          transition: 'all .2s ease',
+        },
+      })),
+      activeYearTitle: active.title,
+      activeAteliers: active.ateliers,
+      hasDeliverables: !!active.deliverables,
+      activeDeliverables: active.deliverables || [],
+      showPromo: this.props.showPromo ?? true,
+      formVisible: !this.state.sent,
+      formSent: this.state.sent,
+      onSubmit: (e) => {
+        e.preventDefault();
+        this.setState({ sent: true });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
