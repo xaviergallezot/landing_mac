@@ -65,6 +65,16 @@
   /* Sticky mobile CTA */
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
+  /* JPO atelier cards */
+  #mac-landing .atelier-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px),1fr)); gap:24px; }
+  #mac-landing .atelier-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:32px 30px; display:flex; flex-direction:column; gap:14px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  #mac-landing .atelier-card:hover { transform:translateY(-4px); box-shadow:0 24px 48px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
+  #mac-landing .atelier-head { display:flex; align-items:center; gap:12px; }
+  #mac-landing .atelier-emoji { font-size:26px; line-height:1; }
+  #mac-landing .atelier-tag { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:6px 12px; border-radius:999px; }
+  #mac-landing .atelier-name { font-family:'Oswald',sans-serif; font-size:24px; text-transform:uppercase; margin:0; color:#14120F; line-height:1.1; }
+  #mac-landing .atelier-card p { margin:0; font-size:15px; line-height:1.65; color:#6B655C; }
+
   @keyframes mac-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   @keyframes mac-pulse-dot { 0%,100% { opacity:1; } 50% { opacity:.35; } }
   @media (prefers-reduced-motion: reduce) { #mac-landing [style*="animation"], #mac-landing .rev-track { animation:none !important; transition:none !important; } }
@@ -80,7 +90,7 @@
       <nav style="display: flex; align-items: center; gap: 26px">
         <a href="#methode" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">La Méthode</a>
         <a href="#jpo" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Portes Ouvertes</a>
-        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease; white-space: nowrap" style-hover="background: #E0261F; color: #FFFFFF">Je réserve ma JPO</a>
+        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease; white-space: nowrap" style-hover="background: #E0261F; color: #FFFFFF">Je réserve ma JPO</a>
       </nav>
     </div>
   </header>
@@ -104,7 +114,7 @@
         </div>
         <div style="display: flex; flex-direction: column; gap: 14px">
           <div style="display: flex; gap: 14px; flex-wrap: wrap">
-            <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+            <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
             <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; display: inline-block; border: 1px solid rgba(20,18,15,0.3); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">D&eacute;couvrir la M&eacute;thode</a>
           </div>
           <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C">
@@ -223,62 +233,38 @@
           <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Journ&eacute;es Portes Ouvertes &middot; Gratuit &middot; Paris</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">D&eacute;couvrez la M&eacute;thode lors de nos <span style="color: #E0261F">Journ&eacute;es Portes Ouvertes</span></h2>
-        <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F; max-width: 62ch">Oubliez les simples visites d&rsquo;&eacute;cole. Des locaux, vous pourrez en voir partout. Chez Method Acting Center, nous pr&eacute;f&eacute;rons vous faire <strong style="color: #14120F">vivre la M&eacute;thode</strong>. Pendant une demi-journ&eacute;e, participez &agrave; de v&eacute;ritables ateliers immersifs, rencontrez nos intervenants et d&eacute;couvrez ce que signifie r&eacute;ellement apprendre &agrave; jouer vrai.</p>
+        <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F; max-width: 62ch">Oubliez les simples visites d&rsquo;&eacute;cole. Des locaux, vous pourrez en voir partout. Chez Method Acting Center, nos portes ouvertes sont de v&eacute;ritables <strong style="color: #14120F">journ&eacute;es d&rsquo;atelier</strong>&nbsp;: pendant une demi-journ&eacute;e, vous ne visitez pas une &eacute;cole &mdash; vous <strong style="color: #14120F">testez directement notre p&eacute;dagogie</strong>, exercice apr&egrave;s exercice. Travail &eacute;motionnel, travail de sc&egrave;ne, improvisation&hellip; Des JPO immersives.</p>
       </div>
 
-      <!-- 4 grandes cartes accordeon -->
-      <div style="display: flex; flex-direction: column; gap: 16px">
-        <div class="jpo-card" data-reveal>
-          <button class="jpo-head" type="button" aria-expanded="false">
-            <span class="jpo-emoji">&#10084;&#65039;</span>
-            <span class="jpo-title">Apprendre &agrave; jouer avec de vraies &eacute;motions</span>
-            <span class="jpo-plus" aria-hidden="true">+</span>
-          </button>
-          <div class="jpo-panel"><div class="jpo-panel-inner">
-            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>vous avez peur de &laquo;&nbsp;sur-jouer&nbsp;&raquo; ou de sonner faux d&egrave;s qu&rsquo;une cam&eacute;ra se braque sur vous.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>un premier exercice de la M&eacute;thode o&ugrave; l&rsquo;&eacute;motion ne se simule pas&nbsp;: elle surgit, pour de vrai.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>la sensation, parfois troublante, d&rsquo;avoir ressenti quelque chose de sinc&egrave;re devant les autres.</p></div>
-            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
-          </div></div>
-        </div>
-        <div class="jpo-card" data-reveal>
-          <button class="jpo-head" type="button" aria-expanded="false">
-            <span class="jpo-emoji">&#127917;</span>
-            <span class="jpo-title">Donner vie &agrave; un personnage</span>
-            <span class="jpo-plus" aria-hidden="true">+</span>
-          </button>
-          <div class="jpo-panel"><div class="jpo-panel-inner">
-            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>un personnage vous fascine, mais vous ne savez pas par o&ugrave; commencer pour l&rsquo;incarner.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>le passage du texte &agrave; l&rsquo;incarnation&nbsp;: comment on habite un r&ocirc;le au lieu de le r&eacute;citer.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>une approche concr&egrave;te pour transformer des mots en pr&eacute;sence.</p></div>
-            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
-          </div></div>
-        </div>
-        <div class="jpo-card" data-reveal>
-          <button class="jpo-head" type="button" aria-expanded="false">
-            <span class="jpo-emoji">&#127793;</span>
-            <span class="jpo-title">D&eacute;couvrir votre potentiel d&rsquo;acteur</span>
-            <span class="jpo-plus" aria-hidden="true">+</span>
-          </button>
-          <div class="jpo-panel"><div class="jpo-panel-inner">
-            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>une petite voix vous r&eacute;p&egrave;te &laquo;&nbsp;et si j&rsquo;&eacute;tais fait pour &ccedil;a&nbsp;?&nbsp;&raquo; sans jamais oser v&eacute;rifier.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>un atelier qui r&eacute;v&egrave;le votre singularit&eacute; au lieu de la formater.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>une id&eacute;e bien plus claire de ce que vous avez &agrave; offrir comme acteur ou actrice.</p></div>
-            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
-          </div></div>
-        </div>
-        <div class="jpo-card" data-reveal>
-          <button class="jpo-head" type="button" aria-expanded="false">
-            <span class="jpo-emoji">&#9889;</span>
-            <span class="jpo-title">D&eacute;velopper votre spontan&eacute;it&eacute;</span>
-            <span class="jpo-plus" aria-hidden="true">+</span>
-          </button>
-          <div class="jpo-panel"><div class="jpo-panel-inner">
-            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>vous vous sentez &laquo;&nbsp;bloqu&eacute;&nbsp;&raquo;, trop dans le contr&ocirc;le, jamais assez l&acirc;ch&eacute;.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>des exercices d&rsquo;improvisation et d&rsquo;&eacute;coute qui d&eacute;branchent le mental.</p></div>
-            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>une spontan&eacute;it&eacute; retrouv&eacute;e &mdash; celle qui rend un jeu vivant.</p></div>
-            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
-          </div></div>
+            <!-- ateliers a tester -->
+      <div data-reveal style="display: flex; flex-direction: column; gap: 30px">
+        <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(24px, 3vw, 38px); text-transform: uppercase; line-height: 1.05; margin: 0">Les ateliers que <span style="color: #E0261F">vous pourrez tester</span></h3>
+        <div class="atelier-grid">
+          <div class="atelier-card" data-reveal>
+            <div class="atelier-head"><span class="atelier-emoji">❤️</span><span class="atelier-tag">Souvent le plus marquant</span></div>
+            <h4 class="atelier-name">Travail &Eacute;motionnel</h4>
+            <p>La base de l&rsquo;acting&nbsp;: creuser en soi, dans votre v&eacute;cu et votre imaginaire, pour faire surgir de vraies &eacute;motions. Bien guid&eacute;s, la plupart des d&eacute;butants sont surpris d&rsquo;y arriver &mdash; et on vous apprend aussi &agrave; redescendre une fois la sc&egrave;ne finie.</p>
+          </div>
+          <div class="atelier-card" data-reveal>
+            <div class="atelier-head"><span class="atelier-emoji">🎭</span><span class="atelier-tag">Le d&eacute;clic</span></div>
+            <h4 class="atelier-name">Travail de Sc&egrave;ne</h4>
+            <p>Donner vie &agrave; un texte sans jamais l&rsquo;apprendre par c&oelig;ur. Vous d&eacute;couvrez le sous-texte&nbsp;: en changeant les circonstances d&rsquo;une m&ecirc;me r&eacute;plique, vous entendez le ton, la diction et l&rsquo;&eacute;motion changer d&rsquo;eux-m&ecirc;mes.</p>
+          </div>
+          <div class="atelier-card" data-reveal>
+            <div class="atelier-head"><span class="atelier-emoji">💬</span><span class="atelier-tag">En anglais</span></div>
+            <h4 class="atelier-name">Acting in English</h4>
+            <p>Un m&eacute;lange de travail &eacute;motionnel et de travail de sc&egrave;ne, mais en anglais&nbsp;: aller loin dans l&rsquo;&eacute;motion, puis l&rsquo;utiliser dans de courts exercices sc&eacute;niques.</p>
+          </div>
+          <div class="atelier-card" data-reveal>
+            <div class="atelier-head"><span class="atelier-emoji">🌱</span><span class="atelier-tag">Loisir &amp; h&eacute;sitants</span></div>
+            <h4 class="atelier-name">Acting Amateur</h4>
+            <p>Envie de vous faire plaisir, ou pas encore s&ucirc;r de vous lancer&nbsp;? Un atelier ludique d&eacute;di&eacute; au l&acirc;cher-prise&nbsp;: d&eacute;passer la peur du ridicule et oser se mettre en sc&egrave;ne. Beaucoup rejoignent ensuite la formation pro.</p>
+          </div>
+          <div class="atelier-card" data-reveal>
+            <div class="atelier-head"><span class="atelier-emoji">⚡</span><span class="atelier-tag">L&acirc;cher-prise</span></div>
+            <h4 class="atelier-name">Improvisation</h4>
+            <p>Spontan&eacute;it&eacute;, &eacute;coute, r&eacute;ceptivit&eacute;, r&eacute;activit&eacute;&nbsp;: vous testez diff&eacute;rentes situations d&rsquo;improvisation avec diff&eacute;rents partenaires de jeu.</p>
+          </div>
         </div>
       </div>
 
@@ -303,7 +289,7 @@
       <!-- CTA final JPO -->
       <div data-reveal style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: clamp(40px, 5vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
         <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); text-transform: uppercase; line-height: 1.1; margin: 0; max-width: 20ch">Venez la vivre. <span style="color: #E0261F">Le reste suivra.</span></h3>
-        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #FFFFFF; color: #14120F; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #FFFFFF; color: #14120F; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
         <p style="margin: 0; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6)">Gratuit &middot; Sans engagement &middot; Places limit&eacute;es</p>
       </div>
     </div>
@@ -369,7 +355,7 @@
           <div style="font-family: 'Oswald', sans-serif; font-size: clamp(24px, 2.6vw, 34px); text-transform: uppercase; font-weight: 700; line-height: 1.12">La formation annuelle commence par <span style="color: #E0261F">une rencontre</span></div>
           <div style="font-size: 14px; color: rgba(255,255,255,0.7)">Le meilleur moyen de savoir si elle est faite pour vous&nbsp;: venir vivre une Journ&eacute;e Portes Ouvertes.</div>
         </div>
-        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
       </div>
     </div>
   </section>
@@ -468,10 +454,10 @@
       <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">R&eacute;ponse sous 48h &middot; Gratuit</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">Une question&nbsp;? &middot; R&eacute;ponse sous 48h</span>
         </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">R&eacute;servez votre<br><span style="color: #E0261F">Journ&eacute;e Portes Ouvertes</span></h2>
-        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Laissez-nous vos coordonn&eacute;es&nbsp;: un membre de l&rsquo;&eacute;quipe vous rappelle pour fixer votre venue et r&eacute;pondre &agrave; toutes vos questions. Sans engagement.</p>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">Une question<br><span style="color: #E0261F">avant de venir&nbsp;?</span></h2>
+        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Vous pr&eacute;f&eacute;rez qu&rsquo;on vous rappelle, ou vous avez une question sur les ateliers&nbsp;? Laissez-nous vos coordonn&eacute;es&nbsp;: on s&rsquo;occupe du reste. Sans engagement.</p>
         <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #F4F1EC">
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Gratuit et sans engagement</span></li>
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Vous vivez un v&eacute;ritable atelier</span></li>
@@ -508,14 +494,14 @@
           <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
             <textarea name="message" rows="4" placeholder="Parlez-nous de vous, de votre exp&eacute;rience, de vos envies&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
           </label>
-          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</button>
+          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je veux &ecirc;tre rappel&eacute;(e)</button>
           <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
         </form>
         <div id="contact-success" style="display:none">
           <div style="background: #141210; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
             <span style="font-family: 'Oswald', sans-serif; font-size: 56px; color: #E0261F; line-height: 1">&#10003;</span>
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Demande envoy&eacute;e&nbsp;!</h3>
-            <p style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 40ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour organiser votre Journ&eacute;e Portes Ouvertes.</p>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Message envoy&eacute;&nbsp;!</h3>
+            <p style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 40ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h.</p>
           </div>
         </div>
       </div>
@@ -531,14 +517,15 @@
       </h2>
       <p data-reveal style="margin: 0; font-size: 19px; line-height: 1.7; color: #B7B0A6; max-width: 46ch">Ne restez pas &agrave; vous demander si vous &ecirc;tes fait pour &ccedil;a. Venez simplement le vivre, une demi-journ&eacute;e, gratuitement.</p>
       <div data-reveal style="display: flex; flex-direction: column; align-items: center; gap: 14px">
-        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 44px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 44px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
         <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">Gratuit &middot; Sans engagement &middot; Une demi-journ&eacute;e</span>
+        <a href="#contact" style="font-size: 15px; color: #B7B0A6; text-decoration: underline" style-hover="color: #F4F1EC">Une question d&rsquo;abord&nbsp;? Faites-vous rappeler</a>
       </div>
     </div>
   </section>
 
   <!-- ============ CTA STICKY MOBILE ============ -->
-  <a href="#contact" id="mobile-cta" style="display: none">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+  <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" id="mobile-cta" style="display: none">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
 
 </div>
 <script>
