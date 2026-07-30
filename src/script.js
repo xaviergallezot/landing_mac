@@ -24,11 +24,10 @@ __IMAGES__
      Chaque atelier est réservable indépendamment ; plusieurs possibles.
      ============================================================ */
   var ATELIERS = [
-    { id:"emotionnel", emoji:"❤️", name:"Travail Émotionnel", slots:["Sam. 20 sept. · 10h–13h","Sam. 20 sept. · 14h–17h"] },
-    { id:"scene",      emoji:"🎭", name:"Travail de Scène",   slots:["Sam. 20 sept. · 14h–17h","Dim. 21 sept. · 10h–13h"] },
-    { id:"english",    emoji:"💬", name:"Acting in English",  slots:["Dim. 21 sept. · 10h–13h"] },
-    { id:"amateur",    emoji:"🌱", name:"Acting Amateur",     slots:["Dim. 21 sept. · 14h–17h"] },
-    { id:"impro",      emoji:"⚡",       name:"Improvisation",      slots:["Sam. 20 sept. · 10h–13h","Dim. 21 sept. · 14h–17h"] }
+    { id:"emotionnel", emoji:"❤️", name:"Travail Émotionnel", slots:["Vendredi 11 sept. · 13h–15h","Samedi 12 sept. · 13h–15h","Dimanche 13 sept. · 15h30–17h30"] },
+    { id:"scene",      emoji:"🎭", name:"Travail de Scène",   slots:["Vendredi 11 sept. · 15h30–17h30","Samedi 12 sept. · 15h30–17h30","Dimanche 13 sept. · 13h–15h"] },
+    { id:"amateur",    emoji:"🌱", name:"Acting Amateur",     slots:["Vendredi 11 sept. · 18h–20h"] },
+    { id:"impro",      emoji:"⚡",       name:"Improvisation",      slots:["Samedi 12 sept. · 10h–12h"] }
   ];
 
   var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
