@@ -3,48 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Method Acting Center — Devenez acteur · Stages & formation à Paris</title>
-  <meta name="description" content="Method Acting Center, Paris. Apprenez à jouer vrai grâce à la Méthode Stanislavski dont s'est inspiré l'Actors Studio : stages d'été et formation annuelle pour acteurs et actrices, débutants ou confirmés.">
-  <meta property="og:title" content="Method Acting Center — Vous voulez devenir acteur ?">
-  <meta property="og:description" content="Depuis plus de 25 ans, nous formons des acteurs à déclencher, maîtriser et reproduire de vraies émotions. Stages d'été & formation annuelle à Paris.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    html, body { margin: 0; padding: 0; background: #F7F4EE; }
-    html { scroll-snap-type: y mandatory; scroll-padding-top: 64px; scroll-behavior: smooth; }
-    body { font-family: 'Archivo', Helvetica, sans-serif; color: #14120F; -webkit-font-smoothing: antialiased; }
-    a { color: #E0261F; }
-    a:hover { color: #14120F; }
-    details > summary { list-style: none; cursor: pointer; }
-    details > summary::-webkit-details-marker { display: none; }
-    details[open] .faq-chevron { transform: rotate(45deg); }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-snap-type: none; scroll-behavior: auto; }
-      [style*="animation"] { animation: none !important; }
-    }
-  </style>
+  <title>Method Acting Center — Devenez acteur · Journées Portes Ouvertes à Paris</title>
+  <meta name="description" content="Vous voulez devenir acteur ? Venez vivre la Méthode (Stanislavski / Actors Studio) lors d'une Journée Portes Ouvertes immersive et gratuite au Method Acting Center, Paris.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style id="mac-landing-style">
+  #mac-landing { background:#F7F4EE; color:#14120F; font-family:'Archivo',Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
+  #mac-landing *, #mac-landing *::before, #mac-landing *::after { box-sizing:border-box; }
+  #mac-landing a { color:#E0261F; }
+  #mac-landing a:hover { color:#14120F; }
+  #mac-landing [id] { scroll-margin-top:84px; }
+  #mac-landing details > summary { list-style:none; cursor:pointer; }
+  #mac-landing details > summary::-webkit-details-marker { display:none; }
+  #mac-landing details[open] .faq-chevron { transform:rotate(45deg); }
+  #mac-landing .mac-ph { width:100%; height:100%; min-height:120px; display:flex; align-items:center; justify-content:center; text-align:center; padding:18px; background:linear-gradient(135deg,#14120F,#2B2622); color:#8b8e84; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; line-height:1.4; }
+
+  /* JPO accordion cards */
+  #mac-landing .jpo-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; overflow:hidden; transition:box-shadow .2s ease, border-color .2s ease; }
+  #mac-landing .jpo-card.open { box-shadow:0 24px 48px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
+  #mac-landing .jpo-head { width:100%; background:transparent; border:none; cursor:pointer; display:flex; align-items:center; gap:20px; padding:26px 32px; text-align:left; }
+  #mac-landing .jpo-emoji { font-size:28px; line-height:1; flex:0 0 auto; }
+  #mac-landing .jpo-title { font-family:'Oswald',sans-serif; font-size:clamp(18px,2vw,25px); text-transform:uppercase; font-weight:600; color:#14120F; flex:1; line-height:1.15; }
+  #mac-landing .jpo-plus { font-family:'Oswald',sans-serif; font-size:32px; font-weight:400; color:#E0261F; line-height:1; flex:0 0 auto; transition:transform .25s ease; }
+  #mac-landing .jpo-card.open .jpo-plus { transform:rotate(45deg); }
+  #mac-landing .jpo-panel { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  #mac-landing .jpo-card.open .jpo-panel { max-height:640px; }
+  #mac-landing .jpo-panel-inner { padding:4px 32px 34px; display:flex; flex-direction:column; gap:18px; }
+  #mac-landing .jpo-field { display:flex; flex-direction:column; gap:5px; }
+  #mac-landing .jpo-label { font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#E0261F; font-weight:600; }
+  #mac-landing .jpo-field p { margin:0; font-size:16px; line-height:1.6; color:#6B655C; }
+  #mac-landing .jpo-cta { align-self:flex-start; margin-top:6px; font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:#14120F; color:#FFFFFF; text-decoration:none; padding:14px 28px; border-radius:999px; transition:background .15s ease, transform .15s ease; }
+  #mac-landing .jpo-cta:hover { background:#E0261F; color:#FFFFFF; transform:translateY(-2px); }
+
+  /* JPO steps */
+  #mac-landing .jpo-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+  #mac-landing .jpo-step { display:flex; flex-direction:column; gap:12px; }
+  #mac-landing .jpo-step-num { font-family:'Oswald',sans-serif; font-weight:700; font-size:22px; width:50px; height:50px; border-radius:999px; background:#E0261F; color:#FFFFFF; display:flex; align-items:center; justify-content:center; }
+  #mac-landing .jpo-step h4 { font-family:'Oswald',sans-serif; font-size:18px; text-transform:uppercase; margin:0; color:#14120F; line-height:1.15; }
+  #mac-landing .jpo-step p { margin:0; font-size:15px; line-height:1.6; color:#6B655C; }
+  @media (max-width:720px){ #mac-landing .jpo-steps { grid-template-columns:1fr; gap:22px; } }
+
+  /* Reviews carousel */
+  #mac-landing .rev-carousel { display:flex; flex-direction:column; gap:28px; }
+  #mac-landing .rev-viewport { overflow:hidden; }
+  #mac-landing .rev-track { display:flex; transition:transform .55s cubic-bezier(.4,0,.2,1); }
+  #mac-landing .rev-slide { flex:0 0 100%; padding:6px; box-sizing:border-box; }
+  #mac-landing .rev-card { background:#FFFFFF; border-radius:24px; padding:38px 34px; display:flex; flex-direction:column; gap:18px; height:100%; box-sizing:border-box; }
+  #mac-landing .rev-stars { color:#F5B301; letter-spacing:2px; font-size:16px; }
+  #mac-landing .rev-quote { margin:0; font-size:18px; line-height:1.6; color:#14120F; flex:1; }
+  #mac-landing .rev-author { display:flex; align-items:center; gap:12px; }
+  #mac-landing .rev-avatar { width:46px; height:46px; border-radius:999px; background:#E0261F; color:#FFFFFF; font-family:'Oswald',sans-serif; font-weight:600; font-size:19px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  #mac-landing .rev-name { font-size:15px; color:#14120F; font-weight:600; line-height:1.3; }
+  #mac-landing .rev-src { font-size:13px; color:#6B655C; }
+  #mac-landing .rev-nav { display:flex; align-items:center; gap:18px; justify-content:center; }
+  #mac-landing .rev-arrow { width:48px; height:48px; border-radius:999px; border:1px solid rgba(20,18,15,0.2); background:transparent; color:#14120F; font-size:24px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .2s ease; }
+  #mac-landing .rev-arrow:hover { background:#14120F; color:#FFFFFF; border-color:#14120F; }
+  #mac-landing .rev-dots { display:flex; gap:8px; }
+  #mac-landing .rev-dot { width:8px; height:8px; border-radius:999px; border:none; background:rgba(20,18,15,0.2); cursor:pointer; padding:0; transition:all .3s ease; }
+  #mac-landing .rev-dot.active { width:26px; background:#E0261F; }
+
+  /* Sticky mobile CTA */
+  #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
+
+  @keyframes mac-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes mac-pulse-dot { 0%,100% { opacity:1; } 50% { opacity:.35; } }
+  @media (prefers-reduced-motion: reduce) { #mac-landing [style*="animation"], #mac-landing .rev-track { animation:none !important; transition:none !important; } }
+</style>
 </head>
-<body>
-<div style="background: #F7F4EE; min-width: 320px; overflow-x: clip">
+<body style="margin:0;background:#F7F4EE">
+<div id="mac-landing" style="background: #F7F4EE; min-width: 320px; overflow-x: clip">
 
   <!-- ============ BARRE STICKY ============ -->
   <header data-screen-label="Barre sticky" style="position: sticky; top: 0; z-index: 60; background: rgba(247,244,238,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(20,18,15,0.08)">
     <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
       <span style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: #14120F">Method <span style="color: #E0261F">Acting</span> Center</span>
       <nav style="display: flex; align-items: center; gap: 26px">
-        <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Stages</a>
-        <a href="#formation" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Formation</a>
-        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease" style-hover="background: #E0261F; color: #FFFFFF">Contact</a>
+        <a href="#methode" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">La Méthode</a>
+        <a href="#jpo" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Portes Ouvertes</a>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease; white-space: nowrap" style-hover="background: #E0261F; color: #FFFFFF">Je réserve ma JPO</a>
       </nav>
     </div>
   </header>
 
   <!-- ============ HERO ============ -->
-  <section data-screen-label="Hero" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always">
+  <section data-screen-label="Hero" style="background: #F7F4EE">
     <div style="max-width: 1200px; margin: 0 auto; padding: 60px 24px 0; display: flex; flex-direction: column; gap: 26px">
       <div data-reveal style="display: flex; align-items: center; gap: 12px">
         <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
@@ -55,14 +96,19 @@
       </h1>
       <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap">
         <div style="display: flex; flex-direction: column; gap: 22px; max-width: 58ch">
-          <p style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: clamp(22px, 2.6vw, 32px); text-transform: uppercase; margin: 0; color: #E0261F; letter-spacing: 1px">Commencez par apprendre &agrave; jouer vrai.</p>
+          <p style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: clamp(22px, 2.6vw, 32px); text-transform: uppercase; margin: 0; color: #E0261F; letter-spacing: 1px">Commencez par venir la vivre.</p>
           <p style="font-size: 19px; line-height: 1.7; color: #3B362F; margin: 0">
-            Depuis plus de 25&nbsp;ans, nous formons des g&eacute;n&eacute;rations d&rsquo;acteurs et d&rsquo;actrices &agrave; d&eacute;clencher de vraies &eacute;motions gr&acirc;ce &agrave; la <strong style="color: #14120F">M&eacute;thode Stanislavski</strong>, dont s&rsquo;est inspir&eacute; l&rsquo;Actors Studio.
+            Depuis plus de 25&nbsp;ans, nous formons des g&eacute;n&eacute;rations d&rsquo;acteurs et d&rsquo;actrices &agrave; d&eacute;clencher de vraies &eacute;motions gr&acirc;ce &agrave; la <strong style="color: #14120F">M&eacute;thode Stanislavski</strong>, dont Method Acting Center est le descendant direct.
           </p>
         </div>
-        <div style="display: flex; gap: 14px; flex-wrap: wrap">
-          <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je d&eacute;couvre la M&eacute;thode</a>
-          <a href="#formation" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; display: inline-block; border: 1px solid rgba(20,18,15,0.3); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">La formation annuelle</a>
+        <div style="display: flex; flex-direction: column; gap: 14px">
+          <div style="display: flex; gap: 14px; flex-wrap: wrap">
+            <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+            <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; display: inline-block; border: 1px solid rgba(20,18,15,0.3); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">D&eacute;couvrir la M&eacute;thode</a>
+          </div>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C">
+            <span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; Une demi-journ&eacute;e</span>
+          </div>
         </div>
       </div>
       <div data-reveal style="width: 100%; aspect-ratio: 3 / 1; border-radius: 24px; overflow: hidden; margin-top: 8px; position: relative">
@@ -74,14 +120,14 @@
 
   <!-- ============ MARQUEE ============ -->
   <div data-screen-label="Marquee" style="overflow: hidden; padding: 36px 0 0; white-space: nowrap; background: #F7F4EE">
-    <div style="display: inline-flex; gap: 0; animation: marquee 26s linear infinite; will-change: transform">
+    <div style="display: inline-flex; gap: 0; animation: mac-marquee 26s linear infinite; will-change: transform">
       <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
       <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
     </div>
   </div>
 
   <!-- ============ ARGUMENTS ============ -->
-  <section data-screen-label="Arguments" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always; min-height: 100svh; display: flex; align-items: center; box-sizing: border-box">
+  <section data-screen-label="Arguments" style="background: #F7F4EE; display: flex; align-items: center; box-sizing: border-box">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px; width: 100%; box-sizing: border-box; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: clamp(40px, 6vw, 80px); align-items: center">
       <div data-reveal style="display: flex; flex-direction: column; gap: 26px">
         <div style="display: flex; align-items: center; gap: 12px">
@@ -96,7 +142,7 @@
             <span style="font-size: 14px; color: #6B655C">ans d&rsquo;exp&eacute;rience &agrave; Paris</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 4px">
-            <span style="font-family: 'Oswald', sans-serif; font-size: clamp(40px, 4vw, 56px); font-weight: 700; line-height: 1; color: #14120F">5,0<span style="color: #E0261F">/5</span></span>
+            <span style="font-family: 'Oswald', sans-serif; font-size: clamp(40px, 4vw, 56px); font-weight: 700; line-height: 1; color: #14120F">4,8<span style="color: #E0261F">/5</span></span>
             <span style="font-size: 14px; color: #6B655C">sur 93 avis Google</span>
           </div>
         </div>
@@ -120,7 +166,7 @@
           <span style="font-family: 'Oswald', sans-serif; font-size: clamp(36px, 3.6vw, 52px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">03</span>
           <div style="display: flex; flex-direction: column; gap: 8px">
             <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; text-transform: uppercase; margin: 0">Un vrai r&eacute;seau</h3>
-            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #6B655C">Rencontrez acteurs, sc&eacute;naristes et r&eacute;alisateurs, et collaborez sur des projets concrets d&egrave;s la formation.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: #6B655C">Rencontrez acteurs, sc&eacute;naristes et r&eacute;alisateurs, et collaborez sur des projets concrets pendant votre formation.</p>
           </div>
         </div>
       </div>
@@ -128,35 +174,35 @@
   </section>
 
   <!-- ============ TALENT / METHODE ============ -->
-  <section data-screen-label="La Methode" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0; scroll-snap-align: start; scroll-snap-stop: always">
+  <section id="methode" data-screen-label="La Methode" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 64px">
       <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 64px; align-items: start">
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 84px); text-transform: uppercase; line-height: 0.98; margin: 0; position: sticky; top: 100px">Ce n&rsquo;est pas<br>le talent qui fait<br><span style="color: #E0261F">l&rsquo;acteur.</span></h2>
         <div style="font-size: 19px; line-height: 1.8; color: #B7B0A6; display: flex; flex-direction: column; gap: 22px">
           <p style="margin: 0">Beaucoup de personnes pensent que les grands acteurs ont simplement un talent naturel. Qu&rsquo;ils savent pleurer sur commande. Qu&rsquo;ils sont &laquo;&nbsp;n&eacute;s pour &ccedil;a&nbsp;&raquo;.</p>
           <p style="margin: 0">En r&eacute;alit&eacute;, les plus grands acteurs ne laissent jamais leurs &eacute;motions au hasard. Ils apprennent &agrave; les comprendre. &Agrave; les d&eacute;clencher. &Agrave; les ma&icirc;triser. &Agrave; les retrouver avec pr&eacute;cision, sc&egrave;ne apr&egrave;s sc&egrave;ne.</p>
-          <p style="margin: 0">C&rsquo;est toute la force de la <strong style="color: #F4F1EC">M&eacute;thode Stanislavski</strong>, dont s&rsquo;est inspir&eacute; l&rsquo;Actors Studio. Une m&eacute;thode qui n&rsquo;apprend pas &agrave; devenir quelqu&rsquo;un d&rsquo;autre, mais &agrave; utiliser ce que vous &ecirc;tes pour donner vie &agrave; un personnage.</p>
+          <p style="margin: 0">C&rsquo;est toute la force de la <strong style="color: #F4F1EC">M&eacute;thode Stanislavski</strong>, dont Method Acting Center est le descendant direct. Une m&eacute;thode qui n&rsquo;apprend pas &agrave; devenir quelqu&rsquo;un d&rsquo;autre, mais &agrave; utiliser ce que vous &ecirc;tes pour donner vie &agrave; un personnage.</p>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px; scroll-snap-align: start; scroll-margin-top: 90px">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 32px">
         <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
-          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-3.jpg" alt="Actrice riant aux &eacute;clats en sc&egrave;ne, &eacute;motion spontan&eacute;e" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img data-img="methode_1" alt="Actrice riant aux &eacute;clats en sc&egrave;ne, &eacute;motion spontan&eacute;e" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
           <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">01</span>
           <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">D&eacute;clencher</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Faites na&icirc;tre de vraies &eacute;motions en explorant votre v&eacute;cu, votre imagination et les circonstances du personnage. Vous ne les imitez plus. Vous les vivez.</p>
         </div>
         <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
-          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img src="uploads/V1-0001_Antichrist_Screenshot_Horizontal00087169.jpg" alt="Actrice concentr&eacute;e dans une sc&egrave;ne film&eacute;e exigeante" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img data-img="methode_2" alt="Actrice concentr&eacute;e dans une sc&egrave;ne film&eacute;e exigeante" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
           <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">02</span>
           <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">Ma&icirc;triser</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Dosez, canalisez et dirigez vos &eacute;motions pour rester juste, m&ecirc;me sous la pression d&rsquo;un plateau. Votre &eacute;motion devient un outil. Plus le fruit du hasard.</p>
         </div>
         <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
-          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-272.jpg" alt="Sc&egrave;ne dramatique sous lumi&egrave;re rouge, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <div style="width: 100%; aspect-ratio: 16 / 10; border-radius: 14px; overflow: hidden"><img data-img="methode_3" alt="Sc&egrave;ne dramatique sous lumi&egrave;re rouge, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
           <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">03</span>
           <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">Reproduire</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Retrouvez les m&ecirc;mes &eacute;motions avec pr&eacute;cision, autant de fois que n&eacute;cessaire. C&rsquo;est ce qui distingue un acteur juste&hellip; d&rsquo;un acteur juste &agrave; chaque prise.</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Retrouvez les m&ecirc;mes &eacute;motions avec pr&eacute;cision, autant de fois que n&eacute;cessaire. C&rsquo;est ce qui distingue un acteur juste et plus ou moins naturel&hellip; d&rsquo;un acteur syst&eacute;matiquement juste et percutant.</p>
         </div>
       </div>
 
@@ -166,75 +212,112 @@
     </div>
   </section>
 
-  <!-- ============ STAGES ETE ============ -->
-  <section id="stages" data-screen-label="Stages ete" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative; scroll-snap-align: start; scroll-snap-stop: always">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 48px">
-      <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap">
-        <div style="display: flex; flex-direction: column; gap: 18px">
-          <div style="display: flex; align-items: center; gap: 12px">
-            <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-            <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">&Eacute;t&eacute; 2026 &middot; Le Caf&eacute; de la danse, Paris 11&#7497;</span>
-          </div>
-          <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">R&eacute;servez votre<br>stage d&rsquo;&eacute;t&eacute;</h2>
+  <!-- ============ JOURNEES PORTES OUVERTES (refonte) ============ -->
+  <section id="jpo" data-screen-label="Journees Portes Ouvertes" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 56px">
+
+      <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 44ch">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Journ&eacute;es Portes Ouvertes &middot; Gratuit &middot; Paris</span>
         </div>
-        <p style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 44ch">Cette ann&eacute;e, nous avons acc&egrave;s &agrave; la sublime salle Le Caf&eacute; de la danse. 2&nbsp;formats, plusieurs dates&nbsp;: trouvez l&rsquo;offre adapt&eacute;e &agrave; vos envies.</p>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">D&eacute;couvrez la M&eacute;thode lors de nos <span style="color: #E0261F">Journ&eacute;es Portes Ouvertes</span></h2>
+        <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F; max-width: 62ch">Oubliez les simples visites d&rsquo;&eacute;cole. Des locaux, vous pourrez en voir partout. Chez Method Acting Center, nous pr&eacute;f&eacute;rons vous faire <strong style="color: #14120F">vivre la M&eacute;thode</strong>. Pendant une demi-journ&eacute;e, participez &agrave; de v&eacute;ritables ateliers immersifs, rencontrez nos intervenants et d&eacute;couvrez ce que signifie r&eacute;ellement apprendre &agrave; jouer vrai.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 32px; scroll-snap-align: start; scroll-margin-top: 84px">
-        <article data-reveal style="background: #FFFFFF; border-radius: 28px; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-8px); box-shadow: 0 32px 64px rgba(20,18,15,0.1)">
-          <div style="padding: 52px 48px 0; display: flex; flex-direction: column; gap: 20px; flex: 1">
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 34px; text-transform: uppercase; margin: 0; line-height: 1.08">La M&eacute;thode<br>&amp; les Classiques</h3>
-            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #6B655C"><strong style="color: #14120F">Le bon choix si&hellip;</strong> vous souhaitez d&eacute;couvrir la M&eacute;thode et v&eacute;rifier qu&rsquo;elle vous correspond avant d&rsquo;aller plus loin.</p>
-            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #6B655C"><strong style="color: #14120F">Vous allez apprendre &agrave;&hellip;</strong> porter un nouveau regard sur les textes classiques et briser leurs clich&eacute;s en les abordant de fa&ccedil;on vibrante et vivante.</p>
-            <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #EEE9DF; padding-top: 22px; font-size: 15px; color: #14120F">
-              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: #6B655C">Rythme</span><span style="text-align: right">2 soir&eacute;es cons&eacute;cutives</span></div>
-              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: #6B655C">Dates</span><span style="text-align: right">20&ndash;21 juillet &middot; 18h&ndash;22h</span></div>
-              <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline"><span style="color: #6B655C">Tarif</span><span style="font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 600">130&nbsp;&euro;</span></div>
-            </div>
-          </div>
-          <div style="padding: 32px 48px 48px">
-            <a href="https://www.methodacting.fr/stage-intensif-acting/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 18px 0; display: block; text-align: center; border-radius: 999px; transition: background .15s ease" style-hover="background: #E0261F; color: #FFFFFF">Je r&eacute;serve ma place</a>
-          </div>
-        </article>
-        <article data-reveal style="background: #E0261F; color: #FFFFFF; border-radius: 28px; display: flex; flex-direction: column; position: relative; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-8px); box-shadow: 0 32px 64px rgba(224,38,31,0.25)">
-          <div style="position: absolute; top: -16px; left: 48px; background: #14120F; color: #FFFFFF; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 8px 16px; border-radius: 999px">Le plus complet</div>
-          <div style="padding: 52px 48px 0; display: flex; flex-direction: column; gap: 20px; flex: 1">
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 34px; text-transform: uppercase; margin: 0; line-height: 1.08">Cycle<br>Actors Studio</h3>
-            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.82)"><strong style="color: #FFFFFF">Le bon choix si&hellip;</strong> vous voulez approfondir votre jeu et explorer progressivement les diff&eacute;rentes &eacute;tapes de la M&eacute;thode.</p>
-            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.82)"><strong style="color: #FFFFFF">Vous allez apprendre &agrave;&hellip;</strong> approfondir la M&eacute;thode &agrave; travers 2&nbsp;&eacute;tapes&nbsp;: l&rsquo;initiation et le travail de sc&egrave;ne, puis la composition du personnage.</p>
-            <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.25); padding-top: 22px; font-size: 15px; color: #FFFFFF">
-              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: rgba(255,255,255,0.75)">Rythme</span><span style="text-align: right">2 week-ends progressifs (s&eacute;parables)</span></div>
-              <div style="display: flex; justify-content: space-between; gap: 16px"><span style="color: rgba(255,255,255,0.75)">Dates</span><span style="text-align: right">18&ndash;19 &middot; 25&ndash;26 juillet</span></div>
-              <div style="display: flex; justify-content: space-between; gap: 16px; align-items: baseline"><span style="color: rgba(255,255,255,0.75)">Tarif</span><span style="text-align: right"><span style="font-family: 'Oswald', sans-serif; font-size: 36px; font-weight: 600">160&nbsp;&euro;</span><span style="color: rgba(255,255,255,0.75); font-size: 14px"> / week-end</span><br><span style="color: rgba(255,255,255,0.75); font-size: 14px">ou 290&nbsp;&euro; les deux</span></span></div>
-            </div>
-          </div>
-          <div style="padding: 32px 48px 48px">
-            <a href="https://www.methodacting.fr/stage-intensif-acting/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #FFFFFF; color: #E0261F; text-decoration: none; padding: 18px 0; display: block; text-align: center; border-radius: 999px; transition: background .15s ease" style-hover="background: #14120F; color: #FFFFFF">Je r&eacute;serve ma place</a>
-          </div>
-        </article>
+      <!-- 4 grandes cartes accordeon -->
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div class="jpo-card" data-reveal>
+          <button class="jpo-head" type="button" aria-expanded="false">
+            <span class="jpo-emoji">&#10084;&#65039;</span>
+            <span class="jpo-title">Apprendre &agrave; jouer avec de vraies &eacute;motions</span>
+            <span class="jpo-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="jpo-panel"><div class="jpo-panel-inner">
+            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>vous avez peur de &laquo;&nbsp;sur-jouer&nbsp;&raquo; ou de sonner faux d&egrave;s qu&rsquo;une cam&eacute;ra se braque sur vous.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>un premier exercice de la M&eacute;thode o&ugrave; l&rsquo;&eacute;motion ne se simule pas&nbsp;: elle surgit, pour de vrai.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>la sensation, parfois troublante, d&rsquo;avoir ressenti quelque chose de sinc&egrave;re devant les autres.</p></div>
+            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
+          </div></div>
+        </div>
+        <div class="jpo-card" data-reveal>
+          <button class="jpo-head" type="button" aria-expanded="false">
+            <span class="jpo-emoji">&#127917;</span>
+            <span class="jpo-title">Donner vie &agrave; un personnage</span>
+            <span class="jpo-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="jpo-panel"><div class="jpo-panel-inner">
+            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>un personnage vous fascine, mais vous ne savez pas par o&ugrave; commencer pour l&rsquo;incarner.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>le passage du texte &agrave; l&rsquo;incarnation&nbsp;: comment on habite un r&ocirc;le au lieu de le r&eacute;citer.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>une approche concr&egrave;te pour transformer des mots en pr&eacute;sence.</p></div>
+            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
+          </div></div>
+        </div>
+        <div class="jpo-card" data-reveal>
+          <button class="jpo-head" type="button" aria-expanded="false">
+            <span class="jpo-emoji">&#127793;</span>
+            <span class="jpo-title">D&eacute;couvrir votre potentiel d&rsquo;acteur</span>
+            <span class="jpo-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="jpo-panel"><div class="jpo-panel-inner">
+            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>une petite voix vous r&eacute;p&egrave;te &laquo;&nbsp;et si j&rsquo;&eacute;tais fait pour &ccedil;a&nbsp;?&nbsp;&raquo; sans jamais oser v&eacute;rifier.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>un atelier qui r&eacute;v&egrave;le votre singularit&eacute; au lieu de la formater.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>une id&eacute;e bien plus claire de ce que vous avez &agrave; offrir comme acteur ou actrice.</p></div>
+            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
+          </div></div>
+        </div>
+        <div class="jpo-card" data-reveal>
+          <button class="jpo-head" type="button" aria-expanded="false">
+            <span class="jpo-emoji">&#9889;</span>
+            <span class="jpo-title">D&eacute;velopper votre spontan&eacute;it&eacute;</span>
+            <span class="jpo-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="jpo-panel"><div class="jpo-panel-inner">
+            <div class="jpo-field"><span class="jpo-label">Vous vous reconnaissez si&hellip;</span><p>vous vous sentez &laquo;&nbsp;bloqu&eacute;&nbsp;&raquo;, trop dans le contr&ocirc;le, jamais assez l&acirc;ch&eacute;.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous allez vivre&hellip;</span><p>des exercices d&rsquo;improvisation et d&rsquo;&eacute;coute qui d&eacute;branchent le mental.</p></div>
+            <div class="jpo-field"><span class="jpo-label">Vous repartirez avec&hellip;</span><p>une spontan&eacute;it&eacute; retrouv&eacute;e &mdash; celle qui rend un jeu vivant.</p></div>
+            <a class="jpo-cta" href="#contact">Je r&eacute;serve cette JPO</a>
+          </div></div>
+        </div>
       </div>
-      <p data-reveal style="margin: 0; font-size: 14px; color: #6B655C; display: flex; align-items: center; gap: 10px">
-        <span style="width: 8px; height: 8px; border-radius: 50%; background: #E0261F; display: inline-block; animation: pulse-dot 1.6s ease-in-out infinite"></span>
-        Places limit&eacute;es &mdash; les stages d&rsquo;&eacute;t&eacute; affichent complet chaque ann&eacute;e.
-      </p>
 
+      <!-- image immersive -->
       <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px">
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-22.jpg" alt="Acteur en chemise et cravate, regard baiss&eacute;, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-98.jpg" alt="Acteur en costume sous lumi&egrave;re bleue, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-213.jpg" alt="Acteur &agrave; genoux en pleine sc&egrave;ne dramatique, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="stage_1" alt="Acteur en chemise et cravate, regard baiss&eacute;, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="stage_2" alt="Acteur en costume sous lumi&egrave;re bleue, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="stage_3" alt="Acteur &agrave; genoux en pleine sc&egrave;ne dramatique, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      </div>
+
+      <!-- deroulement -->
+      <div data-reveal style="display: flex; flex-direction: column; gap: 36px">
+        <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 46px); text-transform: uppercase; line-height: 1.05; margin: 0">Comment se d&eacute;roule une <span style="color: #E0261F">Journ&eacute;e Portes Ouvertes</span>&nbsp;?</h3>
+        <div class="jpo-steps">
+          <div class="jpo-step"><span class="jpo-step-num">1</span><h4>Vous d&eacute;couvrez l&rsquo;&eacute;cole</h4><p>Un accueil, les lieux, l&rsquo;ambiance d&rsquo;une vraie &eacute;cole d&rsquo;acteurs.</p></div>
+          <div class="jpo-step"><span class="jpo-step-num">2</span><h4>Vous participez &agrave; un v&eacute;ritable atelier</h4><p>Pas une simple d&eacute;mo&nbsp;: un exercice de la M&eacute;thode, avec vous dedans.</p></div>
+          <div class="jpo-step"><span class="jpo-step-num">3</span><h4>Vous &eacute;changez avec les coachs</h4><p>Des professionnels en activit&eacute; r&eacute;pondent &agrave; toutes vos questions.</p></div>
+          <div class="jpo-step"><span class="jpo-step-num">4</span><h4>Vous repartez avec une vision claire</h4><p>Vous savez si la M&eacute;thode est faite pour vous. Sans pression.</p></div>
+        </div>
+      </div>
+
+      <!-- CTA final JPO -->
+      <div data-reveal style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: clamp(40px, 5vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
+        <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); text-transform: uppercase; line-height: 1.1; margin: 0; max-width: 20ch">Venez la vivre. <span style="color: #E0261F">Le reste suivra.</span></h3>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #FFFFFF; color: #14120F; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <p style="margin: 0; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6)">Gratuit &middot; Sans engagement &middot; Places limit&eacute;es</p>
       </div>
     </div>
   </section>
 
   <!-- ============ FORMATION ANNUELLE ============ -->
-  <section id="formation" data-screen-label="Formation annuelle" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always">
+  <section id="formation" data-screen-label="Formation annuelle" style="background: #F7F4EE">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 48px">
       <div data-reveal style="display: flex; flex-direction: column; gap: 18px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Formation annuelle &middot; Rentr&eacute;e 2026/2027</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Et apr&egrave;s&nbsp;? &middot; La formation annuelle</span>
         </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">D&eacute;j&agrave; pr&ecirc;t &agrave; construire<br>votre carri&egrave;re&nbsp;?</h2>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">L&agrave; o&ugrave; la Journ&eacute;e<br>Portes Ouvertes m&egrave;ne</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Pour celles et ceux qui veulent en faire leur m&eacute;tier, la M&eacute;thode se d&eacute;ploie sur un parcours complet. Rien &agrave; d&eacute;cider aujourd&rsquo;hui&nbsp;: on vous montre simplement o&ugrave; le chemin peut vous mener.</p>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 48px 40px">
@@ -257,12 +340,12 @@
       </div>
 
       <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px">
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-154.jpg" alt="Acteur en veste militaire, &eacute;motion intense, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-163.jpg" alt="Deux acteurs au salut militaire, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img src="uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-269.jpg" alt="Sc&egrave;ne de tension sous lumi&egrave;re verte, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="formation_1" alt="Acteur en veste militaire, &eacute;motion intense, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="formation_2" alt="Deux acteurs au salut militaire, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="formation_3" alt="Sc&egrave;ne de tension sous lumi&egrave;re verte, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
 
-      <div data-reveal style="background: #FFFFFF; border-radius: 28px; padding: clamp(32px, 4vw, 56px); display: flex; flex-direction: column; gap: 36px; scroll-snap-align: start; scroll-margin-top: 84px">
+      <div data-reveal style="background: #FFFFFF; border-radius: 28px; padding: clamp(32px, 4vw, 56px); display: flex; flex-direction: column; gap: 36px">
         <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap">
           <div style="display: flex; flex-direction: column; gap: 12px">
             <div style="display: flex; align-items: center; gap: 12px">
@@ -280,86 +363,75 @@
         </div>
       </div>
 
-      
-        <div data-reveal style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: 52px 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap">
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <div style="font-family: 'Oswald', sans-serif; font-size: clamp(24px, 2.6vw, 34px); text-transform: uppercase; font-weight: 700; line-height: 1.12"><span style="color: #E0261F">100&nbsp;&euro; de remise</span> sur les frais d&rsquo;inscription</div>
-            <div style="font-size: 14px; color: rgba(255,255,255,0.7)">Pour toute inscription &agrave; la rentr&eacute;e 2026&ndash;2027 &mdash; offre valable jusqu&rsquo;au 05/07/2026.</div>
-          </div>
-          <a href="https://www.methodacting.fr/inscriptions-method-acting/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je m&rsquo;inscris pour la rentr&eacute;e</a>
+      <div data-reveal style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: 52px 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <div style="font-family: 'Oswald', sans-serif; font-size: clamp(24px, 2.6vw, 34px); text-transform: uppercase; font-weight: 700; line-height: 1.12">La formation annuelle commence par <span style="color: #E0261F">une rencontre</span></div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.7)">Le meilleur moyen de savoir si elle est faite pour vous&nbsp;: venir vivre une Journ&eacute;e Portes Ouvertes.</div>
         </div>
-      
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+      </div>
     </div>
   </section>
 
   <!-- ============ NOS ACTEURS TOURNENT (carrousel continu) ============ -->
-  <section data-screen-label="Nos acteurs tournent" style="background: #F7F4EE; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always">
+  <section data-screen-label="Nos acteurs tournent" style="background: #F7F4EE; overflow: hidden">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 40px; display: flex; flex-direction: column; gap: 22px">
       <h2 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">Nos acteurs tournent&nbsp;!</h2>
       <p data-reveal style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 74ch">&Ecirc;tre acteur n&rsquo;est pas un m&eacute;tier de sprinter mais de coureur de fond. <em style="color: #14120F">Laissez votre passion vous armer de patience&nbsp;!</em></p>
     </div>
-    <div style="display: flex; width: max-content; animation: marquee 40s linear infinite; will-change: transform; padding-bottom: 100px">
+    <div style="display: flex; width: max-content; animation: mac-marquee 40s linear infinite; will-change: transform; padding-bottom: 100px">
       <div style="display: flex; gap: 28px; padding-right: 28px">
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Le_Proces_Goldman_Affiche.webp" alt="Affiche du film Le Proc&egrave;s Goldman" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg" alt="Affiche de la s&eacute;rie Les 7 vies de L&eacute;a" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Quantum-of-Solace-Olga-Kurylenko.jpg" alt="Affiche du film Quantum of Solace" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg" alt="Affiche du film Ni cha&icirc;nes ni ma&icirc;tres" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Sans-repit-Jemima-West.jpg" alt="Affiche du film Sans r&eacute;pit" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-invisibles_Deborah_Krey.jpg" alt="Affiche de la s&eacute;rie Les Invisibles" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Dirty-Diffficult-Dangerous.jpg" alt="Affiche du film Dirty Difficult Dangerous" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Martyrs_Mylene_Jampanoi.jpg" alt="Affiche du film Martyrs" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_proces_goldman" alt="Affiche du film Le Proc&egrave;s Goldman" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_7_vies_lea" alt="Affiche de la s&eacute;rie Les 7 vies de L&eacute;a" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_quantum_solace" alt="Affiche du film Quantum of Solace" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_ni_chaines" alt="Affiche du film Ni cha&icirc;nes ni ma&icirc;tres" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_sans_repit" alt="Affiche du film Sans r&eacute;pit" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_les_invisibles" alt="Affiche de la s&eacute;rie Les Invisibles" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_dirty_difficult" alt="Affiche du film Dirty Difficult Dangerous" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_martyrs" alt="Affiche du film Martyrs" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
       <div aria-hidden="true" style="display: flex; gap: 28px; padding-right: 28px">
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Le_Proces_Goldman_Affiche.webp" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Quantum-of-Solace-Olga-Kurylenko.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Sans-repit-Jemima-West.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Les-invisibles_Deborah_Krey.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Dirty-Diffficult-Dangerous.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img src="uploads/Martyrs_Mylene_Jampanoi.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_proces_goldman" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_7_vies_lea" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_quantum_solace" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_ni_chaines" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_sans_repit" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_les_invisibles" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_dirty_difficult" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 260px; aspect-ratio: 2 / 3; border-radius: 20px; overflow: hidden"><img data-img="film_martyrs" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ AVIS ============ -->
-  <section data-screen-label="Avis" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always; min-height: 100svh; display: flex; align-items: center; box-sizing: border-box">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 48px; width: 100%">
+  <!-- ============ AVIS (carrousel) ============ -->
+  <section data-screen-label="Avis" style="background: #F7F4EE; overflow: hidden">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 44px; width: 100%; box-sizing: border-box">
       <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap">
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(36px, 4.5vw, 64px); text-transform: uppercase; line-height: 1.02; margin: 0">Les avis de nos acteurs</h2>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #6B655C">
-          <span style="color: #F5B301; font-size: 18px; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span><strong style="color: #14120F">5,0</strong> &middot; 93 avis Google</span>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(32px, 4vw, 60px); text-transform: uppercase; line-height: 1.02; margin: 0; max-width: 20ch">Ils sont venus d&eacute;couvrir la M&eacute;thode.<br><span style="color: #E0261F">Voici ce qu&rsquo;ils en disent.</span></h2>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="color: #F5B301; font-size: 22px; letter-spacing: 3px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span style="font-size: 15px; color: #6B655C"><strong style="color: #14120F">4,8/5</strong> sur Google</span>
         </div>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px">
-        <blockquote data-reveal style="margin: 0; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-4px); box-shadow: 0 24px 48px rgba(20,18,15,0.08)">
-          <span style="color: #F5B301; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #14120F">&laquo;&nbsp;Quelle &eacute;cole incroyable&nbsp;! Formation et formateurs au top&nbsp;!&nbsp;&raquo;</p>
-          <footer style="font-size: 14px; color: #6B655C">Quentin B. &mdash; avis Google</footer>
-        </blockquote>
-        <blockquote data-reveal style="margin: 0; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-4px); box-shadow: 0 24px 48px rgba(20,18,15,0.08)">
-          <span style="color: #F5B301; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #14120F">&laquo;&nbsp;The best experience ever! The best school in Paris&hellip;&nbsp;&raquo;</p>
-          <footer style="font-size: 14px; color: #6B655C">Jake F. &mdash; avis Google</footer>
-        </blockquote>
-        <blockquote data-reveal style="margin: 0; background: #FFFFFF; border-radius: 24px; padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: transform .2s ease, box-shadow .2s ease" style-hover="transform: translateY(-4px); box-shadow: 0 24px 48px rgba(20,18,15,0.08)">
-          <span style="color: #F5B301; letter-spacing: 2px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #14120F">&laquo;&nbsp;Excellente &eacute;cole :) rien &agrave; dire, je recommande vivement&nbsp;!!&nbsp;&raquo;</p>
-          <footer style="font-size: 14px; color: #6B655C">Alix A. &mdash; avis Google</footer>
-        </blockquote>
+      <div data-reveal class="rev-carousel">
+        <div class="rev-viewport"><div class="rev-track" id="rev-track"></div></div>
+        <div class="rev-nav">
+          <button class="rev-arrow" id="rev-prev" type="button" aria-label="Avis pr&eacute;c&eacute;dent">&#8249;</button>
+          <div class="rev-dots" id="rev-dots"></div>
+          <button class="rev-arrow" id="rev-next" type="button" aria-label="Avis suivant">&#8250;</button>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section id="faq" data-screen-label="FAQ" style="background: #F7F4EE; scroll-snap-align: start; scroll-snap-stop: always">
+  <section id="faq" data-screen-label="FAQ" style="background: #F7F4EE">
     <div style="max-width: 880px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 52px">
       <h2 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">Vos derni&egrave;res<br><span style="color: #E0261F">questions</span></h2>
       <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
         <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
           <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Je n&rsquo;ai jamais jou&eacute;, est-ce un probl&egrave;me&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
-          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Pas du tout. La M&eacute;thode s&rsquo;apprend pas &agrave; pas, et nos groupes accueillent chaque ann&eacute;e de grands d&eacute;butants. Les stages d&rsquo;&eacute;t&eacute; sont d&rsquo;ailleurs une excellente premi&egrave;re porte d&rsquo;entr&eacute;e.</p>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Pas du tout. La M&eacute;thode s&rsquo;apprend pas &agrave; pas, et nos groupes accueillent chaque ann&eacute;e de grands d&eacute;butants. La Journ&eacute;e Portes Ouvertes est d&rsquo;ailleurs une excellente premi&egrave;re porte d&rsquo;entr&eacute;e.</p>
         </details>
         <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
           <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">J&rsquo;ai d&eacute;j&agrave; fait du th&eacute;&acirc;tre, vais-je apprendre quelque chose&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
@@ -367,84 +439,82 @@
         </details>
         <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
           <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Quel &acirc;ge faut-il avoir&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
-          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Les stages et la formation annuelle s&rsquo;adressent aux adultes, sans limite d&rsquo;&acirc;ge. Un programme d&eacute;di&eacute; existe aussi pour les ados.</p>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Les Journ&eacute;es Portes Ouvertes et la formation annuelle s&rsquo;adressent aux adultes, sans limite d&rsquo;&acirc;ge. Un programme d&eacute;di&eacute; existe aussi pour les ados. Les ados dans une d&eacute;marche professionnalisante peuvent cependant demander une d&eacute;rogation sp&eacute;ciale.</p>
+        </details>
+        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Quels d&eacute;bouch&eacute;s apr&egrave;s la formation&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Nos anciens tournent dans des films, des s&eacute;ries et des pi&egrave;ces. Vous repartez avec de vrais outils pour d&eacute;marcher&nbsp;: sc&egrave;nes film&eacute;es, book photo, bande d&eacute;mo. Qui plus est, dans l&rsquo;atelier March&eacute; Professionnel Acting, vous faites de nombreuses rencontres avec ceux susceptibles de vous engager demain.</p>
         </details>
         <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
           <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Peut-on devenir acteur sans exp&eacute;rience&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
           <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Oui. Ce n&rsquo;est pas le talent qui fait l&rsquo;acteur, c&rsquo;est la m&eacute;thode. Nos coaches vous accompagnent depuis les premiers exercices jusqu&rsquo;aux outils professionnels&nbsp;: sc&egrave;nes film&eacute;es, book photo, bande d&eacute;mo.</p>
         </details>
         <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Stage ou formation annuelle&nbsp;: comment choisir&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
-          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Le stage est id&eacute;al pour d&eacute;couvrir la M&eacute;thode et v&eacute;rifier qu&rsquo;elle vous correspond. La formation annuelle est le parcours complet pour construire votre carri&egrave;re, avec un accompagnement progressif sur l&rsquo;ann&eacute;e.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Journ&eacute;e Portes Ouvertes ou formation&nbsp;: par o&ugrave; commencer&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Commencez toujours par la Journ&eacute;e Portes Ouvertes&nbsp;: c&rsquo;est le meilleur moyen de d&eacute;couvrir la M&eacute;thode et de v&eacute;rifier qu&rsquo;elle vous correspond. La formation annuelle est le parcours complet pour construire votre carri&egrave;re, avec un accompagnement progressif sur l&rsquo;ann&eacute;e.</p>
         </details>
         <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Les stages sont-ils un pr&eacute;requis pour la formation annuelle&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
-          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Non. Vous pouvez int&eacute;grer directement la formation annuelle. Le stage reste un bon moyen de go&ucirc;ter &agrave; la p&eacute;dagogie avant de vous engager.</p>
-        </details>
-        <details style="background: #FFFFFF; border-radius: 20px; padding: 0 32px">
-          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">Puis-je visiter l&rsquo;&eacute;cole avant de m&rsquo;inscrire&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
-          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Oui&nbsp;! Prenez un rendez-vous d&rsquo;information ou venez nous rencontrer lors de nos journ&eacute;es portes ouvertes&nbsp;: masterclasses, travail de sc&egrave;ne, ateliers&hellip; et c&rsquo;est totalement gratuit.</p>
+          <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 26px 0; font-family: 'Oswald', sans-serif; font-size: 19px; text-transform: uppercase; font-weight: 500">La Journ&eacute;e Portes Ouvertes est-elle un pr&eacute;requis&nbsp;?<span class="faq-chevron" style="color: #E0261F; font-size: 26px; font-weight: 400; transition: transform .2s">+</span></summary>
+          <p style="margin: 0; padding: 0 0 28px; font-size: 16px; line-height: 1.75; color: #6B655C; max-width: 65ch">Non. Vous pouvez int&eacute;grer directement la formation annuelle. La Journ&eacute;e Portes Ouvertes reste le meilleur moyen de go&ucirc;ter &agrave; la p&eacute;dagogie avant de vous engager &mdash; et c&rsquo;est totalement gratuit.</p>
         </details>
       </div>
     </div>
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section id="contact" data-screen-label="Contact" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0; scroll-snap-align: start; scroll-snap-stop: always">
+  <section id="contact" data-screen-label="Contact" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
       <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">R&eacute;ponse sous 48h</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">R&eacute;ponse sous 48h &middot; Gratuit</span>
         </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">Parlons de<br><span style="color: #E0261F">votre projet</span></h2>
-        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Une question sur les stages, la formation annuelle ou la M&eacute;thode&nbsp;? Laissez-nous vos coordonn&eacute;es&nbsp;: un membre de l&rsquo;&eacute;quipe vous rappelle pour un rendez-vous d&rsquo;information gratuit.</p>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">R&eacute;servez votre<br><span style="color: #E0261F">Journ&eacute;e Portes Ouvertes</span></h2>
+        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Laissez-nous vos coordonn&eacute;es&nbsp;: un membre de l&rsquo;&eacute;quipe vous rappelle pour fixer votre venue et r&eacute;pondre &agrave; toutes vos questions. Sans engagement.</p>
         <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #F4F1EC">
-          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Sans engagement</span></li>
-          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Visite de l&rsquo;&eacute;cole possible</span></li>
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Gratuit et sans engagement</span></li>
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Vous vivez un v&eacute;ritable atelier</span></li>
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Conseil personnalis&eacute; sur le parcours adapt&eacute;</span></li>
         </ul>
-        <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; margin-top: 12px"><img src="uploads/Malcolm_And_Marie_Horizontal00086407_V1.jpg" alt="Deux acteurs en travail de sc&egrave;ne, noir et blanc" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+        <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; margin-top: 12px"><img data-img="contact_scene" alt="Deux acteurs en travail de sc&egrave;ne, noir et blanc" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
       <div data-reveal>
-        
-          <form id="contact-form" style="background: #141210; border: 1px solid rgba(244,241,236,0.12); border-radius: 28px; padding: 48px; display: flex; flex-direction: column; gap: 22px">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
-              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Pr&eacute;nom
-                <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
-              </label>
-              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Nom
-                <input name="nom" type="text" required placeholder="Votre nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
-              </label>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
-              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Email
-                <input name="email" type="email" required placeholder="vous@exemple.fr" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
-              </label>
-              <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">T&eacute;l&eacute;phone
-                <input name="telephone" type="tel" placeholder="06 12 34 56 78" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
-              </label>
-            </div>
-            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Je suis int&eacute;ress&eacute;(e) par
-              <select name="interet" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%; appearance: none" style-focus="border-color: #E0261F">
-                <option>Un stage d&rsquo;&eacute;t&eacute;</option>
-                <option>La formation annuelle</option>
-                <option>Un rendez-vous d&rsquo;information</option>
-                <option>Autre</option>
-              </select>
+        <form id="contact-form" style="background: #141210; border: 1px solid rgba(244,241,236,0.12); border-radius: 28px; padding: 48px; display: flex; flex-direction: column; gap: 22px">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Pr&eacute;nom
+              <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
-            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
-              <textarea name="message" rows="4" placeholder="Parlez-nous de vous, de votre exp&eacute;rience, de vos envies&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Nom
+              <input name="nom" type="text" required placeholder="Votre nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
-            <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je veux &ecirc;tre rappel&eacute;(e)</button>
-            <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
-          </form>
-        
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Email
+              <input name="email" type="email" required placeholder="vous@exemple.fr" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">T&eacute;l&eacute;phone
+              <input name="telephone" type="tel" placeholder="06 12 34 56 78" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+            </label>
+          </div>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Je suis int&eacute;ress&eacute;(e) par
+            <select name="interet" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%; appearance: none" style-focus="border-color: #E0261F">
+              <option>Journ&eacute;es Portes Ouvertes</option>
+              <option>La formation annuelle</option>
+              <option>Un rendez-vous d&rsquo;information</option>
+              <option>Autre</option>
+            </select>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
+            <textarea name="message" rows="4" placeholder="Parlez-nous de vous, de votre exp&eacute;rience, de vos envies&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
+          </label>
+          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</button>
+          <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
+        </form>
         <div id="contact-success" style="display:none">
           <div style="background: #141210; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
             <span style="font-family: 'Oswald', sans-serif; font-size: 56px; color: #E0261F; line-height: 1">&#10003;</span>
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Message envoy&eacute;&nbsp;!</h3>
-            <p style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 40ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour organiser votre rendez-vous d&rsquo;information.</p>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Demande envoy&eacute;e&nbsp;!</h3>
+            <p style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 40ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour organiser votre Journ&eacute;e Portes Ouvertes.</p>
           </div>
         </div>
       </div>
@@ -452,32 +522,68 @@
   </section>
 
   <!-- ============ FINAL CTA ============ -->
-  <section data-screen-label="CTA final" style="background: #0B0A0A; color: #F4F1EC; scroll-snap-align: start; scroll-snap-stop: always; min-height: 100svh; display: flex; align-items: center; box-sizing: border-box">
-    <div style="max-width: 1000px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%; text-align: center">
+  <section data-screen-label="CTA final" style="background: #0B0A0A; color: #F4F1EC; display: flex; align-items: center; box-sizing: border-box">
+    <div style="max-width: 1000px; margin: 0 auto; padding: 100px 24px 120px; display: flex; flex-direction: column; align-items: center; gap: 34px; width: 100%; text-align: center">
       <h2 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(44px, 6vw, 88px); text-transform: uppercase; line-height: 1.0; margin: 0">
         Le talent,<br>&ccedil;a s&rsquo;apprend.<br>
         <span style="color: transparent; -webkit-text-stroke: 1.5px #E0261F">C&rsquo;est une question de m&eacute;thode.</span>
       </h2>
-      <div data-reveal style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center">
-        <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve mon stage d&rsquo;&eacute;t&eacute;</a>
-        <a href="https://www.methodacting.fr/inscriptions-method-acting/" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #F4F1EC; text-decoration: none; padding: 20px 42px; border-radius: 999px; display: inline-block; border: 1px solid rgba(244,241,236,0.35); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #F4F1EC; transform: translateY(-2px)">Je m&rsquo;inscris &agrave; la formation</a>
+      <p data-reveal style="margin: 0; font-size: 19px; line-height: 1.7; color: #B7B0A6; max-width: 46ch">Ne restez pas &agrave; vous demander si vous &ecirc;tes fait pour &ccedil;a. Venez simplement le vivre, une demi-journ&eacute;e, gratuitement.</p>
+      <div data-reveal style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 44px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">Gratuit &middot; Sans engagement &middot; Une demi-journ&eacute;e</span>
       </div>
-      <a data-reveal href="#contact" style="font-size: 15px; color: #B7B0A6; text-decoration: underline" style-hover="color: #F4F1EC">Ou prenez d&rsquo;abord un rendez-vous d&rsquo;information gratuit</a>
     </div>
   </section>
+
+  <!-- ============ CTA STICKY MOBILE ============ -->
+  <a href="#contact" id="mobile-cta" style="display: none">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
 
 </div>
 <script>
 (function () {
   "use strict";
 
-  /* ---------- data (ported from the design source) ---------- */
-  var HERO = [
-    { src: "uploads/Kramer_Horizontal00086408_V1.jpg", alt: "Actrice en pleine intensité émotionnelle, scène filmée" },
-    { src: "uploads/Felure_Horizontal00086406_V1.jpg", alt: "Actrice souriante en scène filmée, lumière chaude" },
-    { src: "uploads/Joseph-Breaking-Bad.jpg", alt: "Acteur au téléphone, tension contenue en scène filmée" },
-    { src: "uploads/King_Horizontal00086407_V1.jpg", alt: "Acteur en larmes dans une scène dramatique filmée" }
+  /* ============================================================
+     IMAGES — collez ici les URL de la Médiathèque WordPress.
+     Tant qu'une url est vide ou invalide, un cadre étiqueté s'affiche.
+     ============================================================ */
+  var IMAGES = {
+    hero_kramer: { url: "uploads/Kramer_Horizontal00086408_V1.jpg", label: "H\u00e9ro \u00b7 actrice, intensit\u00e9 \u00e9motionnelle" },
+    hero_felure: { url: "uploads/Felure_Horizontal00086406_V1.jpg", label: "H\u00e9ro \u00b7 actrice souriante, lumi\u00e8re chaude" },
+    hero_joseph: { url: "uploads/Joseph-Breaking-Bad.jpg", label: "H\u00e9ro \u00b7 acteur au t\u00e9l\u00e9phone" },
+    hero_king: { url: "uploads/King_Horizontal00086407_V1.jpg", label: "H\u00e9ro \u00b7 acteur en larmes" },
+    methode_1: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-3.jpg", label: "M\u00e9thode \u00b7 spectacle (rire)" },
+    methode_2: { url: "uploads/V1-0001_Antichrist_Screenshot_Horizontal00087169.jpg", label: "M\u00e9thode \u00b7 sc\u00e8ne film\u00e9e" },
+    methode_3: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-272.jpg", label: "M\u00e9thode \u00b7 lumi\u00e8re rouge" },
+    stage_1: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-22.jpg", label: "JPO \u00b7 chemise & cravate" },
+    stage_2: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-98.jpg", label: "JPO \u00b7 costume, lumi\u00e8re bleue" },
+    stage_3: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-213.jpg", label: "JPO \u00b7 sc\u00e8ne dramatique" },
+    formation_1: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-154.jpg", label: "Formation \u00b7 veste militaire" },
+    formation_2: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-163.jpg", label: "Formation \u00b7 salut militaire" },
+    formation_3: { url: "uploads/METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-269.jpg", label: "Formation \u00b7 lumi\u00e8re verte" },
+    film_proces_goldman: { url: "uploads/Le_Proces_Goldman_Affiche.webp", label: "Affiche \u00b7 Le Proc\u00e8s Goldman" },
+    film_7_vies_lea: { url: "uploads/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg", label: "Affiche \u00b7 Les 7 vies de L\u00e9a" },
+    film_quantum_solace: { url: "uploads/Quantum-of-Solace-Olga-Kurylenko.jpg", label: "Affiche \u00b7 Quantum of Solace" },
+    film_ni_chaines: { url: "uploads/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg", label: "Affiche \u00b7 Ni cha\u00eenes ni ma\u00eetres" },
+    film_sans_repit: { url: "uploads/Sans-repit-Jemima-West.jpg", label: "Affiche \u00b7 Sans r\u00e9pit" },
+    film_les_invisibles: { url: "uploads/Les-invisibles_Deborah_Krey.jpg", label: "Affiche \u00b7 Les Invisibles" },
+    film_dirty_difficult: { url: "uploads/Dirty-Diffficult-Dangerous.jpg", label: "Affiche \u00b7 Dirty Difficult Dangerous" },
+    film_martyrs: { url: "uploads/Martyrs_Mylene_Jampanoi.jpg", label: "Affiche \u00b7 Martyrs" },
+    contact_scene: { url: "uploads/Malcolm_And_Marie_Horizontal00086407_V1.jpg", label: "Contact \u00b7 travail de sc\u00e8ne (N&B)" }
+  };
+
+  /* ============================================================
+     AVIS GOOGLE — uniquement de VRAIS avis de la fiche Google.
+     Ajoutez-en autant que vous voulez : le carrousel s'adapte.
+     ============================================================ */
+  var REVIEWS = [
+    { quote: "Quelle école incroyable ! Formation et formateurs au top !", name: "Quentin B." },
+    { quote: "The best experience ever! The best school in Paris…", name: "Jake F." },
+    { quote: "Excellente école :) rien à dire, je recommande vivement !!", name: "Alix A." }
   ];
+
+  var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
 
   var PROGRAM = [
     { label: "1ère année", title: "Les bases de la Méthode", ateliers: [
@@ -488,176 +594,213 @@
     { label: "2ème année", title: "Faire de la Méthode sa méthode", ateliers: [
       { name: "Exploration 2", tagline: "Approfondir corps, imaginaire et émotions", desc: "Le training aborde des thématiques spécifiques : l’horreur, la séduction, la comédie…" },
       { name: "Scènes 2", tagline: "La science du jeu", desc: "Un atelier exclusif, partagé seulement avec le HB Studio de New York : de nouveaux outils pour enrichir vos performances." },
-      { name: "Scènes 3", tagline: "De la scène à la caméra", desc: "Scènes tirées de pièces et de scénarios, début du jeu face caméra, et développement personnel pour tenir la distance." }
+      { name: "Scènes 3", tagline: "De la scène à la caméra", desc: "Apprendre à structurer vos performances dans des scènes tirées de pièces et de films, début du jeu face caméra." }
     ] },
     { label: "3ème année", title: "Maîtriser la composition de personnages", ateliers: [
       { name: "Composition A & Exploration 3", tagline: "L’art de la métamorphose", desc: "Enquête minutieuse et exploration profonde de votre personnage. L’ultime stade de l’acting : devenir quelqu’un d’autre." },
       { name: "Composition B", tagline: "L’incarnation de votre personnage", desc: "Composer votre personnage scène après scène, dans la perspective du rôle tout entier." },
       { name: "Suivi de carrière & développement personnel", tagline: "Aborder les marchés professionnels", desc: "Comprendre les marchés, s’outiller (book photos, bande démo) et trouver les ressources pour donner le meilleur de vous-même en casting." }
     ] },
-    { label: "4ème année", title: "Acting caméra — 4ème année ou sur audition", ateliers: [
-      { name: "Acting Caméra & Tournages", tagline: "Gérer les impératifs du cinéma dans votre jeu", desc: "Un atelier de scènes tournées dans les conditions réelles d’un plateau : les réflexes qui manquent trop souvent aux acteurs débutants." }
-    ], deliverables: ["3 scènes filmées & montées", "Book photos", "Vidéo de présentation", "Bande démo", "Votre CV"] }
+    { label: "4ème année", title: "La touche finale : vous aiguisez vos performances, nous produisons vos outils pour démarcher", ateliers: [
+      { name: "Acting Caméra & Tournages", tagline: "Gérer les impératifs du cinéma dans votre jeu", desc: "Un atelier de scènes tournées dans les conditions réelles d’un plateau : les réflexes qui manquent trop souvent aux acteurs débutants." },
+      { name: "Scènes 4", tagline: "Le plus haut niveau d’exigence", desc: "Un approfondissement de tous les outils vus les années précédentes avec une exigence encore plus élevée." }
+    ], deliverables: ["3 scènes filmées et montées", "1 book photos", "1 CV", "1 bande démo", "1 vidéo de présentation"] }
   ];
 
-  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  var ROOT = document.getElementById("mac-landing");
+  if (!ROOT) return;
 
-  /* ---------- hover / focus (replaces the design's style-hover / style-focus) ---------- */
-  function parseDecl(s) {
-    return (s || "").split(";").map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) {
-      var i = x.indexOf(":");
-      return [x.slice(0, i).trim(), x.slice(i + 1).trim()];
-    });
-  }
-  function bindStateStyle(attr, onEvt, offEvt) {
-    document.querySelectorAll("[" + attr + "]").forEach(function (el) {
-      var decl = parseDecl(el.getAttribute(attr));
-      el.addEventListener(onEvt, function () {
-        el.__prev = {};
-        decl.forEach(function (d) { el.__prev[d[0]] = el.style.getPropertyValue(d[0]); el.style.setProperty(d[0], d[1]); });
-      });
-      el.addEventListener(offEvt, function () {
-        if (!el.__prev) return;
-        decl.forEach(function (d) { el.style.setProperty(d[0], el.__prev[d[0]] || ""); });
-      });
-    });
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function conf(key){ return IMAGES[key] || {}; }
+  function placeholder(label){
+    var d = document.createElement("div");
+    d.className = "mac-ph"; d.setAttribute("role","img");
+    d.setAttribute("aria-label", label || "Visuel à ajouter");
+    d.textContent = label || "Visuel à ajouter";
+    return d;
   }
 
-  /* ---------- reveal on scroll ---------- */
-  function initReveal() {
-    var reveals = document.querySelectorAll("[data-reveal]");
-    reveals.forEach(function (el) {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(24px)";
-      el.style.transition = "opacity .55s ease, transform .55s ease";
+  function applyImages(){
+    ROOT.querySelectorAll("img[data-img]").forEach(function(img){
+      var c = conf(img.getAttribute("data-img"));
+      var label = c.label || img.getAttribute("alt") || "Visuel à ajouter";
+      if (!c.url){ img.replaceWith(placeholder(label)); return; }
+      img.onerror = function(){ if (img.parentNode) img.replaceWith(placeholder(label)); };
+      img.src = c.url;
     });
-    if (!("IntersectionObserver" in window)) {
-      reveals.forEach(function (el) { el.style.opacity = "1"; el.style.transform = "none"; });
-      return;
+  }
+
+  /* hover / focus */
+  function parseDecl(s){
+    return (s||"").split(";").map(function(x){return x.trim();}).filter(Boolean).map(function(x){
+      var i=x.indexOf(":"); return [x.slice(0,i).trim(), x.slice(i+1).trim()];
+    });
+  }
+  function bindState(attr,on,off){
+    ROOT.querySelectorAll("["+attr+"]").forEach(function(el){
+      var d=parseDecl(el.getAttribute(attr));
+      el.addEventListener(on,function(){ el.__p={}; d.forEach(function(p){ el.__p[p[0]]=el.style.getPropertyValue(p[0]); el.style.setProperty(p[0],p[1]); }); });
+      el.addEventListener(off,function(){ if(el.__p) d.forEach(function(p){ el.style.setProperty(p[0], el.__p[p[0]]||""); }); });
+    });
+  }
+
+  /* reveal on scroll */
+  function initReveal(){
+    var r = ROOT.querySelectorAll("[data-reveal]");
+    r.forEach(function(el){ el.style.opacity="0"; el.style.transform="translateY(24px)"; el.style.transition="opacity .55s ease, transform .55s ease"; });
+    if(!("IntersectionObserver" in window)){ r.forEach(function(el){ el.style.opacity="1"; el.style.transform="none"; }); return; }
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.querySelectorAll("[data-reveal]").forEach(function(el){ el.style.opacity="1"; el.style.transform="translateY(0)"; }); io.unobserve(e.target); } }); },{threshold:0.08});
+    ROOT.querySelectorAll("section[data-screen-label]").forEach(function(s){ io.observe(s); });
+  }
+
+  /* hero carousel */
+  function initHero(){
+    var wrap=document.getElementById("hero-slides"), dotsEl=document.getElementById("hero-dots");
+    if(!wrap||!dotsEl) return;
+    var idx=0,timer=null,slides=[],dots=[];
+    HERO_KEYS.forEach(function(key,i){
+      var c=conf(key), s=document.createElement("div");
+      s.style.cssText="position:absolute;inset:0;width:100%;height:100%;opacity:"+(i===0?"1":"0")+";transition:opacity 1s ease;";
+      if(c.url){ var im=document.createElement("img"); im.alt=c.label||""; im.style.cssText="width:100%;height:100%;object-fit:cover;display:block;"; im.onerror=function(){ s.innerHTML=""; s.appendChild(placeholder(c.label)); }; im.src=c.url; s.appendChild(im); }
+      else { s.appendChild(placeholder(c.label)); }
+      wrap.appendChild(s); slides.push(s);
+      var b=document.createElement("button"); b.type="button"; b.setAttribute("aria-label","Voir : "+(c.label||("visuel "+(i+1))));
+      b.addEventListener("click",function(){ go(i); restart(); }); dotsEl.appendChild(b); dots.push(b);
+    });
+    function paint(){
+      slides.forEach(function(s,i){ s.style.opacity=i===idx?"1":"0"; });
+      dots.forEach(function(b,i){ b.style.cssText="width:"+(i===idx?"26px":"8px")+";height:8px;border-radius:999px;border:none;cursor:pointer;padding:0;background:"+(i===idx?"#E0261F":"rgba(255,255,255,0.65)")+";transition:all .3s ease;"; });
     }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll("[data-reveal]").forEach(function (el) {
-            el.style.opacity = "1"; el.style.transform = "translateY(0)";
-          });
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll("section[data-screen-label]").forEach(function (s) { io.observe(s); });
-  }
-
-  /* ---------- hero carousel ---------- */
-  function initHero() {
-    var slidesEl = document.getElementById("hero-slides");
-    var dotsEl = document.getElementById("hero-dots");
-    if (!slidesEl || !dotsEl) return;
-    var idx = 0, timer = null, slides = [], dots = [];
-
-    HERO.forEach(function (s, i) {
-      var d = document.createElement("div");
-      d.setAttribute("role", "img");
-      d.setAttribute("aria-label", s.alt);
-      d.style.cssText = "position:absolute; inset:0; width:100%; height:100%; background-image:url('" +
-        s.src.replace(/'/g, "%27") + "'); background-size:cover; background-position:center; opacity:" +
-        (i === 0 ? "1" : "0") + "; transition:opacity 1s ease;";
-      slidesEl.appendChild(d);
-      slides.push(d);
-
-      var b = document.createElement("button");
-      b.setAttribute("aria-label", "Voir : " + s.alt);
-      b.type = "button";
-      b.addEventListener("click", function () { go(i); restart(); });
-      dotsEl.appendChild(b);
-      dots.push(b);
-    });
-
-    function paint() {
-      slides.forEach(function (d, i) { d.style.opacity = i === idx ? "1" : "0"; });
-      dots.forEach(function (b, i) {
-        b.style.cssText = "width:" + (i === idx ? "26px" : "8px") + "; height:8px; border-radius:999px; border:none; cursor:pointer; padding:0; background:" +
-          (i === idx ? "#E0261F" : "rgba(255,255,255,0.65)") + "; transition:all .3s ease;";
-      });
-    }
-    function go(i) { idx = (i + HERO.length) % HERO.length; paint(); }
-    function tick() { go(idx + 1); }
-    function restart() { if (timer) clearInterval(timer); timer = setInterval(tick, 4500); }
+    function go(i){ idx=(i+slides.length)%slides.length; paint(); }
+    function restart(){ if(timer) clearInterval(timer); timer=setInterval(function(){ go(idx+1); },4500); }
     paint(); restart();
   }
 
-  /* ---------- program (4-year tabs) ---------- */
-  function initProgram() {
-    var tabsEl = document.getElementById("program-tabs");
-    var titleEl = document.getElementById("program-title");
-    var atEl = document.getElementById("program-ateliers");
-    var delEl = document.getElementById("program-deliverables");
-    if (!tabsEl || !titleEl || !atEl || !delEl) return;
-    var active = 0, tabs = [];
-
-    function tabStyle(on) {
-      return "font-family:'Oswald', sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase; font-weight:600; padding:12px 20px; border-radius:999px; cursor:pointer; transition:all .2s ease; border:1px solid " +
-        (on ? "#E0261F" : "rgba(20,18,15,0.2)") + "; background:" + (on ? "#E0261F" : "transparent") + "; color:" + (on ? "#FFFFFF" : "#6B655C") + ";";
-    }
-    PROGRAM.forEach(function (y, i) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.textContent = y.label;
-      b.style.cssText = tabStyle(i === 0);
-      b.addEventListener("click", function () { active = i; render(); });
-      tabsEl.appendChild(b);
-      tabs.push(b);
-    });
-
-    function render() {
-      var y = PROGRAM[active];
-      tabs.forEach(function (b, i) { b.style.cssText = tabStyle(i === active); });
-      titleEl.textContent = y.title;
-      atEl.innerHTML = y.ateliers.map(function (a) {
-        return '<div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #E0261F; padding-top: 18px">' +
-          '<h4 style="font-family: \'Oswald\', sans-serif; font-size: 20px; text-transform: uppercase; margin: 0">' + esc(a.name) + '</h4>' +
-          '<p style="margin: 0; font-size: 14px; font-style: italic; color: #E0261F">' + esc(a.tagline) + '</p>' +
-          '<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #6B655C">' + esc(a.desc) + '</p></div>';
+  /* program (4-year tabs) */
+  function initProgram(){
+    var tabsEl=document.getElementById("program-tabs"), titleEl=document.getElementById("program-title"),
+        atEl=document.getElementById("program-ateliers"), delEl=document.getElementById("program-deliverables");
+    if(!tabsEl||!titleEl||!atEl||!delEl) return;
+    var active=0, tabs=[];
+    function tabStyle(on){ return "font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:12px 20px;border-radius:999px;cursor:pointer;transition:all .2s ease;border:1px solid "+(on?"#E0261F":"rgba(20,18,15,0.2)")+";background:"+(on?"#E0261F":"transparent")+";color:"+(on?"#FFFFFF":"#6B655C")+";"; }
+    PROGRAM.forEach(function(y,i){ var b=document.createElement("button"); b.type="button"; b.textContent=y.label; b.style.cssText=tabStyle(i===0); b.addEventListener("click",function(){ active=i; render(); }); tabsEl.appendChild(b); tabs.push(b); });
+    function render(){
+      var y=PROGRAM[active];
+      tabs.forEach(function(b,i){ b.style.cssText=tabStyle(i===active); });
+      titleEl.textContent=y.title;
+      atEl.innerHTML=y.ateliers.map(function(a){
+        return '<div style="display:flex;flex-direction:column;gap:10px;border-top:2px solid #E0261F;padding-top:18px">'+
+          '<h4 style="font-family:\'Oswald\',sans-serif;font-size:20px;text-transform:uppercase;margin:0">'+esc(a.name)+'</h4>'+
+          '<p style="margin:0;font-size:14px;font-style:italic;color:#E0261F">'+esc(a.tagline)+'</p>'+
+          '<p style="margin:0;font-size:15px;line-height:1.65;color:#6B655C">'+esc(a.desc)+'</p></div>';
       }).join("");
-      if (y.deliverables && y.deliverables.length) {
-        delEl.style.display = "";
-        delEl.innerHTML = '<div style="display: flex; flex-direction: column; gap: 14px; border-top: 1px solid #EEE9DF; padding-top: 24px">' +
-          '<p style="margin: 0; font-size: 15px; font-weight: 600; color: #14120F">À la sortie de cet atelier, vous repartez avec&nbsp;:</p>' +
-          '<div style="display: flex; gap: 10px; flex-wrap: wrap">' +
-          y.deliverables.map(function (d) {
-            return '<span style="font-family: \'Oswald\', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; background: #F7F4EE; color: #14120F; padding: 10px 16px; border-radius: 999px">' + esc(d) + '</span>';
-          }).join("") + '</div></div>';
-      } else {
-        delEl.style.display = "none";
-        delEl.innerHTML = "";
-      }
+      if(y.deliverables&&y.deliverables.length){
+        delEl.style.display="";
+        delEl.innerHTML='<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #EEE9DF;padding-top:24px">'+
+          '<p style="margin:0;font-size:15px;font-weight:600;color:#14120F">À la sortie de cet atelier, vous repartez avec&nbsp;:</p>'+
+          '<div style="display:flex;gap:10px;flex-wrap:wrap">'+
+          y.deliverables.map(function(d){ return '<span style="font-family:\'Oswald\',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;background:#F7F4EE;color:#14120F;padding:10px 16px;border-radius:999px">'+esc(d)+'</span>'; }).join("")+
+          '</div></div>';
+      } else { delEl.style.display="none"; delEl.innerHTML=""; }
     }
     render();
   }
 
-  /* ---------- contact form ---------- */
-  function initForm() {
-    var form = document.getElementById("contact-form");
-    var ok = document.getElementById("contact-success");
-    if (!form || !ok) return;
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      form.style.display = "none";
-      ok.style.display = "";
-      ok.scrollIntoView({ behavior: "smooth", block: "center" });
+  /* JPO accordion (one open at a time) */
+  function initJpo(){
+    var cards=[].slice.call(ROOT.querySelectorAll(".jpo-card"));
+    cards.forEach(function(card){
+      var head=card.querySelector(".jpo-head");
+      head.addEventListener("click",function(){
+        var isOpen=card.classList.contains("open");
+        cards.forEach(function(c){ c.classList.remove("open"); var h=c.querySelector(".jpo-head"); if(h) h.setAttribute("aria-expanded","false"); });
+        if(!isOpen){ card.classList.add("open"); head.setAttribute("aria-expanded","true"); }
+      });
     });
   }
 
-  function init() {
-    bindStateStyle("style-hover", "mouseenter", "mouseleave");
-    bindStateStyle("style-focus", "focus", "blur");
-    initReveal();
-    initHero();
-    initProgram();
-    initForm();
+  /* reviews carousel */
+  function initReviews(){
+    var track=document.getElementById("rev-track"), dotsEl=document.getElementById("rev-dots"),
+        prev=document.getElementById("rev-prev"), next=document.getElementById("rev-next");
+    if(!track) return;
+    if(!REVIEWS.length){ var c=track.closest(".rev-carousel"); if(c) c.style.display="none"; return; }
+    track.innerHTML = REVIEWS.map(function(r){
+      var initial = (r.name||"?").trim().charAt(0).toUpperCase();
+      return '<div class="rev-slide"><div class="rev-card">'+
+        '<span class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>'+
+        '<p class="rev-quote">&laquo;&nbsp;'+esc(r.quote)+'&nbsp;&raquo;</p>'+
+        '<div class="rev-author"><span class="rev-avatar">'+esc(initial)+'</span>'+
+        '<span><span class="rev-name">'+esc(r.name)+'</span><br><span class="rev-src">avis Google</span></span></div>'+
+        '</div></div>';
+    }).join("");
+    var slides=[].slice.call(track.children);
+    var idx=0, perView=1, maxIdx=0, timer=null;
+    function computePer(){ var w=ROOT.clientWidth||window.innerWidth; return w>=760 ? Math.min(2, slides.length) : 1; }
+    function layout(){
+      perView=computePer(); maxIdx=Math.max(0, slides.length-perView);
+      slides.forEach(function(s){ s.style.flexBasis=(100/perView)+"%"; });
+      if(idx>maxIdx) idx=maxIdx;
+      var hasNav = slides.length>perView;
+      [prev,next].forEach(function(b){ if(b) b.style.display=hasNav?"":"none"; });
+      buildDots(hasNav); paint();
+    }
+    function buildDots(show){
+      dotsEl.innerHTML="";
+      if(!show){ return; }
+      for(var i=0;i<=maxIdx;i++){ (function(i){ var b=document.createElement("button"); b.type="button"; b.className="rev-dot"+(i===idx?" active":""); b.setAttribute("aria-label","Avis "+(i+1)); b.addEventListener("click",function(){ idx=i; paint(); restart(); }); dotsEl.appendChild(b); })(i); }
+    }
+    function paint(){
+      track.style.transform="translateX(-"+(idx*(100/perView))+"%)";
+      [].slice.call(dotsEl.children).forEach(function(d,i){ d.className="rev-dot"+(i===idx?" active":""); });
+    }
+    function go(d){ idx=(idx+d); if(idx<0) idx=maxIdx; if(idx>maxIdx) idx=0; paint(); }
+    function restart(){ if(timer) clearInterval(timer); if(slides.length>perView) timer=setInterval(function(){ go(1); },5000); }
+    if(prev) prev.addEventListener("click",function(){ go(-1); restart(); });
+    if(next) next.addEventListener("click",function(){ go(1); restart(); });
+    var rt; window.addEventListener("resize",function(){ clearTimeout(rt); rt=setTimeout(function(){ layout(); restart(); },150); });
+    layout(); restart();
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
+
+  /* contact form */
+  function initForm(){
+    var form=document.getElementById("contact-form"), ok=document.getElementById("contact-success");
+    if(!form||!ok) return;
+    form.addEventListener("submit",function(e){ e.preventDefault(); form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); });
+  }
+
+  /* in-page anchor smooth scroll */
+  function initAnchors(){
+    ROOT.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener("click",function(e){
+        var id=a.getAttribute("href").slice(1); if(!id) return;
+        var t=document.getElementById(id); if(!t) return;
+        e.preventDefault(); t.scrollIntoView({behavior:"smooth",block:"start"});
+      });
+    });
+  }
+
+  /* sticky mobile CTA: mobile only, appears after hero, hidden over the form */
+  function initMobileCta(){
+    var cta=document.getElementById("mobile-cta"); if(!cta) return;
+    var contact=document.getElementById("contact");
+    var overContact=false;
+    if("IntersectionObserver" in window && contact){
+      new IntersectionObserver(function(en){ overContact=en[0].isIntersecting; update(); },{threshold:0.05}).observe(contact);
+    }
+    function update(){
+      var mobile=window.matchMedia("(max-width:760px)").matches;
+      var scrolled=window.scrollY>window.innerHeight*0.6;
+      if(mobile && scrolled && !overContact){ cta.style.display="block"; cta.style.opacity="1"; cta.style.transform="translateY(0)"; }
+      else { cta.style.opacity="0"; cta.style.transform="translateY(120%)"; setTimeout(function(){ if(cta.style.opacity==="0") cta.style.display="none"; },300); }
+    }
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    update();
+  }
+
+  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initProgram(); initJpo(); initReviews(); initForm(); initAnchors(); initMobileCta(); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 </script>
 </body>

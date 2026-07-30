@@ -1,90 +1,89 @@
-# Method Acting Center — Landing « Acteur » (v4)
+# Method Acting Center — Landing « Acteur » (v5 · Journées Portes Ouvertes)
 
-Landing page marketing pour Method Acting Center (Paris) : stages d'été et
-formation annuelle à la Méthode (Stanislavski / Actors Studio).
+Landing page marketing pour Method Acting Center (Paris), optimisée **CRO** pour
+les campagnes **Google Ads Search** (« devenir acteur », « école de théâtre »…).
 
-Implémentation de la maquette **Landing Acteur v4** conçue dans Claude Design.
+Objectif de conversion : **maximiser les inscriptions aux Journées Portes
+Ouvertes (JPO)** immersives — la porte d'entrée naturelle vers la formation.
+Le parcours raconte une histoire : « Je veux devenir acteur » → « Je vais
+commencer par vivre une Journée Portes Ouvertes ». Tous les CTA principaux
+convergent vers la réservation d'une JPO.
 
 ## Fichiers
 
 | Fichier | Rôle |
 |---|---|
-| **`landing-mac.html`** | ⭐ **Le livrable WordPress** : bloc HTML autonome (fonts + CSS + JS) à coller dans un bloc « HTML personnalisé ». Toutes les URLs d'images sont centralisées dans l'objet `IMAGES` (voir plus bas). |
-| `index.html` | Version « document complet » pour prévisualiser en local (double-clic) avec les images du dossier `uploads/`. |
-| `uploads/` | Images de prévisualisation. 6 sont réelles ; 16 sont des **placeholders** (voir plus bas) — sur WordPress, elles sont remplacées par la Médiathèque, pas par ces fichiers. |
-| `design/Landing Acteur v4.dc.html` | Le fichier source Claude Design (`.dc.html`), conservé pour référence. |
+| **`landing-mac.html`** | ⭐ **Livrable WordPress** : bloc HTML autonome à coller dans un bloc « HTML personnalisé ». URLs d'images centralisées dans l'objet `IMAGES`. |
+| `maquette-ordinateur.html` / `maquette-telephone.html` | Maquettes de relecture **autonomes** (photos embarquées en base64), même base responsive. |
+| `index.html` | Aperçu local (double-clic) utilisant le dossier `uploads/`. |
+| `src/` | **Source unique** qui génère les 4 fichiers ci-dessus (voir plus bas). |
+| `uploads/` | Images de prévisualisation (6 réelles + 16 placeholders étiquetés). |
+| `design/Landing Acteur v4.dc.html` | Fichier source Claude Design d'origine. |
 
-## Intégration dans WordPress
+## Source unique & régénération (`src/`)
 
-1. Crée une page (idéalement avec un gabarit **pleine largeur / vierge**, sans
-   la sidebar du thème).
-2. Ajoute un bloc **« HTML personnalisé »** (Gutenberg) ou un **widget HTML**
-   (Elementor / Divi / WPBakery).
-3. Colle tout le contenu de **`landing-mac.html`**.
-4. Publie les photos (voir ci-dessous), puis renseigne leurs URLs dans l'objet
-   `IMAGES` en bas du bloc.
+Pour éviter que les 4 fichiers ne divergent, ils sont **générés** à partir d'un
+seul jeu de sources :
 
-Le bloc est **sans effet sur le thème** : tous les styles sont limités à
-`#mac-landing`, il n'y a pas de `scroll-snap` global qui détournerait le
-défilement, et l'en-tête / pied de page du thème restent intacts.
+- `src/content.html` — le HTML de toutes les sections (images via `data-img`).
+- `src/style.css` — les styles (limités à `#mac-landing`).
+- `src/script.js` — le runtime JS (carrousels, accordéon JPO, formulaire…).
+- `src/build_all.py` — assemble et écrit `index.html`, `landing-mac.html` et les
+  2 maquettes.
 
-## Publier les photos (process WordPress)
+Régénérer après modification :
 
-Tant qu'une URL n'est pas renseignée (ou invalide), un **cadre étiqueté**
-s'affiche à la place — la page n'est jamais « cassée ». Pour chaque visuel :
+```bash
+cd src && python3 build_all.py
+```
 
-1. **Médias → Ajouter** : téléverse la photo.
-2. Ouvre-la, copie son **« URL du fichier »**
-   (ex. `https://votre-site.fr/wp-content/uploads/2026/07/photo.jpg`).
-3. Dans `landing-mac.html`, colle cette URL dans le champ `url` de la clé
-   correspondante de l'objet `IMAGES`.
+## Contenus éditables sans toucher au design
 
-### Correspondance des images
+Dans `src/script.js` (et donc en haut du `<script>` des fichiers générés) :
 
-| Clé `IMAGES` | Emplacement sur la page | Format conseillé |
-|---|---|---|
-| `hero_kramer` / `hero_felure` / `hero_joseph` / `hero_king` | Carrousel du **hero** (4 visuels) | paysage large (~1600×1000) |
-| `methode_1` / `methode_2` / `methode_3` | Cartes **Déclencher / Maîtriser / Reproduire** | paysage 16:10 |
-| `stage_1` / `stage_2` / `stage_3` | Galerie **Stages d'été** | portrait 3:4 |
-| `formation_1` / `formation_2` / `formation_3` | Galerie **Formation annuelle** | portrait 3:4 |
-| `film_proces_goldman`, `film_7_vies_lea`, `film_quantum_solace`, `film_ni_chaines`, `film_sans_repit`, `film_les_invisibles`, `film_dirty_difficult`, `film_martyrs` | Carrousel **« Nos acteurs tournent »** | affiche 2:3 |
-| `contact_scene` | Section **Contact** | paysage 16:9 |
-
-L'étiquette affichée dans chaque cadre placeholder indique aussi de quel visuel
-il s'agit, directement dans la page.
+- **`IMAGES`** — les visuels. Sur WordPress : téléversez chaque photo dans la
+  Médiathèque et collez son URL. Tant qu'une URL manque, un cadre étiqueté
+  s'affiche (la page n'est jamais cassée).
+- **`REVIEWS`** — les avis Google. ⚠️ N'utilisez que de **vrais avis** de la
+  fiche Google. Ajoutez-en autant que voulu : le carrousel s'adapte
+  automatiquement (flèches, points, défilement auto).
+- **`PROGRAM`** — le détail des 4 années de formation.
 
 ## Ce que fait la page
 
-Le format source `.dc.html` est réactif (`sc-for`, `sc-if`, `{{ … }}`, `onClick`,
-`style-hover`). Il a été porté en HTML/CSS/JS standard, à l'identique :
+- **Barre sticky** + **CTA fixe mobile** « Je réserve ma JPO » (apparaît après le
+  hero, se masque au niveau du formulaire).
+- **Hero** : carrousel automatique.
+- **Section JPO** (le cœur de la conversion) : 4 grandes cartes en **accordéon**
+  (Vous vous reconnaissez si… / Vous allez vivre… / Vous repartirez avec…), un
+  **déroulé en 4 étapes**, et un CTA immersif.
+- **Formation** : onglets par année (programme Acting Pro), présentée comme la
+  suite naturelle de la JPO.
+- **Avis** : véritable **carrousel** (grandes cartes, avatars, flèches, points,
+  défilement auto) — uniquement de vrais avis Google, note 4,8/5.
+- **FAQ**, **formulaire** de réservation JPO (validation + état « Demande
+  envoyée »), apparitions au scroll, survols.
 
-- **Barre sticky**, navigation par ancres avec défilement fluide.
-- **Hero** : carrousel automatique (4 visuels, rotation 4,5 s) + puces cliquables.
-- **Apparition au défilement** (`data-reveal`) via `IntersectionObserver`.
-- **Survol / focus** : les attributs `style-hover` / `style-focus` de la maquette
-  sont ré-appliqués par un petit runtime JS.
-- **Programme sur 4 ans** : onglets d'année qui mettent à jour titre, ateliers et
-  livrables (la 4ᵉ année affiche : scènes filmées, book, bande démo…).
-- **Formulaire de contact** : validation native + passage à l'état
-  « Message envoyé ». ⚠️ Purement front-end (comme la maquette) — sur WordPress,
-  branche-le à ton plugin de formulaire / emailing pour le rendre fonctionnel
-  (Contact Form 7, WPForms…), ou garde-le décoratif.
+⚠️ Le formulaire est front-end (comme la maquette). Sur WordPress, branchez-le à
+Contact Form 7 / WPForms pour l'exploiter réellement.
 
-## Le dossier `uploads/` (prévisualisation locale)
+## Intégration WordPress (rappel)
 
-6 images ont pu être récupérées intactes depuis le projet Claude Design. Les 16
-autres **dépassaient la limite de 256 Kio de l'API de design** et ont été
-remplacées par des placeholders aux bonnes proportions, uniquement pour que
-`index.html` s'affiche joliment en local. **Sur WordPress, tout passe par la
-Médiathèque** — ces fichiers ne sont donc pas utilisés en production.
+1. Page en gabarit pleine largeur.
+2. Bloc « HTML personnalisé » → coller `landing-mac.html`.
+3. Téléverser les photos dans la Médiathèque et renseigner l'objet `IMAGES`.
 
-Placeholders (à fournir via la Médiathèque) : les 4 visuels hero
-(`Kramer`, `Felure`, `Joseph`, `King`), les 9 photos de plateau `…Ghorra-…`
-+ `Antichrist`, et 3 affiches (`Le Procès Goldman`, `Les Invisibles`,
-`Dirty Difficult Dangerous`).
+Le bloc est **sans effet sur le thème** (styles limités à `#mac-landing`,
+pas de scroll-snap global).
+
+## Le dossier `uploads/`
+
+6 images réelles ont pu être récupérées ; les 16 autres dépassaient la limite de
+256 Kio de l'API de design et sont des **placeholders** aux bonnes proportions,
+pour l'aperçu local uniquement. En production, tout passe par la Médiathèque.
 
 ## Notes
 
 - Polices **Oswald** + **Archivo** (Google Fonts) ; repli Helvetica / sans-serif.
+- Charte inchangée : cream `#F7F4EE`, noir `#14120F` / `#0B0A0A`, rouge `#E0261F`.
 - `prefers-reduced-motion` désactive les animations.
-- Liens d'inscription → `methodacting.fr`. Aucune donnée n'est envoyée par la page.
