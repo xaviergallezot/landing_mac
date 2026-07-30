@@ -19,6 +19,18 @@ __IMAGES__
     { quote: "Excellente école :) rien à dire, je recommande vivement !!", name: "Alix A." }
   ];
 
+  /* ============================================================
+     ATELIERS JPO — ⚠️ remplacez les créneaux par vos vraies dates/heures.
+     Chaque atelier est réservable indépendamment ; plusieurs possibles.
+     ============================================================ */
+  var ATELIERS = [
+    { id:"emotionnel", emoji:"❤️", name:"Travail Émotionnel", slots:["Sam. 20 sept. · 10h–13h","Sam. 20 sept. · 14h–17h"] },
+    { id:"scene",      emoji:"🎭", name:"Travail de Scène",   slots:["Sam. 20 sept. · 14h–17h","Dim. 21 sept. · 10h–13h"] },
+    { id:"english",    emoji:"💬", name:"Acting in English",  slots:["Dim. 21 sept. · 10h–13h"] },
+    { id:"amateur",    emoji:"🌱", name:"Acting Amateur",     slots:["Dim. 21 sept. · 14h–17h"] },
+    { id:"impro",      emoji:"⚡",       name:"Improvisation",      slots:["Sam. 20 sept. · 10h–13h","Dim. 21 sept. · 14h–17h"] }
+  ];
+
   var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
 
   var PROGRAM = [
@@ -198,11 +210,37 @@ __IMAGES__
     layout(); restart();
   }
 
-  /* contact form */
-  function initForm(){
-    var form=document.getElementById("contact-form"), ok=document.getElementById("contact-success");
-    if(!form||!ok) return;
-    form.addEventListener("submit",function(e){ e.preventDefault(); form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); });
+  /* atelier booking form */
+  function initBooking(){
+    var form=document.getElementById("booking-form"), ok=document.getElementById("contact-success"),
+        list=document.getElementById("booking-list"), recap=document.getElementById("booking-recap"),
+        successRecap=document.getElementById("success-recap");
+    if(!form||!list) return;
+    list.innerHTML = ATELIERS.map(function(a){
+      var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
+      return '<div class="book-atelier">'+
+        '<span class="book-emoji">'+a.emoji+'</span>'+
+        '<span class="book-name">'+esc(a.name)+'</span>'+
+        '<select class="book-select" name="atelier_'+a.id+'" data-name="'+esc(a.name)+'">'+opts+'</select>'+
+        '</div>';
+    }).join("");
+    var selects=[].slice.call(list.querySelectorAll("select"));
+    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), slot:s.value};}); }
+    function updateRecap(){
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
+      recap.className="book-recap active";
+      recap.innerHTML=ch.length+" atelier"+(ch.length>1?"s":"")+" sélectionné"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · ");
+    }
+    selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
+    updateRecap();
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier et un créneau avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"")+" est bien reçue. Un membre de l’équipe vous recontacte sous 48h pour confirmer votre place."; }
+      form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
+    });
   }
 
   /* in-page anchor smooth scroll */
@@ -235,6 +273,6 @@ __IMAGES__
     update();
   }
 
-  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initProgram(); initJpo(); initReviews(); initForm(); initAnchors(); initMobileCta(); }
+  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initProgram(); initJpo(); initReviews(); initBooking(); initAnchors(); initMobileCta(); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();

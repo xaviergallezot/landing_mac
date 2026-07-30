@@ -74,6 +74,16 @@
   #mac-landing .atelier-name { font-family:'Oswald',sans-serif; font-size:24px; text-transform:uppercase; margin:0; color:#14120F; line-height:1.1; }
   #mac-landing .atelier-card p { margin:0; font-size:15px; line-height:1.65; color:#6B655C; }
 
+  /* JPO booking form */
+  #mac-landing .book-atelier { display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#0B0A0A; border:1px solid rgba(244,241,236,0.15); border-radius:12px; padding:12px 14px; }
+  #mac-landing .book-emoji { font-size:20px; line-height:1; }
+  #mac-landing .book-name { font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#F4F1EC; flex:1 1 130px; }
+  #mac-landing .book-select { font-family:'Archivo',sans-serif; font-size:14px; background:#141210; border:1px solid rgba(244,241,236,0.18); border-radius:10px; color:#F4F1EC; padding:10px 12px; outline:none; flex:1 1 180px; max-width:100%; cursor:pointer; }
+  #mac-landing .book-select:focus { border-color:#E0261F; }
+  #mac-landing .book-recap { font-size:14px; line-height:1.5; color:#6B655C; padding:12px 14px; border:1px dashed rgba(244,241,236,0.18); border-radius:12px; }
+  #mac-landing .book-recap.active { color:#F4F1EC; border-style:solid; border-color:rgba(224,38,31,0.5); background:rgba(224,38,31,0.06); }
+  #mac-landing .book-recap.warn { color:#F4F1EC; border-style:solid; border-color:#E0261F; background:rgba(224,38,31,0.12); }
+
   @keyframes mac-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   @keyframes mac-pulse-dot { 0%,100% { opacity:1; } 50% { opacity:.35; } }
   @media (prefers-reduced-motion: reduce) { #mac-landing [style*="animation"], #mac-landing .rev-track { animation:none !important; transition:none !important; } }
@@ -89,7 +99,7 @@
       <nav style="display: flex; align-items: center; gap: 26px">
         <a href="#methode" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">La Méthode</a>
         <a href="#jpo" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Portes Ouvertes</a>
-        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease; white-space: nowrap" style-hover="background: #E0261F; color: #FFFFFF">Je réserve ma JPO</a>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #14120F; color: #FFFFFF; text-decoration: none; padding: 12px 22px; border-radius: 999px; transition: background .15s ease; white-space: nowrap" style-hover="background: #E0261F; color: #FFFFFF">Je réserve ma JPO</a>
       </nav>
     </div>
   </header>
@@ -113,7 +123,7 @@
         </div>
         <div style="display: flex; flex-direction: column; gap: 14px">
           <div style="display: flex; gap: 14px; flex-wrap: wrap">
-            <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+            <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
             <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; display: inline-block; border: 1px solid rgba(20,18,15,0.3); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">D&eacute;couvrir la M&eacute;thode</a>
           </div>
           <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C">
@@ -288,7 +298,7 @@
       <!-- CTA final JPO -->
       <div data-reveal style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: clamp(40px, 5vw, 64px); display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center">
         <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 40px); text-transform: uppercase; line-height: 1.1; margin: 0; max-width: 20ch">Venez la vivre. <span style="color: #E0261F">Le reste suivra.</span></h3>
-        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #FFFFFF; color: #14120F; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 42px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #FFFFFF; color: #14120F; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
         <p style="margin: 0; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6)">Gratuit &middot; Sans engagement &middot; Places limit&eacute;es</p>
       </div>
     </div>
@@ -354,7 +364,7 @@
           <div style="font-family: 'Oswald', sans-serif; font-size: clamp(24px, 2.6vw, 34px); text-transform: uppercase; font-weight: 700; line-height: 1.12">La formation annuelle commence par <span style="color: #E0261F">une rencontre</span></div>
           <div style="font-size: 14px; color: rgba(255,255,255,0.7)">Le meilleur moyen de savoir si elle est faite pour vous&nbsp;: venir vivre une Journ&eacute;e Portes Ouvertes.</div>
         </div>
-        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
       </div>
     </div>
   </section>
@@ -447,25 +457,30 @@
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
+  <!-- ============ CONTACT / RESERVATION ATELIERS ============ -->
   <section id="contact" data-screen-label="Contact" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
       <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">Une question&nbsp;? &middot; R&eacute;ponse sous 48h</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">Inscription &middot; Gratuit &middot; Sans engagement</span>
         </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">Une question<br><span style="color: #E0261F">avant de venir&nbsp;?</span></h2>
-        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Vous pr&eacute;f&eacute;rez qu&rsquo;on vous rappelle, ou vous avez une question sur les ateliers&nbsp;? Laissez-nous vos coordonn&eacute;es&nbsp;: on s&rsquo;occupe du reste. Sans engagement.</p>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">R&eacute;servez vos<br><span style="color: #E0261F">ateliers Portes Ouvertes</span></h2>
+        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Choisissez le ou les ateliers qui vous attirent &mdash; vous pouvez en r&eacute;server plusieurs, sur des cr&eacute;neaux diff&eacute;rents. On vous confirme votre place par email.</p>
         <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #F4F1EC">
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Gratuit et sans engagement</span></li>
-          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Vous vivez un v&eacute;ritable atelier</span></li>
-          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Conseil personnalis&eacute; sur le parcours adapt&eacute;</span></li>
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Plusieurs ateliers r&eacute;servables</span></li>
+          <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Vous vivez un v&eacute;ritable atelier, pas une visite</span></li>
         </ul>
         <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; margin-top: 12px"><img data-img="contact_scene" alt="Deux acteurs en travail de sc&egrave;ne, noir et blanc" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
       <div data-reveal>
-        <form id="contact-form" style="background: #141210; border: 1px solid rgba(244,241,236,0.12); border-radius: 28px; padding: 48px; display: flex; flex-direction: column; gap: 22px">
+        <form id="booking-form" style="background: #141210; border: 1px solid rgba(244,241,236,0.12); border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Vos ateliers &middot; choisissez un cr&eacute;neau</span>
+            <div id="booking-list" style="display: flex; flex-direction: column; gap: 12px"></div>
+            <div id="booking-recap" class="book-recap">Aucun atelier s&eacute;lectionn&eacute; pour l&rsquo;instant.</div>
+          </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
             <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Pr&eacute;nom
               <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
@@ -482,25 +497,17 @@
               <input name="telephone" type="tel" placeholder="06 12 34 56 78" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
           </div>
-          <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Je suis int&eacute;ress&eacute;(e) par
-            <select name="interet" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%; appearance: none" style-focus="border-color: #E0261F">
-              <option>Journ&eacute;es Portes Ouvertes</option>
-              <option>La formation annuelle</option>
-              <option>Un rendez-vous d&rsquo;information</option>
-              <option>Autre</option>
-            </select>
-          </label>
           <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
-            <textarea name="message" rows="4" placeholder="Parlez-nous de vous, de votre exp&eacute;rience, de vos envies&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
+            <textarea name="message" rows="3" placeholder="Une question, une pr&eacute;cision&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
           </label>
-          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je veux &ecirc;tre rappel&eacute;(e)</button>
+          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je r&eacute;serve mes ateliers</button>
           <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
         </form>
         <div id="contact-success" style="display:none">
           <div style="background: #141210; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
             <span style="font-family: 'Oswald', sans-serif; font-size: 56px; color: #E0261F; line-height: 1">&#10003;</span>
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Message envoy&eacute;&nbsp;!</h3>
-            <p style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 40ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h.</p>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Demande envoy&eacute;e&nbsp;!</h3>
+            <p id="success-recap" style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 42ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour confirmer votre place.</p>
           </div>
         </div>
       </div>
@@ -516,15 +523,14 @@
       </h2>
       <p data-reveal style="margin: 0; font-size: 19px; line-height: 1.7; color: #B7B0A6; max-width: 46ch">Ne restez pas &agrave; vous demander si vous &ecirc;tes fait pour &ccedil;a. Venez simplement le vivre, une demi-journ&eacute;e, gratuitement.</p>
       <div data-reveal style="display: flex; flex-direction: column; align-items: center; gap: 14px">
-        <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 44px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 44px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
         <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">Gratuit &middot; Sans engagement &middot; Une demi-journ&eacute;e</span>
-        <a href="#contact" style="font-size: 15px; color: #B7B0A6; text-decoration: underline" style-hover="color: #F4F1EC">Une question d&rsquo;abord&nbsp;? Faites-vous rappeler</a>
       </div>
     </div>
   </section>
 
   <!-- ============ CTA STICKY MOBILE ============ -->
-  <a href="https://www.methodacting.fr/journees-portes-ouvertes-method-acting/" target="_blank" rel="noopener" id="mobile-cta" style="display: none">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+  <a href="#contact" id="mobile-cta" style="display: none">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
 
 </div>
 <script>
@@ -568,6 +574,18 @@
     { quote: "Quelle école incroyable ! Formation et formateurs au top !", name: "Quentin B." },
     { quote: "The best experience ever! The best school in Paris…", name: "Jake F." },
     { quote: "Excellente école :) rien à dire, je recommande vivement !!", name: "Alix A." }
+  ];
+
+  /* ============================================================
+     ATELIERS JPO — ⚠️ remplacez les créneaux par vos vraies dates/heures.
+     Chaque atelier est réservable indépendamment ; plusieurs possibles.
+     ============================================================ */
+  var ATELIERS = [
+    { id:"emotionnel", emoji:"❤️", name:"Travail Émotionnel", slots:["Sam. 20 sept. · 10h–13h","Sam. 20 sept. · 14h–17h"] },
+    { id:"scene",      emoji:"🎭", name:"Travail de Scène",   slots:["Sam. 20 sept. · 14h–17h","Dim. 21 sept. · 10h–13h"] },
+    { id:"english",    emoji:"💬", name:"Acting in English",  slots:["Dim. 21 sept. · 10h–13h"] },
+    { id:"amateur",    emoji:"🌱", name:"Acting Amateur",     slots:["Dim. 21 sept. · 14h–17h"] },
+    { id:"impro",      emoji:"⚡",       name:"Improvisation",      slots:["Sam. 20 sept. · 10h–13h","Dim. 21 sept. · 14h–17h"] }
   ];
 
   var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
@@ -749,11 +767,37 @@
     layout(); restart();
   }
 
-  /* contact form */
-  function initForm(){
-    var form=document.getElementById("contact-form"), ok=document.getElementById("contact-success");
-    if(!form||!ok) return;
-    form.addEventListener("submit",function(e){ e.preventDefault(); form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); });
+  /* atelier booking form */
+  function initBooking(){
+    var form=document.getElementById("booking-form"), ok=document.getElementById("contact-success"),
+        list=document.getElementById("booking-list"), recap=document.getElementById("booking-recap"),
+        successRecap=document.getElementById("success-recap");
+    if(!form||!list) return;
+    list.innerHTML = ATELIERS.map(function(a){
+      var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
+      return '<div class="book-atelier">'+
+        '<span class="book-emoji">'+a.emoji+'</span>'+
+        '<span class="book-name">'+esc(a.name)+'</span>'+
+        '<select class="book-select" name="atelier_'+a.id+'" data-name="'+esc(a.name)+'">'+opts+'</select>'+
+        '</div>';
+    }).join("");
+    var selects=[].slice.call(list.querySelectorAll("select"));
+    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), slot:s.value};}); }
+    function updateRecap(){
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
+      recap.className="book-recap active";
+      recap.innerHTML=ch.length+" atelier"+(ch.length>1?"s":"")+" sélectionné"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · ");
+    }
+    selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
+    updateRecap();
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier et un créneau avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"")+" est bien reçue. Un membre de l’équipe vous recontacte sous 48h pour confirmer votre place."; }
+      form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
+    });
   }
 
   /* in-page anchor smooth scroll */
@@ -786,7 +830,7 @@
     update();
   }
 
-  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initProgram(); initJpo(); initReviews(); initForm(); initAnchors(); initMobileCta(); }
+  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initProgram(); initJpo(); initReviews(); initBooking(); initAnchors(); initMobileCta(); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 </script>

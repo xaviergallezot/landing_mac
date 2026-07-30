@@ -65,6 +65,16 @@
   #mac-landing .atelier-name { font-family:'Oswald',sans-serif; font-size:24px; text-transform:uppercase; margin:0; color:#14120F; line-height:1.1; }
   #mac-landing .atelier-card p { margin:0; font-size:15px; line-height:1.65; color:#6B655C; }
 
+  /* JPO booking form */
+  #mac-landing .book-atelier { display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#0B0A0A; border:1px solid rgba(244,241,236,0.15); border-radius:12px; padding:12px 14px; }
+  #mac-landing .book-emoji { font-size:20px; line-height:1; }
+  #mac-landing .book-name { font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#F4F1EC; flex:1 1 130px; }
+  #mac-landing .book-select { font-family:'Archivo',sans-serif; font-size:14px; background:#141210; border:1px solid rgba(244,241,236,0.18); border-radius:10px; color:#F4F1EC; padding:10px 12px; outline:none; flex:1 1 180px; max-width:100%; cursor:pointer; }
+  #mac-landing .book-select:focus { border-color:#E0261F; }
+  #mac-landing .book-recap { font-size:14px; line-height:1.5; color:#6B655C; padding:12px 14px; border:1px dashed rgba(244,241,236,0.18); border-radius:12px; }
+  #mac-landing .book-recap.active { color:#F4F1EC; border-style:solid; border-color:rgba(224,38,31,0.5); background:rgba(224,38,31,0.06); }
+  #mac-landing .book-recap.warn { color:#F4F1EC; border-style:solid; border-color:#E0261F; background:rgba(224,38,31,0.12); }
+
   @keyframes mac-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   @keyframes mac-pulse-dot { 0%,100% { opacity:1; } 50% { opacity:.35; } }
   @media (prefers-reduced-motion: reduce) { #mac-landing [style*="animation"], #mac-landing .rev-track { animation:none !important; transition:none !important; } }
