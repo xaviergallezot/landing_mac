@@ -14,9 +14,11 @@ __IMAGES__
      Ajoutez-en autant que vous voulez : le carrousel s'adapte.
      ============================================================ */
   var REVIEWS = [
-    { quote: "Quelle école incroyable ! Formation et formateurs au top !", name: "Quentin B." },
-    { quote: "The best experience ever! The best school in Paris…", name: "Jake F." },
-    { quote: "Excellente école :) rien à dire, je recommande vivement !!", name: "Alix A." }
+    { quote: "École très bienveillante, les coachs nous forment à la Méthode de l'Actors Studio. J'ai intégré la formation professionnelle suite aux portes ouvertes, et je suis très contente du contenu de la formation !", name: "Laure Delahaye" },
+    { quote: "Method Acting Center, c'est bien plus qu'une école. Les coachs sont d'excellents pédagogues, ils savent parfaitement nous aider à dépasser nos blocages grâce à la Méthode — et croyez-moi, ça marche ! Une formation qui conjugue exigence et bienveillance : foncez.", name: "Romain Devevey" },
+    { quote: "Cette formation est absolument géniale et les coachs nous apportent énormément à chaque cours. La Méthode est juste parfaite et permet de reprendre l'acting à la base pour construire son jeu étape par étape.", name: "Mathieu D." },
+    { quote: "J'ai cherché pendant 3 ans l'école qui me conviendrait. Ici j'ai trouvé une maison qui nous forge et nous nourrit, en naviguant entre notre sensibilité, la Méthode et la pratique !", name: "Cess Red" },
+    { quote: "Tout simplement l'école qui m'a fait découvrir l'acting en stage et tomber amoureux de la Méthode. Aujourd'hui en formation chez eux pour devenir acteur. Bienveillance et compétence — n'hésitez pas à venir tester !", name: "David Attias" }
   ];
 
   /* ============================================================
@@ -24,10 +26,10 @@ __IMAGES__
      Chaque atelier est réservable indépendamment ; plusieurs possibles.
      ============================================================ */
   var ATELIERS = [
-    { id:"emotionnel", emoji:"❤️", name:"Travail Émotionnel", slots:["Vendredi 11 sept. · 13h–15h","Samedi 12 sept. · 13h–15h","Dimanche 13 sept. · 15h30–17h30"] },
-    { id:"scene",      emoji:"🎭", name:"Travail de Scène",   slots:["Vendredi 11 sept. · 15h30–17h30","Samedi 12 sept. · 15h30–17h30","Dimanche 13 sept. · 13h–15h"] },
-    { id:"amateur",    emoji:"🌱", name:"Acting Amateur",     slots:["Vendredi 11 sept. · 18h–20h"] },
-    { id:"impro",      emoji:"⚡",       name:"Improvisation",      slots:["Samedi 12 sept. · 10h–12h"] }
+    { id:"emotionnel", name:"Faire jaillir de vraies émotions", slots:["Vendredi 11 sept. · 13h–15h","Samedi 12 sept. · 13h–15h","Dimanche 13 sept. · 15h30–17h30"] },
+    { id:"scene",      name:"Donner vie à un texte",           slots:["Vendredi 11 sept. · 15h30–17h30","Samedi 12 sept. · 15h30–17h30","Dimanche 13 sept. · 13h–15h"] },
+    { id:"amateur",    name:"Oser, vous libérer, vous révéler", slots:["Vendredi 11 sept. · 18h–20h"] },
+    { id:"impro",      name:"Gagner en spontanéité",           slots:["Samedi 12 sept. · 10h–12h"] }
   ];
 
   var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
@@ -218,7 +220,6 @@ __IMAGES__
     list.innerHTML = ATELIERS.map(function(a){
       var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
       return '<div class="book-atelier">'+
-        '<span class="book-emoji">'+a.emoji+'</span>'+
         '<span class="book-name">'+esc(a.name)+'</span>'+
         '<select class="book-select" name="atelier_'+a.id+'" data-name="'+esc(a.name)+'">'+opts+'</select>'+
         '</div>';

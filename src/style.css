@@ -56,7 +56,7 @@
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
   /* JPO atelier cards */
-  #mac-landing .atelier-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px),1fr)); gap:24px; }
+  #mac-landing .atelier-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:24px; }
   #mac-landing .atelier-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:32px 30px; display:flex; flex-direction:column; gap:14px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   #mac-landing .atelier-card:hover { transform:translateY(-4px); box-shadow:0 24px 48px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
   #mac-landing .atelier-head { display:flex; align-items:center; gap:12px; }

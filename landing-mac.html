@@ -67,7 +67,7 @@
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
   /* JPO atelier cards */
-  #mac-landing .atelier-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px),1fr)); gap:24px; }
+  #mac-landing .atelier-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:24px; }
   #mac-landing .atelier-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:32px 30px; display:flex; flex-direction:column; gap:14px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   #mac-landing .atelier-card:hover { transform:translateY(-4px); box-shadow:0 24px 48px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
   #mac-landing .atelier-head { display:flex; align-items:center; gap:12px; }
@@ -114,19 +114,15 @@
       <h1 data-reveal style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(48px, 7.5vw, 104px); line-height: 0.96; text-transform: uppercase; margin: 0; letter-spacing: 0.5px; max-width: 12ch">
         Vous voulez devenir <span style="color: transparent; -webkit-text-stroke: 2px #E0261F">acteur&nbsp;?</span>
       </h1>
-      <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap">
-        <div style="display: flex; flex-direction: column; gap: 22px; max-width: 58ch">
-          <p style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: clamp(22px, 2.6vw, 32px); text-transform: uppercase; margin: 0; color: #E0261F; letter-spacing: 1px">Commencez par venir la vivre.</p>
-          <p style="font-size: 19px; line-height: 1.7; color: #3B362F; margin: 0">
-            Depuis plus de 25&nbsp;ans, nous formons des g&eacute;n&eacute;rations d&rsquo;acteurs et d&rsquo;actrices &agrave; d&eacute;clencher de vraies &eacute;motions gr&acirc;ce &agrave; la <strong style="color: #14120F">M&eacute;thode Stanislavski</strong>, dont Method Acting Center est le descendant direct.
-          </p>
+      <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; flex-wrap: wrap">
+        <div style="display: flex; flex-direction: column; gap: 22px; flex: 1 1 440px; min-width: 300px; max-width: 64ch">
+          <p style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: clamp(22px, 2.6vw, 32px); text-transform: uppercase; margin: 0; color: #E0261F; letter-spacing: 1px">Commencez par apprendre &agrave; jouer vrai.</p>
+          <p style="font-size: 19px; line-height: 1.7; color: #3B362F; margin: 0">Depuis plus de 25&nbsp;ans, nous formons des g&eacute;n&eacute;rations d&rsquo;acteurs et d&rsquo;actrices &agrave; d&eacute;clencher de vraies &eacute;motions gr&acirc;ce &agrave; la <strong style="color: #14120F">M&eacute;thode Stanislavski</strong>, dont s&rsquo;est inspir&eacute; l&rsquo;Actors Studio.</p>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 14px">
-          <div style="display: flex; gap: 14px; flex-wrap: wrap">
-            <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
-            <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; display: inline-block; border: 1px solid rgba(20,18,15,0.3); transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">D&eacute;couvrir la M&eacute;thode</a>
-          </div>
-          <div style="display: flex; gap: 18px; flex-wrap: wrap; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C">
+        <div style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 auto; align-items: stretch">
+          <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
+          <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">D&eacute;couvrir la M&eacute;thode</a>
+          <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; margin-top: 2px">
             <span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; Une demi-journ&eacute;e</span>
           </div>
         </div>
@@ -234,39 +230,42 @@
 
   <!-- ============ JOURNEES PORTES OUVERTES (refonte) ============ -->
   <section id="jpo" data-screen-label="Journees Portes Ouvertes" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 56px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 56px">
 
-      <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 44ch">
+      <div data-reveal style="display: flex; flex-direction: column; gap: 22px">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
           <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Journ&eacute;es Portes Ouvertes &middot; 11&ndash;13 sept. 2026 &middot; Gratuit</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">D&eacute;couvrez la M&eacute;thode lors de nos <span style="color: #E0261F">Journ&eacute;es Portes Ouvertes</span></h2>
-        <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F; max-width: 62ch">Oubliez les simples visites d&rsquo;&eacute;cole. Des locaux, vous pourrez en voir partout. Chez Method Acting Center, nos portes ouvertes sont de v&eacute;ritables <strong style="color: #14120F">journ&eacute;es d&rsquo;atelier</strong>&nbsp;: pendant une demi-journ&eacute;e, vous ne visitez pas une &eacute;cole &mdash; vous <strong style="color: #14120F">testez directement notre p&eacute;dagogie</strong>, exercice apr&egrave;s exercice. Travail &eacute;motionnel, travail de sc&egrave;ne, improvisation&hellip; Des JPO immersives.</p>
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 19px; line-height: 1.75; color: #3B362F; max-width: 72ch">
+          <p style="margin: 0">Oubliez les simples visites d&rsquo;&eacute;cole. Des beaux locaux c&rsquo;est bien, mais des cours s&eacute;rieux c&rsquo;est mieux&nbsp;!</p>
+          <p style="margin: 0">Chez Method Acting Center, vous participez &agrave; de v&eacute;ritables <strong style="color: #14120F">ateliers immersifs</strong> pour d&eacute;couvrir notre p&eacute;dagogie en conditions r&eacute;elles.</p>
+        </div>
+        <p style="margin: 0; font-family: 'Oswald', sans-serif; font-size: clamp(18px, 2vw, 24px); text-transform: uppercase; font-weight: 600; color: #14120F">Trouvez les ateliers qui vous ressemblent&nbsp;:</p>
       </div>
 
-            <!-- ateliers a tester -->
-      <div data-reveal style="display: flex; flex-direction: column; gap: 30px">
-        <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(24px, 3vw, 38px); text-transform: uppercase; line-height: 1.05; margin: 0">Les ateliers que <span style="color: #E0261F">vous pourrez tester</span></h3>
+      <!-- ateliers a tester -->
+      <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
         <div class="atelier-grid">
           <div class="atelier-card" data-reveal>
-            <div class="atelier-head"><span class="atelier-emoji">❤️</span><span class="atelier-tag">Souvent le plus marquant</span></div>
-            <h4 class="atelier-name">Travail &Eacute;motionnel</h4>
+            <div class="atelier-head"><span class="atelier-tag">Travail &Eacute;motionnel</span></div>
+            <h4 class="atelier-name">Faire jaillir de vraies &eacute;motions</h4>
             <p>La base de l&rsquo;acting&nbsp;: creuser en soi, dans votre v&eacute;cu et votre imaginaire, pour faire surgir de vraies &eacute;motions. Bien guid&eacute;s, la plupart des d&eacute;butants sont surpris d&rsquo;y arriver &mdash; et on vous apprend aussi &agrave; redescendre une fois la sc&egrave;ne finie.</p>
           </div>
           <div class="atelier-card" data-reveal>
-            <div class="atelier-head"><span class="atelier-emoji">🎭</span><span class="atelier-tag">Le d&eacute;clic</span></div>
-            <h4 class="atelier-name">Travail de Sc&egrave;ne</h4>
+            <div class="atelier-head"><span class="atelier-tag">Travail de Sc&egrave;ne</span></div>
+            <h4 class="atelier-name">Donner vie &agrave; un texte</h4>
             <p>Donner vie &agrave; un texte sans jamais l&rsquo;apprendre par c&oelig;ur. Vous d&eacute;couvrez le sous-texte&nbsp;: en changeant les circonstances d&rsquo;une m&ecirc;me r&eacute;plique, vous entendez le ton, la diction et l&rsquo;&eacute;motion changer d&rsquo;eux-m&ecirc;mes.</p>
           </div>
           <div class="atelier-card" data-reveal>
-            <div class="atelier-head"><span class="atelier-emoji">🌱</span><span class="atelier-tag">Loisir &amp; h&eacute;sitants</span></div>
-            <h4 class="atelier-name">Acting Amateur</h4>
-            <p>Envie de vous faire plaisir, ou pas encore s&ucirc;r de vous lancer&nbsp;? Un atelier ludique d&eacute;di&eacute; au l&acirc;cher-prise&nbsp;: d&eacute;passer la peur du ridicule et oser se mettre en sc&egrave;ne. Beaucoup rejoignent ensuite la formation pro.</p>
+            <div class="atelier-head"><span class="atelier-tag">Atelier d&eacute;couverte</span></div>
+            <h4 class="atelier-name">Oser, vous lib&eacute;rer, vous r&eacute;v&eacute;ler</h4>
+            <p>Pas encore s&ucirc;r de vouloir vous lancer&nbsp;? Un atelier pour d&eacute;passer la peur du ridicule, vous lib&eacute;rer et r&eacute;v&eacute;ler votre potentiel. Beaucoup encha&icirc;nent ensuite sur la formation professionnelle.</p>
           </div>
           <div class="atelier-card" data-reveal>
-            <div class="atelier-head"><span class="atelier-emoji">⚡</span><span class="atelier-tag">L&acirc;cher-prise</span></div>
-            <h4 class="atelier-name">Improvisation</h4>
+            <div class="atelier-head"><span class="atelier-tag">Improvisation</span></div>
+            <h4 class="atelier-name">Gagner en spontan&eacute;it&eacute;</h4>
             <p>Spontan&eacute;it&eacute;, &eacute;coute, r&eacute;ceptivit&eacute;, r&eacute;activit&eacute;&nbsp;: vous testez diff&eacute;rentes situations d&rsquo;improvisation avec diff&eacute;rents partenaires de jeu.</p>
           </div>
         </div>
@@ -307,33 +306,15 @@
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
           <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Et apr&egrave;s&nbsp;? &middot; La formation annuelle</span>
         </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">L&agrave; o&ugrave; la Journ&eacute;e<br>Portes Ouvertes m&egrave;ne</h2>
-        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Pour celles et ceux qui veulent en faire leur m&eacute;tier, la M&eacute;thode se d&eacute;ploie sur un parcours complet. Rien &agrave; d&eacute;cider aujourd&rsquo;hui&nbsp;: on vous montre simplement o&ugrave; le chemin peut vous mener.</p>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">Pr&ecirc;t &agrave; construire<br>votre carri&egrave;re&nbsp;?</h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Pour celles et ceux qui veulent en faire leur m&eacute;tier, la M&eacute;thode se d&eacute;ploie sur un parcours complet.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 48px 40px">
-        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
-          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">Apprendre &agrave; jouer vrai</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">D&eacute;clenchez, ma&icirc;trisez et reproduisez vos &eacute;motions, jusqu&rsquo;&agrave; incarner des personnages toujours plus complexes.</p>
-        </div>
-        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
-          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">R&eacute;v&eacute;ler votre singularit&eacute;</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">Une m&eacute;thode de travail qui respecte votre personnalit&eacute; et vous rend progressivement autonome.</p>
-        </div>
-        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
-          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">Cr&eacute;er votre r&eacute;seau</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">Acteurs, sc&eacute;naristes et r&eacute;alisateurs collaborent sur des sc&egrave;nes, des tournages et des projets concrets.</p>
-        </div>
-        <div data-reveal style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid #E0261F; padding-top: 24px">
-          <h3 style="font-family: 'Oswald', sans-serif; font-size: 22px; text-transform: uppercase; margin: 0">Pr&eacute;parer vos castings</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #6B655C">Face cam&eacute;ra, tournages, et vos outils pour d&eacute;marcher&nbsp;: sc&egrave;nes film&eacute;es, book photo et bande d&eacute;mo.</p>
-        </div>
-      </div>
-
-      <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px">
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="formation_1" alt="Acteur en veste militaire, &eacute;motion intense, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="formation_2" alt="Deux acteurs au salut militaire, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
-        <div style="aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden"><img data-img="formation_3" alt="Sc&egrave;ne de tension sous lumi&egrave;re verte, spectacle 2024" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+      <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px 40px">
+        <div style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B362F"><strong style="color: #14120F">Apprendre &agrave; jouer vrai</strong> &mdash; d&eacute;clenchez, ma&icirc;trisez et reproduisez vos &eacute;motions.</p></div>
+        <div style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B362F"><strong style="color: #14120F">R&eacute;v&eacute;ler votre singularit&eacute;</strong> &mdash; une m&eacute;thode qui respecte votre personnalit&eacute; et vous rend autonome.</p></div>
+        <div style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B362F"><strong style="color: #14120F">Cr&eacute;er votre r&eacute;seau</strong> &mdash; acteurs, sc&eacute;naristes et r&eacute;alisateurs collaborent sur des projets concrets.</p></div>
+        <div style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3B362F"><strong style="color: #14120F">Pr&eacute;parer vos castings</strong> &mdash; sc&egrave;nes film&eacute;es, book photo et bande d&eacute;mo pour d&eacute;marcher.</p></div>
       </div>
 
       <div data-reveal style="background: #FFFFFF; border-radius: 28px; padding: clamp(32px, 4vw, 56px); display: flex; flex-direction: column; gap: 36px">
@@ -566,9 +547,11 @@
      Ajoutez-en autant que vous voulez : le carrousel s'adapte.
      ============================================================ */
   var REVIEWS = [
-    { quote: "Quelle école incroyable ! Formation et formateurs au top !", name: "Quentin B." },
-    { quote: "The best experience ever! The best school in Paris…", name: "Jake F." },
-    { quote: "Excellente école :) rien à dire, je recommande vivement !!", name: "Alix A." }
+    { quote: "École très bienveillante, les coachs nous forment à la Méthode de l'Actors Studio. J'ai intégré la formation professionnelle suite aux portes ouvertes, et je suis très contente du contenu de la formation !", name: "Laure Delahaye" },
+    { quote: "Method Acting Center, c'est bien plus qu'une école. Les coachs sont d'excellents pédagogues, ils savent parfaitement nous aider à dépasser nos blocages grâce à la Méthode — et croyez-moi, ça marche ! Une formation qui conjugue exigence et bienveillance : foncez.", name: "Romain Devevey" },
+    { quote: "Cette formation est absolument géniale et les coachs nous apportent énormément à chaque cours. La Méthode est juste parfaite et permet de reprendre l'acting à la base pour construire son jeu étape par étape.", name: "Mathieu D." },
+    { quote: "J'ai cherché pendant 3 ans l'école qui me conviendrait. Ici j'ai trouvé une maison qui nous forge et nous nourrit, en naviguant entre notre sensibilité, la Méthode et la pratique !", name: "Cess Red" },
+    { quote: "Tout simplement l'école qui m'a fait découvrir l'acting en stage et tomber amoureux de la Méthode. Aujourd'hui en formation chez eux pour devenir acteur. Bienveillance et compétence — n'hésitez pas à venir tester !", name: "David Attias" }
   ];
 
   /* ============================================================
@@ -576,10 +559,10 @@
      Chaque atelier est réservable indépendamment ; plusieurs possibles.
      ============================================================ */
   var ATELIERS = [
-    { id:"emotionnel", emoji:"❤️", name:"Travail Émotionnel", slots:["Vendredi 11 sept. · 13h–15h","Samedi 12 sept. · 13h–15h","Dimanche 13 sept. · 15h30–17h30"] },
-    { id:"scene",      emoji:"🎭", name:"Travail de Scène",   slots:["Vendredi 11 sept. · 15h30–17h30","Samedi 12 sept. · 15h30–17h30","Dimanche 13 sept. · 13h–15h"] },
-    { id:"amateur",    emoji:"🌱", name:"Acting Amateur",     slots:["Vendredi 11 sept. · 18h–20h"] },
-    { id:"impro",      emoji:"⚡",       name:"Improvisation",      slots:["Samedi 12 sept. · 10h–12h"] }
+    { id:"emotionnel", name:"Faire jaillir de vraies émotions", slots:["Vendredi 11 sept. · 13h–15h","Samedi 12 sept. · 13h–15h","Dimanche 13 sept. · 15h30–17h30"] },
+    { id:"scene",      name:"Donner vie à un texte",           slots:["Vendredi 11 sept. · 15h30–17h30","Samedi 12 sept. · 15h30–17h30","Dimanche 13 sept. · 13h–15h"] },
+    { id:"amateur",    name:"Oser, vous libérer, vous révéler", slots:["Vendredi 11 sept. · 18h–20h"] },
+    { id:"impro",      name:"Gagner en spontanéité",           slots:["Samedi 12 sept. · 10h–12h"] }
   ];
 
   var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
@@ -770,7 +753,6 @@
     list.innerHTML = ATELIERS.map(function(a){
       var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
       return '<div class="book-atelier">'+
-        '<span class="book-emoji">'+a.emoji+'</span>'+
         '<span class="book-name">'+esc(a.name)+'</span>'+
         '<select class="book-select" name="atelier_'+a.id+'" data-name="'+esc(a.name)+'">'+opts+'</select>'+
         '</div>';
