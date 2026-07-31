@@ -7,14 +7,14 @@ script  = open('script.js').read()
 
 # key, filename, label
 CONFIG = [
-  ('hero_1','hero-actrice-souriante.jpg','Héro · actrice souriante'),
-  ('hero_2','hero-jeu-face-camera.jpg','Héro · jeu face caméra'),
-  ('hero_3','hero-tournage-exterieur.jpg','Héro · tournage en extérieur'),
-  ('methode_1','methode-declencher.jpg','Méthode · scène de dîner (Déclencher)'),
-  ('methode_2','methode-maitriser.jpg','Méthode · face-à-face (Maîtriser)'),
-  ('methode_3','methode-reproduire.jpg','Méthode · sur le plateau (Reproduire)'),
-  ('stage_1','jpo-scene-rouge.jpg','JPO · acteur, lumière rouge'),
-  ('stage_2','jpo-emotion-plateau.jpg','JPO · acteur, émotion'),
+  ('hero_1','hero-jeu-face-camera.jpg','Héro · jeu face caméra'),
+  ('hero_2','hero-tournage-exterieur.jpg','Héro · tournage en extérieur'),
+  ('methode_1','methode-declencher.jpg','Méthode · émotion déclenchée (Déclencher)'),
+  ('methode_2','methode-maitriser.jpg','Méthode · émotion maîtrisée (Maîtriser)'),
+  ('methode_3','methode-reproduire.jpg','Méthode · jeu expressif (Reproduire)'),
+  ('stage_1','jpo-atelier-scene.jpg','JPO · atelier travail de scène'),
+  ('stage_2','jpo-atelier-echange.jpg','JPO · atelier, échange avec les coachs'),
+  ('stage_3','jpo-atelier-diner.jpg','JPO · atelier, scène de dîner'),
   ('film_proces_goldman','Le_Proces_Goldman_Affiche.webp','Affiche · Le Procès Goldman'),
   ('film_7_vies_lea','Les-7-vies-de-Lea_Raika_Hazanavicius.jpg','Affiche · Les 7 vies de Léa'),
   ('film_quantum_solace','Quantum-of-Solace-Olga-Kurylenko.jpg','Affiche · Quantum of Solace'),
@@ -28,7 +28,7 @@ CONFIG = [
 
 # validate content uses every key referenced by data-img and hero keys
 used = set(re.findall(r'data-img="([^"]+)"', content))
-hero_keys = {'hero_1','hero_2','hero_3'}
+hero_keys = {'hero_1','hero_2'}
 allkeys = {k for k,_,_ in CONFIG}
 missing = (used | hero_keys) - allkeys
 assert not missing, f'keys used but not in CONFIG: {missing}'
