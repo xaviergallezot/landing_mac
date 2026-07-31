@@ -77,14 +77,14 @@
   #mac-landing .atelier-card p { margin:0; font-size:15px; line-height:1.65; color:#6B655C; }
 
   /* JPO booking form */
-  #mac-landing .book-atelier { display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#0B0A0A; border:1px solid rgba(244,241,236,0.15); border-radius:12px; padding:12px 14px; }
+  #mac-landing .book-atelier { display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#F7F4EE; border:1px solid #EEE9DF; border-radius:12px; padding:12px 14px; }
   #mac-landing .book-emoji { font-size:20px; line-height:1; }
-  #mac-landing .book-name { font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#F4F1EC; flex:1 1 130px; }
-  #mac-landing .book-select { font-family:'Archivo',sans-serif; font-size:14px; background:#141210; border:1px solid rgba(244,241,236,0.18); border-radius:10px; color:#F4F1EC; padding:10px 12px; outline:none; flex:1 1 180px; max-width:100%; cursor:pointer; }
+  #mac-landing .book-name { font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:1px; text-transform:uppercase; color:#14120F; flex:1 1 130px; }
+  #mac-landing .book-select { font-family:'Archivo',sans-serif; font-size:14px; background:#FFFFFF; border:1px solid #D9D3C7; border-radius:10px; color:#14120F; padding:10px 12px; outline:none; flex:1 1 180px; max-width:100%; cursor:pointer; }
   #mac-landing .book-select:focus { border-color:#E0261F; }
-  #mac-landing .book-recap { font-size:14px; line-height:1.5; color:#6B655C; padding:12px 14px; border:1px dashed rgba(244,241,236,0.18); border-radius:12px; }
-  #mac-landing .book-recap.active { color:#F4F1EC; border-style:solid; border-color:rgba(224,38,31,0.5); background:rgba(224,38,31,0.06); }
-  #mac-landing .book-recap.warn { color:#F4F1EC; border-style:solid; border-color:#E0261F; background:rgba(224,38,31,0.12); }
+  #mac-landing .book-recap { font-size:14px; line-height:1.5; color:#6B655C; padding:12px 14px; border:1px dashed rgba(20,18,15,0.22); border-radius:12px; }
+  #mac-landing .book-recap.active { color:#14120F; border-style:solid; border-color:rgba(224,38,31,0.5); background:rgba(224,38,31,0.06); }
+  #mac-landing .book-recap.warn { color:#14120F; border-style:solid; border-color:#E0261F; background:rgba(224,38,31,0.10); }
 
   @keyframes mac-marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   @keyframes mac-pulse-dot { 0%,100% { opacity:1; } 50% { opacity:.35; } }
@@ -438,16 +438,16 @@
   </section>
 
   <!-- ============ CONTACT / RESERVATION ATELIERS ============ -->
-  <section id="contact" data-screen-label="Contact" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0">
+  <section id="contact" data-screen-label="Contact" style="background: #F7F4EE; color: #14120F; border-radius: 40px 40px 0 0">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px; align-items: start">
       <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #B7B0A6">Inscription &middot; Gratuit &middot; Sans engagement</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Inscription &middot; Gratuit &middot; Sans engagement</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 72px); text-transform: uppercase; line-height: 0.98; margin: 0">R&eacute;servez vos<br><span style="color: #E0261F">ateliers Portes Ouvertes</span></h2>
-        <p style="font-size: 18px; line-height: 1.7; color: #B7B0A6; margin: 0; max-width: 48ch">Choisissez le ou les ateliers qui vous attirent &mdash; vous pouvez en r&eacute;server plusieurs, sur des cr&eacute;neaux diff&eacute;rents. On vous confirme votre place par email.</p>
-        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #F4F1EC">
+        <p style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 48ch">Choisissez le ou les ateliers qui vous attirent &mdash; vous pouvez en r&eacute;server plusieurs, sur des cr&eacute;neaux diff&eacute;rents. On vous confirme votre place par email.</p>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 16px; color: #14120F">
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Gratuit et sans engagement</span></li>
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Plusieurs ateliers r&eacute;servables</span></li>
           <li style="display: flex; gap: 12px; align-items: baseline"><span style="color: #E0261F; font-weight: 700">&#10003;</span><span>Vous vivez un v&eacute;ritable atelier, pas une visite</span></li>
@@ -455,43 +455,43 @@
         <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; margin-top: 12px"><img data-img="contact_scene" alt="Deux acteurs en travail de sc&egrave;ne, noir et blanc" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
       <div data-reveal>
-        <form id="booking-form" style="background: #141210; border: 1px solid rgba(244,241,236,0.12); border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
+        <form id="booking-form" style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
           <div style="display: flex; flex-direction: column; gap: 12px">
-            <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Vos ateliers &middot; choisissez un cr&eacute;neau</span>
+            <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Vos ateliers &middot; choisissez un cr&eacute;neau</span>
             <div id="booking-list" style="display: flex; flex-direction: column; gap: 12px"></div>
             <div id="booking-recap" class="book-recap">Aucun atelier s&eacute;lectionn&eacute; pour l&rsquo;instant.</div>
           </div>
-          <label style="display: flex; gap: 12px; align-items: flex-start; cursor: pointer; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; padding: 14px 16px">
+          <label style="display: flex; gap: 12px; align-items: flex-start; cursor: pointer; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; padding: 14px 16px">
             <input type="checkbox" id="want-formation" name="formation_annuelle" style="margin-top: 3px; width: 18px; height: 18px; accent-color: #E0261F; flex: 0 0 auto">
-            <span style="font-size: 15px; line-height: 1.5; color: #B7B0A6">Je souhaite aussi <strong style="color: #F4F1EC">m&rsquo;inscrire &agrave; la formation annuelle</strong> (rentr&eacute;e 2026&ndash;2027, 100&nbsp;&euro; de remise).</span>
+            <span style="font-size: 15px; line-height: 1.5; color: #6B655C">Je souhaite aussi <strong style="color: #14120F">m&rsquo;inscrire &agrave; la formation annuelle</strong> (rentr&eacute;e 2026&ndash;2027, 100&nbsp;&euro; de remise).</span>
           </label>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
-            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Pr&eacute;nom
-              <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Pr&eacute;nom
+              <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
-            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Nom
-              <input name="nom" type="text" required placeholder="Votre nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Nom
+              <input name="nom" type="text" required placeholder="Votre nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
-            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Email
-              <input name="email" type="email" required placeholder="vous@exemple.fr" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Email
+              <input name="email" type="email" required placeholder="vous@exemple.fr" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
-            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">T&eacute;l&eacute;phone
-              <input name="telephone" type="tel" placeholder="06 12 34 56 78" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
+            <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">T&eacute;l&eacute;phone
+              <input name="telephone" type="tel" placeholder="06 12 34 56 78" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
             </label>
           </div>
-          <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #B7B0A6">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
-            <textarea name="message" rows="3" placeholder="Une question, une pr&eacute;cision&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #0B0A0A; border: 1px solid rgba(244,241,236,0.15); border-radius: 12px; color: #F4F1EC; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
+            <textarea name="message" rows="3" placeholder="Une question, une pr&eacute;cision&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
           </label>
-          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A">Je r&eacute;serve mes ateliers</button>
+          <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #14120F; color: #FFFFFF">Je r&eacute;serve mes ateliers</button>
           <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
         </form>
         <div id="contact-success" style="display:none">
-          <div style="background: #141210; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+          <div style="background: #FFFFFF; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
             <span style="font-family: 'Oswald', sans-serif; font-size: 56px; color: #E0261F; line-height: 1">&#10003;</span>
             <h3 style="font-family: 'Oswald', sans-serif; font-size: 28px; text-transform: uppercase; margin: 0">Demande envoy&eacute;e&nbsp;!</h3>
-            <p id="success-recap" style="margin: 0; font-size: 16px; color: #B7B0A6; max-width: 42ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour confirmer votre place.</p>
+            <p id="success-recap" style="margin: 0; font-size: 16px; color: #6B655C; max-width: 42ch; line-height: 1.6">Merci&nbsp;! Un membre de l&rsquo;&eacute;quipe vous recontacte sous 48h pour confirmer votre place.</p>
           </div>
         </div>
       </div>
