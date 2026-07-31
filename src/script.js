@@ -225,20 +225,31 @@ __IMAGES__
         '</div>';
     }).join("");
     var selects=[].slice.call(list.querySelectorAll("select"));
+    var formationCb=document.getElementById("want-formation");
     function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), slot:s.value};}); }
+    function wantsFormation(){ return !!(formationCb && formationCb.checked); }
     function updateRecap(){
-      var ch=chosen();
-      if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
+      var ch=chosen(), f=wantsFormation();
+      if(!ch.length && !f){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
       recap.className="book-recap active";
-      recap.innerHTML=ch.length+" atelier"+(ch.length>1?"s":"")+" sélectionné"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · ");
+      var parts=[];
+      if(ch.length) parts.push(ch.length+" atelier"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · "));
+      if(f) parts.push("<strong>Formation annuelle 2026–2027</strong>");
+      recap.innerHTML=parts.join("<br>");
     }
     selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
+    if(formationCb) formationCb.addEventListener("change",updateRecap);
     updateRecap();
     form.addEventListener("submit",function(e){
       e.preventDefault();
-      var ch=chosen();
-      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier et un créneau avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
-      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"")+" est bien reçue. Un membre de l’équipe vous recontacte sous 48h pour confirmer votre place."; }
+      var ch=chosen(), f=wantsFormation();
+      if(!ch.length && !f){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier, ou cochez la formation annuelle, avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(successRecap){
+        var msg=[];
+        if(ch.length) msg.push("votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":""));
+        if(f) msg.push("votre inscription à la formation annuelle");
+        successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu "+msg.join(" et ")+". Un membre de l’équipe vous recontacte sous 48h.";
+      }
       form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
     });
   }
@@ -258,11 +269,13 @@ __IMAGES__
   function initMobileCta(){
     var cta=document.getElementById("mobile-cta"); if(!cta) return;
     var contact=document.getElementById("contact");
+    var jpo=document.getElementById("jpo");
     var overContact=false;
     if("IntersectionObserver" in window && contact){
       new IntersectionObserver(function(en){ overContact=en[0].isIntersecting; update(); },{threshold:0.05}).observe(contact);
     }
     function update(){
+      if(jpo){ cta.setAttribute("href", jpo.getBoundingClientRect().bottom < window.innerHeight*0.5 ? "#contact" : "#jpo"); }
       var mobile=window.matchMedia("(max-width:760px)").matches;
       var scrolled=window.scrollY>window.innerHeight*0.6;
       if(mobile && scrolled && !overContact){ cta.style.display="block"; cta.style.opacity="1"; cta.style.transform="translateY(0)"; }
