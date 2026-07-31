@@ -7,19 +7,14 @@ script  = open('script.js').read()
 
 # key, filename, label
 CONFIG = [
-  ('hero_kramer','Kramer_Horizontal00086408_V1.jpg','Héro · actrice, intensité émotionnelle'),
-  ('hero_felure','Felure_Horizontal00086406_V1.jpg','Héro · actrice souriante, lumière chaude'),
-  ('hero_joseph','Joseph-Breaking-Bad.jpg','Héro · acteur au téléphone'),
-  ('hero_king','King_Horizontal00086407_V1.jpg','Héro · acteur en larmes'),
-  ('methode_1','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-3.jpg','Méthode · spectacle (rire)'),
-  ('methode_2','V1-0001_Antichrist_Screenshot_Horizontal00087169.jpg','Méthode · scène filmée'),
-  ('methode_3','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-272.jpg','Méthode · lumière rouge'),
-  ('stage_1','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-22.jpg','JPO · chemise & cravate'),
-  ('stage_2','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-98.jpg','JPO · costume, lumière bleue'),
-  ('stage_3','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-213.jpg','JPO · scène dramatique'),
-  ('formation_1','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-154.jpg','Formation · veste militaire'),
-  ('formation_2','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-163.jpg','Formation · salut militaire'),
-  ('formation_3','METHOD_ACTING_CENTER_Spectacle_Acting_2024_Photographe_Rami_Ghorra-269.jpg','Formation · lumière verte'),
+  ('hero_1','hero-actrice-souriante.jpg','Héro · actrice souriante'),
+  ('hero_2','hero-jeu-face-camera.jpg','Héro · jeu face caméra'),
+  ('hero_3','hero-tournage-exterieur.jpg','Héro · tournage en extérieur'),
+  ('methode_1','methode-declencher.jpg','Méthode · scène de dîner (Déclencher)'),
+  ('methode_2','methode-maitriser.jpg','Méthode · face-à-face (Maîtriser)'),
+  ('methode_3','methode-reproduire.jpg','Méthode · sur le plateau (Reproduire)'),
+  ('stage_1','jpo-scene-rouge.jpg','JPO · acteur, lumière rouge'),
+  ('stage_2','jpo-emotion-plateau.jpg','JPO · acteur, émotion'),
   ('film_proces_goldman','Le_Proces_Goldman_Affiche.webp','Affiche · Le Procès Goldman'),
   ('film_7_vies_lea','Les-7-vies-de-Lea_Raika_Hazanavicius.jpg','Affiche · Les 7 vies de Léa'),
   ('film_quantum_solace','Quantum-of-Solace-Olga-Kurylenko.jpg','Affiche · Quantum of Solace'),
@@ -33,7 +28,7 @@ CONFIG = [
 
 # validate content uses every key referenced by data-img and hero keys
 used = set(re.findall(r'data-img="([^"]+)"', content))
-hero_keys = {'hero_kramer','hero_felure','hero_joseph','hero_king'}
+hero_keys = {'hero_1','hero_2','hero_3'}
 allkeys = {k for k,_,_ in CONFIG}
 missing = (used | hero_keys) - allkeys
 assert not missing, f'keys used but not in CONFIG: {missing}'

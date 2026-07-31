@@ -32,7 +32,7 @@ __IMAGES__
     { id:"impro",      name:"Gagner en spontanéité",           slots:["Samedi 12 sept. · 10h–12h"] }
   ];
 
-  var HERO_KEYS = ["hero_kramer", "hero_felure", "hero_joseph", "hero_king"];
+  var HERO_KEYS = ["hero_1", "hero_2", "hero_3"];
 
   var PROGRAM = [
     { label: "1ère année", title: "Les bases de la Méthode", ateliers: [
