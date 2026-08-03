@@ -137,6 +137,22 @@ p{ margin:0; }
 .tag{ display:inline-block; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px;
   text-transform:uppercase; font-weight:600; color:var(--red); background:rgba(224,38,31,.08); padding:6px 12px; border-radius:999px; }
 
+/* ateliers JPO — segmentation par public (couleurs = légende du planning) */
+.atelier-group{ margin-top:56px; }
+.atelier-group:first-of-type{ margin-top:40px; }
+.atelier-head{ display:flex; align-items:flex-start; gap:16px; max-width:66ch; margin-bottom:26px; }
+.atelier-bar{ flex:0 0 4px; align-self:stretch; min-height:52px; border-radius:4px; background:var(--seg); }
+.atelier-label{ display:inline-block; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:13px; font-weight:600; color:var(--seg); }
+.atelier-head h3{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:clamp(21px,2vw,27px); margin:7px 0 0; color:#fff; }
+.atelier-head p{ color:var(--ondark-muted); margin-top:9px; font-size:15px; line-height:1.6; }
+.atelier-cards{ display:flex; flex-wrap:wrap; gap:24px; }
+.atelier-cards > .card{ position:relative; flex:1 1 300px; max-width:460px; }
+.atelier-cards > .card::before{ content:""; position:absolute; left:-1px; right:-1px; top:-1px; height:3px; border-radius:var(--radius) var(--radius) 0 0; background:var(--seg); }
+@media (max-width:680px){ .atelier-cards > .card{ max-width:none; } }
+.atelier-cards .tag{ color:var(--seg); background:rgba(255,255,255,.06); }
+.slot-pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.slot-pill{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--ondark); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:5px 11px; white-space:nowrap; }
+
 /* parcours card (accueil) */
 .parcours{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:16px; min-height:300px; }
 .parcours .media{ aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:linear-gradient(135deg,#14120F,#2B2622); }

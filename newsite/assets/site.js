@@ -73,6 +73,7 @@
   var JPO_ATELIERS = [
     { id:"emotionnel",   name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                     slots:["Ven. 11 · 13h–15h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
     { id:"scene",        name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                       slots:["Ven. 11 · 15h30–17h30","Sam. 12 · 15h30–17h30","Dim. 13 · 13h–15h"] },
+    { id:"impro",        name:"Inventer dans l'instant",          tech:"Acting · Improvisation",                          slots:["Sam. 12 · 10h–12h"] },
     { id:"amateur",      name:"Oser, vous libérer, vous révéler", tech:"Acting Amateur",                                  slots:["Ven. 11 · 18h–20h"] },
     { id:"srda",         name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs",     slots:["Ven. 11 · 18h–20h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
     { id:"english",      name:"Jouer vrai, en anglais",           tech:"Acting in English",                               slots:["Sam. 12 · 18h–20h","Dim. 13 · 13h–15h"] },
