@@ -1,8 +1,7 @@
-<!-- Method Acting Center — Page de maintenance (autonome).
+<!-- Method Acting Center — Page de maintenance (autonome, sans menu).
      LOGO : déposez votre logo nommé "logo.png" dans le même dossier que ce fichier
-            (ou envoyez son URL pour l'intégrer directement).
-     LIENS DU MENU : par défaut -> accueil, sauf "Journées Portes Ouvertes" -> /jpo.
-                     Remplacez les href="https://www.methodacting.fr/" par les vraies URL si besoin. -->
+            (ou envoyez son URL pour l'intégrer directement). S'il est absent, il est
+            simplement masqué et le nom "Method Acting Center" reste affiché. -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,49 +14,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:wght@0,400;0,500&display=swap" rel="stylesheet">
 <style>
-  :root{ --cream:#F7F4EE; --ink:#14120F; --red:#E0261F; --muted:#6B655C; --line:#e8e2d6; --brk:1180px; }
+  :root{ --cream:#F7F4EE; --ink:#14120F; --red:#E0261F; --muted:#6B655C; --line:#e8e2d6; }
   *,*::before,*::after{ box-sizing:border-box; }
   html,body{ margin:0; height:100%; }
   body{ background:var(--cream); color:var(--ink); font-family:'Archivo',Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; min-height:100%; }
-  h1,.brand-txt,.mainmenu a,.btn,.sign,.kicker,footer.mini{ font-family:'Oswald',sans-serif; text-transform:uppercase; }
-
-  /* ---- Header blanc (style site actuel) ---- */
-  header.bar{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--line); }
-  .bar-in{ max-width:1600px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
-  .logo{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); flex:0 0 auto; }
-  .logo img{ height:52px; width:auto; display:block; }
-  .brand-txt{ font-weight:700; letter-spacing:1px; font-size:15px; line-height:1.05; color:var(--ink); }
-  .brand-txt small{ display:block; font-size:9px; letter-spacing:3px; color:var(--muted); font-weight:500; }
-
-  /* menu principal (horizontal desktop) */
-  .mainmenu{ display:flex; align-items:center; gap:15px; flex-wrap:wrap; justify-content:flex-end; }
-  .mainmenu a{ position:relative; color:var(--ink); text-decoration:none; font-size:12.5px; font-weight:600;
-    letter-spacing:.2px; white-space:nowrap; padding:6px 0; }
-  .mainmenu a .caret{ margin-left:4px; }
-  .mainmenu a:hover{ color:var(--red); }
-  .mainmenu a .caret{ font-size:10px; margin-left:5px; color:var(--muted); }
-
-  /* burger (mobile) */
-  .burger{ display:none; background:none; border:none; cursor:pointer; padding:8px; flex:0 0 auto; }
-  .burger span{ display:block; width:28px; height:3px; background:var(--ink); border-radius:2px; margin:5px 0; transition:.25s; }
-  .burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
-  .burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-  .burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
-
-  @media (max-width:1439px){
-    .burger{ display:block; }
-    .mainmenu{ position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid var(--line);
-      box-shadow:0 24px 40px rgba(20,18,15,.12); flex-direction:column; align-items:stretch; gap:0; justify-content:flex-start;
-      padding:6px 24px 22px; display:none; }
-    .mainmenu.open{ display:flex; }
-    .mainmenu a{ padding:16px 2px; border-bottom:1px solid var(--line); font-size:16px; white-space:normal; }
-    .mainmenu a:last-child{ border-bottom:none; }
-  }
+  h1,.btn,.sign,.kicker,footer.mini{ font-family:'Oswald',sans-serif; text-transform:uppercase; }
 
   /* ---- Contenu ---- */
   main{ flex:1; display:flex; align-items:center; justify-content:center; padding:56px 22px; }
   .card{ max-width:680px; width:100%; text-align:center; }
+  .brand-logo{ height:66px; width:auto; display:block; margin:0 auto 26px; }
   .kicker{ font-size:13px; letter-spacing:3px; color:var(--muted); }
   .kicker::before,.kicker::after{ content:"—"; color:var(--red); margin:0 10px; }
   h1{ font-size:clamp(36px,6vw,64px); line-height:1.02; margin:18px 0 0; font-weight:700; }
@@ -75,29 +42,9 @@
 </style>
 </head>
 <body>
-  <header class="bar">
-    <div class="bar-in">
-      <a class="logo" href="https://www.methodacting.fr/">
-        <img src="logo.png" alt="Method Acting Center" onerror="this.style.display='none';document.getElementById('brandtxt').style.display='block';">
-        <span class="brand-txt" id="brandtxt" style="display:none">Method Acting Center<small>Theatre &amp; Cinema</small></span>
-      </a>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="mainmenu" id="menu" aria-label="Menu principal">
-        <a href="https://www.methodacting.fr/">Formations <span class="caret">&#9662;</span></a>
-        <a href="https://www.methodacting.fr/jpo">Journées Portes Ouvertes</a>
-        <a href="https://www.methodacting.fr/">Books Photos, Bandes Démos</a>
-        <a href="https://www.methodacting.fr/">Stages <span class="caret">&#9662;</span></a>
-        <a href="https://www.methodacting.fr/">Plannings &amp; Tarifs <span class="caret">&#9662;</span></a>
-        <a href="https://www.methodacting.fr/">Inscriptions &amp; Contact <span class="caret">&#9662;</span></a>
-        <a href="https://www.methodacting.fr/">English Program</a>
-      </nav>
-    </div>
-  </header>
-
   <main>
     <div class="card">
+      <img class="brand-logo" src="logo.png" alt="Method Acting Center" onerror="this.remove()">
       <p class="kicker">Method Acting Center</p>
       <h1>Site en <span class="r">maintenance</span></h1>
       <p class="lead">Merci de vous référer à la page d&rsquo;accueil, ou de cliquer sur les parcours d&rsquo;inscription ci-dessous. Nous revenons très vite avec un nouveau site web, plus adapté.</p>
@@ -110,18 +57,5 @@
   </main>
 
   <footer class="mini">Method Acting Center &middot; Paris &middot; Theatre &amp; Cinema</footer>
-
-  <script>
-    (function(){
-      var b=document.getElementById('burger'), m=document.getElementById('menu');
-      b.addEventListener('click', function(){
-        var open=m.classList.toggle('open');
-        b.setAttribute('aria-expanded', open?'true':'false');
-      });
-      document.addEventListener('click', function(e){
-        if(window.innerWidth<=1439 && !m.contains(e.target) && !b.contains(e.target)){ m.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
-      });
-    })();
-  </script>
 </body>
 </html>
