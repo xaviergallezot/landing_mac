@@ -1,17 +1,43 @@
 #!/usr/bin/env python3
-# Assemble le site v2 : head + header + <contenu page> + footer -> dist/
-import os, shutil
+# Assemble le site v2 en pages AUTONOMES : head + header + <contenu> + footer,
+# avec CSS, JS et images INTÉGRÉS dans chaque fichier (aucun dossier assets requis).
+import os, re, shutil, base64
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(HERE, "dist")
+IMGDIR = os.path.join(HERE, "assets", "img")
 
 def read(*parts): return open(os.path.join(HERE, *parts), encoding="utf-8").read()
 
 HEAD   = read("partials", "head.html")
 HEADER = read("partials", "header.html")
 FOOTER = read("partials", "footer.html")
+CSS    = read("assets", "style.css")
+JS     = read("assets", "site.js")
 
-# slug, chemin de sortie, prefixe racine, titre, description
+MIME = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp"}
+
+def img_data_uri(name):
+    path = os.path.join(IMGDIR, name)
+    ext = name.rsplit(".", 1)[-1].lower()
+    b64 = base64.b64encode(open(path, "rb").read()).decode()
+    return "data:%s;base64,%s" % (MIME[ext], b64)
+
+def inline(page):
+    # CSS externe -> <style> intégré
+    page = re.sub(r'<link rel="stylesheet" href="[^"]*assets/style\.css">',
+                  "<style>\n" + CSS + "\n</style>", page)
+    # JS externe -> <script> intégré
+    page = re.sub(r'<script src="[^"]*assets/site\.js"></script>',
+                  "<script>\n" + JS + "\n</script>", page)
+    # images -> data URI base64
+    def repl(m):
+        name = m.group(1)
+        return 'src="' + img_data_uri(name) + '"'
+    page = re.sub(r'src="[^"]*assets/img/([^"]+)"', repl, page)
+    return page
+
+# slug, chemin de sortie, prefixe racine (nav entre pages), titre, description
 PAGES = [
     ("index",       "index.html",             "",     "Method Acting Center — Devenir Acteur, Scénariste ou Réalisateur à Paris",
      "École de cinéma à Paris depuis 1999 : formations Acteur, Scénariste et Réalisateur autour de la Méthode (Stanislavski / Actors Studio)."),
@@ -32,23 +58,24 @@ PAGES = [
 def build():
     if os.path.isdir(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
-    # assets
-    shutil.copytree(os.path.join(HERE, "assets"), os.path.join(DIST, "assets"))
     for slug, out, root, title, desc in PAGES:
         body = read("pages", slug + ".html")
         page = HEAD + HEADER + body + FOOTER
         page = (page.replace("{{ROOT}}", root)
                     .replace("{{TITLE}}", title)
                     .replace("{{DESC}}", desc))
+        page = inline(page)
         dest = os.path.join(DIST, out)
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         open(dest, "w", encoding="utf-8").write(page)
         print("  ", out, "(", len(page)//1024, "KB )")
-    # garde-fou : aucun placeholder non résolu
+    # garde-fous
     for _, out, *_ in PAGES:
         c = open(os.path.join(DIST, out), encoding="utf-8").read()
         assert "{{" not in c, "placeholder non résolu dans " + out
-    print("OK — site généré dans dist/ (", len(PAGES), "pages )")
+        assert "assets/style.css" not in c, "CSS non intégré dans " + out
+        assert "assets/img/" not in c, "image non intégrée dans " + out
+    print("OK — site autonome généré dans dist/ (", len(PAGES), "pages, CSS+JS+images intégrés )")
 
 if __name__ == "__main__":
     build()
