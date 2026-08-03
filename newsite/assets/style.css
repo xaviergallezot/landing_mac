@@ -150,8 +150,6 @@ p{ margin:0; }
 .atelier-cards > .card::before{ content:""; position:absolute; left:-1px; right:-1px; top:-1px; height:3px; border-radius:var(--radius) var(--radius) 0 0; background:var(--seg); }
 @media (max-width:680px){ .atelier-cards > .card{ max-width:none; } }
 .atelier-cards .tag{ color:var(--seg); background:rgba(255,255,255,.06); }
-.slot-pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
-.slot-pill{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.5px; text-transform:uppercase; color:var(--ondark); background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:5px 11px; white-space:nowrap; }
 
 /* parcours card (accueil) */
 .parcours{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:16px; min-height:300px; }
@@ -277,10 +275,10 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 
 /* ===== Formulaire d'inscription (ateliers) ===== */
 .book-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:var(--cream); border:1px solid var(--line);
-  border-radius:12px; padding:12px 14px; }
+  border-left:4px solid var(--seg,var(--red)); border-radius:12px; padding:12px 14px; }
 .book-name{ flex:1 1 210px; display:flex; flex-direction:column; gap:2px; }
 .book-name strong{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:14px; color:var(--ink); line-height:1.15; }
-.book-cat{ font-size:11px; color:var(--red); font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase; }
+.book-cat{ font-size:11px; color:var(--seg,var(--red)); font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase; }
 .book-select{ flex:1 1 210px; max-width:100%; font-family:'Archivo',sans-serif; font-size:15px; background:#fff;
   border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 12px; cursor:pointer; }
 .book-select:focus{ border-color:var(--red); outline:none; }
