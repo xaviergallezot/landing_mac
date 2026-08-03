@@ -1,0 +1,63 @@
+<!-- ================= CONTACT ================= -->
+<section class="hero">
+  <div class="container">
+    <div data-reveal style="max-width:60ch">
+      <span class="kicker">Contact</span>
+      <h1 class="h-lg">Parlons de<br>votre <span class="outline">projet.</span></h1>
+      <p class="lead mt-m">Une question sur le parcours Acteur, Scénariste ou Réalisateur&nbsp;? Envie de nous présenter un projet&nbsp;? Écrivez-nous&nbsp;: on vous répond sous 48h.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container split" style="align-items:start">
+    <div data-reveal class="stack gap-m">
+      <div>
+        <h3 class="h-sm">Nous joindre</h3>
+        <ul class="checklist mt-m">
+          <li><strong>Email</strong> — <a href="mailto:contact@methodacting.fr">contact@methodacting.fr</a> <span class="todo">à vérifier</span></li>
+          <li><strong>Téléphone</strong> — 01 00 00 00 00 <span class="todo">à compléter</span></li>
+          <li><strong>Adresse</strong> — Paris 13ᵉ <span class="todo">adresse exacte à compléter</span></li>
+        </ul>
+      </div>
+      <div class="card" style="padding:26px 28px">
+        <h4 class="h-sm">Envie de tester d&rsquo;abord&nbsp;?</h4>
+        <p class="mt-s" style="color:var(--muted)">Vivez un vrai atelier lors d&rsquo;une Journée Portes Ouvertes, gratuitement.</p>
+        <div class="btn-row mt-m"><a class="btn btn-red" href="/jpo/">Réserver ma place</a></div>
+      </div>
+    </div>
+
+    <div data-reveal>
+      <form id="contact-form" class="form">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field-2">
+          <div class="field"><label>Prénom</label><input type="text" name="prenom" required placeholder="Votre prénom"></div>
+          <div class="field"><label>Nom</label><input type="text" name="nom" required placeholder="Votre nom"></div>
+        </div>
+        <div class="field-2">
+          <div class="field"><label>Email</label><input type="email" name="email" required placeholder="vous@exemple.fr"></div>
+          <div class="field"><label>Téléphone</label><input type="tel" name="telephone" placeholder="06 12 34 56 78"></div>
+        </div>
+        <div class="field">
+          <label>Parcours qui vous intéresse</label>
+          <select name="parcours">
+            <option value="">— Indifférent / autre —</option>
+            <option>Acteur</option>
+            <option>Scénariste</option>
+            <option>Réalisateur</option>
+            <option>Journées Portes Ouvertes</option>
+          </select>
+        </div>
+        <div class="field"><label>Message</label><textarea name="message" rows="4" required placeholder="Votre question, votre projet…"></textarea></div>
+        <div id="contact-error" class="note" style="display:none; color:var(--red)">L&rsquo;envoi a échoué. Vérifiez votre connexion et réessayez dans un instant.</div>
+        <button type="submit" class="btn btn-red" style="width:100%">Envoyer mon message</button>
+        <p class="form-note">En envoyant ce formulaire, vous acceptez d&rsquo;être recontacté(e) par Method Acting Center. Vos données ne sont jamais partagées.</p>
+      </form>
+      <div id="contact-success" class="form-success" style="display:none">
+        <div class="big">&#10003;</div>
+        <h3 class="h-sm mt-s">Message envoyé&nbsp;!</h3>
+        <p class="mt-s" style="color:var(--muted)">Merci&nbsp;! Un membre de l&rsquo;équipe vous recontacte sous 48h.</p>
+      </div>
+    </div>
+  </div>
+</section>
