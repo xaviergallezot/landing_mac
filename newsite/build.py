@@ -53,6 +53,8 @@ PAGES = [
      "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée."),
     ("planning",    "planning/index.html",    "../",  "Planning — Method Acting Center Paris",
      "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center."),
+    ("avis",        "avis/index.html",        "../",  "Avis Google — Method Acting Center Paris",
+     "Les avis Google des élèves du Method Acting Center : acteurs, scénaristes et réalisateurs. Note 4,8/5."),
 ]
 
 def build():

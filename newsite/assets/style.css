@@ -188,6 +188,29 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .footer-bottom{ border-top:1px solid rgba(244,241,236,.12); margin-top:44px; padding-top:24px;
   display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; color:var(--ondark-muted); font-size:13px; }
 
+/* ===== Avis Google ===== */
+.review{ display:flex; flex-direction:column; gap:14px; height:100%; }
+.review .stars{ color:#F5B301; letter-spacing:2px; font-size:15px; }
+.review .quote{ font-size:15.5px; line-height:1.65; color:var(--ink); margin:0; }
+.review .who{ display:flex; align-items:center; gap:12px; margin-top:auto; padding-top:4px; }
+.review .avatar{ width:44px; height:44px; border-radius:999px; background:var(--red); color:#fff;
+  font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+.review .name{ font-weight:600; color:var(--ink); font-size:15px; line-height:1.2; }
+.review .src{ font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:5px; }
+.review .g{ font-weight:700; }
+.review .g b:nth-child(1){ color:#4285F4; } .review .g b:nth-child(2){ color:#EA4335; }
+.review .g b:nth-child(3){ color:#FBBC05; } .review .g b:nth-child(4){ color:#4285F4; }
+.review .g b:nth-child(5){ color:#34A853; } .review .g b:nth-child(6){ color:#EA4335; }
+/* mosaïque (page avis) */
+.masonry{ column-count:3; column-gap:24px; }
+.masonry .card{ break-inside:avoid; margin:0 0 24px; display:inline-block; width:100%; }
+@media (max-width:900px){ .masonry{ column-count:2; } }
+@media (max-width:600px){ .masonry{ column-count:1; } }
+.rating-badge{ display:inline-flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:12px 22px; }
+.rating-badge .score{ font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; }
+.rating-badge .stars{ color:#F5B301; letter-spacing:2px; }
+
 /* reveal on scroll */
 [data-reveal]{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
 [data-reveal].in{ opacity:1; transform:none; }

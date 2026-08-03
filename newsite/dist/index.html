@@ -199,6 +199,29 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .footer-bottom{ border-top:1px solid rgba(244,241,236,.12); margin-top:44px; padding-top:24px;
   display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; color:var(--ondark-muted); font-size:13px; }
 
+/* ===== Avis Google ===== */
+.review{ display:flex; flex-direction:column; gap:14px; height:100%; }
+.review .stars{ color:#F5B301; letter-spacing:2px; font-size:15px; }
+.review .quote{ font-size:15.5px; line-height:1.65; color:var(--ink); margin:0; }
+.review .who{ display:flex; align-items:center; gap:12px; margin-top:auto; padding-top:4px; }
+.review .avatar{ width:44px; height:44px; border-radius:999px; background:var(--red); color:#fff;
+  font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+.review .name{ font-weight:600; color:var(--ink); font-size:15px; line-height:1.2; }
+.review .src{ font-size:12.5px; color:var(--muted); display:flex; align-items:center; gap:5px; }
+.review .g{ font-weight:700; }
+.review .g b:nth-child(1){ color:#4285F4; } .review .g b:nth-child(2){ color:#EA4335; }
+.review .g b:nth-child(3){ color:#FBBC05; } .review .g b:nth-child(4){ color:#4285F4; }
+.review .g b:nth-child(5){ color:#34A853; } .review .g b:nth-child(6){ color:#EA4335; }
+/* mosaïque (page avis) */
+.masonry{ column-count:3; column-gap:24px; }
+.masonry .card{ break-inside:avoid; margin:0 0 24px; display:inline-block; width:100%; }
+@media (max-width:900px){ .masonry{ column-count:2; } }
+@media (max-width:600px){ .masonry{ column-count:1; } }
+.rating-badge{ display:inline-flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line);
+  border-radius:999px; padding:12px 22px; }
+.rating-badge .score{ font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; }
+.rating-badge .stars{ color:#F5B301; letter-spacing:2px; }
+
 /* reveal on scroll */
 [data-reveal]{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
 [data-reveal].in{ opacity:1; transform:none; }
@@ -225,6 +248,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         <a class="navlink" href="realisateur/">Réalisateur</a>
         <a class="navlink" href="tarifs/">Tarifs</a>
         <a class="navlink" href="planning/">Planning</a>
+        <a class="navlink" href="avis/">Avis</a>
       </div>
       <div class="nav-cta">
         <a class="btn btn-red" href="contact/">Contact</a>
@@ -337,19 +361,37 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 <!-- Avis -->
 <section class="section" style="padding-top:0">
   <div class="container">
-    <div data-reveal><span class="kicker">Ils l&rsquo;ont vécu</span><h2 class="h-md">4,8/5 sur Google</h2></div>
-    <div class="grid grid-2 mt-l">
-      <div class="card" data-reveal>
-        <p style="color:#F5B301; letter-spacing:2px">★★★★★</p>
-        <p style="font-size:18px; color:var(--ink); line-height:1.6">« École très bienveillante, les coachs nous forment à la Méthode de l&rsquo;Actors Studio. J&rsquo;ai intégré la formation professionnelle suite aux portes ouvertes, très contente du contenu&nbsp;! »</p>
-        <p style="color:var(--muted); font-weight:600">Laure Delahaye <span style="font-weight:400">· Avis Google</span></p>
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px">
+      <div><span class="kicker">Ils l&rsquo;ont vécu</span><h2 class="h-md">Ce qu&rsquo;on dit de nous</h2></div>
+      <span class="rating-badge"><span class="score">4,8/5</span><span class="stars">★★★★★</span><span style="color:var(--muted);font-size:14px">sur Google</span></span>
+    </div>
+    <div class="grid grid-3 mt-l">
+      <div class="card review" data-reveal><div class="stars">★★★★★</div>
+        <p class="quote">Depuis 3 ans dans cette école. J&rsquo;ai appris beaucoup de choses, l&rsquo;ambiance est super. Les coachs sont très pédagogues. Je recommande&nbsp;!!</p>
+        <div class="who"><div class="avatar">J</div><div><div class="name">Jeremy JG</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 2 mois</div></div></div>
       </div>
-      <div class="card" data-reveal>
-        <p style="color:#F5B301; letter-spacing:2px">★★★★★</p>
-        <p style="font-size:18px; color:var(--ink); line-height:1.6">« Bien plus qu&rsquo;une école. Les coachs savent nous aider à dépasser nos blocages grâce à la Méthode. Une formation qui conjugue exigence et bienveillance&nbsp;: foncez. »</p>
-        <p style="color:var(--muted); font-weight:600">Romain Devevey <span style="font-weight:400">· Avis Google</span></p>
+      <div class="card review" data-reveal><div class="stars">★★★★★</div>
+        <p class="quote">Excellente école pour devenir acteur, scénariste ou réalisateur au cinéma. Les coachs sont très humains. Je recommande vivement&nbsp;!</p>
+        <div class="who"><div class="avatar">Z</div><div><div class="name">Zina Boushih</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; Local Guide</div></div></div>
+      </div>
+      <div class="card review" data-reveal><div class="stars">★★★★★</div>
+        <p class="quote">Tout simplement l&rsquo;école qui m&rsquo;a fait découvrir l&rsquo;acting en stage et tomber amoureux de la Méthode. Aujourd&rsquo;hui en formation chez eux. Bienveillance et compétence&nbsp;!</p>
+        <div class="who"><div class="avatar">D</div><div><div class="name">David Attias</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; Local Guide</div></div></div>
+      </div>
+      <div class="card review" data-reveal><div class="stars">★★★★★</div>
+        <p class="quote">Je suis la formation complète en anglais et je suis absolument ravie&nbsp;! Les professeurs sont compétents, à l&rsquo;écoute et bienveillants. Une formation bien pensée et complète.</p>
+        <div class="who"><div class="avatar">L</div><div><div class="name">Lauren Bruls</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 3 ans</div></div></div>
+      </div>
+      <div class="card review" data-reveal><div class="stars">★★★★★</div>
+        <p class="quote">Les coachs sont à l&rsquo;écoute et savent pousser chaque élève à progresser à son rythme. Chaque cours est un vrai moment de découverte. Je recommande vivement&nbsp;!</p>
+        <div class="who"><div class="avatar">R</div><div><div class="name">Ramy Nekk</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a un an</div></div></div>
+      </div>
+      <div class="card review" data-reveal><div class="stars">★★★★★</div>
+        <p class="quote">Cette formation est absolument géniale, les coachs nous apportent énormément. La Méthode est parfaite et permet de reprendre l&rsquo;acting à la base, étape par étape.</p>
+        <div class="who"><div class="avatar">M</div><div><div class="name">Mathieu D.</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 2 ans</div></div></div>
       </div>
     </div>
+    <div class="center mt-l" data-reveal><a class="btn btn-outline" href="avis/">Voir tous les avis</a></div>
   </div>
 </section>
 
@@ -379,6 +421,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         <h4>Le centre</h4>
         <a href="tarifs/">Tarifs</a>
         <a href="planning/">Planning</a>
+        <a href="avis/">Avis</a>
         <a href="contact/">Contact</a>
         <a href="/jpo/">Journées Portes Ouvertes</a>
       </div>
