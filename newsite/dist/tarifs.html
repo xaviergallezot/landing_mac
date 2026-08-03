@@ -162,7 +162,7 @@ p{ margin:0; }
 /* feature list */
 .checklist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
 .checklist li{ position:relative; padding-left:26px; font-size:16px; line-height:1.6; }
-.checklist li::before{ content:"¹3"; color:var(--red); font-weight:700; position:absolute; left:0; top:0; }
+.checklist li::before{ content:"\2713"; color:var(--red); font-weight:700; position:absolute; left:0; top:0; }
 .section--dark .checklist li, .section--ink .checklist li{ color:var(--ondark); }
 
 /* split media/text */
@@ -239,6 +239,47 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .rating-badge .score{ font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; }
 .rating-badge .stars{ color:#F5B301; letter-spacing:2px; }
 
+/* ===== Bandeau d'annonce JPO ===== */
+.annce{ background:var(--red); color:#fff; text-align:center; font-family:'Oswald',sans-serif; text-transform:uppercase;
+  letter-spacing:1px; font-size:13.5px; padding:9px 16px; line-height:1.4; }
+.annce a{ color:#fff; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+.annce a:hover{ color:#fff; opacity:.85; }
+
+/* ===== Badge date ===== */
+.date-badge{ display:inline-block; font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(19px,2.4vw,28px);
+  letter-spacing:1px; text-transform:uppercase; background:var(--red); color:#fff; padding:12px 26px; border-radius:999px; }
+
+/* ===== Planning JPO ===== */
+.schedule{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+@media (max-width:800px){ .schedule{ grid-template-columns:1fr; } }
+.sch-day{ background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+.sch-head{ background:var(--ink); color:#fff; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:1px;
+  text-align:center; padding:13px; font-weight:600; }
+.sch-slot{ padding:14px; border-bottom:1px solid var(--line); }
+.sch-slot:last-child{ border-bottom:none; }
+.sch-time{ display:block; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px; color:var(--muted); margin-bottom:8px; }
+.sch-block{ color:#fff; border-radius:10px; padding:11px 13px; font-family:'Oswald',sans-serif; text-transform:uppercase;
+  font-size:13px; line-height:1.2; margin-bottom:8px; }
+.sch-block:last-child{ margin-bottom:0; }
+.sch-block small{ display:block; font-family:'Archivo',sans-serif; text-transform:none; font-size:11px; opacity:.9; margin-top:3px; letter-spacing:0; }
+.sch-acting{ background:#cf5a54; } .sch-amateur{ background:#4b4b4b; } .sch-srda{ background:#4a6fb5; } .sch-en{ background:#5f7a3a; }
+.sch-legend{ display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; font-size:13px; color:var(--muted); }
+.sch-legend span{ display:inline-flex; align-items:center; gap:8px; }
+.sch-legend i{ width:16px; height:16px; border-radius:4px; display:inline-block; }
+
+/* ===== Formulaire d'inscription (ateliers) ===== */
+.book-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:var(--cream); border:1px solid var(--line);
+  border-radius:12px; padding:12px 14px; }
+.book-name{ flex:1 1 210px; display:flex; flex-direction:column; gap:2px; }
+.book-name strong{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:14px; color:var(--ink); line-height:1.15; }
+.book-cat{ font-size:11px; color:var(--red); font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase; }
+.book-select{ flex:1 1 210px; max-width:100%; font-family:'Archivo',sans-serif; font-size:15px; background:#fff;
+  border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 12px; cursor:pointer; }
+.book-select:focus{ border-color:var(--red); outline:none; }
+.book-recap{ font-size:14px; line-height:1.5; color:var(--muted); padding:12px 14px; border:1px dashed rgba(20,18,15,.22); border-radius:12px; }
+.book-recap.active{ color:var(--ink); border-style:solid; border-color:rgba(224,38,31,.5); background:rgba(224,38,31,.06); }
+.book-recap.warn{ color:var(--ink); border-style:solid; border-color:var(--red); background:rgba(224,38,31,.10); }
+
 /* reveal on scroll */
 [data-reveal]{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
 [data-reveal].in{ opacity:1; transform:none; }
@@ -254,6 +295,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 </style>
 </head>
 <body>
+<div class="annce">Journées Portes Ouvertes &middot; 11-12-13 septembre &middot; Gratuit &mdash; <a href="jpo.html">Réservez vos ateliers &rarr;</a></div>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html">METHOD <b>ACTING</b> CENTER</a>
@@ -267,9 +309,9 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
             <a href="scenario-real.html">Scénario &middot; Réal<small>Derrière la caméra &middot; scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
           </div>
         </div>
+        <a class="navlink" href="jpo.html">Portes Ouvertes</a>
         <a class="navlink" href="tarifs.html">Tarifs</a>
         <a class="navlink" href="planning.html">Planning</a>
-        <a class="navlink" href="avis.html">Avis</a>
       </div>
       <div class="nav-cta">
         <a class="btn btn-red" href="contact.html">Contact</a>
@@ -303,7 +345,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
           <li>Échange avec les coachs</li>
           <li>Idéal pour se décider</li>
         </ul>
-        <a class="btn btn-outline" href="/jpo/">Réserver</a>
+        <a class="btn btn-outline" href="jpo.html">Réserver</a>
       </div>
 
       <div class="card price featured" data-reveal>
@@ -359,11 +401,10 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
       </div>
       <div>
         <h4>Le centre</h4>
+        <a href="jpo.html">Journées Portes Ouvertes</a>
         <a href="tarifs.html">Tarifs</a>
         <a href="planning.html">Planning</a>
-        <a href="avis.html">Avis</a>
         <a href="contact.html">Contact</a>
-        <a href="/jpo/">Journées Portes Ouvertes</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -449,6 +490,64 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
     });
     function showOk(){ if(ok){ form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); } }
   }
+
+  /* ---- formulaire d'inscription JPO (ateliers + créneaux) ---- */
+  var JPO_ATELIERS = [
+    { id:"emotionnel",   name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                     slots:["Ven. 11 · 13h–15h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
+    { id:"scene",        name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                       slots:["Ven. 11 · 15h30–17h30","Sam. 12 · 15h30–17h30","Dim. 13 · 13h–15h"] },
+    { id:"amateur",      name:"Oser, vous libérer, vous révéler", tech:"Acting Amateur",                                  slots:["Ven. 11 · 18h–20h"] },
+    { id:"srda",         name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs",     slots:["Ven. 11 · 18h–20h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
+    { id:"english",      name:"Jouer vrai, en anglais",           tech:"Acting in English",                               slots:["Sam. 12 · 18h–20h","Dim. 13 · 13h–15h"] },
+    { id:"screenwriting",name:"Écrire pour l'écran, en anglais",  tech:"Screenwriting in English",                        slots:["Dim. 13 · 18h–20h"] }
+  ];
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function initJpo(){
+    var form=document.getElementById("jpo-form"); if(!form) return;
+    var list=document.getElementById("jpo-list"), recap=document.getElementById("jpo-recap"),
+        ok=document.getElementById("jpo-success"), errBox=document.getElementById("jpo-error"),
+        successRecap=document.getElementById("jpo-success-recap");
+    list.innerHTML = JPO_ATELIERS.map(function(a){
+      var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
+      return '<div class="book-row">'+
+        '<div class="book-name"><strong>'+esc(a.name)+'</strong><span class="book-cat">'+esc(a.tech)+'</span></div>'+
+        '<select class="book-select" data-name="'+esc(a.name)+'" data-tech="'+esc(a.tech)+'">'+opts+'</select></div>';
+    }).join("");
+    var selects=[].slice.call(list.querySelectorAll("select"));
+    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), tech:s.getAttribute("data-tech"), slot:s.value};}); }
+    function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
+    function updateRecap(){
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
+      recap.className="book-recap active";
+      recap.innerHTML=ch.length+" atelier"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · ");
+    }
+    selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
+    updateRecap();
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier (avec son créneau) avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
+      if(errBox) errBox.style.display="none";
+      var payload={
+        access_key: WEB3FORMS_KEY,
+        subject: "Inscription JPO — "+((field("prenom")+" "+field("nom")).trim()||"sans nom"),
+        from_name: "Inscriptions JPO · Method Acting Center",
+        "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"),
+        "Téléphone": field("telephone")||"—",
+        "Ateliers réservés": ch.map(function(c){return "• "+c.tech+" — "+c.slot;}).join("\n"),
+        "Message": field("message")||"—",
+        botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
+      };
+      function done(){ if(successRecap) successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"")+". Un membre de l’équipe vous confirme votre place très vite."; form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); }
+      if(!WEB3FORMS_KEY){ if(window.console) console.warn("Web3Forms: clé manquante."); done(); return; }
+      if(btn){ btn.disabled=true; btn.innerHTML="Envoi en cours…"; }
+      fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+        .then(function(r){return r.json();}).then(function(d){ if(d&&d.success){done();}else{throw new Error((d&&d.message)||"echec");} })
+        .catch(function(){ if(btn){btn.disabled=false;btn.innerHTML=label;} if(errBox){errBox.style.display="";errBox.scrollIntoView({behavior:"smooth",block:"center"});} });
+    });
+  }
+  initJpo();
 })();
 
 </script>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Avis Google — Method Acting Center Paris</title>
-<meta name="description" content="Les avis Google des élèves du Method Acting Center : acteurs, scénaristes et réalisateurs. Note 4,8/5.">
+<title>Journées Portes Ouvertes — 11, 12 & 13 septembre — Method Acting Center Paris</title>
+<meta name="description" content="Journées Portes Ouvertes gratuites les 11, 12 & 13 septembre à Paris : ateliers immersifs d'acting, scénario et réalisation. Réservez vos ateliers en ligne.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -162,7 +162,7 @@ p{ margin:0; }
 /* feature list */
 .checklist{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
 .checklist li{ position:relative; padding-left:26px; font-size:16px; line-height:1.6; }
-.checklist li::before{ content:"¹3"; color:var(--red); font-weight:700; position:absolute; left:0; top:0; }
+.checklist li::before{ content:"\2713"; color:var(--red); font-weight:700; position:absolute; left:0; top:0; }
 .section--dark .checklist li, .section--ink .checklist li{ color:var(--ondark); }
 
 /* split media/text */
@@ -239,6 +239,47 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .rating-badge .score{ font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; }
 .rating-badge .stars{ color:#F5B301; letter-spacing:2px; }
 
+/* ===== Bandeau d'annonce JPO ===== */
+.annce{ background:var(--red); color:#fff; text-align:center; font-family:'Oswald',sans-serif; text-transform:uppercase;
+  letter-spacing:1px; font-size:13.5px; padding:9px 16px; line-height:1.4; }
+.annce a{ color:#fff; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+.annce a:hover{ color:#fff; opacity:.85; }
+
+/* ===== Badge date ===== */
+.date-badge{ display:inline-block; font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(19px,2.4vw,28px);
+  letter-spacing:1px; text-transform:uppercase; background:var(--red); color:#fff; padding:12px 26px; border-radius:999px; }
+
+/* ===== Planning JPO ===== */
+.schedule{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+@media (max-width:800px){ .schedule{ grid-template-columns:1fr; } }
+.sch-day{ background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+.sch-head{ background:var(--ink); color:#fff; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:1px;
+  text-align:center; padding:13px; font-weight:600; }
+.sch-slot{ padding:14px; border-bottom:1px solid var(--line); }
+.sch-slot:last-child{ border-bottom:none; }
+.sch-time{ display:block; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1px; color:var(--muted); margin-bottom:8px; }
+.sch-block{ color:#fff; border-radius:10px; padding:11px 13px; font-family:'Oswald',sans-serif; text-transform:uppercase;
+  font-size:13px; line-height:1.2; margin-bottom:8px; }
+.sch-block:last-child{ margin-bottom:0; }
+.sch-block small{ display:block; font-family:'Archivo',sans-serif; text-transform:none; font-size:11px; opacity:.9; margin-top:3px; letter-spacing:0; }
+.sch-acting{ background:#cf5a54; } .sch-amateur{ background:#4b4b4b; } .sch-srda{ background:#4a6fb5; } .sch-en{ background:#5f7a3a; }
+.sch-legend{ display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; font-size:13px; color:var(--muted); }
+.sch-legend span{ display:inline-flex; align-items:center; gap:8px; }
+.sch-legend i{ width:16px; height:16px; border-radius:4px; display:inline-block; }
+
+/* ===== Formulaire d'inscription (ateliers) ===== */
+.book-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:var(--cream); border:1px solid var(--line);
+  border-radius:12px; padding:12px 14px; }
+.book-name{ flex:1 1 210px; display:flex; flex-direction:column; gap:2px; }
+.book-name strong{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:14px; color:var(--ink); line-height:1.15; }
+.book-cat{ font-size:11px; color:var(--red); font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase; }
+.book-select{ flex:1 1 210px; max-width:100%; font-family:'Archivo',sans-serif; font-size:15px; background:#fff;
+  border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 12px; cursor:pointer; }
+.book-select:focus{ border-color:var(--red); outline:none; }
+.book-recap{ font-size:14px; line-height:1.5; color:var(--muted); padding:12px 14px; border:1px dashed rgba(20,18,15,.22); border-radius:12px; }
+.book-recap.active{ color:var(--ink); border-style:solid; border-color:rgba(224,38,31,.5); background:rgba(224,38,31,.06); }
+.book-recap.warn{ color:var(--ink); border-style:solid; border-color:var(--red); background:rgba(224,38,31,.10); }
+
 /* reveal on scroll */
 [data-reveal]{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
 [data-reveal].in{ opacity:1; transform:none; }
@@ -254,6 +295,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 </style>
 </head>
 <body>
+<div class="annce">Journées Portes Ouvertes &middot; 11-12-13 septembre &middot; Gratuit &mdash; <a href="jpo.html">Réservez vos ateliers &rarr;</a></div>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html">METHOD <b>ACTING</b> CENTER</a>
@@ -267,9 +309,9 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
             <a href="scenario-real.html">Scénario &middot; Réal<small>Derrière la caméra &middot; scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
           </div>
         </div>
+        <a class="navlink" href="jpo.html">Portes Ouvertes</a>
         <a class="navlink" href="tarifs.html">Tarifs</a>
         <a class="navlink" href="planning.html">Planning</a>
-        <a class="navlink" href="avis.html">Avis</a>
       </div>
       <div class="nav-cta">
         <a class="btn btn-red" href="contact.html">Contact</a>
@@ -278,86 +320,116 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   </div>
 </header>
 <main>
-<!-- ================= AVIS ================= -->
+<!-- ================= JOURNÉES PORTES OUVERTES ================= -->
 <section class="hero">
   <div class="container">
-    <div data-reveal style="max-width:62ch">
-      <span class="kicker">Ils l&rsquo;ont vécu</span>
-      <h1 class="h-lg">Ce qu&rsquo;on dit<br>de <span class="outline">nous.</span></h1>
-      <p class="lead mt-m">Des acteurs, des scénaristes et des réalisateurs formés au Method Acting Center partagent leur expérience. Avis authentiques publiés sur Google.</p>
-      <div class="mt-l"><span class="rating-badge"><span class="score">4,8/5</span><span class="stars">★★★★★</span><span style="color:var(--muted);font-size:14px">sur Google</span></span></div>
+    <div data-reveal style="max-width:66ch">
+      <span class="kicker">Journées Portes Ouvertes &middot; Paris 13ᵉ &middot; Gratuit</span>
+      <h1 class="h-lg">Venez vivre<br>la <span class="outline">Méthode.</span></h1>
+      <div class="mt-m" style="display:flex; flex-wrap:wrap; align-items:center; gap:16px">
+        <span class="date-badge">11 &middot; 12 &middot; 13 septembre 2026</span>
+        <span class="note">3 demi-journées &middot; dans nos locaux, Method Acting Center, Paris 13ᵉ</span>
+      </div>
+      <p class="lead mt-m">Nos Portes Ouvertes ne sont pas une simple visite&nbsp;: ce sont de véritables <strong style="color:var(--ink)">journées d&rsquo;ateliers immersifs</strong>. Vous testez directement notre pédagogie &mdash; acting, scénario, réalisation &mdash; en conditions réelles, plutôt qu&rsquo;un aperçu théorique.</p>
+      <div class="btn-row mt-l">
+        <a class="btn btn-red" href="#inscription">Réserver mes ateliers</a>
+        <a class="btn btn-outline" href="#planning">Voir le planning</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top:0">
+<!-- Les ateliers -->
+<section class="section section--dark rounded-top">
   <div class="container">
-    <div class="masonry">
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Je suis la formation complète en anglais depuis septembre 2022 et je suis absolument ravie&nbsp;! Les professeurs sont compétents, à l&rsquo;écoute et surtout bienveillants. La formation est bien pensée et complète pour développer les outils nécessaires à un bon jeu d&rsquo;acteur. Je recommande vivement cette école à quiconque souhaite devenir acteur.</p>
-        <div class="who"><div class="avatar">L</div><div><div class="name">Lauren Bruls</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 3 ans</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Une superbe école mêlant exigence et bienveillance. Ayant suivi les cours d&rsquo;acting en anglais, en français, ainsi que la formation scénario, la qualité se retrouve dans chaque discipline. La direction d&rsquo;acteurs s&rsquo;étudie en situation réelle&nbsp;; l&rsquo;écriture place le personnage comme moteur de l&rsquo;histoire. Un cadre sain, qui permet d&rsquo;aller loin sans jamais se mettre en danger. Un lieu où de belles rencontres se forment et où le talent peut se concrétiser.</p>
-        <div class="who"><div class="avatar">I</div><div><div class="name">Élève MAC</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 4 mois</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Depuis 3 ans dans cette école. J&rsquo;ai appris beaucoup de choses, l&rsquo;ambiance est super. Les coachs sont très pédagogues. Je recommande&nbsp;!!</p>
-        <div class="who"><div class="avatar">J</div><div><div class="name">Jeremy JG</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 2 mois</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Tout simplement l&rsquo;école qui m&rsquo;a fait découvrir l&rsquo;acting en stage et tomber amoureux de la Méthode. Aujourd&rsquo;hui en formation chez eux pour devenir acteur. Bienveillance et compétence&nbsp;! N&rsquo;hésitez pas à venir tester&nbsp;!</p>
-        <div class="who"><div class="avatar">D</div><div><div class="name">David Attias</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; Local Guide &middot; il y a 5 mois</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">J&rsquo;ai cherché pendant 3 ans l&rsquo;école qui me conviendrait pour amener mon écriture et ma conduite d&rsquo;acteurs à un stade professionnel, sans fourvoyer ma vision. Ici j&rsquo;ai trouvé cette maison qui nous forge et nous nourrit, en naviguant entre notre sensibilité, la Méthode et la pratique. En bonus&nbsp;: l&rsquo;accès aux cours d&rsquo;acting pour être dans les «&nbsp;chaussures&nbsp;» des acteurs. Incroyable.</p>
-        <div class="who"><div class="avatar">C</div><div><div class="name">Cess Red</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; Local Guide &middot; il y a 8 mois</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Les coachs sont à l&rsquo;écoute, bienveillants et savent pousser chaque élève à progresser à son rythme. Chaque cours est un vrai moment de découverte. Je recommande vivement cette école à tous ceux qui veulent évoluer dans le jeu d&rsquo;acteur&nbsp;!</p>
-        <div class="who"><div class="avatar">R</div><div><div class="name">Ramy Nekk</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a un an</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Cette formation est absolument géniale et les coachs nous apportent énormément à chaque cours. C&rsquo;est un bonheur d&rsquo;évoluer ensemble, sans esprit de compétition. La Méthode est parfaite et permet de reprendre l&rsquo;acting à la base pour construire son jeu étape par étape. Si vous vous dirigez plus vers le théâtre, foncez aussi.</p>
-        <div class="who"><div class="avatar">M</div><div><div class="name">Mathieu D.</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 2 ans</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Excellente école pour devenir acteur, scénariste ou réalisateur au cinéma. Les coachs sont très humains. Je recommande vivement&nbsp;!</p>
-        <div class="who"><div class="avatar">Z</div><div><div class="name">Zina Boushih</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; Local Guide &middot; il y a un an</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Après deux premiers stages (exploration et scènes) en 2023, je me suis réinscrit pour le stage d&rsquo;hiver. Encore une fois très satisfait&nbsp;: les profs sont investis et passionnés, les ateliers instructifs et organisés autour d&rsquo;une méthode précise, désormais indispensable à mon jeu. J&rsquo;ai vraiment progressé pendant ces 4 jours.</p>
-        <div class="who"><div class="avatar">A</div><div><div class="name">Antoine P.</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 2 ans</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Exceptionnel&nbsp;! J&rsquo;ai beaucoup aimé l&rsquo;approche des formateurs&nbsp;: très claire, efficace, on rigole bien, et surtout très respectueuse de l&rsquo;humain. Une école de l&rsquo;humain, passionnante. Très rapidement, j&rsquo;ai compris les rouages et secrets de l&rsquo;Acting. Une école pas comme les autres, joyeuse, lumineuse et super efficace.</p>
-        <div class="who"><div class="avatar">D</div><div><div class="name">Duong Vu</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 4 ans</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">Excellente école&nbsp;:) rien à dire, je recommande vivement&nbsp;!!</p>
-        <div class="who"><div class="avatar">A</div><div><div class="name">Alix Amar</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; il y a 4 mois</div></div></div>
-      </div>
-
-      <div class="card review"><div class="stars">★★★★★</div>
-        <p class="quote">École très bienveillante, les coachs nous forment à la Méthode de l&rsquo;Actors Studio, l&rsquo;équipe administrative est très accueillante. J&rsquo;ai intégré la formation professionnelle suite aux portes ouvertes et je suis très contente du contenu de la formation&nbsp;!</p>
-        <div class="who"><div class="avatar">L</div><div><div class="name">Laure Delahaye</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; Local Guide &middot; il y a 2 ans</div></div></div>
-      </div>
-
+    <div data-reveal style="max-width:60ch"><span class="kicker">Les ateliers</span><h2 class="h-md">Trouvez ceux qui<br>vous <span class="text-red">ressemblent</span></h2></div>
+    <div class="grid grid-3 mt-l">
+      <div class="card card--dark" data-reveal><span class="tag">Acting &middot; Travail Émotionnel</span><h3 class="h-sm">Faire jaillir de vraies émotions</h3><p>Découvrez la base de l&rsquo;acting&nbsp;: aller chercher en vous &mdash; votre vécu, votre imaginaire &mdash; pour ressentir <em>pour de vrai</em>. Bien guidé(e), vous serez surpris(e) de la puissance de vos émotions&hellip; et vous apprendrez aussi à en ressortir.</p></div>
+      <div class="card card--dark" data-reveal><span class="tag">Acting &middot; Travail de Scène</span><h3 class="h-sm">Donner vie à un texte</h3><p>Comprenez comment un texte prend vie &mdash; jamais en le récitant, mais en croyant à la situation. Changez une circonstance, et entendez le ton, la diction et l&rsquo;émotion se transformer d&rsquo;eux-mêmes.</p></div>
+      <div class="card card--dark" data-reveal><span class="tag">Acting Amateur</span><h3 class="h-sm">Oser, vous libérer, vous révéler</h3><p>Sans pression ni objectif pro&nbsp;: un atelier ludique pour vous lâcher, dépasser la peur du ridicule et oser vous mettre en scène. Beaucoup y prennent goût&hellip; et continuent.</p></div>
+      <div class="card card--dark" data-reveal><span class="tag">Derrière la caméra &middot; SRDA</span><h3 class="h-sm">Écrire &amp; réaliser vos films</h3><p>Découvrez notre approche unique&nbsp;: mêler écriture et acting pour créer de vrais personnages, trouver votre vision de réalisateur, et diriger de vrais acteurs &mdash; ce que presque aucune école ne propose.</p></div>
+      <div class="card card--dark" data-reveal><span class="tag">Acting &middot; English</span><h3 class="h-sm">Jouer vrai, en anglais</h3><p>Aller loin dans l&rsquo;émotion et l&rsquo;utiliser dans de courts exercices scéniques, intégralement en anglais. Idéal pour les profils internationaux, ou pour s&rsquo;exporter à l&rsquo;étranger.</p></div>
+      <div class="card card--dark" data-reveal><span class="tag">Écriture &middot; English</span><h3 class="h-sm">Écrire pour l&rsquo;écran, en anglais</h3><p>Notre méthode d&rsquo;écriture de scénario, en anglais &mdash; deux heures dédiées à l&rsquo;écriture, avec encore plus d&rsquo;exercices pratiques.</p></div>
     </div>
+  </div>
+</section>
 
-    <div class="center mt-l" data-reveal>
-      <a class="btn btn-red" href="/jpo/">Venir tester en Journée Portes Ouvertes</a>
+<!-- Planning -->
+<section class="section" id="planning">
+  <div class="container">
+    <div data-reveal style="max-width:60ch"><span class="kicker">Le planning</span><h2 class="h-md">3 jours, tous<br>les créneaux</h2>
+      <p class="lead mt-m">Chaque atelier est réservable indépendamment&nbsp;: composez votre parcours sur les trois jours.</p></div>
+
+    <div class="schedule mt-l" data-reveal>
+      <div class="sch-day">
+        <div class="sch-head">Vendredi 11/09</div>
+        <div class="sch-slot"><span class="sch-time">13h00 – 15h00</span><div class="sch-block sch-acting">Travail Émotionnel</div></div>
+        <div class="sch-slot"><span class="sch-time">15h30 – 17h30</span><div class="sch-block sch-acting">Travail de Scène</div></div>
+        <div class="sch-slot"><span class="sch-time">18h00 – 20h00</span><div class="sch-block sch-amateur">Acting Amateur</div><div class="sch-block sch-srda">Scénario, Réal. &amp; Direction d&rsquo;acteurs</div></div>
+      </div>
+      <div class="sch-day">
+        <div class="sch-head">Samedi 12/09</div>
+        <div class="sch-slot"><span class="sch-time">13h00 – 15h00</span><div class="sch-block sch-acting">Travail Émotionnel</div><div class="sch-block sch-srda">Scénario, Réal. &amp; Direction d&rsquo;acteurs</div></div>
+        <div class="sch-slot"><span class="sch-time">15h30 – 17h30</span><div class="sch-block sch-acting">Travail de Scène</div></div>
+        <div class="sch-slot"><span class="sch-time">18h00 – 20h00</span><div class="sch-block sch-en">Acting in English</div></div>
+      </div>
+      <div class="sch-day">
+        <div class="sch-head">Dimanche 13/09</div>
+        <div class="sch-slot"><span class="sch-time">13h00 – 15h00</span><div class="sch-block sch-acting">Travail de Scène</div><div class="sch-block sch-en">Acting in English</div></div>
+        <div class="sch-slot"><span class="sch-time">15h30 – 17h30</span><div class="sch-block sch-acting">Travail Émotionnel</div><div class="sch-block sch-srda">Scénario, Réal. &amp; Direction d&rsquo;acteurs</div></div>
+        <div class="sch-slot"><span class="sch-time">18h00 – 20h00</span><div class="sch-block sch-en">Screenwriting in English</div></div>
+      </div>
+    </div>
+    <div class="sch-legend" data-reveal>
+      <span><i style="background:#cf5a54"></i> Acting</span>
+      <span><i style="background:#4b4b4b"></i> Acting Amateur</span>
+      <span><i style="background:#4a6fb5"></i> Scénario, Réalisation &amp; Direction d&rsquo;acteurs</span>
+      <span><i style="background:#5f7a3a"></i> Ateliers en anglais</span>
+    </div>
+  </div>
+</section>
+
+<!-- Inscription -->
+<section class="section section--dark" id="inscription">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <div data-reveal>
+        <span class="kicker">Inscription &middot; Gratuit</span>
+        <h2 class="h-md">Réservez vos<br><span class="text-red">ateliers</span></h2>
+        <p class="lead mt-m">Choisissez le ou les ateliers qui vous attirent, avec leur créneau. Vous pouvez en réserver plusieurs. On vous confirme votre place par email.</p>
+        <ul class="checklist mt-m">
+          <li>Gratuit et sans engagement</li>
+          <li>Plusieurs ateliers réservables</li>
+          <li>Un vrai atelier, pas une visite</li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <form id="jpo-form" class="form">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="field">
+            <label>Vos ateliers &middot; choisissez un créneau</label>
+            <div id="jpo-list" class="stack gap-s"></div>
+            <div id="jpo-recap" class="book-recap" style="margin-top:6px">Aucun atelier sélectionné pour l’instant.</div>
+          </div>
+          <div class="field-2">
+            <div class="field"><label>Prénom</label><input type="text" name="prenom" required placeholder="Votre prénom"></div>
+            <div class="field"><label>Nom</label><input type="text" name="nom" required placeholder="Votre nom"></div>
+          </div>
+          <div class="field-2">
+            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="vous@exemple.fr"></div>
+            <div class="field"><label>Téléphone</label><input type="tel" name="telephone" placeholder="06 12 34 56 78"></div>
+          </div>
+          <div class="field"><label>Message <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(facultatif)</span></label><textarea name="message" rows="3" placeholder="Une question, une précision…"></textarea></div>
+          <div id="jpo-error" class="note" style="display:none; color:var(--red)">L&rsquo;envoi a échoué. Vérifiez votre connexion et réessayez dans un instant.</div>
+          <button type="submit" class="btn btn-red" style="width:100%">Je réserve mes ateliers</button>
+          <p class="form-note">En envoyant ce formulaire, vous acceptez d&rsquo;être recontacté(e) par Method Acting Center. Vos données ne sont jamais partagées.</p>
+        </form>
+        <div id="jpo-success" class="form-success" style="display:none">
+          <div class="big">&#10003;</div>
+          <h3 class="h-sm mt-s">Demande envoyée&nbsp;!</h3>
+          <p id="jpo-success-recap" class="mt-s" style="color:var(--muted)">Merci&nbsp;! Un membre de l&rsquo;équipe vous confirme votre place très vite.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -376,11 +448,10 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
       </div>
       <div>
         <h4>Le centre</h4>
+        <a href="jpo.html">Journées Portes Ouvertes</a>
         <a href="tarifs.html">Tarifs</a>
         <a href="planning.html">Planning</a>
-        <a href="avis.html">Avis</a>
         <a href="contact.html">Contact</a>
-        <a href="/jpo/">Journées Portes Ouvertes</a>
       </div>
       <div>
         <h4>Contact</h4>
@@ -466,6 +537,64 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
     });
     function showOk(){ if(ok){ form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); } }
   }
+
+  /* ---- formulaire d'inscription JPO (ateliers + créneaux) ---- */
+  var JPO_ATELIERS = [
+    { id:"emotionnel",   name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                     slots:["Ven. 11 · 13h–15h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
+    { id:"scene",        name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                       slots:["Ven. 11 · 15h30–17h30","Sam. 12 · 15h30–17h30","Dim. 13 · 13h–15h"] },
+    { id:"amateur",      name:"Oser, vous libérer, vous révéler", tech:"Acting Amateur",                                  slots:["Ven. 11 · 18h–20h"] },
+    { id:"srda",         name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs",     slots:["Ven. 11 · 18h–20h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
+    { id:"english",      name:"Jouer vrai, en anglais",           tech:"Acting in English",                               slots:["Sam. 12 · 18h–20h","Dim. 13 · 13h–15h"] },
+    { id:"screenwriting",name:"Écrire pour l'écran, en anglais",  tech:"Screenwriting in English",                        slots:["Dim. 13 · 18h–20h"] }
+  ];
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function initJpo(){
+    var form=document.getElementById("jpo-form"); if(!form) return;
+    var list=document.getElementById("jpo-list"), recap=document.getElementById("jpo-recap"),
+        ok=document.getElementById("jpo-success"), errBox=document.getElementById("jpo-error"),
+        successRecap=document.getElementById("jpo-success-recap");
+    list.innerHTML = JPO_ATELIERS.map(function(a){
+      var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
+      return '<div class="book-row">'+
+        '<div class="book-name"><strong>'+esc(a.name)+'</strong><span class="book-cat">'+esc(a.tech)+'</span></div>'+
+        '<select class="book-select" data-name="'+esc(a.name)+'" data-tech="'+esc(a.tech)+'">'+opts+'</select></div>';
+    }).join("");
+    var selects=[].slice.call(list.querySelectorAll("select"));
+    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), tech:s.getAttribute("data-tech"), slot:s.value};}); }
+    function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
+    function updateRecap(){
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
+      recap.className="book-recap active";
+      recap.innerHTML=ch.length+" atelier"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · ");
+    }
+    selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
+    updateRecap();
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier (avec son créneau) avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
+      if(errBox) errBox.style.display="none";
+      var payload={
+        access_key: WEB3FORMS_KEY,
+        subject: "Inscription JPO — "+((field("prenom")+" "+field("nom")).trim()||"sans nom"),
+        from_name: "Inscriptions JPO · Method Acting Center",
+        "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"),
+        "Téléphone": field("telephone")||"—",
+        "Ateliers réservés": ch.map(function(c){return "• "+c.tech+" — "+c.slot;}).join("\n"),
+        "Message": field("message")||"—",
+        botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
+      };
+      function done(){ if(successRecap) successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"")+". Un membre de l’équipe vous confirme votre place très vite."; form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); }
+      if(!WEB3FORMS_KEY){ if(window.console) console.warn("Web3Forms: clé manquante."); done(); return; }
+      if(btn){ btn.disabled=true; btn.innerHTML="Envoi en cours…"; }
+      fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+        .then(function(r){return r.json();}).then(function(d){ if(d&&d.success){done();}else{throw new Error((d&&d.message)||"echec");} })
+        .catch(function(){ if(btn){btn.disabled=false;btn.innerHTML=label;} if(errBox){errBox.style.display="";errBox.scrollIntoView({behavior:"smooth",block:"center"});} });
+    });
+  }
+  initJpo();
 })();
 
 </script>

@@ -24,12 +24,12 @@ def img_data_uri(name):
     return "data:%s;base64,%s" % (MIME[ext], b64)
 
 def inline(page):
-    # CSS externe -> <style> intégré
+    # CSS externe -> <style> intégré  (lambda = insertion littérale, aucun échappement interprété)
     page = re.sub(r'<link rel="stylesheet" href="[^"]*assets/style\.css">',
-                  "<style>\n" + CSS + "\n</style>", page)
+                  lambda m: "<style>\n" + CSS + "\n</style>", page)
     # JS externe -> <script> intégré
     page = re.sub(r'<script src="[^"]*assets/site\.js"></script>',
-                  "<script>\n" + JS + "\n</script>", page)
+                  lambda m: "<script>\n" + JS + "\n</script>", page)
     # images -> data URI base64
     def repl(m):
         name = m.group(1)
@@ -41,6 +41,8 @@ def inline(page):
 PAGES = [
     ("index",       "index.html",       "Method Acting Center — Devenir Acteur, Scénariste ou Réalisateur à Paris",
      "École de cinéma à Paris depuis 1999 : formations Acteur, Scénariste et Réalisateur autour de la Méthode (Stanislavski / Actors Studio)."),
+    ("jpo",         "jpo.html",         "Journées Portes Ouvertes — 11, 12 & 13 septembre — Method Acting Center Paris",
+     "Journées Portes Ouvertes gratuites les 11, 12 & 13 septembre à Paris : ateliers immersifs d'acting, scénario et réalisation. Réservez vos ateliers en ligne."),
     ("acting",        "acting.html",        "Formation Acting — Devenir Acteur — Method Acting Center Paris",
      "Formation Acting : apprenez à jouer vrai avec la Méthode (Stanislavski / Actors Studio). Déclencher, maîtriser et reproduire de vraies émotions face caméra."),
     ("scenario-real", "scenario-real.html", "Scénario, Réalisation & Direction d'acteurs (SRDA) — Method Acting Center Paris",
@@ -51,8 +53,6 @@ PAGES = [
      "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée."),
     ("planning",    "planning.html",    "Planning — Method Acting Center Paris",
      "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center."),
-    ("avis",        "avis.html",        "Avis Google — Method Acting Center Paris",
-     "Les avis Google des élèves du Method Acting Center : acteurs, scénaristes et réalisateurs. Note 4,8/5."),
 ]
 
 def build():

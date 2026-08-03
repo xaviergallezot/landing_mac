@@ -68,4 +68,62 @@
     });
     function showOk(){ if(ok){ form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); } }
   }
+
+  /* ---- formulaire d'inscription JPO (ateliers + créneaux) ---- */
+  var JPO_ATELIERS = [
+    { id:"emotionnel",   name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                     slots:["Ven. 11 · 13h–15h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
+    { id:"scene",        name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                       slots:["Ven. 11 · 15h30–17h30","Sam. 12 · 15h30–17h30","Dim. 13 · 13h–15h"] },
+    { id:"amateur",      name:"Oser, vous libérer, vous révéler", tech:"Acting Amateur",                                  slots:["Ven. 11 · 18h–20h"] },
+    { id:"srda",         name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs",     slots:["Ven. 11 · 18h–20h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
+    { id:"english",      name:"Jouer vrai, en anglais",           tech:"Acting in English",                               slots:["Sam. 12 · 18h–20h","Dim. 13 · 13h–15h"] },
+    { id:"screenwriting",name:"Écrire pour l'écran, en anglais",  tech:"Screenwriting in English",                        slots:["Dim. 13 · 18h–20h"] }
+  ];
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function initJpo(){
+    var form=document.getElementById("jpo-form"); if(!form) return;
+    var list=document.getElementById("jpo-list"), recap=document.getElementById("jpo-recap"),
+        ok=document.getElementById("jpo-success"), errBox=document.getElementById("jpo-error"),
+        successRecap=document.getElementById("jpo-success-recap");
+    list.innerHTML = JPO_ATELIERS.map(function(a){
+      var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
+      return '<div class="book-row">'+
+        '<div class="book-name"><strong>'+esc(a.name)+'</strong><span class="book-cat">'+esc(a.tech)+'</span></div>'+
+        '<select class="book-select" data-name="'+esc(a.name)+'" data-tech="'+esc(a.tech)+'">'+opts+'</select></div>';
+    }).join("");
+    var selects=[].slice.call(list.querySelectorAll("select"));
+    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), tech:s.getAttribute("data-tech"), slot:s.value};}); }
+    function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
+    function updateRecap(){
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
+      recap.className="book-recap active";
+      recap.innerHTML=ch.length+" atelier"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · ");
+    }
+    selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
+    updateRecap();
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ch=chosen();
+      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier (avec son créneau) avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
+      if(errBox) errBox.style.display="none";
+      var payload={
+        access_key: WEB3FORMS_KEY,
+        subject: "Inscription JPO — "+((field("prenom")+" "+field("nom")).trim()||"sans nom"),
+        from_name: "Inscriptions JPO · Method Acting Center",
+        "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"),
+        "Téléphone": field("telephone")||"—",
+        "Ateliers réservés": ch.map(function(c){return "• "+c.tech+" — "+c.slot;}).join("\n"),
+        "Message": field("message")||"—",
+        botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
+      };
+      function done(){ if(successRecap) successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"")+". Un membre de l’équipe vous confirme votre place très vite."; form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); }
+      if(!WEB3FORMS_KEY){ if(window.console) console.warn("Web3Forms: clé manquante."); done(); return; }
+      if(btn){ btn.disabled=true; btn.innerHTML="Envoi en cours…"; }
+      fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+        .then(function(r){return r.json();}).then(function(d){ if(d&&d.success){done();}else{throw new Error((d&&d.message)||"echec");} })
+        .catch(function(){ if(btn){btn.disabled=false;btn.innerHTML=label;} if(errBox){errBox.style.display="";errBox.scrollIntoView({behavior:"smooth",block:"center"});} });
+    });
+  }
+  initJpo();
 })();
