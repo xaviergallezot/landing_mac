@@ -96,6 +96,23 @@ p{ margin:0; }
 }
 @media (min-width:961px){ .nav-menu{ display:flex !important; align-items:center; gap:26px; } }
 
+/* nav dropdown (Formations) */
+.navitem{ position:relative; }
+.navitem .chev{ font-size:10px; margin-left:4px; color:var(--muted); }
+.navitem > .navlink{ cursor:pointer; }
+.submenu{ position:absolute; top:100%; left:0; min-width:280px; background:#fff; border:1px solid var(--line);
+  border-radius:16px; box-shadow:0 24px 44px rgba(20,18,15,.14); padding:8px; display:none; flex-direction:column; gap:2px; z-index:95; }
+.navitem:hover .submenu, .navitem:focus-within .submenu{ display:flex; }
+.submenu a{ display:block; padding:13px 16px; border-radius:12px; font-family:'Oswald',sans-serif; font-size:14px;
+  letter-spacing:1px; text-transform:uppercase; color:var(--ink); }
+.submenu a small{ display:block; font-family:'Archivo',sans-serif; text-transform:none; letter-spacing:0; font-size:12.5px; color:var(--muted); margin-top:3px; font-weight:400; }
+.submenu a:hover{ background:var(--cream); color:var(--red); }
+@media (max-width:960px){
+  .submenu{ position:static; display:flex; box-shadow:none; border:none; border-radius:0; padding:0 0 0 16px; min-width:0; background:transparent; }
+  .submenu a{ padding:14px 0; border-bottom:1px solid var(--line); border-radius:0; }
+  .navitem > .navlink{ padding:15px 0; border-bottom:1px solid var(--line); display:block; }
+}
+
 /* ===== Hero ===== */
 .hero{ padding:clamp(60px,8vw,110px) 0 clamp(56px,7vw,96px); }
 .hero .kicker{ margin-bottom:26px; }
