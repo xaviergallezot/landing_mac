@@ -48,7 +48,7 @@ p{ margin:0; }
 .section--dark .outline-ink, .section--ink .outline-ink{ -webkit-text-stroke-color:var(--ondark); }
 .lead{ font-size:clamp(17px,1.4vw,20px); line-height:1.75; color:var(--muted); max-width:60ch; }
 .section--dark .lead, .section--ink .lead{ color:var(--ondark-muted); }
-.mt-s{ margin-top:14px; } .mt-m{ margin-top:24px; } .mt-l{ margin-top:40px; }
+.mt-s{ margin-top:14px; } .mt-m{ margin-top:24px; } .mt-l{ margin-top:40px; } .mt-xl{ margin-top:72px; }
 
 /* buttons */
 .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -165,6 +165,9 @@ p{ margin:0; }
 .price.featured{ border-color:var(--red); box-shadow:0 26px 50px rgba(224,38,31,.12); }
 .price .amount{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(40px,4vw,56px); line-height:1; }
 .price .amount small{ font-size:16px; color:var(--muted); font-weight:400; letter-spacing:0; }
+.amount{ font-family:'Oswald',sans-serif; font-weight:700; line-height:1; }
+.amount-sm{ font-size:clamp(26px,3vw,34px); margin-top:8px; color:var(--red); }
+.amount-sm small{ font-size:14px; color:var(--muted); font-weight:400; letter-spacing:0; }
 .price .per{ font-size:14px; color:var(--muted); }
 .price .checklist{ flex:1; }
 .badge{ align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px;
