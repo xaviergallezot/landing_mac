@@ -37,38 +37,37 @@ def inline(page):
     page = re.sub(r'src="[^"]*assets/img/([^"]+)"', repl, page)
     return page
 
-# slug, chemin de sortie, prefixe racine (nav entre pages), titre, description
+# slug, fichier de sortie (PLAT, un seul dossier), titre, description
 PAGES = [
-    ("index",       "index.html",             "",     "Method Acting Center — Devenir Acteur, Scénariste ou Réalisateur à Paris",
+    ("index",       "index.html",       "Method Acting Center — Devenir Acteur, Scénariste ou Réalisateur à Paris",
      "École de cinéma à Paris depuis 1999 : formations Acteur, Scénariste et Réalisateur autour de la Méthode (Stanislavski / Actors Studio)."),
-    ("acteur",      "acteur/index.html",      "../",  "Devenir Acteur — Method Acting Center Paris",
+    ("acteur",      "acteur.html",      "Devenir Acteur — Method Acting Center Paris",
      "Formez-vous au jeu d'acteur avec la Méthode. Apprenez à déclencher, maîtriser et reproduire de vraies émotions face caméra."),
-    ("scenariste",  "scenariste/index.html",  "../",  "Devenir Scénariste — Method Acting Center Paris",
+    ("scenariste",  "scenariste.html",  "Devenir Scénariste — Method Acting Center Paris",
      "Écrivez pour le cinéma et la série : structure, personnages, dialogues et développement de projets, encadré par des professionnels."),
-    ("realisateur", "realisateur/index.html", "../",  "Devenir Réalisateur — Method Acting Center Paris",
+    ("realisateur", "realisateur.html", "Devenir Réalisateur — Method Acting Center Paris",
      "Passez derrière la caméra : direction d'acteurs, mise en scène, découpage et tournage, de l'écriture au film fini."),
-    ("contact",     "contact/index.html",     "../",  "Contact — Method Acting Center Paris",
+    ("contact",     "contact.html",     "Contact — Method Acting Center Paris",
      "Une question sur nos formations Acteur, Scénariste ou Réalisateur ? Écrivez-nous, on vous répond sous 48h."),
-    ("tarifs",      "tarifs/index.html",      "../",  "Tarifs — Method Acting Center Paris",
+    ("tarifs",      "tarifs.html",      "Tarifs — Method Acting Center Paris",
      "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée."),
-    ("planning",    "planning/index.html",    "../",  "Planning — Method Acting Center Paris",
+    ("planning",    "planning.html",    "Planning — Method Acting Center Paris",
      "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center."),
-    ("avis",        "avis/index.html",        "../",  "Avis Google — Method Acting Center Paris",
+    ("avis",        "avis.html",        "Avis Google — Method Acting Center Paris",
      "Les avis Google des élèves du Method Acting Center : acteurs, scénaristes et réalisateurs. Note 4,8/5."),
 ]
 
 def build():
     if os.path.isdir(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
-    for slug, out, root, title, desc in PAGES:
+    for slug, out, title, desc in PAGES:
         body = read("pages", slug + ".html")
         page = HEAD + HEADER + body + FOOTER
-        page = (page.replace("{{ROOT}}", root)
+        page = (page.replace("{{ROOT}}", "")   # fichiers plats : pas de préfixe
                     .replace("{{TITLE}}", title)
                     .replace("{{DESC}}", desc))
         page = inline(page)
         dest = os.path.join(DIST, out)
-        os.makedirs(os.path.dirname(dest), exist_ok=True)
         open(dest, "w", encoding="utf-8").write(page)
         print("  ", out, "(", len(page)//1024, "KB )")
     # garde-fous
