@@ -162,6 +162,24 @@ p{ margin:0; }
 @media (max-width:680px){ .atelier-cards > .card{ max-width:none; } }
 .atelier-cards .tag{ color:var(--seg); background:rgba(255,255,255,.06); }
 
+/* Programme en frise — progression sur 4 ans (page Acting) */
+.timeline{ margin-top:44px; }
+.tl-year{ display:grid; grid-template-columns:56px 1fr; gap:22px; }
+.tl-rail{ display:flex; flex-direction:column; align-items:center; }
+.tl-badge{ flex:0 0 auto; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:20px; color:#fff; background:var(--yr,var(--red)); box-shadow:0 10px 22px rgba(20,18,15,.14); }
+.tl-line{ flex:1 1 auto; width:2px; background:var(--yr,var(--red)); opacity:.28; margin:8px 0; border-radius:2px; }
+.tl-body{ padding-bottom:40px; }
+.tl-year:last-child .tl-body{ padding-bottom:0; }
+.tl-kicker{ display:block; color:var(--yr,var(--red)); font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:13px; font-weight:600; }
+.tl-body > h3{ font-family:'Oswald',sans-serif; font-size:clamp(20px,2vw,26px); margin:6px 0 0; }
+.tl-goal{ color:var(--muted); margin-top:8px; max-width:62ch; }
+.atelier-list{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px; margin-top:18px; }
+.atelier-item{ background:#fff; border:1px solid var(--line); border-left:3px solid var(--yr,var(--red)); border-radius:12px; padding:13px 16px; }
+.atelier-item b{ display:block; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:13px; color:var(--ink); margin-bottom:4px; }
+.atelier-item span{ color:var(--muted); font-size:14px; line-height:1.5; }
+.tl-pro{ background:#faf8f4; border:1px solid var(--line); border-left:3px solid var(--yr,var(--red)); border-radius:var(--radius); padding:clamp(20px,3vw,28px); margin-top:18px; }
+
 /* parcours card (accueil) */
 .parcours{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:16px; min-height:300px; }
 .parcours .media{ aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:linear-gradient(135deg,#14120F,#2B2622); }
@@ -322,8 +340,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         <div class="navitem has-sub">
           <span class="navlink" tabindex="0">Formations <span class="chev">&#9662;</span></span>
           <div class="submenu">
-            <a href="acting.html">Acting<small>Devant la caméra &middot; devenir acteur</small></a>
-            <a href="scenario-real.html">Scénario &middot; Réal<small>Derrière la caméra &middot; scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
+            <a href="acting.html">Acting<small>Devenir acteur &middot; jouer vrai</small></a>
+            <a href="scenario-real.html">Scénario &middot; Réal<small>Scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
           </div>
         </div>
         <a class="navlink" href="jpo.html">Portes Ouvertes</a>
@@ -337,14 +355,14 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   </div>
 </header>
 <main>
-<!-- ================= ACTING (devant la caméra) ================= -->
+<!-- ================= ACTING ================= -->
 <section class="hero">
   <div class="container split">
     <div data-reveal>
-      <span class="kicker">Formation Acting &middot; Devant la caméra &middot; 4 années</span>
-      <h1 class="h-lg">Vous voulez<br>devenir <span class="outline">acteur&nbsp;?</span></h1>
-      <p class="lead mt-m">Une technique de jeu <strong style="color:var(--ink)">réaliste</strong> qui vous donne des outils concrets pour déclencher de vraies émotions et les maîtriser&nbsp;: pleurer sur commande, mais aussi rire, s&rsquo;énerver, séduire, paniquer&hellip; toutes les émotions, pour incarner tous les rôles.</p>
-      <p class="note mt-s" style="max-width:56ch">Fondée sur la Méthode Stanislavski et l&rsquo;Actors Studio &mdash; celle de Marlon Brando, Meryl Streep, Joaquin Phoenix, Leonardo DiCaprio, Jack Nicholson&hellip;</p>
+      <span class="kicker">Formation Acting &middot; 4 années &middot; Paris</span>
+      <h1 class="h-lg">Apprendre à<br>jouer <span class="outline">vrai.</span></h1>
+      <p class="lead mt-m">Grâce à la <strong style="color:var(--ink)">Méthode</strong> (Stanislavski / Actors Studio), vous apprenez à déclencher de vraies émotions et à les maîtriser&nbsp;: pleurer sur commande, mais aussi rire, s&rsquo;énerver, séduire, paniquer&hellip; toutes les émotions, pour incarner tous les rôles.</p>
+      <p class="note mt-s" style="max-width:56ch">La méthode de Marlon Brando, Meryl Streep, Joaquin Phoenix, Leonardo DiCaprio, Jack Nicholson&hellip;</p>
       <div class="btn-row mt-l">
         <a class="btn btn-red" href="jpo.html">Tester en Journée Portes Ouvertes</a>
         <a class="btn btn-outline" href="tarifs.html">Voir les tarifs</a>
@@ -381,44 +399,70 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 <!-- Programme sur 4 ans -->
 <section class="section">
   <div class="container">
-    <div data-reveal style="max-width:60ch"><span class="kicker">Le programme Acting Pro</span><h2 class="h-md">4 années pour devenir<br>un acteur complet</h2></div>
+    <div data-reveal style="max-width:62ch"><span class="kicker">Le programme Acting Pro</span><h2 class="h-md">4 années pour devenir<br>un acteur complet</h2>
+      <p class="lead mt-m">Un chemin progressif&nbsp;: on part de l&rsquo;émotion brute pour arriver, année après année, jusqu&rsquo;au plateau professionnel.</p></div>
 
-    <div data-reveal class="mt-l">
-      <h3 class="h-sm"><span class="text-red">1<sup>re</sup> année</span> &mdash; Faire jaillir l&rsquo;émotion</h3>
-      <div class="grid grid-3 mt-m">
-        <div class="card"><span class="tag">Exploration 1</span><h3 class="h-sm">Votre monde intérieur</h3><p>Le cours le plus important&nbsp;: explorer souvenirs et imaginaire pour trouver ce qui déclenche en vous de vraies émotions.</p></div>
-        <div class="card"><span class="tag">Scènes 1</span><h3 class="h-sm">Sculpter le silence</h3><p>Des scènes seul, sans texte&nbsp;: tout passe par les yeux, le visage et le corps. L&rsquo;atelier le plus exigeant.</p></div>
-        <div class="card"><span class="tag">Backstory</span><h3 class="h-sm">Le vécu du personnage</h3><p>Scènes à deux, en improvisations préparées&nbsp;: comprendre qu&rsquo;un texte est toujours motivé par des souvenirs.</p></div>
-      </div>
-    </div>
-
-    <div data-reveal class="mt-l">
-      <h3 class="h-sm"><span class="text-red">2<sup>e</sup> année</span> &mdash; Maîtriser et préciser</h3>
-      <div class="grid grid-3 mt-m">
-        <div class="card"><span class="tag">Exploration 2</span><h3 class="h-sm">Toutes les couleurs</h3><p>On creuse des zones plus poussées&nbsp;: horreur, agressivité, peur, séduction, comédie&hellip; pour se frotter à tout type de rôles.</p></div>
-        <div class="card"><span class="tag">Scènes 2</span><h3 class="h-sm">Le « moment à moment »</h3><p>Recréer chaque micro-mouvement de façon systématique, sans perdre son naturel&nbsp;: indispensable face aux contraintes du tournage.</p></div>
-        <div class="card"><span class="tag">Scènes 3</span><h3 class="h-sm">Le texte, enfin</h3><p>Scènes à deux avec texte, aboutissement des deux premières années. En fin d&rsquo;année, on vous tourne un monologue.</p></div>
-      </div>
-    </div>
-
-    <div data-reveal class="mt-l">
-      <h3 class="h-sm"><span class="text-red">3<sup>e</sup> année</span> &mdash; Composer un personnage</h3>
-      <div class="grid grid-2 mt-m">
-        <div class="card"><span class="tag">Composition A</span><h3 class="h-sm">Enquêter sur le rôle</h3><p>Recherches, analyses et exploration poussée pour utiliser vos propres émotions et devenir un personnage à l&rsquo;opposé de vous &mdash; toujours réaliste.</p></div>
-        <div class="card"><span class="tag">Composition B</span><h3 class="h-sm">Incarner, scène après scène</h3><p>Passage de scènes du rôle incarné. En fin d&rsquo;année, vous arrivez à changer complètement votre énergie naturelle.</p></div>
-      </div>
-    </div>
-
-    <div data-reveal class="mt-l">
-      <h3 class="h-sm"><span class="text-red">4<sup>e</sup> année</span> &mdash; Passer au professionnel</h3>
-      <div class="card" style="background:#faf8f4">
-        <span class="tag">Acting Caméra &amp; Tournages</span>
-        <div class="grid grid-2 mt-m" style="gap:20px">
-          <p style="color:var(--muted)"><strong style="color:var(--ink)">Entraînement</strong> &mdash; vous passez des scènes en situation de tournage, face caméra, et gérez toutes les contraintes techniques du plateau.</p>
-          <p style="color:var(--muted)"><strong style="color:var(--ink)">Vos images</strong> &mdash; on fabrique tout ce qu&rsquo;il vous faut pour démarcher agences et directeurs de casting.</p>
+    <div class="timeline">
+      <!-- Année 1 -->
+      <div class="tl-year" data-reveal style="--yr:#C88A3E">
+        <div class="tl-rail"><span class="tl-badge">1</span><span class="tl-line"></span></div>
+        <div class="tl-body">
+          <span class="tl-kicker">1<sup>re</sup> année</span>
+          <h3>Faire jaillir l&rsquo;émotion</h3>
+          <p class="tl-goal">Ressentir <em>pour de vrai</em>, et apprendre à faire remonter l&rsquo;émotion à volonté.</p>
+          <div class="atelier-list">
+            <div class="atelier-item"><b>Exploration 1</b><span>Souvenirs et imaginaire pour déclencher en vous de vraies émotions.</span></div>
+            <div class="atelier-item"><b>Scènes 1</b><span>Jouer seul, sans texte&nbsp;: tout passe par le regard et le corps.</span></div>
+            <div class="atelier-item"><b>Backstory</b><span>Improvisations à deux&nbsp;: le passé qui motive chaque réplique.</span></div>
+          </div>
         </div>
-        <div class="mt-m" style="display:flex; flex-wrap:wrap; gap:10px">
-          <span class="pill">3 scènes filmées</span><span class="pill">1 book photo</span><span class="pill">1 bande démo</span><span class="pill">Outils de démarchage</span>
+      </div>
+
+      <!-- Année 2 -->
+      <div class="tl-year" data-reveal style="--yr:#CB6A44">
+        <div class="tl-rail"><span class="tl-badge">2</span><span class="tl-line"></span></div>
+        <div class="tl-body">
+          <span class="tl-kicker">2<sup>e</sup> année</span>
+          <h3>Maîtriser et préciser</h3>
+          <p class="tl-goal">L&rsquo;émotion devient un outil&nbsp;: on la dose, on la rejoue à l&rsquo;identique, puis on ajoute le texte.</p>
+          <div class="atelier-list">
+            <div class="atelier-item"><b>Exploration 2</b><span>Horreur, peur, séduction, comédie&hellip; se frotter à tous les registres.</span></div>
+            <div class="atelier-item"><b>Scènes 2</b><span>Le «&nbsp;moment à moment&nbsp;»&nbsp;: recréer chaque micro-geste sans perdre son naturel.</span></div>
+            <div class="atelier-item"><b>Scènes 3</b><span>Le texte, enfin. Un monologue filmé en fin d&rsquo;année.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Année 3 -->
+      <div class="tl-year" data-reveal style="--yr:#C1493C">
+        <div class="tl-rail"><span class="tl-badge">3</span><span class="tl-line"></span></div>
+        <div class="tl-body">
+          <span class="tl-kicker">3<sup>e</sup> année</span>
+          <h3>Composer un personnage</h3>
+          <p class="tl-goal">Devenir quelqu&rsquo;un d&rsquo;autre &mdash; à l&rsquo;opposé de vous, toujours de façon réaliste.</p>
+          <div class="atelier-list">
+            <div class="atelier-item"><b>Composition A</b><span>Recherches et analyses pour habiter un rôle éloigné de vous.</span></div>
+            <div class="atelier-item"><b>Composition B</b><span>Changer complètement son énergie naturelle, scène après scène.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Année 4 -->
+      <div class="tl-year" data-reveal style="--yr:#E0261F">
+        <div class="tl-rail"><span class="tl-badge">4</span></div>
+        <div class="tl-body">
+          <span class="tl-kicker">4<sup>e</sup> année</span>
+          <h3>Passer au professionnel</h3>
+          <p class="tl-goal">On transforme votre travail en outils concrets pour démarcher agences et directeurs de casting.</p>
+          <div class="tl-pro">
+            <div class="grid grid-2" style="gap:20px">
+              <p style="color:var(--muted)"><strong style="color:var(--ink)">Entraînement plateau</strong> &mdash; vous passez des scènes en conditions de tournage et gérez toutes les contraintes techniques.</p>
+              <p style="color:var(--muted)"><strong style="color:var(--ink)">Vos images</strong> &mdash; tout ce qu&rsquo;il vous faut pour vous présenter aux professionnels.</p>
+            </div>
+            <div class="mt-m" style="display:flex; flex-wrap:wrap; gap:10px">
+              <span class="pill">3 scènes filmées</span><span class="pill">1 book photo</span><span class="pill">1 bande démo</span><span class="pill">Outils de démarchage</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -459,8 +503,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
       </div>
       <div>
         <h4>Formations</h4>
-        <a href="acting.html">Acting &mdash; devant la caméra</a>
-        <a href="scenario-real.html">Scénario &middot; Réal &mdash; derrière la caméra</a>
+        <a href="acting.html">Acting &mdash; devenir acteur</a>
+        <a href="scenario-real.html">Scénario &middot; Réalisation</a>
       </div>
       <div>
         <h4>Le centre</h4>

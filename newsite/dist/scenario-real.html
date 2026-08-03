@@ -162,6 +162,24 @@ p{ margin:0; }
 @media (max-width:680px){ .atelier-cards > .card{ max-width:none; } }
 .atelier-cards .tag{ color:var(--seg); background:rgba(255,255,255,.06); }
 
+/* Programme en frise — progression sur 4 ans (page Acting) */
+.timeline{ margin-top:44px; }
+.tl-year{ display:grid; grid-template-columns:56px 1fr; gap:22px; }
+.tl-rail{ display:flex; flex-direction:column; align-items:center; }
+.tl-badge{ flex:0 0 auto; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:20px; color:#fff; background:var(--yr,var(--red)); box-shadow:0 10px 22px rgba(20,18,15,.14); }
+.tl-line{ flex:1 1 auto; width:2px; background:var(--yr,var(--red)); opacity:.28; margin:8px 0; border-radius:2px; }
+.tl-body{ padding-bottom:40px; }
+.tl-year:last-child .tl-body{ padding-bottom:0; }
+.tl-kicker{ display:block; color:var(--yr,var(--red)); font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:2px; font-size:13px; font-weight:600; }
+.tl-body > h3{ font-family:'Oswald',sans-serif; font-size:clamp(20px,2vw,26px); margin:6px 0 0; }
+.tl-goal{ color:var(--muted); margin-top:8px; max-width:62ch; }
+.atelier-list{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:12px; margin-top:18px; }
+.atelier-item{ background:#fff; border:1px solid var(--line); border-left:3px solid var(--yr,var(--red)); border-radius:12px; padding:13px 16px; }
+.atelier-item b{ display:block; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:13px; color:var(--ink); margin-bottom:4px; }
+.atelier-item span{ color:var(--muted); font-size:14px; line-height:1.5; }
+.tl-pro{ background:#faf8f4; border:1px solid var(--line); border-left:3px solid var(--yr,var(--red)); border-radius:var(--radius); padding:clamp(20px,3vw,28px); margin-top:18px; }
+
 /* parcours card (accueil) */
 .parcours{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:16px; min-height:300px; }
 .parcours .media{ aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:linear-gradient(135deg,#14120F,#2B2622); }
@@ -322,8 +340,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         <div class="navitem has-sub">
           <span class="navlink" tabindex="0">Formations <span class="chev">&#9662;</span></span>
           <div class="submenu">
-            <a href="acting.html">Acting<small>Devant la caméra &middot; devenir acteur</small></a>
-            <a href="scenario-real.html">Scénario &middot; Réal<small>Derrière la caméra &middot; scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
+            <a href="acting.html">Acting<small>Devenir acteur &middot; jouer vrai</small></a>
+            <a href="scenario-real.html">Scénario &middot; Réal<small>Scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
           </div>
         </div>
         <a class="navlink" href="jpo.html">Portes Ouvertes</a>
@@ -337,12 +355,12 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   </div>
 </header>
 <main>
-<!-- ================= SCÉNARIO · RÉALISATION · DIRECTION D'ACTEURS (derrière la caméra) ================= -->
+<!-- ================= SCÉNARIO · RÉALISATION · DIRECTION D'ACTEURS ================= -->
 <section class="hero">
   <div class="container split">
     <div data-reveal>
-      <span class="kicker">Scénario &middot; Réalisation &middot; Direction d&rsquo;acteurs &middot; Derrière la caméra</span>
-      <h1 class="h-lg">Passez derrière<br>la <span class="outline">caméra.</span></h1>
+      <span class="kicker">Scénario &middot; Réalisation &middot; Direction d&rsquo;acteurs</span>
+      <h1 class="h-lg">Racontez vos<br>propres <span class="outline">histoires.</span></h1>
       <p class="lead mt-m">Écrire, réaliser, diriger. Ce programme vous donne des outils concrets pour développer votre inspiration, la structurer, et faire aboutir toutes vos idées de film &mdash; du scénario au tournage.</p>
       <div class="btn-row mt-l">
         <a class="btn btn-red" href="contact.html">Parler de mon projet</a>
@@ -467,8 +485,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
       </div>
       <div>
         <h4>Formations</h4>
-        <a href="acting.html">Acting &mdash; devant la caméra</a>
-        <a href="scenario-real.html">Scénario &middot; Réal &mdash; derrière la caméra</a>
+        <a href="acting.html">Acting &mdash; devenir acteur</a>
+        <a href="scenario-real.html">Scénario &middot; Réalisation</a>
       </div>
       <div>
         <h4>Le centre</h4>
