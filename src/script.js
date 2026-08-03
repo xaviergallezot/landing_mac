@@ -2,6 +2,16 @@
   "use strict";
 
   /* ============================================================
+     FORMULAIRE — envoi des réservations par email (Web3Forms).
+     1) Créez une clé gratuite sur https://web3forms.com (entrez
+        l'email qui recevra les demandes) — c'est instantané.
+     2) Collez la clé (Access Key) entre les guillemets ci-dessous.
+     Tant que la clé est vide, le formulaire affiche le message de
+     succès mais n'envoie PAS d'email.
+     ============================================================ */
+  var WEB3FORMS_KEY = "";
+
+  /* ============================================================
      IMAGES — collez ici les URL de la Médiathèque WordPress.
      Tant qu'une url est vide ou invalide, un cadre étiqueté s'affiche.
      ============================================================ */
@@ -240,10 +250,7 @@ __IMAGES__
     selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
     if(formationCb) formationCb.addEventListener("change",updateRecap);
     updateRecap();
-    form.addEventListener("submit",function(e){
-      e.preventDefault();
-      var ch=chosen(), f=wantsFormation();
-      if(!ch.length && !f){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier, ou cochez la formation annuelle, avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+    function showSuccess(ch,f){
       if(successRecap){
         var msg=[];
         if(ch.length) msg.push("votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":""));
@@ -251,6 +258,42 @@ __IMAGES__
         successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu "+msg.join(" et ")+". Un membre de l’équipe vous recontacte sous 48h.";
       }
       form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
+    }
+    function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var ch=chosen(), f=wantsFormation();
+      if(!ch.length && !f){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier, ou cochez la formation annuelle, avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      var btn=form.querySelector('button[type="submit"]'), btnLabel=btn?btn.innerHTML:"";
+      var ateliersTxt = ch.length ? ch.map(function(c){return "• "+c.name+" — "+c.slot;}).join("\n") : "Aucun";
+      var payload={
+        access_key: WEB3FORMS_KEY,
+        subject: "Nouvelle demande JPO — "+((field("prenom")+" "+field("nom")).trim()||"sans nom"),
+        from_name: "Réservations JPO · Method Acting Center",
+        "Prénom": field("prenom"),
+        "Nom": field("nom"),
+        "Email": field("email"),
+        "Téléphone": field("telephone")||"—",
+        "Ateliers réservés": ateliersTxt,
+        "Formation annuelle 2026-2027": f?"OUI":"Non",
+        "Message": field("message")||"—",
+        botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
+      };
+      if(!WEB3FORMS_KEY){ if(window.console)console.warn("Web3Forms: clé manquante, aucun email envoyé."); showSuccess(ch,f); return; }
+      if(btn){ btn.disabled=true; btn.innerHTML="Envoi en cours…"; }
+      fetch("https://api.web3forms.com/submit",{
+        method:"POST",
+        headers:{"Content-Type":"application/json","Accept":"application/json"},
+        body: JSON.stringify(payload)
+      }).then(function(r){return r.json();}).then(function(d){
+        if(d&&d.success){ showSuccess(ch,f); }
+        else { throw new Error((d&&d.message)||"echec"); }
+      }).catch(function(){
+        if(btn){ btn.disabled=false; btn.innerHTML=btnLabel; }
+        recap.className="book-recap warn";
+        recap.textContent="L’envoi a échoué. Vérifiez votre connexion et réessayez dans un instant.";
+        recap.scrollIntoView({behavior:"smooth",block:"center"});
+      });
     });
   }
 
