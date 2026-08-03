@@ -1,0 +1,112 @@
+<!-- Method Acting Center — Page de maintenance (autonome).
+     Déposez votre logo nommé "logo.png" dans le même dossier que ce fichier. -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site en maintenance — Method Acting Center</title>
+<meta name="description" content="Le site du Method Acting Center est en maintenance. Retrouvez la page d'accueil et les inscriptions aux Journées Portes Ouvertes.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:wght@0,400;0,500&display=swap" rel="stylesheet">
+<style>
+  :root{ --cream:#F7F4EE; --ink:#14120F; --red:#E0261F; --muted:#6B655C; --line:#e8e2d6; }
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; height:100%; }
+  body{ background:var(--cream); color:var(--ink); font-family:'Archivo',Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; min-height:100%; }
+  h1,h2,.brand-txt,.menu a,.btn{ font-family:'Oswald',sans-serif; text-transform:uppercase; }
+
+  /* ---- Header (blanc, style capture) ---- */
+  header.bar{ position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid var(--line); }
+  .bar-in{ max-width:1200px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); }
+  .logo img{ height:56px; width:auto; display:block; }
+  .brand-txt{ font-weight:700; letter-spacing:1px; font-size:16px; line-height:1.05; color:var(--ink); }
+  .brand-txt small{ display:block; font-size:10px; letter-spacing:3px; color:var(--muted); font-weight:500; }
+  /* burger */
+  .burger{ background:none; border:none; cursor:pointer; padding:10px; display:flex; flex-direction:column; gap:6px; }
+  .burger span{ display:block; width:30px; height:3px; background:var(--ink); border-radius:2px; transition:.25s; }
+  .burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(9px) rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-9px) rotate(-45deg); }
+  /* menu déroulant */
+  .menu{ position:absolute; top:100%; right:0; left:0; background:#fff; border-bottom:1px solid var(--line);
+    box-shadow:0 24px 40px rgba(20,18,15,.12); display:none; }
+  .menu.open{ display:block; }
+  .menu ul{ list-style:none; margin:0; padding:8px 20px 20px; max-width:1200px; margin:0 auto; }
+  .menu a{ display:block; padding:16px 4px; font-size:16px; letter-spacing:1.5px; color:var(--ink);
+    text-decoration:none; border-bottom:1px solid var(--line); }
+  .menu a:last-child{ border-bottom:none; }
+  .menu a:hover{ color:var(--red); }
+
+  /* ---- Contenu ---- */
+  main{ flex:1; display:flex; align-items:center; justify-content:center; padding:56px 22px; }
+  .card{ max-width:680px; width:100%; text-align:center; }
+  .kicker{ font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+  .kicker::before,.kicker::after{ content:"—"; color:var(--red); margin:0 10px; }
+  h1{ font-size:clamp(36px,6vw,64px); line-height:1.02; margin:18px 0 0; font-weight:700; }
+  h1 .r{ color:var(--red); }
+  .lead{ font-size:clamp(16px,1.6vw,19px); line-height:1.75; color:var(--muted); margin:22px auto 0; max-width:52ch; }
+  .sign{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:2px; font-weight:600; color:var(--ink); margin-top:22px; }
+  .btns{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:34px; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; font-size:15px; letter-spacing:2px; font-weight:600;
+    padding:17px 32px; border-radius:999px; text-decoration:none; border:1.5px solid transparent; transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease; }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-red{ background:var(--red); color:#fff; } .btn-red:hover{ background:var(--ink); }
+  .btn-out{ background:transparent; color:var(--ink); border-color:rgba(20,18,15,.25); } .btn-out:hover{ background:var(--ink); color:#fff; border-color:var(--ink); }
+
+  footer.mini{ text-align:center; padding:22px; color:var(--muted); font-size:12px; letter-spacing:1px;
+    font-family:'Oswald',sans-serif; text-transform:uppercase; }
+</style>
+</head>
+<body>
+  <header class="bar">
+    <div class="bar-in">
+      <a class="logo" href="https://www.methodacting.fr/">
+        <img src="logo.png" alt="Method Acting Center" onerror="this.style.display='none';document.getElementById('brandtxt').style.display='block';">
+        <span class="brand-txt" id="brandtxt" style="display:none">Method Acting Center<small>Theatre &amp; Cinema</small></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="menu" id="menu" aria-label="Menu">
+      <ul>
+        <li><a href="https://www.methodacting.fr/">Accueil</a></li>
+        <li><a href="https://www.methodacting.fr/jpo">Journées Portes Ouvertes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <p class="kicker">Method Acting Center</p>
+      <h1>Site en <span class="r">maintenance</span></h1>
+      <p class="lead">Merci de vous référer à la page d&rsquo;accueil, ou de cliquer sur les parcours d&rsquo;inscription ci-dessous. Nous revenons très vite avec un nouveau site web, plus adapté.</p>
+      <div class="btns">
+        <a class="btn btn-red" href="https://www.methodacting.fr/">Accueil</a>
+        <a class="btn btn-out" href="https://www.methodacting.fr/jpo">Journées Portes Ouvertes</a>
+      </div>
+      <p class="sign">L&rsquo;équipe MAC</p>
+    </div>
+  </main>
+
+  <footer class="mini">Method Acting Center &middot; Paris &middot; Theatre &amp; Cinema</footer>
+
+  <script>
+    (function(){
+      var b=document.getElementById('burger'), m=document.getElementById('menu');
+      b.addEventListener('click', function(){
+        var open=m.classList.toggle('open');
+        b.setAttribute('aria-expanded', open?'true':'false');
+      });
+      document.addEventListener('click', function(e){
+        if(!m.contains(e.target) && !b.contains(e.target)){ m.classList.remove('open'); b.setAttribute('aria-expanded','false'); }
+      });
+    })();
+  </script>
+</body>
+</html>
