@@ -241,6 +241,11 @@ a.card--dark.parcours:hover h3{ color:var(--red); }
 .price .checklist{ flex:1; }
 .badge{ align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px;
   text-transform:uppercase; font-weight:600; color:#fff; background:var(--red); padding:5px 12px; border-radius:999px; }
+.price h3{ font-size:clamp(21px,2.1vw,26px); line-height:1.16; }
+.price.featured-blue{ border-color:#2e6da4; box-shadow:0 26px 50px rgba(46,109,164,.14); }
+.badge-blue{ background:#2e6da4; }
+.amount-red{ color:var(--red); } .amount-blue{ color:#2e6da4; }
+.amount-ask{ font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:17px; color:var(--muted); margin-top:8px; }
 .note{ font-size:13px; color:var(--muted); line-height:1.5; }
 
 /* ===== Table (planning) ===== */
@@ -384,95 +389,96 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 <!-- ================= TARIFS ================= -->
 <section class="hero">
   <div class="container">
-    <div data-reveal style="max-width:62ch">
+    <div data-reveal style="max-width:64ch">
       <span class="kicker">Tarifs &middot; 2026&ndash;2027</span>
       <h1 class="h-lg">Des tarifs<br><span class="outline">clairs.</span></h1>
-      <p class="lead mt-m">Chaque parcours a son format et son rythme. Voici les repères essentiels&nbsp;: on affine ensemble selon votre projet, votre niveau et votre situation.</p>
-      <p class="note mt-s">Montants indicatifs, mensualités sur 9&nbsp;mois. Le détail complet vous est remis sur demande.</p>
+      <p class="lead mt-m">Nos formations professionnelles se règlent au mois&nbsp;; nos ateliers et stages sont accessibles à part. Voici l&rsquo;essentiel, poste par poste.</p>
+      <p class="note mt-s">Formations&nbsp;: 9 mensualités par an &middot; 200&nbsp;€ de frais d&rsquo;inscription. Les ateliers loisirs et à l&rsquo;unité ont leurs propres tarifs.</p>
     </div>
   </div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="container">
-    <div class="price-grid">
-      <div class="card price" data-reveal>
-        <span class="tag">Découverte</span>
-        <h3 class="h-sm">Journées Portes Ouvertes</h3>
-        <div class="amount">Gratuit</div>
-        <p class="per">3 jours d&rsquo;ateliers &middot; sans engagement</p>
-        <ul class="checklist">
-          <li>Un vrai atelier, pas une visite</li>
-          <li>Plusieurs ateliers réservables</li>
-          <li>Idéal pour se décider</li>
-        </ul>
-        <a class="btn btn-outline" href="jpo.html">Réserver mes ateliers</a>
-      </div>
 
+    <!-- Formations professionnelles -->
+    <div data-reveal style="max-width:64ch">
+      <span class="kicker">Les formations professionnelles</span>
+      <h2 class="h-md">Se former<br>au métier</h2>
+      <p class="lead mt-s">Deux cursus complets, réglés au mois sur 9 mensualités. Frais d&rsquo;inscription&nbsp;: 200&nbsp;€/an.</p>
+    </div>
+    <div class="price-grid mt-l">
       <div class="card price featured" data-reveal>
         <span class="badge">Le plus demandé</span>
-        <h3 class="h-sm">Formation Acting</h3>
-        <div class="amount">dès 370&nbsp;€ <small>/ mois</small></div>
-        <p class="per">Cursus complet jusqu&rsquo;à 4 années &middot; tarif dégressif</p>
+        <h3>Formation Acting</h3>
+        <div class="amount amount-red">dès 370&nbsp;€ <small>/ mois</small></div>
+        <p class="per">Cursus complet, jusqu&rsquo;à 4 années</p>
         <ul class="checklist">
-          <li>Cours hebdomadaires + semaine intensive</li>
-          <li>Scènes filmées, book photo &amp; bande démo</li>
+          <li>9 mensualités par an</li>
+          <li>Semaine intensive en supplément&nbsp;: 300&nbsp;€</li>
           <li>200&nbsp;€ de frais d&rsquo;inscription / an</li>
+          <li>Tarifs dégressifs à partir de la 3<sup>e</sup> année</li>
         </ul>
         <a class="btn btn-red" href="acting.html">Voir la formation</a>
       </div>
 
-      <div class="card price" data-reveal>
-        <span class="tag">Écriture &amp; Réalisation</span>
-        <h3 class="h-sm">Scénario &middot; Réalisation</h3>
-        <div class="amount">dès 350&nbsp;€ <small>/ mois</small></div>
-        <p class="per">Scénario, réalisation &amp; direction d&rsquo;acteurs &middot; 2 années</p>
+      <div class="card price featured-blue" data-reveal>
+        <span class="badge badge-blue">Écriture &amp; réalisation</span>
+        <h3>Formation Scénario, Réalisation &amp; Direction d&rsquo;acteurs</h3>
+        <div class="amount amount-blue">dès 350&nbsp;€ <small>/ mois</small></div>
+        <p class="per">Cursus sur 2 années</p>
         <ul class="checklist">
+          <li>9 mensualités par an</li>
           <li>Écriture, réalisation &amp; direction d&rsquo;acteurs</li>
-          <li>Vous réalisez vos scènes en fin d&rsquo;année</li>
           <li>200&nbsp;€ de frais d&rsquo;inscription / an</li>
         </ul>
-        <a class="btn btn-outline" href="scenario-real.html">Voir la formation</a>
+        <a class="btn btn-dark" href="scenario-real.html">Voir la formation</a>
       </div>
     </div>
 
-    <!-- À la carte -->
-    <div data-reveal class="mt-xl" style="max-width:60ch">
-      <span class="kicker">Sans vous engager sur l&rsquo;année</span>
-      <h2 class="h-md">Tester ou se<br><span class="text-red">perfectionner</span></h2>
+    <!-- Ateliers complémentaires -->
+    <div data-reveal class="mt-xl" style="max-width:64ch">
+      <span class="kicker">En complément de la formation</span>
+      <h2 class="h-md">Ateliers <span class="text-red">complémentaires</span></h2>
+      <p class="lead mt-s">Des modules spécialisés, pour aller plus loin ou se préparer au marché.</p>
     </div>
-    <div class="grid grid-4 mt-l">
-      <div class="card" data-reveal>
-        <h3 class="h-sm">Stage week-end</h3>
-        <div class="amount amount-sm">dès 160&nbsp;€</div>
-        <p class="note mt-s">2 jours pour goûter à la Méthode &mdash; acting, caméra, horreur, stand-up&hellip;</p>
-      </div>
-      <div class="card" data-reveal>
-        <h3 class="h-sm">Stage intensif</h3>
-        <div class="amount amount-sm">dès 300&nbsp;€</div>
-        <p class="note mt-s">Une semaine complète pendant les vacances (Noël, Pâques, été).</p>
-      </div>
-      <div class="card" data-reveal>
-        <h3 class="h-sm">Cours à l&rsquo;unité</h3>
-        <div class="amount amount-sm">dès 50&nbsp;€</div>
-        <p class="note mt-s">Improvisation, marché pro, Acting in English&hellip; à la séance.</p>
-      </div>
-      <div class="card" data-reveal>
-        <h3 class="h-sm">Coaching privé</h3>
-        <div class="amount amount-sm">dès 85&nbsp;€ <small>/ h</small></div>
-        <p class="note mt-s">Préparation de casting ou de rôle, en tête-à-tête avec un coach.</p>
-      </div>
+    <div class="grid grid-3 mt-l">
+      <div class="card" data-reveal><h3 class="h-sm">Acting in English</h3><div class="amount-ask">Sur demande</div><p class="note mt-s">La Méthode, intégralement en anglais &mdash; pour les profils internationaux.</p></div>
+      <div class="card" data-reveal><h3 class="h-sm">Acting Caméra</h3><div class="amount-ask">Sur demande</div><p class="note mt-s">Le jeu face caméra et vos images&nbsp;: scènes filmées, book photo &amp; bande démo.</p></div>
+      <div class="card" data-reveal><h3 class="h-sm">Marché Professionnel</h3><div class="amount-ask">Sur demande</div><p class="note mt-s">Rencontres avec agents et directeurs de casting &mdash; disponible à l&rsquo;unité.</p></div>
+    </div>
+
+    <!-- Ateliers loisirs -->
+    <div data-reveal class="mt-xl" style="max-width:64ch">
+      <span class="kicker">Sans objectif professionnel</span>
+      <h2 class="h-md">Ateliers <span class="text-red">loisirs</span></h2>
+      <p class="lead mt-s">Pour le plaisir de jouer, à votre rythme, sans viser le métier.</p>
+    </div>
+    <div class="grid grid-2 mt-l">
+      <div class="card" data-reveal><h3 class="h-sm">Acting Amateur</h3><div class="amount amount-sm">dès 140&nbsp;€ <small>/ mois</small></div><p class="note mt-s">Un atelier ludique pour oser, se lâcher et se surprendre.</p></div>
+      <div class="card" data-reveal><h3 class="h-sm">Improvisation</h3><div class="amount-ask">Sur demande</div><p class="note mt-s">Répartie, créativité et écoute du partenaire.</p></div>
+    </div>
+
+    <!-- Découverte & stages -->
+    <div data-reveal class="mt-xl" style="max-width:64ch">
+      <span class="kicker">Tester &amp; ponctuel</span>
+      <h2 class="h-md">Découverte <span class="text-red">&amp; stages</span></h2>
+    </div>
+    <div class="grid grid-3 mt-l">
+      <div class="card" data-reveal><span class="tag">Gratuit</span><h3 class="h-sm mt-s">Journées Portes Ouvertes</h3><p class="note mt-s">Un vrai atelier pour tester la Méthode, sans engagement.</p><div class="btn-row mt-m"><a class="btn btn-red" href="jpo.html">Réserver</a></div></div>
+      <div class="card" data-reveal><h3 class="h-sm">Stages week-end</h3><div class="amount amount-sm">dès 160&nbsp;€</div><p class="note mt-s">2 jours pour goûter à la Méthode. <a href="planning.html">Voir les dates &rarr;</a></p></div>
+      <div class="card" data-reveal><h3 class="h-sm">Stages intensifs</h3><div class="amount-ask">Sur demande</div><p class="note mt-s">Une session complète pendant les vacances. <a href="planning.html">Voir les dates &rarr;</a></p></div>
     </div>
 
     <!-- Bon à savoir -->
     <div class="card mt-xl" data-reveal style="background:#faf8f4">
       <h3 class="h-sm">Bon à savoir</h3>
-      <ul class="checklist mt-m">
-        <li><strong>Paiement en plusieurs fois</strong> &mdash; les formations se règlent en mensualités, sans surcoût.</li>
-        <li><strong>Parrainage</strong> &mdash; vous parrainez un proche&nbsp;? Un mois de cours vous est offert.</li>
-        <li><strong>Un devis sur mesure</strong> &mdash; on établit ensemble le tarif exact selon l&rsquo;année et le rythme choisis.</li>
+      <ul class="checklist mt-l">
+        <li><strong>Facilités de paiement</strong> &mdash; les formations peuvent aussi se régler en mensualités, sans surcoût (paiement en une fois ou par trimestre également possible).</li>
+        <li><strong>Parrainage</strong> &mdash; vous parrainez un proche&nbsp;? On vous offre l&rsquo;équivalent d&rsquo;un mois de la formation qu&rsquo;il choisit.</li>
+        <li><strong>Un devis sur mesure</strong> &mdash; on établit ensemble le tarif exact selon le programme et les ateliers choisis.</li>
       </ul>
-      <div class="btn-row mt-l"><a class="btn btn-dark" href="contact.html">Recevoir le détail des tarifs</a></div>
+      <div class="btn-row mt-l"><a class="btn btn-dark" href="contact.html">Recevoir un tarif personnalisé</a></div>
     </div>
   </div>
 </section>
