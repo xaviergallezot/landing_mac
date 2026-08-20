@@ -197,6 +197,21 @@ a.card--dark.parcours:hover h3{ color:var(--red); }
 .gallery img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
 .gallery figure:hover img{ transform:scale(1.05); }
 
+/* planning hebdomadaire des cours (page Planning) */
+.week{ display:grid; grid-template-columns:repeat(7,minmax(150px,1fr)); gap:10px; min-width:1010px; }
+.wk-day{ display:flex; flex-direction:column; gap:8px; }
+.wk-head{ background:var(--ink); color:#fff; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:1px; font-size:13px; text-align:center; padding:9px 6px; border-radius:10px; }
+.wk-block{ border-radius:10px; padding:9px 11px; color:#fff; }
+.wk-time{ display:block; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:.4px; text-transform:uppercase; opacity:.92; }
+.wk-block strong{ display:block; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:13px; letter-spacing:.3px; line-height:1.16; margin-top:3px; }
+.wk-meta{ display:block; font-size:11px; opacity:.92; margin-top:4px; line-height:1.4; }
+.c-a1{ background:#d9736b; } .c-a2{ background:#c0392b; } .c-a3{ background:#9e2b25; } .c-a4{ background:#6e1a16; }
+.c-en{ background:#5f7a3a; } .c-impro{ background:#7d7d7d; } .c-amateur{ background:#4b4b4b; }
+.c-marche{ background:#7a2150; } .c-s1{ background:#2e6da4; } .c-s2{ background:#1f4e79; } .c-screen{ background:#7fa63f; }
+.wk-legend{ display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:18px; font-size:12.5px; color:var(--muted); }
+.wk-legend span{ display:inline-flex; align-items:center; gap:7px; }
+.wk-legend i{ width:14px; height:14px; border-radius:4px; flex:0 0 auto; }
+
 /* media placeholder */
 .ph{ display:flex; align-items:center; justify-content:center; text-align:center; padding:18px; min-height:120px;
   background:linear-gradient(135deg,#14120F,#2B2622); color:#8b8e84; font-family:'Oswald',sans-serif;
@@ -419,6 +434,74 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         </table>
       </div>
       <p class="note mt-s">Vacances&nbsp;: Noël du 21 décembre 2026 au 3 janvier 2027 &middot; Printemps du 5 au 18 avril 2027.</p>
+    </div>
+
+    <div data-reveal>
+      <h2 class="h-sm">Le planning des cours</h2>
+      <p class="lead mt-s" style="max-width:72ch">La semaine type&nbsp;: chaque bloc indique le créneau, la formation et l&rsquo;intervenant. <span class="todo">Transcription à vérifier avec vos équipes.</span></p>
+      <div class="table-wrap mt-m">
+        <div class="week">
+          <div class="wk-day">
+            <div class="wk-head">Lundi</div>
+            <div class="wk-block c-a2"><span class="wk-time">9h30–13h30 &middot; 1 sem./2</span><strong>Exploration 2</strong><span class="wk-meta">Rafael &middot; Acting 2<sup>e</sup></span></div>
+            <div class="wk-block c-a2"><span class="wk-time">9h30–13h30 &middot; 1 sem./2</span><strong>Scènes 1 &amp; 2</strong><span class="wk-meta">Rami &middot; Acting 2<sup>e</sup></span></div>
+            <div class="wk-block c-a4"><span class="wk-time">15h30–18h30</span><strong>Acting Caméra &amp; Tournages</strong><span class="wk-meta">David &middot; Acting 4<sup>e</sup></span></div>
+            <div class="wk-block c-a2"><span class="wk-time">19h–23h</span><strong>Scènes 3</strong><span class="wk-meta">À venir &middot; Acting 2<sup>e</sup></span></div>
+          </div>
+          <div class="wk-day">
+            <div class="wk-head">Mardi</div>
+            <div class="wk-block c-a2"><span class="wk-time">9h30–13h30</span><strong>Scènes 3</strong><span class="wk-meta">Rami &middot; Acting 2<sup>e</sup></span></div>
+            <div class="wk-block c-a4"><span class="wk-time">15h30–18h30</span><strong>Scènes 4</strong><span class="wk-meta">Rafael &middot; Acting 4<sup>e</sup></span></div>
+            <div class="wk-block c-a2"><span class="wk-time">19h–23h &middot; 1 sem./2</span><strong>Exploration 2</strong><span class="wk-meta">Rafael &middot; Acting 2<sup>e</sup></span></div>
+            <div class="wk-block c-a2"><span class="wk-time">19h–23h &middot; 1 sem./2</span><strong>Scènes 1 &amp; 2</strong><span class="wk-meta">Sébastien &middot; Acting 2<sup>e</sup></span></div>
+          </div>
+          <div class="wk-day">
+            <div class="wk-head">Mercredi</div>
+            <div class="wk-block c-a1"><span class="wk-time">9h30–13h30 &middot; 1 sem./2</span><strong>Exploration 1</strong><span class="wk-meta">Rami &middot; Acting 1<sup>re</sup></span></div>
+            <div class="wk-block c-a1"><span class="wk-time">9h30–13h30 &middot; 1 sem./2</span><strong>Scènes 1</strong><span class="wk-meta">Sébastien &middot; Acting 1<sup>re</sup></span></div>
+            <div class="wk-block c-en"><span class="wk-time">15h30–18h30</span><strong>Acting in English</strong><span class="wk-meta">Rami &middot; Acting 1<sup>re</sup></span></div>
+            <div class="wk-block c-a1"><span class="wk-time">19h–23h</span><strong>Backstory</strong><span class="wk-meta">À venir &middot; Acting 1<sup>re</sup></span></div>
+            <div class="wk-block c-amateur"><span class="wk-time">19h30–22h30</span><strong>Acting Amateur</strong><span class="wk-meta">Sébastien &middot; Tous niveaux</span></div>
+          </div>
+          <div class="wk-day">
+            <div class="wk-head">Jeudi</div>
+            <div class="wk-block c-a2"><span class="wk-time">9h30–13h30</span><strong>Backstory</strong><span class="wk-meta">Rami &middot; Acting 2<sup>e</sup></span></div>
+            <div class="wk-block c-impro"><span class="wk-time">15h30–18h30</span><strong>Improvisation</strong><span class="wk-meta">Larry &middot; Tous niveaux</span></div>
+            <div class="wk-block c-a1"><span class="wk-time">19h–23h &middot; 1 sem./2</span><strong>Exploration 1</strong><span class="wk-meta">À venir &middot; Acting 1<sup>re</sup></span></div>
+            <div class="wk-block c-a1"><span class="wk-time">19h–23h &middot; 1 sem./2</span><strong>Scènes 1</strong><span class="wk-meta">Sébastien &middot; Acting 1<sup>re</sup></span></div>
+            <div class="wk-block c-screen"><span class="wk-time">19h30–22h30</span><strong>Screenwriting in English</strong><span class="wk-meta">Rami &middot; 1<sup>re</sup> année</span></div>
+          </div>
+          <div class="wk-day">
+            <div class="wk-head">Vendredi</div>
+            <div class="wk-block c-a3"><span class="wk-time">19h–23h</span><strong>Composition A &amp; B + Exploration 3</strong><span class="wk-meta">Rami &amp; intervenants &middot; Acting 3<sup>e</sup></span></div>
+          </div>
+          <div class="wk-day">
+            <div class="wk-head">Samedi</div>
+            <div class="wk-block c-s1"><span class="wk-time">10h–13h &middot; 26 sessions</span><strong>Direction d&rsquo;Acteurs 1</strong><span class="wk-meta">Rami &middot; Scénario 1<sup>re</sup></span></div>
+            <div class="wk-block c-s1"><span class="wk-time">14h–19h &middot; 26 sessions</span><strong>Scénario &amp; Réalisation 1</strong><span class="wk-meta">Rami &middot; Scénario 1<sup>re</sup></span></div>
+            <div class="wk-block c-marche"><span class="wk-time">14h–19h &middot; 9 sessions</span><strong>Marché Professionnel</strong><span class="wk-meta">Intervenants &middot; Tous niveaux</span></div>
+            <div class="wk-block c-marche"><span class="wk-time">16h–19h &middot; visio &middot; 1 sem./2</span><strong>Stratégie de Carrière</strong><span class="wk-meta">David &middot; Tous niveaux &amp; 3<sup>e</sup></span></div>
+          </div>
+          <div class="wk-day">
+            <div class="wk-head">Dimanche</div>
+            <div class="wk-block c-s2"><span class="wk-time">10h–13h &middot; 24 sessions</span><strong>Scénario, Réal. &amp; Direction 2</strong><span class="wk-meta">Rami &amp; Riccardo &middot; Scénario 2<sup>e</sup></span></div>
+            <div class="wk-block c-s2"><span class="wk-time">14h–16h &middot; 24 sessions</span><strong>Scénario, Réal. &amp; Direction 2</strong><span class="wk-meta">Rami &amp; Riccardo &middot; Scénario 2<sup>e</sup></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="wk-legend">
+        <span><i class="c-a1"></i> Acting 1<sup>re</sup> année</span>
+        <span><i class="c-a2"></i> Acting 2<sup>e</sup> année</span>
+        <span><i class="c-a3"></i> Acting 3<sup>e</sup> année</span>
+        <span><i class="c-a4"></i> Acting 4<sup>e</sup> année</span>
+        <span><i class="c-en"></i> Acting in English</span>
+        <span><i class="c-impro"></i> Improvisation</span>
+        <span><i class="c-amateur"></i> Acting Amateur</span>
+        <span><i class="c-marche"></i> Marché Pro &amp; Stratégie de carrière</span>
+        <span><i class="c-s1"></i> Scénario · Réal · Direction 1<sup>re</sup></span>
+        <span><i class="c-s2"></i> Scénario · Réal · Direction 2<sup>e</sup></span>
+        <span><i class="c-screen"></i> Screenwriting in English</span>
+      </div>
     </div>
 
     <div data-reveal>
