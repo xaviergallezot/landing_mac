@@ -12,26 +12,37 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
 
-  # Forcer le HTTPS (garde le certificat Let's Encrypt fonctionnel)
+  # 1) Forcer le HTTPS (garde le certificat Let's Encrypt fonctionnel)
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # Bloquer les méthodes TRACE / TRACK
+  # 2) Bloquer les méthodes TRACE / TRACK
   RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
   RewriteRule .* - [F]
 
-  # URLs propres : /acting -> acting.html si le fichier existe
+  # 3) URLs propres — masquer le .html
+  #    /index.html ou /index  ->  /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+  RewriteRule ^index/?$ / [R=301,L]
+
+  #    /page.html  ->  /page  (redirection visible)
+  RewriteCond %{THE_REQUEST} \s/+([^.\s?/]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  #    /page  ->  page.html  (réécriture interne, l'URL reste propre)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
 
   # ------------------------------------------------------------
   #  Redirections 301 des anciennes URLs WordPress (à compléter)
   #  Exemple :
-  #  RewriteRule ^formation-acteur/?$ /acting.html [R=301,L]
+  #  RewriteRule ^formation-acteur/?$ /acting [R=301,L]
   # ------------------------------------------------------------
 </IfModule>
 
