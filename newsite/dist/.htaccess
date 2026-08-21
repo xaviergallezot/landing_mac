@@ -1,0 +1,63 @@
+# ============================================================
+#  Method Acting Center — site statique
+#  À placer à la racine de www/ (remplace l'ancien .htaccess WordPress)
+# ============================================================
+
+# --- Page d'accueil : servir index.html (et non index.php) ---
+DirectoryIndex index.html
+
+# --- Sécurité de base ---
+ServerSignature Off
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Forcer le HTTPS (garde le certificat Let's Encrypt fonctionnel)
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Bloquer les méthodes TRACE / TRACK
+  RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+  RewriteRule .* - [F]
+
+  # URLs propres : /acting -> acting.html si le fichier existe
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # ------------------------------------------------------------
+  #  Redirections 301 des anciennes URLs WordPress (à compléter)
+  #  Exemple :
+  #  RewriteRule ^formation-acteur/?$ /acting.html [R=301,L]
+  # ------------------------------------------------------------
+</IfModule>
+
+# --- Page d'erreur ---
+ErrorDocument 404 /index.html
+
+# --- Compression Gzip ---
+<IfModule mod_filter.c>
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript text/javascript
+  AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml image/x-icon
+  AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2
+</IfModule>
+</IfModule>
+
+# --- Cache navigateur (pages HTML auto-portantes = images en base64) ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html               "access plus 1 hour"
+  ExpiresByType text/css                "access plus 1 month"
+  ExpiresByType application/javascript  "access plus 1 month"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType application/pdf         "access plus 1 month"
+</IfModule>
