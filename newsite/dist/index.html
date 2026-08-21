@@ -223,6 +223,13 @@ a.card--dark:hover{ color:var(--ondark); }
 @keyframes mac-marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 @media (prefers-reduced-motion:reduce){ .marquee-track{ animation:none; } }
 
+/* bandeau de mots-clés défilant */
+.kw-marquee{ overflow:hidden; white-space:nowrap; padding:34px 0; }
+.kw-track{ display:inline-flex; animation:mac-marquee 34s linear infinite; will-change:transform; }
+.kw-track > span{ font-family:'Oswald',sans-serif; font-size:clamp(26px,3.2vw,46px); letter-spacing:3px; text-transform:uppercase; font-weight:600; color:transparent; -webkit-text-stroke:1px var(--ink); padding-right:52px; }
+.kw-track .hl{ color:var(--red); -webkit-text-stroke:0; }
+@media (prefers-reduced-motion:reduce){ .kw-track{ animation:none; } }
+
 /* media placeholder */
 .ph{ display:flex; align-items:center; justify-content:center; text-align:center; padding:18px; min-height:120px;
   background:linear-gradient(135deg,#14120F,#2B2622); color:#8b8e84; font-family:'Oswald',sans-serif;
@@ -437,6 +444,14 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
     </div>
   </div>
 </section>
+
+<!-- Bandeau mots-clés -->
+<div class="kw-marquee" aria-hidden="true">
+  <div class="kw-track">
+    <span>Acting &middot; Émotion &middot; Personnage &middot; Scène &middot; Caméra &middot; Réalisation &middot; Scénario &middot; Direction d&rsquo;acteurs &middot; <span class="hl">La Méthode</span> &middot; Stanislavski &middot; Actors Studio &middot; Jouer vrai &middot;&nbsp;</span>
+    <span>Acting &middot; Émotion &middot; Personnage &middot; Scène &middot; Caméra &middot; Réalisation &middot; Scénario &middot; Direction d&rsquo;acteurs &middot; <span class="hl">La Méthode</span> &middot; Stanislavski &middot; Actors Studio &middot; Jouer vrai &middot;&nbsp;</span>
+  </div>
+</div>
 
 <!-- Les 2 formations -->
 <section class="section" id="formations">
