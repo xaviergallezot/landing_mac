@@ -51,6 +51,7 @@
         "Email": field("email"),
         "Téléphone": field("telephone") || "—",
         "Parcours": field("parcours") || "—",
+        "Comment nous a connus": field("source") || "—",
         "Message": field("message") || "—",
         botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
       };
@@ -115,6 +116,7 @@
         "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"),
         "Téléphone": field("telephone")||"—",
         "Ateliers réservés": ch.map(function(c){return "• "+c.tech+" — "+c.slot;}).join("\n"),
+        "Comment nous a connus": field("source")||"—",
         "Message": field("message")||"—",
         botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
       };

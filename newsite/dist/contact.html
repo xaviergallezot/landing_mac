@@ -457,6 +457,33 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
             <option>Journées Portes Ouvertes</option>
           </select>
         </div>
+        <div class="field">
+          <label>Comment avez-vous connu Method Acting Center&nbsp;?</label>
+          <select name="source">
+            <option value="">— Sélectionnez —</option>
+            <option>Bouche à oreille</option>
+            <optgroup label="Recherche en ligne">
+              <option>Recherche Google</option>
+              <option>Recherche IA (ChatGPT, etc.)</option>
+            </optgroup>
+            <optgroup label="Réseaux sociaux">
+              <option>Instagram</option>
+              <option>TikTok</option>
+              <option>Facebook</option>
+            </optgroup>
+            <optgroup label="Événements &amp; presse">
+              <option>Eventbrite</option>
+              <option>Newsletter de l&rsquo;acteur</option>
+            </optgroup>
+            <optgroup label="Recommandation">
+              <option>Ancien élève</option>
+              <option>Recommandation interne</option>
+              <option>Agences / Directeurs de casting</option>
+              <option>Autre école</option>
+            </optgroup>
+            <option>Autre</option>
+          </select>
+        </div>
         <div class="field"><label>Message</label><textarea name="message" rows="4" required placeholder="Votre question, votre projet…"></textarea></div>
         <div id="contact-error" class="note" style="display:none; color:var(--red)">L&rsquo;envoi a échoué. Vérifiez votre connexion et réessayez dans un instant.</div>
         <button type="submit" class="btn btn-red" style="width:100%">Envoyer mon message</button>
@@ -562,6 +589,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         "Email": field("email"),
         "Téléphone": field("telephone") || "—",
         "Parcours": field("parcours") || "—",
+        "Comment nous a connus": field("source") || "—",
         "Message": field("message") || "—",
         botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
       };
@@ -626,6 +654,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"),
         "Téléphone": field("telephone")||"—",
         "Ateliers réservés": ch.map(function(c){return "• "+c.tech+" — "+c.slot;}).join("\n"),
+        "Comment nous a connus": field("source")||"—",
         "Message": field("message")||"—",
         botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
       };
