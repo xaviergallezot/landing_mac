@@ -546,6 +546,32 @@
           <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span>
             <textarea name="message" rows="3" placeholder="Une question, une pr&eacute;cision&hellip;" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; resize: vertical; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F"></textarea>
           </label>
+          <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Comment avez-vous connu Method Acting Center&nbsp;?
+            <select name="source" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%">
+              <option value="">&mdash; S&eacute;lectionnez &mdash;</option>
+              <option>Bouche &agrave; oreille</option>
+              <optgroup label="Recherche en ligne">
+                <option>Recherche Google</option>
+                <option>Recherche IA (ChatGPT, etc.)</option>
+              </optgroup>
+              <optgroup label="R&eacute;seaux sociaux">
+                <option>Instagram</option>
+                <option>TikTok</option>
+                <option>Facebook</option>
+              </optgroup>
+              <optgroup label="&Eacute;v&eacute;nements &amp; presse">
+                <option>Eventbrite</option>
+                <option>Newsletter de l&rsquo;acteur</option>
+              </optgroup>
+              <optgroup label="Recommandation">
+                <option>Ancien &eacute;l&egrave;ve</option>
+                <option>Recommandation interne</option>
+                <option>Agences / Directeurs de casting</option>
+                <option>Autre &eacute;cole</option>
+              </optgroup>
+              <option>Autre</option>
+            </select>
+          </label>
           <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #14120F; color: #FFFFFF">Je r&eacute;serve mes ateliers</button>
           <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
         </form>
@@ -899,6 +925,7 @@
         "Téléphone": field("telephone")||"—",
         "Ateliers réservés": ateliersTxt,
         "Formation annuelle 2026-2027": f?"OUI":"Non",
+        "Comment nous a connus": field("source")||"—",
         "Message": field("message")||"—",
         botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
       };
