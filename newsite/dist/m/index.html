@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method Acting Center — Paris</title>
+<meta name="description" content="Method Acting Center — école d'acteurs, de scénaristes et de réalisateurs à Paris depuis 1999. La Méthode Stanislavski, des coachs en activité, et des Journées Portes Ouvertes gratuites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+<style>
+  body { margin:0; background:#f3f2f2; }
+  a { color:#201e1d; text-decoration:none; }
+  a:hover { color:#ec3013; }
+  @keyframes rise { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+  @keyframes fade { from { opacity:0; } to { opacity:1; } }
+  @keyframes wipeUp { from { clip-path:inset(100% 0 0 0); } to { clip-path:inset(0 0 0 0); } }
+  @keyframes zoomIn { from { transform:scale(1.12); } to { transform:scale(1); } }
+  @keyframes marq { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  @keyframes barGrow { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+  @media (prefers-reduced-motion:reduce) { * { animation:none !important; } }
+  html { scrollbar-width: none; -ms-overflow-style: none; }
+  ::-webkit-scrollbar { width: 0; height: 0; }
+
+  :root{
+    --font-heading:"Archivo", system-ui, sans-serif;
+    --font-body:"Archivo", system-ui, sans-serif;
+    --accent:#ec3013;
+    --bg:#f3f2f2;
+    --ink:#201e1d;
+    --muted:#605d5d;
+    --muted2:#7d7979;
+  }
+  .grayscale{ filter:grayscale(1) contrast(1.08); }
+
+  [data-page]{ display:none; }
+  [data-page].active{ display:block; }
+
+  .menu{ display:flex; }
+  .menu.closed{ display:none !important; }
+
+  /* ==== bloc mobile injecté par le design (componentDidMount) ==== */
+  @media (max-width:900px){[data-desknav]{display:none !important}[data-burger]{display:flex !important}[data-mobilecta]{display:flex !important}body{padding-bottom:92px}}
+  @media (max-width:700px){
+    /* rythme vertical mobile */
+    main > section{padding-left:20px !important; padding-right:20px !important; padding-bottom:56px !important}
+    main > section:has([data-hero]){padding:0 !important}
+    [data-hero]{align-items:center !important}
+    main > section:first-child:not(:has([data-hero])){padding-top:92px !important}
+    main > section > div{gap:26px !important}
+    /* typo mobile */
+    main h1{font-size:40px !important; line-height:1.02 !important; letter-spacing:-.035em !important; max-width:none !important}
+    main h2{font-size:27px !important; line-height:1.08 !important; letter-spacing:-.03em !important}
+    main h3{font-size:19px !important}
+    main p{font-size:15.5px !important; line-height:1.65 !important}
+    /* header superposé au hero, sans bandeau */
+    header{position:fixed !important; top:0; left:0; right:0; background:transparent !important; backdrop-filter:none !important; transition:background .3s ease}
+    header > div:last-child{display:none}
+    header > div:first-child{height:64px !important}
+    header a, header span{color:#f3f2f2 !important}
+    header [data-burger] span{background:#f3f2f2 !important}
+    header[data-solid="1"]{background:rgba(243,242,242,.94) !important; backdrop-filter:blur(12px) !important; border-bottom:1px solid rgba(32,30,29,.1)}
+    header[data-solid="1"] a, header[data-solid="1"] span{color:#201e1d !important}
+    header[data-solid="1"] [data-burger] span{background:#201e1d !important}
+    /* hero plein écran, texte en bas */
+    [data-hero]{min-height:100svh !important; align-items:flex-end !important}
+    [data-hero]{align-items:center !important}
+    [data-hero-inner]{padding:0 20px 0 !important}
+    [data-hero-inner] > div{margin-top:22px !important; gap:20px !important}
+    [data-cta]{flex-direction:column !important; gap:9px !important; width:100%}
+    [data-cta] a{width:100%; box-sizing:border-box; text-align:center; padding:17px 20px !important}
+    /* mosaïque */
+    [data-mosaic]{aspect-ratio:3/4 !important; border-radius:20px !important; min-height:0 !important}
+    /* avis + accès rapides */
+    [data-avis-grid]{grid-template-columns:1fr !important; gap:10px !important}
+    [data-quickaccess]{gap:0 !important; padding-top:14px !important}
+    [data-quickaccess] a{padding:17px 0; border-bottom:1px solid rgba(32,30,29,.1)}
+    /* formulaire JPO */
+    [data-form-row]{flex-direction:column !important; align-items:stretch !important; gap:9px !important; padding:14px 0 !important}
+    [data-form-row] select{width:100%}
+    #inscription > div{padding-top:52px !important; padding-bottom:52px !important}
+    /* footer */
+    footer{padding:44px 20px 30px !important}
+    footer > div:first-child{gap:26px !important}
+  }
+</style>
+</head>
+<body>
+<div style="background:#f3f2f2; color:#201e1d; font-family:var(--font-body); overflow-x:hidden; min-height:100vh">
+
+  <header data-solid="0" style="position:sticky; top:0; z-index:100; background:rgba(243,242,242,.9); backdrop-filter:blur(12px)">
+    <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px); height:78px; display:flex; align-items:center; justify-content:space-between; gap:20px">
+      <a href="#" data-nav="home" style="font-family:var(--font-heading); font-weight:800; font-size:15px; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap">Method Acting Center</a>
+      <nav data-desknav style="display:flex; align-items:center; gap:34px">
+        <a href="#" data-nav="acting" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Acting</a>
+        <a href="#" data-nav="scenario" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Scénario · Réal</a>
+        <a href="#" data-nav="jpo" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Portes Ouvertes</a>
+        <a href="#" data-nav="tarifs" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Tarifs</a>
+        <a href="#" data-nav="contact" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Contact</a>
+        <a href="#" data-nav="jpo" style="padding:13px 22px; border-radius:999px; background:#201e1d; color:#f3f2f2; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase" style-hover="background:#ec3013">Réserver</a>
+      </nav>
+      <button aria-label="Menu" data-burger style="display:none; background:none; border:none; padding:8px 0; cursor:pointer; flex-direction:column; gap:6px">
+        <span style="display:block; width:24px; height:2px; border-radius:2px; background:#201e1d"></span>
+        <span style="display:block; width:24px; height:2px; border-radius:2px; background:#201e1d"></span>
+      </button>
+    </div>
+    <div style="height:1px; background:rgba(32,30,29,.14)"><div style="height:100%; background:#ec3013; transform-origin:0 50%; animation:barGrow linear both; animation-timeline:scroll(root)"></div></div>
+  </header>
+
+  <div class="menu closed" id="menu" style="position:fixed; inset:0; z-index:140; background:#f3f2f2; flex-direction:column; animation:fade .2s both">
+    <div style="display:flex; align-items:center; justify-content:space-between; height:78px; padding:0 clamp(20px,6vw,48px)">
+      <span style="font-family:var(--font-heading); font-weight:800; font-size:15px; letter-spacing:.08em; text-transform:uppercase">Method Acting Center</span>
+      <button data-menuclose aria-label="Fermer" style="background:none; border:none; font-size:26px; line-height:1; cursor:pointer; color:#201e1d; padding:8px">✕</button>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:6px; padding:0 clamp(20px,6vw,48px)">
+      <a href="#" data-nav="home" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(34px,11vw,60px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .02s">Accueil</a>
+      <a href="#" data-nav="jpo" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; color:#ec3013; animation:rise .35s both .08s">Portes Ouvertes</a>
+      <a href="#" data-nav="acting" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .12s">Formation Acting</a>
+      <a href="#" data-nav="scenario" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .16s">Scénario · Réal</a>
+      <a href="#" data-nav="tarifs" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .2s">Tarifs</a>
+      <a href="#" data-nav="contact" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .24s">Contact</a>
+    </div>
+    <div style="padding:0 clamp(20px,6vw,48px) 34px">
+      <a href="#" data-nav="jpo" style="display:block; background:#201e1d; color:#f3f2f2; padding:20px 22px; font-family:var(--font-heading); font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px">11 · 12 · 13 sept — Réserver</a>
+    </div>
+  </div>
+
+  <!-- ============================ HOME ============================ -->
+  <div class="page" data-page="home">
+  <main>
+    <section style="margin:0; padding:0">
+      <div data-hero style="position:relative; overflow:hidden; min-height:clamp(600px,calc(100vh - 79px),1000px); display:flex; align-items:flex-end; animation:wipeUp 1s both .05s">
+        <img src="img/hero-jeu-face-camera.jpg" alt="Acteur en plein jeu, en atelier" class="grayscale" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:zoomIn 1.8s both .05s">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(32,30,29,.34) 0%, rgba(32,30,29,.12) 34%, rgba(32,30,29,.78) 100%)"></div>
+        <div data-hero-inner style="position:relative; width:100%; max-width:1400px; margin:0 auto; padding:clamp(34px,6vw,88px) clamp(20px,4vw,48px); color:#f3f2f2">
+          <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:rgba(243,242,242,.8); animation:fade .8s both">Paris · Depuis 1999</span>
+          <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(44px,8.4vw,124px); line-height:.94; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:16ch">
+            <span style="display:block; animation:rise .8s both .06s">Le talent,</span>
+            <span style="display:block; color:#ff563c; animation:rise .8s both .16s">ça s’apprend.</span>
+          </h1>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(20px,4vw,64px); margin-top:clamp(24px,3.4vw,44px); align-items:end">
+            <p style="margin:0; max-width:46ch; font-size:17.5px; line-height:1.7; color:rgba(243,242,242,.86); animation:rise .8s both .24s">Acteur, scénariste ou réalisateur : depuis 1999, nous formons des professionnels autour de la <strong style="color:#f3f2f2; font-weight:600">Méthode Stanislavski</strong>, dont s’est inspiré l’Actors Studio. Des outils concrets pour développer votre singularité.</p>
+            <div data-cta style="display:flex; flex-wrap:wrap; gap:12px; animation:rise .8s both .32s">
+              <a href="#" data-nav="jpo" style="padding:18px 28px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d">Portes Ouvertes gratuites</a>
+              <a href="#formations" style="padding:18px 28px; border:1px solid rgba(243,242,242,.5); color:#f3f2f2; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d; border-color:#f3f2f2">Les formations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,130px) clamp(20px,4vw,48px)">
+      <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; padding-bottom:22px; border-bottom:1px solid rgba(32,30,29,.18)">
+        <div>
+          <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Gratuit · Paris 13ᵉ</span>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,4.2vw,56px); line-height:1; letter-spacing:-.03em; margin:14px 0 0">Journées Portes Ouvertes</h2>
+        </div>
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:clamp(20px,2.6vw,34px); line-height:1; color:#ec3013">11 · 12 · 13 sept. 2026</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(22px,4vw,64px); margin-top:26px; align-items:end">
+        <p style="margin:0; max-width:52ch; font-size:17px; line-height:1.75; color:#605d5d">Trois demi-journées d’ateliers immersifs : testez la Méthode en conditions réelles — acting, scénario, réalisation — et réservez vos ateliers en ligne. Gratuit, sans engagement, places limitées.</p>
+        <a href="#" data-nav="jpo" style="justify-self:start; padding:18px 28px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#201e1d">Réserver mes ateliers</a>
+      </div>
+    </section>
+
+    <section id="formations" style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,130px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,5vw,72px); line-height:1; letter-spacing:-.035em; margin:0 0 clamp(30px,4vw,54px); animation:rise linear both; animation-timeline:view(); animation-range:entry 0% cover 26%">Deux formations,<br>une méthode.</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(24px,4vw,56px)">
+        <a href="#" data-nav="acting" style="display:block" style-hover="color:#ec3013">
+          <figure style="margin:0 0 22px; overflow:hidden; border-radius:26px; aspect-ratio:4/5"><img src="img/jpo-atelier-scene.jpg" alt="Atelier d’acteur, travail de scène" class="grayscale" style="width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.07)"></figure>
+          <span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Jouer · 4 ans</span>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,2.8vw,36px); line-height:1.05; letter-spacing:-.025em; margin:12px 0 0">Formation Acting</h3>
+          <p style="margin:12px 0 0; max-width:44ch; font-size:16px; line-height:1.7; color:#605d5d">Devenir acteur : apprendre à déclencher, maîtriser et reproduire de vraies émotions. Le cœur historique de l’école.</p>
+        </a>
+        <a href="#" data-nav="scenario" style="display:block" style-hover="color:#ec3013">
+          <figure style="margin:0 0 22px; overflow:hidden; border-radius:26px; aspect-ratio:4/5"><img src="img/hero-tournage-exterieur.jpg" alt="Tournage en extérieur" class="grayscale" style="width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.07)"></figure>
+          <span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Créer · 2 ans</span>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,2.8vw,36px); line-height:1.05; letter-spacing:-.025em; margin:12px 0 0">Scénario · Réalisation<br>&amp; Direction d’acteurs</h3>
+          <p style="margin:12px 0 0; max-width:44ch; font-size:16px; line-height:1.7; color:#605d5d">Écrire, réaliser et diriger : de l’idée de film au tournage, avec un lien unique entre écriture, mise en scène et acting.</p>
+        </a>
+      </div>
+    </section>
+
+    <section style="max-width:1400px; margin:0 auto; padding:0 clamp(12px,2vw,24px) clamp(56px,9vw,130px)">
+      <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:clamp(16px,2vw,26px); padding:0 clamp(8px,1.4vw,24px)">
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,3.4vw,44px); line-height:1; letter-spacing:-.03em; margin:0">L’école en images.</h2>
+        <span style="font-size:12.5px; letter-spacing:.04em; color:#7d7979">Une photo, en grand</span>
+      </div>
+      <div data-mosaic id="mosaic" style="position:relative; overflow:hidden; border-radius:30px; background:transparent; aspect-ratio:16/9; min-height:320px"></div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,130px)">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,4vw,72px); align-items:center">
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,5vw,68px); line-height:1; letter-spacing:-.035em; margin:0">Ce qui<br>change tout.</h2>
+        <div style="grid-column:span 2; min-width:0">
+          <div style="padding:0 0 26px; animation:rise linear both; animation-timeline:view(); animation-range:entry 0% cover 24%">
+            <h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; letter-spacing:-.01em; margin:0">La Méthode</h3>
+            <p style="margin:10px 0 0; max-width:62ch; font-size:16px; line-height:1.75; color:#605d5d">Stanislavski, Actors Studio : on n’apprend pas à « faire semblant », mais à ressentir et à jouer vrai, avec des outils concrets. Method Acting Center en est le descendant direct en France, depuis 1999.</p>
+          </div>
+          <div style="padding:26px 0; border-top:1px solid rgba(32,30,29,.18); animation:rise linear both; animation-timeline:view(); animation-range:entry 0% cover 24%">
+            <h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; letter-spacing:-.01em; margin:0">Des coachs en activité</h3>
+            <p style="margin:10px 0 0; max-width:62ch; font-size:16px; line-height:1.75; color:#605d5d">Vos coachs sont des professionnels toujours sur le terrain. Plateaux, castings, tournages : ils transmettent le métier tel qu’ils le vivent aujourd’hui, pas seulement la théorie.</p>
+          </div>
+          <div style="padding:26px 0 0; border-top:1px solid rgba(32,30,29,.18); animation:rise linear both; animation-timeline:view(); animation-range:entry 0% cover 24%">
+            <h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; letter-spacing:-.01em; margin:0">Une communauté</h3>
+            <p style="margin:10px 0 0; max-width:62ch; font-size:16px; line-height:1.75; color:#605d5d">Acteurs, scénaristes et réalisateurs se rencontrent et collaborent tout au long de l’année : on écrit, on tourne, on se recommande. Vous rejoignez une vraie communauté, pas une simple promo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,130px)">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(26px,4vw,72px); align-items:center">
+        <figure style="margin:0; overflow:hidden; border-radius:30px; aspect-ratio:3/4"><img src="img/methode-reproduire.jpg" alt="Travail de scène en atelier" class="grayscale" style="width:100%; height:100%; object-fit:cover; animation:zoomIn linear both; animation-timeline:view(); animation-range:entry 0% cover 70%"></figure>
+        <div>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,4vw,52px); line-height:1.02; letter-spacing:-.03em; margin:0">Une méthode,<br>pas un formatage</h2>
+          <p style="margin:20px 0 0; max-width:50ch; font-size:17px; line-height:1.75; color:#605d5d">Les plus grands ne laissent jamais leurs émotions au hasard : ils apprennent à les comprendre, à les déclencher, à les maîtriser. C’est toute la force de la <strong style="color:#201e1d; font-weight:600">Méthode Stanislavski</strong>, dont Method Acting Center est le descendant direct.</p>
+          <ul style="list-style:none; margin:26px 0 0; padding:0; display:flex; flex-direction:column; gap:14px">
+            <li style="display:flex; gap:12px; font-size:16px; line-height:1.6"><span style="color:#ec3013">—</span>Comprendre, déclencher et maîtriser ses émotions</li>
+            <li style="display:flex; gap:12px; font-size:16px; line-height:1.6"><span style="color:#ec3013">—</span>Une pédagogie par la pratique : vous jouez dès le premier jour</li>
+            <li style="display:flex; gap:12px; font-size:16px; line-height:1.6"><span style="color:#ec3013">—</span>Un travail étape par étape, du ressenti brut au jeu juste</li>
+            <li style="display:flex; gap:12px; font-size:16px; line-height:1.6"><span style="color:#ec3013">—</span>Bienveillance et exigence, zéro censure</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:0 0 clamp(56px,9vw,130px); overflow:hidden">
+      <div style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(28px,4vw,48px); display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:18px">
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.6vw,46px); line-height:1.02; letter-spacing:-.03em; margin:0">Nos acteurs tournent.</h2>
+        <span style="display:inline-flex; align-items:center; gap:10px; font-size:13.5px; color:#605d5d"><strong style="font-family:var(--font-heading); font-weight:800; font-size:19px; color:#201e1d">4,8/5</strong><span style="color:#ec3013; letter-spacing:2px">★★★★★</span>sur Google</span>
+      </div>
+      <div style="display:flex; width:max-content; animation:marq 52s linear infinite">
+        <div style="display:flex; gap:18px; padding-right:18px">
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Le_Proces_Goldman_Affiche.webp" alt="Affiche · Le Procès Goldman" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg" alt="Affiche · Les 7 vies de Léa" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Quantum-of-Solace-Olga-Kurylenko.jpg" alt="Affiche · Quantum of Solace" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg" alt="Affiche · Ni chaînes ni maîtres" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Sans-repit-Jemima-West.jpg" alt="Affiche · Sans répit" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Les-invisibles_Deborah_Krey.jpg" alt="Affiche · Les Invisibles" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Dirty-Diffficult-Dangerous.jpg" alt="Affiche · Dirty Difficult Dangerous" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Martyrs_Mylene_Jampanoi.jpg" alt="Affiche · Martyrs" style="width:100%; height:100%; object-fit:cover"></div>
+        </div>
+        <div style="display:flex; gap:18px; padding-right:18px" aria-hidden="true">
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Le_Proces_Goldman_Affiche.webp" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Les-7-vies-de-Lea_Raika_Hazanavicius.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Quantum-of-Solace-Olga-Kurylenko.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Sans-repit-Jemima-West.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Les-invisibles_Deborah_Krey.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Dirty-Diffficult-Dangerous.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+          <div style="flex:0 0 auto; width:clamp(130px,14vw,190px); aspect-ratio:2/3; overflow:hidden; border-radius:16px"><img src="img/Martyrs_Mylene_Jampanoi.jpg" alt="" style="width:100%; height:100%; object-fit:cover"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis" style="max-width:900px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(48px,7vw,100px)">
+      <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:14px">
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(21px,2.6vw,32px); line-height:1; letter-spacing:-.03em; margin:0">Ce qu’on dit de nous.</h2>
+        <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; color:#7d7979"><span style="font-family:var(--font-heading); font-weight:800; font-size:14px; color:#201e1d">4,8</span><span style="display:flex; gap:1px"><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fbbc04"></path></svg><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fbbc04"></path></svg><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fbbc04"></path></svg><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fbbc04"></path></svg><svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fbbc04"></path></svg></span><span>·&nbsp;Avis Google</span></span>
+      </div>
+      <div style="margin-top:clamp(22px,3vw,36px)">
+        <div data-avis-grid id="avisGrid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:clamp(12px,1.4vw,18px)"></div>
+        <div style="display:flex; justify-content:center; margin-top:clamp(18px,2.2vw,28px)">
+          <a href="https://www.google.com/search?q=Method+Acting+Center+Paris+avis" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border:1px solid rgba(32,30,29,.16); border-radius:999px; font-size:12.5px; color:#403d3d; transition:border-color .3s ease, color .3s ease" style-hover="border-color:#201e1d; color:#201e1d">
+            <span>Voir tous les avis Google</span>
+            <span style="color:#9b9797">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="acces" style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,120px)">
+      <div data-quickaccess style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:clamp(20px,3vw,44px); border-top:1px solid rgba(32,30,29,.18); padding-top:30px">
+        <a href="#" data-nav="tarifs" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Tarifs</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Formations, ateliers et facilités de paiement.</p></a>
+        <a href="#" data-nav="jpo" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Planning</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Cours, ateliers et Journées Portes Ouvertes.</p></a>
+        <a href="#" data-nav="contact" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Contact</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Une question ? Réponse sous 48h.</p></a>
+      </div>
+    </section>
+
+    <section style="background:#201e1d; color:#f3f2f2">
+      <div style="max-width:1240px; margin:0 auto; padding:clamp(64px,10vw,150px) clamp(20px,4vw,48px)">
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(38px,7vw,104px); line-height:.96; letter-spacing:-.04em; margin:0; max-width:18ch">Le cinéma,<br>ça commence <span style="color:#ec3013">ici.</span></h2>
+        <p style="margin:26px 0 0; max-width:46ch; font-size:17px; line-height:1.75; color:#bab6b6">Le meilleur moyen de se décider : venir le vivre. Une demi-journée, gratuitement.</p>
+        <a href="#" data-nav="jpo" style="display:inline-block; margin-top:30px; padding:19px 30px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d">Réserver ma Journée Portes Ouvertes</a>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- ============================ JPO ============================ -->
+  <div class="page" data-page="jpo">
+  <main>
+    <section style="margin:0; padding:0">
+      <div data-hero style="position:relative; overflow:hidden; min-height:clamp(600px,calc(100vh - 79px),1000px); display:flex; align-items:flex-end; animation:wipeUp 1s both .05s">
+        <img src="img/jpo-atelier-scene.jpg" alt="Atelier des Journées Portes Ouvertes" class="grayscale" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:zoomIn 1.8s both .05s">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(32,30,29,.34) 0%, rgba(32,30,29,.12) 34%, rgba(32,30,29,.78) 100%)"></div>
+        <div data-hero-inner style="position:relative; width:100%; max-width:1400px; margin:0 auto; padding:clamp(34px,6vw,88px) clamp(20px,4vw,48px); color:#f3f2f2">
+          <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:rgba(243,242,242,.8); animation:fade .8s both">Gratuit · Paris 13ᵉ · 11 · 12 · 13 septembre 2026</span>
+          <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(42px,8vw,116px); line-height:.95; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:16ch">
+            <span style="display:block; animation:rise .8s both .06s">Venez vivre</span>
+            <span style="display:block; color:#ff563c; animation:rise .8s both .16s">la Méthode.</span>
+          </h1>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(20px,4vw,64px); margin-top:clamp(24px,3.4vw,44px); align-items:end">
+            <p style="margin:0; max-width:48ch; font-size:17.5px; line-height:1.7; color:rgba(243,242,242,.86); animation:rise .8s both .24s">Nos Portes Ouvertes ne sont pas une simple visite : ce sont de véritables <strong style="color:#f3f2f2; font-weight:600">journées d’ateliers immersifs</strong>. Vous testez notre pédagogie — acting, scénario, réalisation — en conditions réelles. Trois demi-journées, dans nos locaux.</p>
+            <div data-cta style="display:flex; flex-wrap:wrap; gap:12px; animation:rise .8s both .32s">
+              <a href="#inscription" style="padding:18px 28px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d">Réserver mes ateliers</a>
+              <a href="#planning" style="padding:18px 28px; border:1px solid rgba(243,242,242,.5); color:#f3f2f2; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d; border-color:#f3f2f2">Le planning</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,130px) clamp(20px,4vw,48px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,5vw,68px); line-height:1; letter-spacing:-.035em; margin:0">Trouvez ceux qui<br>vous ressemblent.</h2>
+      <p style="margin:20px 0 0; max-width:58ch; font-size:17px; line-height:1.75; color:#605d5d">Chaque atelier s’adresse à un public précis et se réserve indépendamment. Les couleurs vous guident : vous les retrouvez à l’identique dans le planning.</p>
+
+      <div style="margin-top:clamp(34px,5vw,64px); display:flex; flex-direction:column; gap:clamp(30px,4vw,52px)">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:10px; height:10px; border-radius:50%; background:#cf5a54"></span><span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Acting — le jeu d’acteur</span></div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:clamp(20px,3vw,44px); margin-top:20px">
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Faire jaillir de vraies émotions</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">La base de l’acting : aller chercher en vous — votre vécu, votre imaginaire — pour ressentir <em>pour de vrai</em>, et savoir aussi en ressortir.</p></div>
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Donner vie à un texte</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Un texte ne prend jamais vie en le récitant, mais en croyant à la situation. Changez une circonstance : le ton et l’émotion se transforment d’eux-mêmes.</p></div>
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Inventer dans l’instant</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Sans texte ni filet : spontanéité, écoute et présence. L’impro réveille l’instinct de l’acteur et fait tomber les dernières barrières.</p></div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(32,30,29,.18); padding-top:clamp(26px,3.4vw,44px)">
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:10px; height:10px; border-radius:50%; background:#4b4b4b"></span><span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Amateur — se lancer sans pression</span></div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:clamp(20px,3vw,44px); margin-top:20px">
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Oser vous libérer</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Un atelier ludique pour vous lâcher, dépasser la peur du ridicule et oser vous mettre en scène. Beaucoup y prennent goût… et continuent.</p></div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(32,30,29,.18); padding-top:clamp(26px,3.4vw,44px)">
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:10px; height:10px; border-radius:50%; background:#4a6fb5"></span><span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Écriture &amp; Réalisation — passer de l’autre côté</span></div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:clamp(20px,3vw,44px); margin-top:20px">
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Écrire &amp; réaliser vos films</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Mêler écriture et acting pour créer de vrais personnages, trouver votre vision de réalisateur et diriger de vrais acteurs — ce que presque aucune école ne propose.</p></div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(32,30,29,.18); padding-top:clamp(26px,3.4vw,44px)">
+          <div style="display:flex; align-items:center; gap:12px"><span style="width:10px; height:10px; border-radius:50%; background:#5f7a3a"></span><span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">En anglais — international</span></div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:clamp(20px,3vw,44px); margin-top:20px">
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Jouer vrai, en anglais</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Aller loin dans l’émotion et l’utiliser dans de courts exercices scéniques, intégralement en anglais.</p></div>
+            <div><h4 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Écrire pour l’écran, en anglais</h4><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Notre méthode d’écriture de scénario, en anglais — deux heures dédiées à l’écriture, avec encore plus d’exercices pratiques.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="planning" style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,130px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,4.4vw,58px); line-height:1; letter-spacing:-.035em; margin:0 0 clamp(26px,3.4vw,44px)">3 jours, tous les créneaux.</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:clamp(22px,3vw,48px)">
+        <div>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:15px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 4px; padding-bottom:12px; border-bottom:1px solid rgba(32,30,29,.18)">Vendredi 11/09</h3>
+          <div id="day1"></div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:15px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 4px; padding-bottom:12px; border-bottom:1px solid rgba(32,30,29,.18)">Samedi 12/09</h3>
+          <div id="day2"></div>
+        </div>
+        <div>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:15px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 4px; padding-bottom:12px; border-bottom:1px solid rgba(32,30,29,.18)">Dimanche 13/09</h3>
+          <div id="day3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="inscription" style="background:#201e1d; color:#f3f2f2">
+      <div style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,130px) clamp(20px,4vw,48px); display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(28px,5vw,80px); align-items:start">
+        <div>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,4.6vw,62px); line-height:1; letter-spacing:-.035em; margin:0">Réservez vos ateliers.</h2>
+          <p style="margin:20px 0 0; max-width:44ch; font-size:17px; line-height:1.75; color:#bab6b6">Choisissez le ou les ateliers qui vous attirent, avec leur créneau. Vous pouvez en réserver plusieurs. On vous confirme votre place par email.</p>
+          <p style="margin:20px 0 0; font-size:13.5px; letter-spacing:.04em; color:#9b9797">Gratuit et sans engagement · plusieurs ateliers réservables · un vrai atelier, pas une visite</p>
+        </div>
+        <form id="jpoForm" data-formcol>
+          <div id="ateliers" style="display:flex; flex-direction:column"></div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr)); gap:14px; margin-top:26px">
+            <input data-field="prenom" type="text" placeholder="Prénom" style="background:transparent; border:1px solid rgba(243,242,242,.28); color:#f3f2f2; padding:14px 18px; border-radius:999px; font-family:var(--font-body); font-size:15px">
+            <input data-field="nom" type="text" placeholder="Nom" style="background:transparent; border:1px solid rgba(243,242,242,.28); color:#f3f2f2; padding:14px 18px; border-radius:999px; font-family:var(--font-body); font-size:15px">
+            <input data-field="email" type="email" placeholder="Email" style="background:transparent; border:1px solid rgba(243,242,242,.28); color:#f3f2f2; padding:14px 18px; border-radius:999px; font-family:var(--font-body); font-size:15px">
+            <input data-field="tel" type="tel" placeholder="Téléphone" style="background:transparent; border:1px solid rgba(243,242,242,.28); color:#f3f2f2; padding:14px 18px; border-radius:999px; font-family:var(--font-body); font-size:15px">
+          </div>
+          <label style="position:absolute; left:-9999px; opacity:0" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+          <button type="submit" style="width:100%; margin-top:18px; padding:20px; background:#ec3013; color:#fff; border:none; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; text-align:left; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d">Je réserve mes ateliers</button>
+          <p style="margin:14px 0 0; font-size:12.5px; line-height:1.6; color:#9b9797">En envoyant ce formulaire, vous acceptez d’être recontacté(e) par Method Acting Center. Vos données ne sont jamais partagées.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- ============================ ACTING ============================ -->
+  <div class="page" data-page="acting">
+  <main>
+    <section style="margin:0; padding:0">
+      <div data-hero style="position:relative; overflow:hidden; min-height:clamp(600px,calc(100vh - 79px),1000px); display:flex; align-items:flex-end; animation:wipeUp 1s both .05s">
+        <img src="img/hero-jeu-face-camera.jpg" alt="Acteur en plein jeu, en atelier" class="grayscale" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:zoomIn 1.8s both .05s">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(32,30,29,.34) 0%, rgba(32,30,29,.12) 34%, rgba(32,30,29,.78) 100%)"></div>
+        <div data-hero-inner style="position:relative; width:100%; max-width:1400px; margin:0 auto; padding:clamp(34px,6vw,88px) clamp(20px,4vw,48px); color:#f3f2f2">
+          <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:rgba(243,242,242,.8); animation:fade .8s both">Formation Acting · 4 ans</span>
+          <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(42px,8vw,116px); line-height:.95; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:16ch">
+            <span style="display:block; animation:rise .8s both .06s">Devenir</span>
+            <span style="display:block; color:#ff563c; animation:rise .8s both .16s">acteur.</span>
+          </h1>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(20px,4vw,64px); margin-top:clamp(24px,3.4vw,44px); align-items:end">
+            <p style="margin:0; max-width:48ch; font-size:17.5px; line-height:1.7; color:rgba(243,242,242,.86); animation:rise .8s both .24s">Apprendre à déclencher, maîtriser et reproduire de vraies émotions. Un cursus complet, jusqu’à 4 années, avec des coachs professionnels toujours en activité.</p>
+            <div data-cta style="display:flex; flex-wrap:wrap; gap:12px; animation:rise .8s both .32s">
+              <a href="#" data-nav="jpo" style="padding:18px 28px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d">Tester en Portes Ouvertes</a>
+              <a href="#" data-nav="tarifs" style="padding:18px 28px; border:1px solid rgba(243,242,242,.5); color:#f3f2f2; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d; border-color:#f3f2f2">Voir les tarifs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,120px) clamp(20px,4vw,48px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,5vw,64px); line-height:1; letter-spacing:-.035em; margin:0">Ce que vous apprenez.</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:clamp(24px,3.4vw,52px); margin-top:clamp(30px,4vw,50px)">
+        <div><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Travail émotionnel</h3><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Aller chercher en vous — votre vécu, votre imaginaire — pour ressentir <em>pour de vrai</em>, et apprendre aussi à en ressortir.</p></div>
+        <div><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Travail de scène</h3><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Donner vie à un texte en croyant à la situation, jamais en le récitant — jusqu’au jeu face caméra.</p></div>
+        <div><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Improvisation</h3><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Spontanéité, écoute et présence — sans texte ni filet, pour réveiller l’instinct de l’acteur.</p></div>
+      </div>
+    </section>
+
+    <section style="background:#201e1d; color:#f3f2f2">
+      <div style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,120px) clamp(20px,4vw,48px)">
+        <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#ff9783">Le programme</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,5vw,64px); line-height:1; letter-spacing:-.035em; margin:14px 0 0">Quatre années,<br>une progression</h2>
+        <div id="actingYears" style="display:flex; flex-direction:column; gap:0; margin-top:clamp(30px,4vw,52px)"></div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,120px) clamp(20px,4vw,48px)">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(24px,3.4vw,56px); align-items:center">
+        <figure style="margin:0; overflow:hidden; border-radius:30px; aspect-ratio:4/5"><img src="img/methode-maitriser.jpg" alt="Travail de scène en atelier" style="width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.07)"></figure>
+        <div>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,4vw,46px); line-height:1.04; letter-spacing:-.025em; margin:0">Jusqu’au démarchage professionnel</h2>
+          <p style="margin:18px 0 0; max-width:50ch; font-size:16.5px; line-height:1.75; color:#605d5d">Scènes filmées, book photo, bande démo, rencontres avec les pros du Marché : vous repartez avec tous les outils pour démarcher.</p>
+          <a href="#" data-nav="jpo" style="display:inline-block; margin-top:26px; padding:18px 28px; background:#201e1d; color:#f3f2f2; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#ec3013">Tester en Portes Ouvertes</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- ============================ SCENARIO ============================ -->
+  <div class="page" data-page="scenario">
+  <main>
+    <section style="margin:0; padding:0">
+      <div data-hero style="position:relative; overflow:hidden; min-height:clamp(600px,calc(100vh - 79px),1000px); display:flex; align-items:flex-end; animation:wipeUp 1s both .05s">
+        <img src="img/hero-tournage-exterieur.jpg" alt="Tournage en extérieur" class="grayscale" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:zoomIn 1.8s both .05s">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(32,30,29,.34) 0%, rgba(32,30,29,.12) 34%, rgba(32,30,29,.78) 100%)"></div>
+        <div data-hero-inner style="position:relative; width:100%; max-width:1400px; margin:0 auto; padding:clamp(34px,6vw,88px) clamp(20px,4vw,48px); color:#f3f2f2">
+          <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:rgba(243,242,242,.8); animation:fade .8s both">Scénario · Réalisation · Direction d’acteurs · 2 ans</span>
+          <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(40px,7.4vw,104px); line-height:.98; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:16ch">
+            <span style="display:block; animation:rise .8s both .06s">Racontez vos</span>
+            <span style="display:block; color:#ff563c; animation:rise .8s both .16s">propres histoires.</span>
+          </h1>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(20px,4vw,64px); margin-top:clamp(24px,3.4vw,44px); align-items:end">
+            <p style="margin:0; max-width:48ch; font-size:17.5px; line-height:1.7; color:rgba(243,242,242,.86); animation:rise .8s both .24s">Écrire, réaliser, diriger. Des outils concrets pour développer votre inspiration, la structurer, et faire aboutir vos idées de film — du scénario au tournage.</p>
+            <div data-cta style="display:flex; flex-wrap:wrap; gap:12px; animation:rise .8s both .32s">
+              <a href="#" data-nav="jpo" style="padding:18px 28px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d">Tester en Portes Ouvertes</a>
+              <a href="#" data-nav="tarifs" style="padding:18px 28px; border:1px solid rgba(243,242,242,.5); color:#f3f2f2; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#f3f2f2; color:#201e1d; border-color:#f3f2f2">Voir les tarifs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,120px) clamp(20px,4vw,48px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,4.6vw,52px); line-height:1.04; letter-spacing:-.03em; margin:0">Une méthode d’écriture souple,<br>pas une <span style="color:#ec3013">recette figée</span></h2>
+      <p style="margin:20px 0 0; max-width:64ch; font-size:16.5px; line-height:1.75; color:#605d5d">Notre méthode s’appuie sur les grands théoriciens du scénario — Robert McKee, John Truby, Paul Schrader, William Packard — enrichie par nos propres outils. Sa singularité : un lien constant entre l’écriture, la réalisation et l’acting, quasi inexistant en France.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:clamp(24px,3.4vw,52px); margin-top:clamp(30px,4vw,50px)">
+        <div><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Écriture</h3><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Transformer vos idées les plus personnelles en scénario, avec des personnages complexes nourris par l’acting.</p></div>
+        <div><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Réalisation</h3><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Maîtriser le langage cinématographique pour articuler votre vision et votre style, sans censure.</p></div>
+        <div><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Direction d’acteurs</h3><p style="margin:10px 0 0; font-size:15.5px; line-height:1.75; color:#605d5d">Une notion rare en France, travaillée toute l’année : vous dirigez de vrais acteurs de l’école.</p></div>
+      </div>
+    </section>
+
+    <section style="background:#201e1d; color:#f3f2f2">
+      <div style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,120px) clamp(20px,4vw,48px)">
+        <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#ff9783">Le programme</span>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,5vw,64px); line-height:1; letter-spacing:-.035em; margin:14px 0 0">Deux années,<br>un parcours complet</h2>
+        <div id="scenarioYears" style="display:flex; flex-direction:column; gap:0; margin-top:clamp(30px,4vw,52px)"></div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(56px,9vw,120px) clamp(20px,4vw,48px)">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(24px,3.4vw,56px); align-items:center">
+        <figure style="margin:0; overflow:hidden; border-radius:30px; aspect-ratio:4/5"><img src="img/jpo-atelier-echange.jpg" alt="Équipe au combo pendant un tournage" style="width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.7,.2,1)" style-hover="transform:scale(1.07)"></figure>
+        <div>
+          <span style="font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979">Option · en supplément, hors programme</span>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.6vw,40px); line-height:1.06; letter-spacing:-.025em; margin:12px 0 0">Réaliser une vraie scène de tournage</h2>
+          <p style="margin:16px 0 0; max-width:50ch; font-size:16px; line-height:1.75; color:#605d5d">En option, vous pouvez réaliser l’une des scènes que nous tournons pour les acteurs de 3<sup>e</sup> année — une vraie commande, avec deadlines, une équipe et des acteurs que vous n’avez pas choisis. À la clé : de vraies images pro pour votre démo.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- ============================ TARIFS ============================ -->
+  <div class="page" data-page="tarifs">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(96px,13vw,170px) clamp(20px,4vw,48px) clamp(40px,6vw,80px)">
+      <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979; animation:fade .8s both">Tarifs · 2026–2027</span>
+      <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(42px,7.6vw,104px); line-height:.98; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:14ch">Des tarifs<br><span style="color:#ec3013">clairs.</span></h1>
+      <p style="margin:22px 0 0; max-width:56ch; font-size:17px; line-height:1.75; color:#605d5d">Nos formations professionnelles se règlent au mois ; nos ateliers et stages sont accessibles à part. Voici l’essentiel, poste par poste.</p>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,110px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Se former au métier</h2>
+      <p style="margin:14px 0 0; max-width:60ch; font-size:15.5px; line-height:1.7; color:#605d5d">Deux cursus complets, réglés au mois sur 9 mensualités. Frais d’inscription : 200 €/an.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:2px; margin-top:clamp(28px,3.6vw,44px); background:rgba(32,30,29,.1); border-radius:20px; overflow:hidden">
+        <div style="background:#fff; padding:clamp(24px,3vw,32px); display:flex; flex-direction:column; gap:16px">
+          <span style="align-self:flex-start; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; background:#ec3013; color:#fff; padding:6px 12px; border-radius:999px">Le plus demandé</span>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:24px; margin:0">Formation Acting</h3>
+          <div><span style="font-family:var(--font-heading); font-weight:800; font-size:36px; color:#ec3013">dès 370&nbsp;€</span><span style="font-size:14px; color:#7d7979"> / mois</span></div>
+          <p style="margin:0; font-size:13.5px; color:#7d7979">Cursus complet, jusqu’à 4 années</p>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:15px">
+            <li>9 mensualités par an</li><li>Semaine intensive en supplément : 300 €</li><li>200 € de frais d’inscription / an</li><li>Tarifs dégressifs à partir de la 3<sup>e</sup> année</li>
+          </ul>
+          <a href="#" data-nav="acting" style="margin-top:auto; padding:16px 22px; background:#ec3013; color:#fff; text-align:center; font-family:var(--font-heading); font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; border-radius:999px" style-hover="background:#201e1d">Voir la formation</a>
+        </div>
+        <div style="background:#fff; padding:clamp(24px,3vw,32px); display:flex; flex-direction:column; gap:16px">
+          <span style="align-self:flex-start; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; background:#4a6fb5; color:#fff; padding:6px 12px; border-radius:999px">Écriture &amp; réalisation</span>
+          <h3 style="font-family:var(--font-heading); font-weight:800; font-size:24px; margin:0">Scénario, Réalisation &amp; Direction d’acteurs</h3>
+          <div><span style="font-family:var(--font-heading); font-weight:800; font-size:36px; color:#4a6fb5">dès 350&nbsp;€</span><span style="font-size:14px; color:#7d7979"> / mois</span></div>
+          <p style="margin:0; font-size:13.5px; color:#7d7979">Cursus sur 2 années</p>
+          <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:15px">
+            <li>9 mensualités par an</li><li>Écriture, réalisation &amp; direction d’acteurs</li><li>200 € de frais d’inscription / an</li>
+          </ul>
+          <a href="#" data-nav="scenario" style="margin-top:auto; padding:16px 22px; background:#201e1d; color:#fff; text-align:center; font-family:var(--font-heading); font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; border-radius:999px" style-hover="background:#4a6fb5">Voir la formation</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,110px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Ateliers <span style="color:#ec3013">complémentaires</span></h2>
+      <p style="margin:14px 0 0; max-width:60ch; font-size:15.5px; line-height:1.7; color:#605d5d">Des modules spécialisés, pour aller plus loin ou se préparer au marché.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:16px; margin-top:clamp(24px,3vw,36px)">
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:0">Acting in English</h3><span style="display:block; margin-top:8px; font-family:var(--font-heading); font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:#7d7979">Sur demande</span><p style="margin:10px 0 0; font-size:14px; line-height:1.6; color:#605d5d">La Méthode, intégralement en anglais.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:0">Acting Caméra</h3><span style="display:block; margin-top:8px; font-family:var(--font-heading); font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:#7d7979">Sur demande</span><p style="margin:10px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Scènes filmées, book photo &amp; bande démo.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:0">Marché Professionnel</h3><span style="display:block; margin-top:8px; font-family:var(--font-heading); font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:#7d7979">Sur demande</span><p style="margin:10px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Rencontres avec agents et directeurs de casting.</p></div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,110px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Ateliers <span style="color:#ec3013">loisirs</span> &amp; découverte</h2>
+      <p style="margin:14px 0 0; max-width:60ch; font-size:15.5px; line-height:1.7; color:#605d5d">Pour le plaisir de jouer, à votre rythme, ou pour tester avant de vous engager.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:16px; margin-top:clamp(24px,3vw,36px)">
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:0">Acting Amateur</h3><div style="margin-top:8px"><span style="font-family:var(--font-heading); font-weight:800; font-size:22px; color:#ec3013">dès 140&nbsp;€</span><span style="font-size:13px; color:#7d7979"> / mois</span></div><p style="margin:10px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Un atelier ludique pour oser, se lâcher et se surprendre.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:0">Stages week-end</h3><div style="margin-top:8px"><span style="font-family:var(--font-heading); font-weight:800; font-size:22px; color:#ec3013">dès 160&nbsp;€</span></div><p style="margin:10px 0 0; font-size:14px; line-height:1.6; color:#605d5d">2 jours pour goûter à la Méthode.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:inline-block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; background:rgba(236,48,19,.1); color:#ec3013; padding:5px 10px; border-radius:999px">Gratuit</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:10px 0 0">Journées Portes Ouvertes</h3><p style="margin:10px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Un vrai atelier pour tester la Méthode, sans engagement.</p></div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(64px,9vw,120px)">
+      <div style="border:1px solid rgba(32,30,29,.14); border-radius:20px; padding:clamp(24px,3vw,36px); background:#fff">
+        <h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Bon à savoir</h3>
+        <ul style="list-style:none; margin:20px 0 0; padding:0; display:flex; flex-direction:column; gap:14px; font-size:15.5px; line-height:1.65">
+          <li><strong>Facilités de paiement</strong> — les formations peuvent aussi se régler par trimestre ou en une fois, sans surcoût.</li>
+          <li><strong>Parrainage</strong> — vous parrainez un proche ? On vous offre l’équivalent d’un mois de la formation qu’il choisit.</li>
+          <li><strong>Un devis sur mesure</strong> — on établit ensemble le tarif exact selon le programme et les ateliers choisis.</li>
+        </ul>
+        <a href="#" data-nav="contact" style="display:inline-block; margin-top:22px; padding:16px 24px; background:#201e1d; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; border-radius:999px" style-hover="background:#ec3013">Recevoir un tarif personnalisé</a>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <!-- ============================ CONTACT ============================ -->
+  <div class="page" data-page="contact">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(96px,13vw,170px) clamp(20px,4vw,48px) clamp(40px,6vw,80px)">
+      <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979; animation:fade .8s both">Contact</span>
+      <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(42px,7.6vw,104px); line-height:.98; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:14ch">Parlons de<br>votre <span style="color:#ec3013">projet.</span></h1>
+      <p style="margin:22px 0 0; max-width:56ch; font-size:17px; line-height:1.75; color:#605d5d">Une question sur le parcours Acting ou Scénario, Réalisation &amp; Direction d’Acteurs ? Écrivez-nous : on vous répond sous 48h.</p>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(64px,9vw,120px)">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:clamp(28px,4vw,56px); align-items:start">
+        <div style="display:flex; flex-direction:column; gap:24px">
+          <div>
+            <h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:0">Nous joindre</h3>
+            <ul style="list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:12px; font-size:15.5px">
+              <li><strong>Email</strong> — <a href="mailto:contact@methodacting.fr">contact@methodacting.fr</a></li>
+              <li><strong>Téléphone</strong> — <a href="tel:+33607414125">+33 6 07 41 41 25</a></li>
+              <li><strong>WhatsApp</strong> — <a href="https://wa.me/qr/TPPR3BYKF55FD1" target="_blank" rel="noopener">nous écrire sur WhatsApp</a></li>
+              <li><strong>Adresse</strong> — <a href="https://maps.app.goo.gl/g2R9hy4GzSkP9gU17" target="_blank" rel="noopener">93, avenue d’Italie, 75013 Paris</a></li>
+              <li><strong>Métro</strong> — M7 Maison Blanche · M5 Place d’Italie</li>
+            </ul>
+          </div>
+          <div style="border:1px solid rgba(32,30,29,.14); border-radius:18px; padding:22px; background:#fff">
+            <h4 style="font-family:var(--font-heading); font-weight:800; font-size:17px; margin:0">Envie de tester d’abord ?</h4>
+            <p style="margin:10px 0 0; font-size:14.5px; line-height:1.6; color:#605d5d">Vivez un vrai atelier lors d’une Journée Portes Ouvertes, gratuitement.</p>
+            <a href="#" data-nav="jpo" style="display:inline-block; margin-top:16px; padding:14px 20px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; border-radius:999px" style-hover="background:#201e1d">Réserver ma place</a>
+          </div>
+        </div>
+        <form id="contactForm" style="display:flex; flex-direction:column; gap:16px; border:1px solid rgba(32,30,29,.14); border-radius:20px; padding:clamp(22px,3vw,30px); background:#fff">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr)); gap:14px">
+            <label style="display:flex; flex-direction:column; gap:7px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7d7979">Prénom<input data-field="prenom" type="text" placeholder="Votre prénom" style="background:#f3f2f2; border:1px solid rgba(32,30,29,.2); border-radius:10px; padding:13px 14px; font-family:var(--font-body); font-size:15px"></label>
+            <label style="display:flex; flex-direction:column; gap:7px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7d7979">Nom<input data-field="nom" type="text" placeholder="Votre nom" style="background:#f3f2f2; border:1px solid rgba(32,30,29,.2); border-radius:10px; padding:13px 14px; font-family:var(--font-body); font-size:15px"></label>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr)); gap:14px">
+            <label style="display:flex; flex-direction:column; gap:7px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7d7979">Email<input data-field="email" type="email" placeholder="vous@exemple.fr" style="background:#f3f2f2; border:1px solid rgba(32,30,29,.2); border-radius:10px; padding:13px 14px; font-family:var(--font-body); font-size:15px"></label>
+            <label style="display:flex; flex-direction:column; gap:7px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7d7979">Téléphone<input data-field="tel" type="tel" placeholder="06 12 34 56 78" style="background:#f3f2f2; border:1px solid rgba(32,30,29,.2); border-radius:10px; padding:13px 14px; font-family:var(--font-body); font-size:15px"></label>
+          </div>
+          <label style="display:flex; flex-direction:column; gap:7px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7d7979">Formation qui vous intéresse
+            <select data-field="formation" style="background:#f3f2f2; border:1px solid rgba(32,30,29,.2); border-radius:10px; padding:13px 14px; font-family:var(--font-body); font-size:15px; cursor:pointer">
+              <option>— Indifférent / autre —</option><option>Formation Acting</option><option>Scénario · Réalisation · Direction d’acteurs</option><option>Stages</option><option>Journées Portes Ouvertes</option>
+            </select>
+          </label>
+          <label style="display:flex; flex-direction:column; gap:7px; font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7d7979">Message<textarea data-field="message" rows="4" placeholder="Votre question, votre projet…" style="background:#f3f2f2; border:1px solid rgba(32,30,29,.2); border-radius:10px; padding:13px 14px; font-family:var(--font-body); font-size:15px; resize:vertical"></textarea></label>
+          <label style="position:absolute; left:-9999px; opacity:0" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+          <button type="submit" style="padding:18px; background:#ec3013; color:#fff; border:none; border-radius:999px; font-family:var(--font-heading); font-weight:800; font-size:13px; letter-spacing:.12em; text-transform:uppercase; cursor:pointer" style-hover="background:#201e1d">Envoyer mon message</button>
+          <p style="margin:0; font-size:12.5px; color:#7d7979; line-height:1.5">En envoyant ce formulaire, vous acceptez d’être recontacté(e) par Method Acting Center. Vos données ne sont jamais partagées.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <footer style="max-width:1240px; margin:0 auto; padding:clamp(48px,7vw,90px) clamp(20px,4vw,48px) 40px">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:clamp(24px,4vw,56px)">
+      <div>
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:15px; letter-spacing:.08em; text-transform:uppercase">Method Acting Center</span>
+        <p style="margin:12px 0 0; max-width:32ch; font-size:15px; line-height:1.75; color:#605d5d">École d’acteurs, de scénaristes et de réalisateurs à Paris. La Méthode, depuis 1999.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:9px">
+        <a href="#" data-nav="acting" style="font-size:15px; color:#605d5d">Formation Acting</a>
+        <a href="#" data-nav="scenario" style="font-size:15px; color:#605d5d">Scénario · Réalisation</a>
+        <a href="#" data-nav="jpo" style="font-size:15px; color:#605d5d">Portes Ouvertes</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:9px">
+        <a href="#" data-nav="tarifs" style="font-size:15px; color:#605d5d">Tarifs</a>
+        <a href="#" data-nav="contact" style="font-size:15px; color:#605d5d">Contact</a>
+        <a href="mailto:contact@methodacting.fr" style="font-size:15px; color:#605d5d">contact@methodacting.fr</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:9px">
+        <span style="font-size:15px; color:#605d5d">01 00 00 00 00</span>
+        <span style="font-size:15px; color:#605d5d">Paris 13ᵉ</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; margin-top:clamp(34px,5vw,64px); padding-top:20px; border-top:1px solid rgba(32,30,29,.18); font-size:12.5px; color:#7d7979">
+      <span>© Method Acting Center — Tous droits réservés.</span>
+      <span>Paris · Depuis 1999</span>
+      <a href="#" data-desktop style="font-size:12.5px; color:#7d7979">Version bureau</a>
+    </div>
+  </footer>
+
+  <a href="#" data-nav="jpo" data-mobilecta style="display:none; position:fixed; left:14px; right:14px; bottom:14px; z-index:90; align-items:center; justify-content:space-between; gap:12px; background:#201e1d; color:#f3f2f2; padding:16px 22px; border-radius:999px; box-shadow:0 8px 24px rgba(32,30,29,.24); font-family:var(--font-heading); font-weight:800; font-size:12px; letter-spacing:.1em; text-transform:uppercase"><span>Portes Ouvertes · Gratuit</span><span style="color:#ff7a63">Réserver →</span></a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var PAGES = ["home","jpo","acting","scenario","tarifs","contact"];
+
+  /* ---------- données (issues du renderVals() du design) ---------- */
+  var photos = [
+    ["jpo-atelier-scene.jpg", "Travail de scène en atelier"],
+    ["jpo-atelier-echange.jpg", "Échange et direction d’acteurs"],
+    ["hero-tournage-exterieur.jpg", "Plateau de tournage en extérieur"],
+    ["jpo-atelier-diner.jpg", "Vie et convivialité à l’école"],
+    ["hero-jeu-face-camera.jpg", "Jeu face caméra"],
+    ["methode-reproduire.jpg", "Composition d’un personnage"],
+    ["methode-declencher.jpg", "Déclencher l’émotion"],
+    ["methode-maitriser.jpg", "Maîtriser l’émotion"],
+    ["Le_Proces_Goldman_Affiche.webp", "Affiche · Le Procès Goldman"],
+    ["Les-7-vies-de-Lea_Raika_Hazanavicius.jpg", "Affiche · Les 7 vies de Léa"],
+    ["Quantum-of-Solace-Olga-Kurylenko.jpg", "Affiche · Quantum of Solace"],
+    ["affiche-ni-chaines-ni-maitres-66e49d69a884b564930223.jpg", "Affiche · Ni chaînes ni maîtres"],
+    ["Sans-repit-Jemima-West.jpg", "Affiche · Sans répit"],
+    ["Les-invisibles_Deborah_Krey.jpg", "Affiche · Les Invisibles"],
+    ["Dirty-Diffficult-Dangerous.jpg", "Affiche · Dirty Difficult Dangerous"],
+    ["Martyrs_Mylene_Jampanoi.jpg", "Affiche · Martyrs"],
+    ["22Lines22-de-Riccardo-Monica-min.png", "« Lines » de Riccardo Monica"],
+    ["22Goodbye-Melodie22-de-Davids-Barrouk-min.png", "« Goodbye Mélodie » de Davids Barrouk"],
+    ["Cheap-Thrill_-de-Davids-Barrouk-Obedience-Films-min.png", "« Cheap Thrill » de Davids Barrouk"],
+    ["affichenoirjuifetborgne_sammydavisjr_1760365016.jpg", "Affiche · Noir, juif et borgne"]
+  ];
+
+  var A = "#cf5a54", AM = "#4b4b4b", S = "#4a6fb5", EN = "#5f7a3a";
+
+  var day1 = [
+    { time: "13h00 – 15h00", color: A, title: "Travail Émotionnel", sub: "Faire jaillir de vraies émotions" },
+    { time: "15h30 – 17h30", color: A, title: "Travail de Scène", sub: "Donner vie à un texte" },
+    { time: "18h00 – 20h00", color: AM, title: "Acting Amateur", sub: "Oser vous libérer" },
+    { time: "18h00 – 20h00", color: S, title: "Scénario, Réal. & Direction d’acteurs", sub: "Écrire & réaliser vos films" }
+  ];
+  var day2 = [
+    { time: "10h00 – 12h00", color: A, title: "Improvisation", sub: "Inventer dans l’instant" },
+    { time: "13h00 – 15h00", color: A, title: "Travail Émotionnel", sub: "Faire jaillir de vraies émotions" },
+    { time: "13h00 – 15h00", color: S, title: "Scénario, Réal. & Direction d’acteurs", sub: "Écrire & réaliser vos films" },
+    { time: "15h30 – 17h30", color: A, title: "Travail de Scène", sub: "Donner vie à un texte" },
+    { time: "18h00 – 20h00", color: EN, title: "Acting in English", sub: "Jouer vrai, en anglais" }
+  ];
+  var day3 = [
+    { time: "13h00 – 15h00", color: A, title: "Travail de Scène", sub: "Donner vie à un texte" },
+    { time: "13h00 – 15h00", color: EN, title: "Acting in English", sub: "Jouer vrai, en anglais" },
+    { time: "15h30 – 17h30", color: A, title: "Travail Émotionnel", sub: "Faire jaillir de vraies émotions" },
+    { time: "15h30 – 17h30", color: S, title: "Scénario, Réal. & Direction d’acteurs", sub: "Écrire & réaliser vos films" },
+    { time: "18h00 – 20h00", color: EN, title: "Screenwriting in English", sub: "Écrire pour l’écran, en anglais" }
+  ];
+  var ateliers = [
+    { name: "Faire jaillir de vraies émotions", tech: "Acting · Travail Émotionnel", slots: ["Ven. 11 · 13h–15h", "Sam. 12 · 13h–15h", "Dim. 13 · 15h30–17h30"] },
+    { name: "Donner vie à un texte", tech: "Acting · Travail de Scène", slots: ["Ven. 11 · 15h30–17h30", "Sam. 12 · 15h30–17h30", "Dim. 13 · 13h–15h"] },
+    { name: "Inventer dans l'instant", tech: "Acting · Improvisation", slots: ["Sam. 12 · 10h–12h"] },
+    { name: "Oser vous libérer", tech: "Acting Amateur", slots: ["Ven. 11 · 18h–20h"] },
+    { name: "Écrire & réaliser vos films", tech: "Scénario, Réalisation & Direction d'acteurs", slots: ["Ven. 11 · 18h–20h", "Sam. 12 · 13h–15h", "Dim. 13 · 15h30–17h30"] },
+    { name: "Jouer vrai, en anglais", tech: "Acting in English", slots: ["Sam. 12 · 18h–20h", "Dim. 13 · 13h–15h"] },
+    { name: "Écrire pour l'écran, en anglais", tech: "Screenwriting in English", slots: ["Dim. 13 · 18h–20h"] }
+  ];
+  var actingYears = [
+    { n: "01", title: "Fondations", desc: "Poser les bases du travail émotionnel et de la présence : oser, ressentir, et apprendre à ne plus jouer « faux »." },
+    { n: "02", title: "Travail de scène", desc: "Donner vie à un texte, construire un personnage et tenir une scène complète face à un partenaire." },
+    { n: "03", title: "Jeu face caméra", desc: "S’adapter au format caméra, tourner ses premières scènes filmées et constituer un book photo." },
+    { n: "04", title: "Vers le métier", desc: "Bande démo, rencontres avec les pros du Marché, et tous les outils pour démarcher agents et directeurs de casting." }
+  ];
+  var scenarioYears = [
+    { n: "01", title: "Poser les fondations", desc: "Faire naître vos idées, les structurer en scénario avec des personnages complexes nourris par l’acting, et apprendre les bases du langage cinématographique et de la direction d’acteurs." },
+    { n: "02", title: "Aller au bout de vos films", desc: "Faire aboutir l’écriture de votre long-métrage, vous confronter au tournage de bouts de scènes, et affiner une direction d’acteurs plus précise." }
+  ];
+  var avis = [
+    { text: "Depuis 3 ans dans cette école. J’ai appris beaucoup de choses, l’ambiance est super. Les coachs sont très pédagogues. Je recommande !!", author: "Jeremy JG", when: "il y a 2 mois" },
+    { text: "Excellente école pour devenir acteur, scénariste ou réalisateur au cinéma. Les coachs sont très humains. Je recommande vivement !", author: "Zina Boushih", when: "Local Guide" },
+    { text: "Tout simplement l’école qui m’a fait découvrir l’acting en stage et tomber amoureux de la Méthode. Aujourd’hui en formation chez eux. Bienveillance et compétence !", author: "David Attias", when: "Local Guide" }
+  ];
+  var GOOGLE = "https://www.google.com/search?q=Method+Acting+Center+Paris+avis";
+
+  /* ---------- utilitaires ---------- */
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  var STAR = '<svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#fbbc04"></path></svg>';
+
+  /* ---------- planning ---------- */
+  function slotRow(s){
+    return '<div style="padding:16px 0; border-bottom:1px solid rgba(32,30,29,.1)">'
+      + '<span style="display:block; font-size:12px; font-weight:600; letter-spacing:.1em; color:#7d7979">' + esc(s.time) + '</span>'
+      + '<span style="display:flex; align-items:baseline; gap:9px; margin-top:7px"><span style="width:8px; height:8px; border-radius:50%; flex:0 0 auto; background:' + s.color + '"></span>'
+      + '<span><strong style="font-family:var(--font-heading); font-weight:800; font-size:15.5px">' + esc(s.title) + '</strong>'
+      + '<span style="display:block; font-size:14px; color:#605d5d; margin-top:2px">' + esc(s.sub) + '</span></span></span></div>';
+  }
+  function fillPlanning(){
+    document.getElementById("day1").innerHTML = day1.map(slotRow).join("");
+    document.getElementById("day2").innerHTML = day2.map(slotRow).join("");
+    document.getElementById("day3").innerHTML = day3.map(slotRow).join("");
+  }
+
+  /* ---------- années (acting / scénario) ---------- */
+  function yearRow(y){
+    return '<div style="padding:26px 0; border-top:1px solid rgba(243,242,242,.18)">'
+      + '<div style="display:flex; align-items:baseline; gap:16px"><span style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px,3vw,42px); line-height:1; color:#ec3013">' + esc(y.n) + '</span>'
+      + '<h3 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(20px,2.2vw,28px); text-transform:uppercase; margin:0">' + esc(y.title) + '</h3></div>'
+      + '<p style="margin:12px 0 0; max-width:60ch; font-size:15.5px; line-height:1.75; color:#bab6b6">' + esc(y.desc) + '</p></div>';
+  }
+  function fillYears(){
+    document.getElementById("actingYears").innerHTML = actingYears.map(yearRow).join("");
+    document.getElementById("scenarioYears").innerHTML = scenarioYears.map(yearRow).join("");
+  }
+
+  /* ---------- avis ---------- */
+  function avisCard(r){
+    var wrap = "display:flex; flex-direction:column; box-sizing:border-box; height:100%; background:#fff; border:1px solid rgba(32,30,29,.1); border-radius:14px; padding:clamp(14px,1.6vw,18px); text-align:center; color:#201e1d; transition:border-color .3s ease, transform .3s ease";
+    var avatar = "flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:#eae9e9; color:#605d5d; display:flex; align-items:center; justify-content:center; font-family:var(--font-heading); font-weight:800; font-size:11.5px";
+    return '<a href="' + GOOGLE + '" target="_blank" rel="noopener" style="' + wrap + '" style-hover="border-color:rgba(32,30,29,.3); transform:translateY(-3px)">'
+      + '<span style="display:flex; justify-content:center"><span style="display:flex; gap:1px">' + STAR + STAR + STAR + STAR + STAR + '</span></span>'
+      + '<p style="margin:11px 0 0; font-size:13.5px; font-weight:400; line-height:1.6; letter-spacing:-.003em; text-wrap:pretty; color:#403d3d; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; min-height:8.64em">' + esc(r.text) + '</p>'
+      + '<span style="display:block; margin-top:5px; font-size:12.5px; color:#9b9797">Lire la suite</span>'
+      + '<span style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px; padding-top:13px; border-top:1px solid rgba(32,30,29,.09)">'
+      + '<span style="' + avatar + '">' + esc(r.author.charAt(0)) + '</span>'
+      + '<span style="text-align:left"><span style="display:block; font-size:11.5px; font-weight:600; color:#201e1d">' + esc(r.author) + '</span>'
+      + '<span style="display:block; font-size:10.5px; color:#9b9797; margin-top:1px">' + esc(r.when) + '</span></span></span></a>';
+  }
+  function fillAvis(){
+    document.getElementById("avisGrid").innerHTML = avis.map(avisCard).join("");
+  }
+
+  /* ---------- mosaïque ---------- */
+  var mosaic = { el:null, cols:5, hover:-1, tiles:[], timer:null };
+  function computeCols(){ var w = window.innerWidth; return w < 700 ? 2 : w < 980 ? 4 : 5; }
+  function tileStyle(i, shownLen){
+    var cols = mosaic.cols, hover = mosaic.hover;
+    var isOn = hover === i;
+    var rows = Math.ceil(shownLen / cols);
+    var c = i % cols, r = Math.floor(i / cols);
+    var box = isOn
+      ? "left:0; top:0; width:100%; height:100%; z-index:20; padding:clamp(10px,1.4vw,20px)"
+      : "left:" + (c * 100 / cols) + "%; top:" + (r * 100 / rows) + "%; width:" + (100 / cols) + "%; height:" + (100 / rows) + "%; z-index:1; padding:4px";
+    var src = shown()[i][0];
+    return "background-image:url('img/" + encodeURI(src) + "'); background-repeat:no-repeat; background-position:center; border-radius:" + (isOn ? "20px" : "14px")
+      + "; background-size:" + (isOn ? "contain" : "cover")
+      + "; position:absolute; box-sizing:border-box; overflow:hidden; cursor:pointer; opacity:" + (hover === -1 || isOn ? 1 : 0.45)
+      + "; filter:" + (hover === -1 || isOn ? "none" : "blur(7px)")
+      + "; transition:left .55s cubic-bezier(.2,.7,.2,1), top .55s cubic-bezier(.2,.7,.2,1), width .55s cubic-bezier(.2,.7,.2,1), height .55s cubic-bezier(.2,.7,.2,1), opacity .4s ease, filter .4s ease, padding .55s ease; " + box;
+  }
+  function shown(){ return mosaic.cols === 2 ? photos.slice(0,6) : photos; }
+  function applyMosaicStyles(){
+    var list = shown();
+    for (var i = 0; i < mosaic.tiles.length; i++){
+      mosaic.tiles[i].style.cssText = tileStyle(i, list.length);
+    }
+  }
+  function setHover(i){ mosaic.hover = i; applyMosaicStyles(); }
+  function buildMosaic(){
+    if (!mosaic.el) return;
+    mosaic.el.innerHTML = "";
+    mosaic.tiles = [];
+    var list = shown();
+    list.forEach(function(pair, i){
+      var alt = pair[1];
+      var d = document.createElement("div");
+      d.setAttribute("role", "img");
+      d.setAttribute("aria-label", alt);
+      d.setAttribute("title", alt);
+      d.addEventListener("mouseenter", function(){
+        clearTimeout(mosaic.timer);
+        mosaic.timer = setTimeout(function(){ if (mosaic.hover !== i) setHover(i); }, 500);
+      });
+      d.addEventListener("mouseleave", function(){
+        clearTimeout(mosaic.timer);
+        if (mosaic.hover === i) setHover(-1);
+      });
+      d.addEventListener("click", function(e){
+        if (e) e.preventDefault();
+        clearTimeout(mosaic.timer);
+        setHover(mosaic.hover === i ? -1 : i);
+      });
+      mosaic.el.appendChild(d);
+      mosaic.tiles.push(d);
+    });
+    applyMosaicStyles();
+  }
+  function syncCols(){
+    var c = computeCols();
+    if (c !== mosaic.cols){ mosaic.cols = c; mosaic.hover = -1; buildMosaic(); }
+  }
+
+  /* ---------- routeur ---------- */
+  function showPage(key){
+    var pages = document.querySelectorAll("[data-page]");
+    for (var i = 0; i < pages.length; i++){
+      pages[i].classList.toggle("active", pages[i].getAttribute("data-page") === key);
+    }
+  }
+  function keyFromHash(){
+    var m = location.hash.match(/^#\/(home|jpo|acting|scenario|tarifs|contact)/);
+    return m ? m[1] : null;
+  }
+  function route(){
+    var key = keyFromHash();
+    if (!key) key = "home";
+    showPage(key);
+  }
+
+  /* ---------- menu ---------- */
+  var menu = document.getElementById("menu");
+  function openMenu(){ if (menu) menu.classList.remove("closed"); }
+  function closeMenu(){ if (menu) menu.classList.add("closed"); }
+
+  /* ---------- header solide au scroll ---------- */
+  var header = document.querySelector("header");
+  function onScroll(){
+    var solid = window.scrollY > Math.max(120, window.innerHeight * 0.55);
+    if (header) header.setAttribute("data-solid", solid ? "1" : "0");
+  }
+
+  /* ---------- formulaires (Web3Forms) ---------- */
+  var ACCESS_KEY = "32e0909e-41ce-41e3-9071-bd30e997e69f";
+  function postForm(payload){
+    return fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json(); });
+  }
+  function confirmBlock(title, msg){
+    return '<div style="display:flex; flex-direction:column; gap:12px; padding:8px 0">'
+      + '<h3 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(24px,4vw,34px); margin:0; color:inherit">' + esc(title) + '</h3>'
+      + '<p style="margin:0; font-size:16px; line-height:1.7; color:inherit; opacity:.85">' + esc(msg) + '</p></div>';
+  }
+
+  function fillAteliers(){
+    var box = document.getElementById("ateliers");
+    box.innerHTML = ateliers.map(function(a){
+      var opts = '<option>— Aucun créneau —</option>' + a.slots.map(function(s){ return '<option>' + esc(s) + '</option>'; }).join("");
+      return '<div data-form-row style="display:flex; flex-wrap:wrap; align-items:center; gap:14px; padding:16px 0; border-bottom:1px solid rgba(243,242,242,.16)">'
+        + '<span style="flex:1 1 190px; min-width:0">'
+        + '<span style="display:block; font-family:var(--font-heading); font-weight:800; font-size:15.5px; line-height:1.25">' + esc(a.name) + '</span>'
+        + '<span style="display:block; font-size:12.5px; color:#9b9797; margin-top:3px">' + esc(a.tech) + '</span></span>'
+        + '<select data-atelier="' + esc(a.name) + '" style="flex:1 1 180px; background:transparent; color:#f3f2f2; border:1px solid rgba(243,242,242,.28); padding:11px 16px; border-radius:999px; font-family:var(--font-body); font-size:14px; cursor:pointer">'
+        + opts + '</select></div>';
+    }).join("");
+  }
+
+  function wireJpoForm(){
+    var form = document.getElementById("jpoForm");
+    if (!form) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var hp = form.querySelector('input[name="botcheck"]');
+      if (hp && hp.checked) return;
+      var val = function(f){ var el = form.querySelector('[data-field="' + f + '"]'); return el ? el.value.trim() : ""; };
+      var prenom = val("prenom"), nom = val("nom");
+      var chosen = [];
+      form.querySelectorAll("select[data-atelier]").forEach(function(sel){
+        if (sel.value && sel.value.indexOf("Aucun créneau") === -1){
+          chosen.push(sel.getAttribute("data-atelier") + " — " + sel.value);
+        }
+      });
+      var name = (prenom + " " + nom).trim();
+      var payload = {
+        access_key: ACCESS_KEY,
+        subject: "Inscription JPO (mobile) — " + name,
+        from_name: "Method Acting Center — JPO",
+        "Prénom": prenom, "Nom": nom, "Email": val("email"), "Téléphone": val("tel"),
+        "Ateliers": chosen.length ? chosen.join("\n") : "Aucun atelier sélectionné",
+        botcheck: hp ? hp.checked : false
+      };
+      var col = form;
+      postForm(payload).then(function(res){
+        col.innerHTML = confirmBlock("Demande envoyée !", "Merci " + (prenom || "") + ". On vous confirme votre place par email très vite.");
+      }).catch(function(){
+        col.innerHTML = confirmBlock("Demande envoyée !", "Merci. On revient vers vous par email très vite.");
+      });
+    });
+  }
+
+  function wireContactForm(){
+    var form = document.getElementById("contactForm");
+    if (!form) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var hp = form.querySelector('input[name="botcheck"]');
+      if (hp && hp.checked) return;
+      var val = function(f){ var el = form.querySelector('[data-field="' + f + '"]'); return el ? el.value.trim() : ""; };
+      var prenom = val("prenom"), nom = val("nom");
+      var name = (prenom + " " + nom).trim();
+      var payload = {
+        access_key: ACCESS_KEY,
+        subject: "Nouveau message (mobile) — " + name,
+        from_name: "Method Acting Center — Contact",
+        "Prénom": prenom, "Nom": nom, "Email": val("email"), "Téléphone": val("tel"),
+        "Formation": val("formation"), "Message": val("message"),
+        botcheck: hp ? hp.checked : false
+      };
+      postForm(payload).then(function(res){
+        form.innerHTML = confirmBlock("Message envoyé !", "Merci " + (prenom || "") + ". On vous répond sous 48h.");
+      }).catch(function(){
+        form.innerHTML = confirmBlock("Message envoyé !", "Merci. On vous répond sous 48h.");
+      });
+    });
+  }
+
+  /* ---------- init ---------- */
+  function init(){
+    mosaic.el = document.getElementById("mosaic");
+    mosaic.el.addEventListener("mouseleave", function(){ clearTimeout(mosaic.timer); setHover(-1); });
+
+    fillPlanning();
+    fillYears();
+    fillAvis();
+    fillAteliers();
+    mosaic.cols = computeCols();
+    buildMosaic();
+
+    wireJpoForm();
+    wireContactForm();
+
+    /* navigation déléguée */
+    document.addEventListener("click", function(e){
+      var nav = e.target.closest ? e.target.closest("[data-nav]") : null;
+      if (nav){
+        e.preventDefault();
+        var key = nav.getAttribute("data-nav");
+        location.hash = "#/" + key;
+        window.scrollTo({ top: 0 });
+        closeMenu();
+        return;
+      }
+      var burger = e.target.closest ? e.target.closest("[data-burger]") : null;
+      if (burger){ e.preventDefault(); openMenu(); return; }
+      var mclose = e.target.closest ? e.target.closest("[data-menuclose]") : null;
+      if (mclose){ e.preventDefault(); closeMenu(); return; }
+      var desk = e.target.closest ? e.target.closest("[data-desktop]") : null;
+      if (desk){
+        e.preventDefault();
+        try { localStorage.setItem("macView", "desktop"); } catch (err) {}
+        location.href = "/";
+        return;
+      }
+    });
+
+    /* routage : ?page= -> hash, puis lecture du hash */
+    var q = (location.search.match(/page=(\w+)/) || [])[1];
+    if (!/^#\//.test(location.hash) && q && PAGES.indexOf(q) !== -1){
+      location.hash = "#/" + q;
+    }
+    route();
+    window.addEventListener("hashchange", function(){
+      if (/^#\//.test(location.hash)) route();
+    });
+
+    /* comportements globaux */
+    window.addEventListener("resize", syncCols);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+</body>
+</html>
