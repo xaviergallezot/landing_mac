@@ -76,7 +76,7 @@
     [data-quickaccess]{gap:0 !important; padding-top:14px !important}
     [data-quickaccess] a{padding:17px 0; border-bottom:1px solid rgba(32,30,29,.1)}
     /* formulaire JPO */
-    [data-form-row]{flex-direction:column !important; align-items:stretch !important; gap:9px !important; padding:14px 0 !important}
+    [data-form-row]{flex-direction:column !important; align-items:stretch !important; gap:9px !important; padding:13px 16px !important}
     [data-form-row] select{width:100%}
     #inscription > div{padding-top:52px !important; padding-bottom:52px !important}
     /* footer */
@@ -96,6 +96,7 @@
         <a href="#" data-nav="scenario" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Scénario · Réal</a>
         <a href="#" data-nav="jpo" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Portes Ouvertes</a>
         <a href="#" data-nav="tarifs" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Tarifs</a>
+        <a href="#" data-nav="planning" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Planning</a>
         <a href="#" data-nav="contact" style="font-size:13.5px; font-weight:600; letter-spacing:.02em">Contact</a>
         <a href="#" data-nav="jpo" style="padding:13px 22px; border-radius:999px; background:#201e1d; color:#f3f2f2; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase" style-hover="background:#ec3013">Réserver</a>
       </nav>
@@ -118,7 +119,8 @@
       <a href="#" data-nav="acting" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .12s">Formation Acting</a>
       <a href="#" data-nav="scenario" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .16s">Scénario · Réal</a>
       <a href="#" data-nav="tarifs" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .2s">Tarifs</a>
-      <a href="#" data-nav="contact" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .24s">Contact</a>
+      <a href="#" data-nav="planning" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .22s">Planning</a>
+      <a href="#" data-nav="contact" style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px,9.5vw,52px); line-height:1.1; letter-spacing:-.03em; animation:rise .35s both .26s">Contact</a>
     </div>
     <div style="padding:0 clamp(20px,6vw,48px) 34px">
       <a href="#" data-nav="jpo" style="display:block; background:#201e1d; color:#f3f2f2; padding:20px 22px; font-family:var(--font-heading); font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px">11 · 12 · 13 sept — Réserver</a>
@@ -273,7 +275,7 @@
     <section id="acces" style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(56px,9vw,120px)">
       <div data-quickaccess style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:clamp(20px,3vw,44px); border-top:1px solid rgba(32,30,29,.18); padding-top:30px">
         <a href="#" data-nav="tarifs" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Tarifs</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Formations, ateliers et facilités de paiement.</p></a>
-        <a href="#" data-nav="jpo" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Planning</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Cours, ateliers et Journées Portes Ouvertes.</p></a>
+        <a href="#" data-nav="planning" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Planning</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Cours, ateliers et Journées Portes Ouvertes.</p></a>
         <a href="#" data-nav="contact" style="display:block" style-hover="color:#ec3013"><h3 style="font-family:var(--font-heading); font-weight:800; font-size:20px; margin:0">Contact</h3><p style="margin:8px 0 0; font-size:15.5px; line-height:1.7; color:#605d5d">Une question ? Réponse sous 48h.</p></a>
       </div>
     </section>
@@ -373,7 +375,8 @@
           <p style="margin:20px 0 0; font-size:13.5px; letter-spacing:.04em; color:#9b9797">Gratuit et sans engagement · plusieurs ateliers réservables · un vrai atelier, pas une visite</p>
         </div>
         <form id="jpoForm" data-formcol>
-          <div id="ateliers" style="display:flex; flex-direction:column"></div>
+          <span style="display:block; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#9b9797; margin-bottom:12px">Vos ateliers · choisissez un créneau</span>
+          <div id="ateliers" style="display:flex; flex-direction:column; border:1px solid rgba(243,242,242,.18); border-radius:16px; overflow:hidden; background:rgba(243,242,242,.03)"></div>
           <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr)); gap:14px; margin-top:26px">
             <input data-field="prenom" type="text" placeholder="Prénom" style="background:transparent; border:1px solid rgba(243,242,242,.28); color:#f3f2f2; padding:14px 18px; border-radius:999px; font-family:var(--font-body); font-size:15px">
             <input data-field="nom" type="text" placeholder="Nom" style="background:transparent; border:1px solid rgba(243,242,242,.28); color:#f3f2f2; padding:14px 18px; border-radius:999px; font-family:var(--font-body); font-size:15px">
@@ -569,6 +572,69 @@
   </div>
 
   <!-- ============================ CONTACT ============================ -->
+  <div class="page" data-page="planning">
+  <main>
+    <section style="max-width:1240px; margin:0 auto; padding:clamp(96px,13vw,170px) clamp(20px,4vw,48px) clamp(40px,6vw,80px)">
+      <span style="display:block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:#7d7979; animation:fade .8s both">Planning · 2026–2027</span>
+      <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(42px,7.6vw,104px); line-height:.98; letter-spacing:-.04em; margin:clamp(16px,2.4vw,32px) 0 0; max-width:14ch">Les dates<br><span style="color:#ec3013">à retenir.</span></h1>
+      <p style="margin:22px 0 0; max-width:56ch; font-size:17px; line-height:1.75; color:#605d5d">Journées Portes Ouvertes, rentrées et stages : retrouvez ici les prochaines échéances de l’année.</p>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(48px,7vw,90px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Journées Portes Ouvertes</h2>
+      <div style="margin-top:clamp(20px,3vw,30px); border:1px solid rgba(32,30,29,.14); border-radius:18px; padding:22px; background:#fff; display:flex; flex-direction:column; gap:7px">
+        <span style="font-family:var(--font-heading); font-weight:800; font-size:20px">Portes Ouvertes — Rentrée 2026</span>
+        <span style="font-size:15.5px; line-height:1.6; color:#605d5d">11, 12 &amp; 13 septembre 2026 · Method Acting Center, Paris 13ᵉ</span>
+        <a href="#" data-nav="jpo" style="align-self:flex-start; margin-top:12px; padding:14px 22px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; border-radius:999px" style-hover="background:#201e1d">Réserver</a>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(48px,7vw,90px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Rentrées &amp; formations</h2>
+      <p style="margin:14px 0 0; max-width:60ch; font-size:15.5px; line-height:1.7; color:#605d5d">Les mêmes grandes dates pour toutes nos formations ; le rythme des ateliers varie ensuite selon la formation et le niveau.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr)); gap:16px; margin-top:clamp(24px,3vw,36px)">
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#ec3013">Semaine intensive</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:8px 0 0">21 → 27 sept. 2026</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Acting &amp; Scénario. Horaires et jours selon les groupes — planning détaillé à venir.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#ec3013">Début des ateliers</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:8px 0 0">Lundi 28 sept. 2026</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Démarrage des ateliers hebdomadaires.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#ec3013">Fin des ateliers</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:8px 0 0">Vendredi 2 juillet 2027</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Clôture de l’année, pour toutes les formations.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#ec3013">Rentrée décalée</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:19px; margin:8px 0 0">Dès le 4 janv. 2027</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Une seconde rentrée possible, avec le Stage Intensif d’Hiver (9 &amp; 10 janvier) pour se mettre à niveau.</p></div>
+      </div>
+      <div style="margin-top:clamp(22px,3vw,32px); border:1px solid rgba(32,30,29,.14); border-radius:18px; overflow:hidden; background:#fff">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; border-bottom:1px solid rgba(32,30,29,.1)"><span style="font-size:15px"><strong style="font-family:var(--font-heading); font-weight:800">Acting</strong> — 1ʳᵉ &amp; 2ᵉ année<br><span style="font-size:13.5px; color:#605d5d">2 ateliers de 4h par semaine</span></span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; border-bottom:1px solid rgba(32,30,29,.1)"><span style="font-size:15px"><strong style="font-family:var(--font-heading); font-weight:800">Acting</strong> — 3ᵉ année<br><span style="font-size:13.5px; color:#605d5d">1 atelier de 4h le vendredi + 9 sessions de 3h le samedi</span></span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; border-bottom:1px solid rgba(32,30,29,.1)"><span style="font-size:15px"><strong style="font-family:var(--font-heading); font-weight:800">Acting</strong> — 4ᵉ année<br><span style="font-size:13.5px; color:#605d5d">1 atelier de 3h le mardi</span></span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px; border-bottom:1px solid rgba(32,30,29,.1)"><span style="font-size:15px"><strong style="font-family:var(--font-heading); font-weight:800">Scénario · Réalisation</strong> — 1ʳᵉ année<br><span style="font-size:13.5px; color:#605d5d">26 sessions de 8h le samedi (environ 3 samedis sur 4)</span></span></div>
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; padding:16px 20px"><span style="font-size:15px"><strong style="font-family:var(--font-heading); font-weight:800">Scénario · Réalisation</strong> — 2ᵉ année<br><span style="font-size:13.5px; color:#605d5d">24 sessions de 5h le dimanche</span></span></div>
+      </div>
+      <p style="margin:16px 0 0; font-size:13.5px; line-height:1.6; color:#7d7979">Vacances : Noël du 21 décembre 2026 au 3 janvier 2027 · Printemps du 5 au 18 avril 2027.</p>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(48px,7vw,90px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Le planning des cours</h2>
+      <p style="margin:14px 0 0; max-width:60ch; font-size:15.5px; line-height:1.7; color:#605d5d">Le détail de la semaine type varie selon la formation et le niveau. Pour tout consulter d’un coup d’œil, téléchargez le planning hebdomadaire complet.</p>
+      <a href="/uploads/planning-hebdomadaire.pdf" download style="display:inline-block; margin-top:20px; padding:18px 28px; background:#ec3013; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; border-radius:999px" style-hover="background:#201e1d">Télécharger le planning hebdomadaire (PDF)</a>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(48px,7vw,90px)">
+      <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1.08; letter-spacing:-.02em; margin:0">Stages week-end</h2>
+      <p style="margin:14px 0 0; max-width:60ch; font-size:15.5px; line-height:1.7; color:#605d5d">Un aperçu de la Méthode en un week-end — pour tester avant de s’engager, ou se perfectionner.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:16px; margin-top:clamp(24px,3vw,36px)">
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#7d7979">17 &amp; 18 octobre 2026</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:9px 0 0">Actors’ Studio A</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Initiation à la Méthode.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#7d7979">7 &amp; 8 novembre 2026</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:9px 0 0">Scénario, Réalisation &amp; Direction d’acteurs</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Le week-end pour passer de l’autre côté de la caméra.</p></div>
+        <div style="border:1px solid rgba(32,30,29,.14); border-radius:16px; padding:20px"><span style="display:block; font-size:11px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#7d7979">14 &amp; 15 novembre 2026</span><h3 style="font-family:var(--font-heading); font-weight:800; font-size:18px; margin:9px 0 0">Actors’ Studio B</h3><p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#605d5d">Approche d’une scène.</p></div>
+      </div>
+      <p style="margin:16px 0 0; font-size:13.5px; line-height:1.6; color:#7d7979">D’autres stages seront programmés dans l’année — écrivez-nous pour être tenu(e) informé(e).</p>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:0 clamp(20px,4vw,48px) clamp(64px,9vw,120px)">
+      <div style="border:1px solid rgba(32,30,29,.14); border-radius:20px; padding:clamp(26px,4vw,40px); background:#fff; text-align:center">
+        <h3 style="font-family:var(--font-heading); font-weight:800; font-size:22px; margin:0">Une date vous intéresse ?</h3>
+        <p style="margin:12px 0 0; font-size:15.5px; line-height:1.65; color:#605d5d">Écrivez-nous pour réserver votre place ou recevoir le calendrier complet.</p>
+        <a href="#" data-nav="contact" style="display:inline-block; margin-top:20px; padding:16px 26px; background:#201e1d; color:#fff; font-family:var(--font-heading); font-weight:800; font-size:12px; letter-spacing:.12em; text-transform:uppercase; border-radius:999px" style-hover="background:#ec3013">Nous contacter</a>
+      </div>
+    </section>
+  </main>
+  </div>
+
   <div class="page" data-page="contact">
   <main>
     <section style="max-width:1240px; margin:0 auto; padding:clamp(96px,13vw,170px) clamp(20px,4vw,48px) clamp(40px,6vw,80px)">
@@ -633,12 +699,13 @@
       </div>
       <div style="display:flex; flex-direction:column; gap:9px">
         <a href="#" data-nav="tarifs" style="font-size:15px; color:#605d5d">Tarifs</a>
+        <a href="#" data-nav="planning" style="font-size:15px; color:#605d5d">Planning</a>
         <a href="#" data-nav="contact" style="font-size:15px; color:#605d5d">Contact</a>
-        <a href="mailto:contact@methodacting.fr" style="font-size:15px; color:#605d5d">contact@methodacting.fr</a>
       </div>
       <div style="display:flex; flex-direction:column; gap:9px">
-        <span style="font-size:15px; color:#605d5d">01 00 00 00 00</span>
-        <span style="font-size:15px; color:#605d5d">Paris 13ᵉ</span>
+        <a href="mailto:contact@methodacting.fr" style="font-size:15px; color:#605d5d">contact@methodacting.fr</a>
+        <a href="tel:+33607414125" style="font-size:15px; color:#605d5d">+33 6 07 41 41 25</a>
+        <a href="https://maps.app.goo.gl/g2R9hy4GzSkP9gU17" target="_blank" rel="noopener" style="font-size:15px; color:#605d5d">93, avenue d’Italie · 75013 Paris</a>
       </div>
     </div>
     <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; margin-top:clamp(34px,5vw,64px); padding-top:20px; border-top:1px solid rgba(32,30,29,.18); font-size:12.5px; color:#7d7979">
@@ -654,7 +721,7 @@
 <script>
 (function(){
   "use strict";
-  var PAGES = ["home","jpo","acting","scenario","tarifs","contact"];
+  var PAGES = ["home","jpo","acting","scenario","tarifs","planning","contact"];
 
   /* ---------- données (issues du renderVals() du design) ---------- */
   var photos = [
@@ -843,7 +910,7 @@
     }
   }
   function keyFromHash(){
-    var m = location.hash.match(/^#\/(home|jpo|acting|scenario|tarifs|contact)/);
+    var m = location.hash.match(/^#\/(home|jpo|acting|scenario|tarifs|planning|contact)/);
     return m ? m[1] : null;
   }
   function route(){
@@ -881,13 +948,12 @@
 
   function fillAteliers(){
     var box = document.getElementById("ateliers");
-    box.innerHTML = ateliers.map(function(a){
-      var opts = '<option>— Aucun créneau —</option>' + a.slots.map(function(s){ return '<option>' + esc(s) + '</option>'; }).join("");
-      return '<div data-form-row style="display:flex; flex-wrap:wrap; align-items:center; gap:14px; padding:16px 0; border-bottom:1px solid rgba(243,242,242,.16)">'
-        + '<span style="flex:1 1 190px; min-width:0">'
-        + '<span style="display:block; font-family:var(--font-heading); font-weight:800; font-size:15.5px; line-height:1.25">' + esc(a.name) + '</span>'
-        + '<span style="display:block; font-size:12.5px; color:#9b9797; margin-top:3px">' + esc(a.tech) + '</span></span>'
-        + '<select data-atelier="' + esc(a.name) + '" style="flex:1 1 180px; background:transparent; color:#f3f2f2; border:1px solid rgba(243,242,242,.28); padding:11px 16px; border-radius:999px; font-family:var(--font-body); font-size:14px; cursor:pointer">'
+    box.innerHTML = ateliers.map(function(a, i){
+      var opts = '<option value="">Choisir un créneau…</option>' + a.slots.map(function(s){ return '<option>' + esc(s) + '</option>'; }).join("");
+      var sep = i ? 'border-top:1px solid rgba(243,242,242,.14);' : '';
+      return '<div data-form-row style="' + sep + ' display:flex; flex-direction:column; gap:9px; padding:13px 16px">'
+        + '<span style="font-family:var(--font-heading); font-weight:800; font-size:15px; line-height:1.3">' + esc(a.name) + '</span>'
+        + '<select data-atelier="' + esc(a.name) + '" style="width:100%; background:rgba(243,242,242,.06); color:#f3f2f2; border:1px solid rgba(243,242,242,.24); padding:11px 14px; border-radius:12px; font-family:var(--font-body); font-size:14px; cursor:pointer">'
         + opts + '</select></div>';
     }).join("");
   }
@@ -903,7 +969,7 @@
       var prenom = val("prenom"), nom = val("nom");
       var chosen = [];
       form.querySelectorAll("select[data-atelier]").forEach(function(sel){
-        if (sel.value && sel.value.indexOf("Aucun créneau") === -1){
+        if (sel.value){
           chosen.push(sel.getAttribute("data-atelier") + " — " + sel.value);
         }
       });

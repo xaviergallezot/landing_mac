@@ -52,7 +52,7 @@ PAGES = [
     ("tarifs",      "tarifs.html",      "Tarifs — Method Acting Center Paris",
      "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée.", "tarifs"),
     ("planning",    "planning.html",    "Planning — Method Acting Center Paris",
-     "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center.", ""),
+     "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center.", "planning"),
 ]
 
 def build():
