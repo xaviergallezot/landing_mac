@@ -37,33 +37,34 @@ def inline(page):
     page = re.sub(r'src="[^"]*assets/img/([^"]+)"', repl, page)
     return page
 
-# slug, fichier de sortie (PLAT, un seul dossier), titre, description
+# slug, fichier de sortie (PLAT, un seul dossier), titre, description, clé mobile (redirection /m/#/<clé>)
 PAGES = [
     ("index",       "index.html",       "Method Acting Center — Devenir Acteur, Scénariste ou Réalisateur à Paris",
-     "École de cinéma à Paris depuis 1999 : formations Acteur, Scénariste et Réalisateur autour de la Méthode (Stanislavski / Actors Studio)."),
+     "École de cinéma à Paris depuis 1999 : formations Acteur, Scénariste et Réalisateur autour de la Méthode (Stanislavski / Actors Studio).", "home"),
     ("jpo",         "jpo.html",         "Journées Portes Ouvertes — 11, 12 & 13 septembre — Method Acting Center Paris",
-     "Journées Portes Ouvertes gratuites les 11, 12 & 13 septembre à Paris : ateliers immersifs d'acting, scénario et réalisation. Réservez vos ateliers en ligne."),
+     "Journées Portes Ouvertes gratuites les 11, 12 & 13 septembre à Paris : ateliers immersifs d'acting, scénario et réalisation. Réservez vos ateliers en ligne.", "jpo"),
     ("acting",        "acting.html",        "Formation Acting — Devenir Acteur — Method Acting Center Paris",
-     "Formation Acting : apprenez à jouer vrai avec la Méthode (Stanislavski / Actors Studio). Déclencher, maîtriser et reproduire de vraies émotions face caméra."),
+     "Formation Acting : apprenez à jouer vrai avec la Méthode (Stanislavski / Actors Studio). Déclencher, maîtriser et reproduire de vraies émotions face caméra.", "acting"),
     ("scenario-real", "scenario-real.html", "Scénario, Réalisation & Direction d'acteurs — Method Acting Center Paris",
-     "Formation Scénario, Réalisation & Direction d'acteurs : écriture, réalisation et direction d'acteurs. Des outils concrets, un lien unique entre écriture, mise en scène et acting."),
+     "Formation Scénario, Réalisation & Direction d'acteurs : écriture, réalisation et direction d'acteurs. Des outils concrets, un lien unique entre écriture, mise en scène et acting.", "scenario"),
     ("contact",     "contact.html",     "Contact — Method Acting Center Paris",
-     "Une question sur nos formations Acteur, Scénariste ou Réalisateur ? Écrivez-nous, on vous répond sous 48h."),
+     "Une question sur nos formations Acteur, Scénariste ou Réalisateur ? Écrivez-nous, on vous répond sous 48h.", "contact"),
     ("tarifs",      "tarifs.html",      "Tarifs — Method Acting Center Paris",
-     "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée."),
+     "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée.", "tarifs"),
     ("planning",    "planning.html",    "Planning — Method Acting Center Paris",
-     "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center."),
+     "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center.", ""),
 ]
 
 def build():
     if os.path.isdir(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
-    for slug, out, title, desc in PAGES:
+    for slug, out, title, desc, mkey in PAGES:
         body = read("pages", slug + ".html")
         page = HEAD + HEADER + body + FOOTER
         page = (page.replace("{{ROOT}}", "")   # fichiers plats : pas de préfixe
                     .replace("{{TITLE}}", title)
-                    .replace("{{DESC}}", desc))
+                    .replace("{{DESC}}", desc)
+                    .replace("{{MKEY}}", mkey))
         page = inline(page)
         dest = os.path.join(DIST, out)
         open(dest, "w", encoding="utf-8").write(page)
