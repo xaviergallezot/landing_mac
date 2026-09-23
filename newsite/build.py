@@ -41,8 +41,8 @@ def inline(page):
 PAGES = [
     ("index",       "index.html",       "Method Acting Center — Devenir Acteur, Scénariste ou Réalisateur à Paris",
      "École de cinéma à Paris depuis 1999 : formations Acteur, Scénariste et Réalisateur autour de la Méthode (Stanislavski / Actors Studio)."),
-    ("jpo",         "jpo.html",         "Journées Portes Ouvertes — 11, 12 & 13 septembre — Method Acting Center Paris",
-     "Journées Portes Ouvertes gratuites les 11, 12 & 13 septembre à Paris : ateliers immersifs d'acting, scénario et réalisation. Réservez vos ateliers en ligne."),
+    ("jpo",         "jpo.html",         "Journées Portes Ouvertes — 12 & 13 décembre — Method Acting Center Paris",
+     "Journées Portes Ouvertes gratuites les 12 & 13 décembre à Paris, pour la rentrée de janvier : ateliers immersifs d'acting, scénario et réalisation. Réservez vos ateliers en ligne."),
     ("acting",        "acting.html",        "Formation Acting — Devenir Acteur — Method Acting Center Paris",
      "Formation Acting : apprenez à jouer vrai avec la Méthode (Stanislavski / Actors Studio). Déclencher, maîtriser et reproduire de vraies émotions face caméra."),
     ("scenario-real", "scenario-real.html", "Scénario, Réalisation & Direction d'acteurs — Method Acting Center Paris",
@@ -53,6 +53,12 @@ PAGES = [
      "Tarifs des formations et ateliers du Method Acting Center. Facilités de paiement et offres à la rentrée."),
     ("planning",    "planning.html",    "Planning — Method Acting Center Paris",
      "Le calendrier des cours, ateliers et Journées Portes Ouvertes du Method Acting Center."),
+    ("cours-essai", "cours-essai.html", "Cours d'essai gratuit — Method Acting Center Paris",
+     "Testez gratuitement un vrai atelier d'acting, de scénario ou en anglais au Method Acting Center, Paris 13ᵉ : 2 cours d'essai offerts, sans engagement."),
+    ("stages",      "stages.html",      "Stages d'acting & de scénario — week-end et intensifs — Method Acting Center Paris",
+     "Stages week-end (Initiation à la Méthode, Approche d'une scène, Scénario & Réalisation, Acting Caméra) et stages intensifs de 20 h pendant les vacances, à Paris."),
+    ("inscription", "inscription.html", "Inscription — Method Acting Center Paris",
+     "Demandez votre rendez-vous d'inscription : formations Acting (4 ans), Scénario · Réalisation & Direction d'acteurs (2 ans) et cours ponctuels. Rentrée de septembre ou rentrée décalée en janvier."),
 ]
 
 def build():

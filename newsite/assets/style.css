@@ -365,3 +365,15 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .maxw-40{ max-width:40ch; } .maxw-50{ max-width:50ch; } .maxw-60{ max-width:60ch; }
 .todo{ display:inline-block; font-size:12px; font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase;
   background:#FFF3CD; color:#8a6d00; border:1px dashed #d9b400; border-radius:6px; padding:2px 8px; }
+
+/* cases à cocher "atelier" (cours d'essai, options d'inscription) */
+.field label.pick, .pick{ display:flex; align-items:flex-start; gap:12px; cursor:pointer;
+  background:var(--cream); border:1px solid var(--line); border-left:3px solid var(--seg,var(--red)); border-radius:12px; padding:12px 14px;
+  font-family:'Archivo',sans-serif; font-size:14px; font-weight:400; letter-spacing:0; text-transform:none; color:var(--ink);
+  transition:background .15s ease, box-shadow .15s ease; }
+.pick input{ margin:3px 0 0; width:18px; height:18px; accent-color:var(--red); flex:0 0 auto; }
+.pick > span{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.pick strong{ font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:.3px; color:var(--ink); font-weight:600; }
+.pick small{ font-size:12.5px; color:var(--muted); line-height:1.4; }
+.pick:hover{ background:#fff; }
+.pick:has(input:checked){ background:#fff; box-shadow:0 0 0 2px var(--seg,var(--red)); }

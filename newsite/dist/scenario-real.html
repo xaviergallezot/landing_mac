@@ -377,10 +377,22 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .todo{ display:inline-block; font-size:12px; font-family:'Oswald',sans-serif; letter-spacing:1px; text-transform:uppercase;
   background:#FFF3CD; color:#8a6d00; border:1px dashed #d9b400; border-radius:6px; padding:2px 8px; }
 
+/* cases à cocher "atelier" (cours d'essai, options d'inscription) */
+.field label.pick, .pick{ display:flex; align-items:flex-start; gap:12px; cursor:pointer;
+  background:var(--cream); border:1px solid var(--line); border-left:3px solid var(--seg,var(--red)); border-radius:12px; padding:12px 14px;
+  font-family:'Archivo',sans-serif; font-size:14px; font-weight:400; letter-spacing:0; text-transform:none; color:var(--ink);
+  transition:background .15s ease, box-shadow .15s ease; }
+.pick input{ margin:3px 0 0; width:18px; height:18px; accent-color:var(--red); flex:0 0 auto; }
+.pick > span{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.pick strong{ font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:.3px; color:var(--ink); font-weight:600; }
+.pick small{ font-size:12.5px; color:var(--muted); line-height:1.4; }
+.pick:hover{ background:#fff; }
+.pick:has(input:checked){ background:#fff; box-shadow:0 0 0 2px var(--seg,var(--red)); }
+
 </style>
 </head>
 <body>
-<div class="annce">Journées Portes Ouvertes &middot; 11-12-13 septembre &middot; Gratuit &mdash; <a href="jpo.html">Réservez vos ateliers &rarr;</a></div>
+<div class="annce">Cours d&rsquo;essai gratuits &middot; 2 essais offerts &middot; jusqu&rsquo;à fin novembre &mdash; <a href="cours-essai.html">Réservez votre cours d&rsquo;essai &rarr;</a></div>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html">METHOD <b>ACTING</b> CENTER</a>
@@ -392,14 +404,16 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
           <div class="submenu">
             <a href="acting.html">Acting<small>Devenir acteur &middot; jouer vrai</small></a>
             <a href="scenario-real.html">Scénario &middot; Réal<small>Scénario, réalisation &amp; direction d&rsquo;acteurs</small></a>
+            <a href="stages.html">Stages<small>Week-end &amp; intensifs</small></a>
           </div>
         </div>
+        <a class="navlink" href="cours-essai.html">Cours d&rsquo;essai</a>
         <a class="navlink" href="jpo.html">Portes Ouvertes</a>
         <a class="navlink" href="tarifs.html">Tarifs</a>
         <a class="navlink" href="planning.html">Planning</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-red" href="contact.html">Contact</a>
+        <a class="btn btn-red" href="inscription.html">S&rsquo;inscrire</a>
       </div>
     </nav>
   </div>
@@ -586,11 +600,14 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         <h4>Formations</h4>
         <a href="acting.html">Acting &mdash; devenir acteur</a>
         <a href="scenario-real.html">Scénario &middot; Réalisation</a>
+        <a href="stages.html">Stages</a>
+        <a href="tarifs.html">Tarifs</a>
       </div>
       <div>
-        <h4>Le centre</h4>
+        <h4>Commencer</h4>
+        <a href="cours-essai.html">Cours d&rsquo;essai gratuit</a>
         <a href="jpo.html">Journées Portes Ouvertes</a>
-        <a href="tarifs.html">Tarifs</a>
+        <a href="inscription.html">Demande d&rsquo;inscription</a>
         <a href="planning.html">Planning</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -686,14 +703,17 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   }
 
   /* ---- formulaire d'inscription JPO (ateliers + créneaux) ---- */
+  /* JPO de décembre (rentrée de janvier 2027) : le planning horaire détaillé sera publié
+     prochainement — on réserve l'atelier + le jour, le bureau confirme le créneau par email. */
+  var JPO_DAYS = ["Samedi 12 déc.","Dimanche 13 déc.","Indifférent (l'un ou l'autre)"];
   var JPO_ATELIERS = [
-    { id:"emotionnel",   seg:"#cf5a54", name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                     slots:["Ven. 11 · 13h–15h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
-    { id:"scene",        seg:"#cf5a54", name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                       slots:["Ven. 11 · 15h30–17h30","Sam. 12 · 15h30–17h30","Dim. 13 · 13h–15h"] },
-    { id:"impro",        seg:"#cf5a54", name:"Inventer dans l'instant",          tech:"Acting · Improvisation",                          slots:["Sam. 12 · 10h–12h"] },
-    { id:"amateur",      seg:"#4b4b4b", name:"Oser vous libérer",                 tech:"Acting Amateur",                                  slots:["Ven. 11 · 18h–20h"] },
-    { id:"srda",         seg:"#4a6fb5", name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs",     slots:["Ven. 11 · 18h–20h","Sam. 12 · 13h–15h","Dim. 13 · 15h30–17h30"] },
-    { id:"english",      seg:"#5f7a3a", name:"Jouer vrai, en anglais",           tech:"Acting in English",                               slots:["Sam. 12 · 18h–20h","Dim. 13 · 13h–15h"] },
-    { id:"screenwriting",seg:"#5f7a3a", name:"Écrire pour l'écran, en anglais",  tech:"Screenwriting in English",                        slots:["Dim. 13 · 18h–20h"] }
+    { id:"emotionnel",   seg:"#cf5a54", name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                     slots:JPO_DAYS },
+    { id:"scene",        seg:"#cf5a54", name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                       slots:JPO_DAYS },
+    { id:"impro",        seg:"#cf5a54", name:"Inventer dans l'instant",          tech:"Acting · Improvisation",                          slots:JPO_DAYS },
+    { id:"amateur",      seg:"#4b4b4b", name:"Oser vous libérer",                 tech:"Acting Amateur",                                  slots:JPO_DAYS },
+    { id:"srda",         seg:"#4a6fb5", name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs",     slots:JPO_DAYS },
+    { id:"english",      seg:"#5f7a3a", name:"Jouer vrai, en anglais",           tech:"Acting in English",                               slots:JPO_DAYS },
+    { id:"screenwriting",seg:"#5f7a3a", name:"Écrire pour l'écran, en anglais",  tech:"Screenwriting in English",                        slots:JPO_DAYS }
   ];
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function initJpo(){
@@ -744,6 +764,61 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
     });
   }
   initJpo();
+
+  /* ---- formulaires génériques : cours d'essai, stages, inscription ---- */
+  function bindForm(cfg){
+    var form=document.getElementById(cfg.id); if(!form) return;
+    var base=cfg.id.replace(/-form$/,"");
+    var ok=document.getElementById(base+"-success"), errBox=document.getElementById(base+"-error"), recap=document.getElementById(base+"-recap");
+    function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
+    function checked(n){ return [].slice.call(form.querySelectorAll('input[name="'+n+'"]:checked')).map(function(c){return c.value;}); }
+    if(recap && cfg.recapName){
+      var boxes=[].slice.call(form.querySelectorAll('input[name="'+cfg.recapName+'"]'));
+      function updateRecap(){
+        var ch=checked(cfg.recapName);
+        if(!ch.length){ recap.className="book-recap"; recap.textContent=cfg.recapEmpty; return; }
+        recap.className="book-recap active";
+        recap.innerHTML=ch.length+" "+cfg.recapUnit+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c)+"</strong>";}).join(" · ")+(cfg.recapHint&&ch.length>2?"<br><span style=\"color:var(--muted)\">"+cfg.recapHint+"</span>":"");
+      }
+      boxes.forEach(function(b){ b.addEventListener("change",updateRecap); });
+      updateRecap();
+    }
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      if(cfg.validate){ var msg=cfg.validate(field,checked); if(msg){ if(recap){ recap.className="book-recap warn"; recap.textContent=msg; recap.scrollIntoView({behavior:"smooth",block:"center"}); } else { alert(msg); } return; } }
+      var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
+      if(errBox) errBox.style.display="none";
+      var name=(field("prenom")+" "+field("nom")).trim()||"sans nom";
+      var payload={ access_key:WEB3FORMS_KEY, subject:cfg.subject+" — "+name, from_name:cfg.from };
+      cfg.fields.forEach(function(f){ payload[f[0]] = (typeof f[1]==="function" ? f[1](field,checked) : field(f[1])) || "—"; });
+      payload.botcheck=(function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })();
+      function done(){ form.style.display="none"; if(ok){ ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"}); } }
+      if(!WEB3FORMS_KEY){ if(window.console) console.warn("Web3Forms: clé manquante."); done(); return; }
+      if(btn){ btn.disabled=true; btn.innerHTML="Envoi en cours…"; }
+      fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(payload)})
+        .then(function(r){return r.json();}).then(function(d){ if(d&&d.success){done();}else{throw new Error((d&&d.message)||"echec");} })
+        .catch(function(){ if(btn){btn.disabled=false;btn.innerHTML=label;} if(errBox){errBox.style.display="";errBox.scrollIntoView({behavior:"smooth",block:"center"});} });
+    });
+  }
+  function joinList(list){ return list.length ? list.map(function(v){return "• "+v;}).join("\n") : ""; }
+
+  bindForm({
+    id:"essai-form", subject:"Cours d'essai", from:"Cours d'essai · Method Acting Center",
+    recapName:"atelier", recapUnit:"atelier", recapEmpty:"Aucun atelier sélectionné pour l’instant.",
+    recapHint:"Vous avez droit à 2 essais gratuits : le bureau vous précisera les conditions au-delà.",
+    validate:function(field,checked){ return checked("atelier").length ? "" : "Cochez au moins un atelier à tester avant d’envoyer."; },
+    fields:[["Ateliers à tester",function(f,c){return joinList(c("atelier"));}],["Préférence","preference"],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
+  });
+  bindForm({
+    id:"stages-form", subject:"Réservation stage", from:"Stages · Method Acting Center",
+    validate:function(field){ return field("stage") ? "" : "Choisissez un stage avant d’envoyer."; },
+    fields:[["Stage","stage"],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
+  });
+  bindForm({
+    id:"inscription-form", subject:"Demande d'inscription", from:"Inscriptions · Method Acting Center",
+    validate:function(field){ return field("parcours") ? "" : "Choisissez un parcours avant d’envoyer."; },
+    fields:[["Parcours","parcours"],["Rentrée souhaitée","rentree"],["Créneaux préférés","creneau"],["Options",function(f,c){return joinList(c("option"));}],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
+  });
 })();
 
 </script>
