@@ -65,6 +65,21 @@
   #mac-landing a.rev-card:hover { color:#14120F; transform:translateY(-3px); box-shadow:0 24px 48px rgba(20,18,15,0.10); border-color:rgba(224,38,31,0.45); }
   #mac-landing .rev-more { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#E0261F; font-weight:600; margin-left:auto; white-space:nowrap; }
 
+  /* Footer (identique au site principal) */
+  .site-footer { background:#0B0A0A; color:#F4F1EC; padding:64px 0 32px; font-family:'Archivo',Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
+  .site-footer *, .site-footer *::before, .site-footer *::after { box-sizing:border-box; }
+  .site-footer .container { max-width:1200px; margin:0 auto; padding:0 24px; }
+  .footer-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:36px; }
+  .site-footer h4 { font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:16px; letter-spacing:1px; margin:0 0 16px; line-height:1.02; font-weight:700; }
+  .site-footer a { color:#B7B0A6; display:block; padding:5px 0; font-size:15px; text-decoration:none; }
+  .site-footer a:hover { color:#FFFFFF; }
+  .site-footer a.brand { font-family:'Oswald',sans-serif; font-weight:700; font-size:19px; letter-spacing:.5px; text-transform:uppercase; color:#F4F1EC; white-space:normal; padding:0; line-height:1.15; }
+  .site-footer a.brand b { color:#E0261F; font-weight:700; }
+  .footer-brand p { color:#B7B0A6; font-size:15px; line-height:1.7; margin:12px 0 0; max-width:34ch; }
+  .footer-alt { margin-top:14px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#F4F1EC !important; border:1px solid rgba(244,241,236,0.3); padding:10px 16px !important; border-radius:14px; display:inline-block !important; line-height:1.35; transition:background .15s ease, border-color .15s ease; }
+  .footer-alt:hover { background:#E0261F; border-color:#E0261F; color:#FFFFFF !important; }
+  .footer-bottom { border-top:1px solid rgba(244,241,236,.12); margin-top:44px; padding-top:24px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; color:#B7B0A6; font-size:13px; }
+
   /* Sticky mobile CTA */
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
@@ -686,28 +701,43 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer data-screen-label="Footer" style="background: #14120F; color: #F4F1EC">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 40px">
-      <div style="display: flex; flex-direction: column; gap: 14px">
-        <span style="font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600">Method <span style="color: #E0261F">Acting</span> Center</span>
-        <p style="margin: 0; font-size: 15px; line-height: 1.7; color: #B7B0A6; max-width: 34ch">&Eacute;cole d&rsquo;acteurs et de sc&eacute;naristes-r&eacute;alisateurs &agrave; Paris. La M&eacute;thode (Stanislavski / Actors Studio), depuis 1999.</p>
-        <a href="https://www.methodacting.fr/jpo/" style="align-self: flex-start; margin-top: 4px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: #F4F1EC; text-decoration: none; border: 1px solid rgba(244,241,236,0.3); padding: 12px 20px; border-radius: 999px; transition: background .15s ease, color .15s ease, border-color .15s ease" style-hover="background: #E0261F; color: #FFFFFF; border-color: #E0261F">Vous &ecirc;tes plut&ocirc;t acteur&nbsp;? &rarr; Formation Acting</a>
+  <!-- ============ FOOTER (identique au site) ============ -->
+  <footer class="site-footer" data-screen-label="Footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="https://www.methodacting.fr/">METHOD <b>ACTING</b> CENTER</a>
+          <p>&Eacute;cole d&rsquo;acteurs, de sc&eacute;naristes et de r&eacute;alisateurs &agrave; Paris. La M&eacute;thode (Stanislavski / Actors Studio), depuis 1999.</p>
+          <a class="footer-alt" href="https://www.methodacting.fr/jpo/">Plut&ocirc;t acteur / actrice&nbsp;? &rarr;</a>
+        </div>
+        <div>
+          <h4>Formations</h4>
+          <a href="https://www.methodacting.fr/acting.html">Acting &mdash; devenir acteur</a>
+          <a href="https://www.methodacting.fr/scenario-real.html">Sc&eacute;nario &middot; R&eacute;alisation</a>
+          <a href="https://www.methodacting.fr/stages.html">Stages</a>
+          <a href="https://www.methodacting.fr/tarifs/">Tarifs</a>
+        </div>
+        <div>
+          <h4>Commencer</h4>
+          <a href="https://www.methodacting.fr/cours-essai.html">Cours d&rsquo;essai gratuit</a>
+          <a href="#jpo">Journ&eacute;es Portes Ouvertes</a>
+          <a href="https://www.methodacting.fr/inscription.html">Demande d&rsquo;inscription</a>
+          <a href="https://www.methodacting.fr/planning.html">Planning</a>
+          <a href="https://www.methodacting.fr/contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Nous contacter</h4>
+          <a href="mailto:contact@methodacting.fr">contact@methodacting.fr</a>
+          <a href="tel:+33607414125">+33 6 07 41 41 25</a>
+          <a href="https://wa.me/qr/TPPR3BYKF55FD1" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div>
+          <h4>Nous trouver</h4>
+          <a href="https://maps.app.goo.gl/g2R9hy4GzSkP9gU17" target="_blank" rel="noopener" style="line-height:1.6">93, avenue d&rsquo;Italie<br>75013 Paris</a>
+          <span style="color:#B7B0A6; font-size:14px; display:block; padding:6px 0 0; line-height:1.6">M&eacute;tro&nbsp;: M7 Maison Blanche &middot; M5 Place d&rsquo;Italie</span>
+        </div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 12px">
-        <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Nous contacter</span>
-        <a href="mailto:contact@methodacting.fr" style="color: #F4F1EC; text-decoration: none; font-size: 15px">contact@methodacting.fr</a>
-        <a href="tel:+33607414125" style="color: #F4F1EC; text-decoration: none; font-size: 15px">+33 6 07 41 41 25</a>
-        <a href="https://wa.me/qr/TPPR3BYKF55FD1" target="_blank" rel="noopener" style="color: #F4F1EC; text-decoration: none; font-size: 15px">WhatsApp</a>
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 12px">
-        <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Nous trouver</span>
-        <a href="https://maps.app.goo.gl/g2R9hy4GzSkP9gU17" target="_blank" rel="noopener" style="color: #F4F1EC; text-decoration: none; font-size: 15px; line-height: 1.6">93, avenue d&rsquo;Italie<br>75013 Paris</a>
-        <span style="font-size: 14px; color: #B7B0A6; line-height: 1.6">M&eacute;tro : M7 Maison Blanche &middot; M5 Place d&rsquo;Italie</span>
-      </div>
-    </div>
-    <div style="border-top: 1px solid rgba(244,241,236,0.12)">
-      <div style="max-width: 1200px; margin: 0 auto; padding: 22px 24px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: center; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">
+      <div class="footer-bottom">
         <span>&copy; Method Acting Center &mdash; Tous droits r&eacute;serv&eacute;s.</span>
         <span>Paris &middot; Depuis 1999</span>
       </div>
