@@ -116,6 +116,35 @@
     #mac-landing .formation-offer { flex-direction:column !important; align-items:stretch !important; text-align:center; padding:34px 24px !important; gap:22px !important; }
     #mac-landing .formation-offer-btn { white-space:normal !important; width:100%; text-align:center; padding:17px 22px !important; box-sizing:border-box; }
   }
+  /* Par où commencer : 3 portes d'entrée */
+  #mac-landing .start-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  #mac-landing .start-card { position:relative; background:#FFFFFF; border:1px solid #EEE9DF; border-radius:24px; padding:38px 34px 34px; display:flex; flex-direction:column; gap:16px; text-decoration:none; color:#14120F; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  #mac-landing .start-card:hover { transform:translateY(-4px); box-shadow:0 24px 48px rgba(20,18,15,0.10); border-color:rgba(224,38,31,0.45); color:#14120F; }
+  #mac-landing .start-card.primary { background:#0B0A0A; border-color:#0B0A0A; color:#F4F1EC; }
+  #mac-landing .start-card.primary:hover { color:#F4F1EC; border-color:#E0261F; box-shadow:0 24px 48px rgba(224,38,31,0.18); }
+  #mac-landing .start-tag { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:6px 12px; border-radius:999px; }
+  #mac-landing .start-card.primary .start-tag { background:#E0261F; color:#FFFFFF; }
+  #mac-landing .start-num { font-family:'Oswald',sans-serif; font-size:clamp(44px,4.5vw,64px); font-weight:700; color:transparent; -webkit-text-stroke:1.5px #E0261F; line-height:1; }
+  #mac-landing .start-card h3 { font-family:'Oswald',sans-serif; font-size:clamp(24px,2.4vw,30px); text-transform:uppercase; margin:0; line-height:1.1; }
+  #mac-landing .start-card p { margin:0; font-size:16px; line-height:1.65; color:#6B655C; }
+  #mac-landing .start-card.primary p { color:#B7B0A6; }
+  #mac-landing .start-meta { display:flex; flex-wrap:wrap; gap:6px 16px; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
+  #mac-landing .start-card.primary .start-meta { color:rgba(244,241,236,0.6); }
+  #mac-landing .start-btn { margin-top:auto; padding-top:8px; }
+  #mac-landing .start-btn span { display:inline-block; font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:#14120F; color:#FFFFFF; padding:14px 26px; border-radius:999px; transition:background .15s ease, color .15s ease; }
+  #mac-landing .start-card:hover .start-btn span { background:#E0261F; color:#FFFFFF; }
+  #mac-landing .start-card.primary .start-btn span { background:#E0261F; }
+  #mac-landing .start-card.primary:hover .start-btn span { background:#F4F1EC; color:#0B0A0A; }
+  #mac-landing .start-jpo { display:flex; align-items:center; gap:14px 22px; flex-wrap:wrap; border:1px dashed rgba(20,18,15,0.28); border-radius:18px; padding:20px 26px; }
+  #mac-landing .start-jpo-kicker { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#E0261F; font-weight:600; white-space:nowrap; }
+  #mac-landing .start-jpo p { margin:0; font-size:15px; line-height:1.55; color:#3B362F; flex:1 1 320px; }
+  #mac-landing .start-jpo-link { font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; font-weight:600; color:#14120F; text-decoration:none; border-bottom:2px solid #E0261F; padding-bottom:2px; white-space:nowrap; }
+  #mac-landing .start-jpo-link:hover { color:#E0261F; }
+  #mac-landing .cta-row { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+  #mac-landing .cta-ghost { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:transparent; color:#F4F1EC; text-decoration:none; padding:20px 34px; border-radius:999px; border:1px solid rgba(244,241,236,0.35); display:inline-block; transition:transform .15s ease, border-color .15s ease, background .15s ease; }
+  #mac-landing .cta-ghost:hover { border-color:#F4F1EC; background:#F4F1EC; color:#0B0A0A; transform:translateY(-2px); }
+  @media (max-width:960px){ #mac-landing .start-grid { grid-template-columns:1fr; } }
+  @media (max-width:640px){ #mac-landing .start-card { padding:30px 24px 28px; } #mac-landing .start-jpo { padding:18px 20px; } }
 </style>
 </head>
 <body style="margin:0;background:#F7F4EE">
@@ -126,10 +155,11 @@
     <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
       <a href="https://www.methodacting.fr/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: #14120F; text-decoration: none; cursor: pointer">Method <span style="color: #E0261F">Acting</span> Center</a>
       <nav style="display: flex; align-items: center; gap: 26px">
-        <a href="#methode" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">La Méthode</a>
-        <a href="https://www.methodacting.fr/cours-essai.html" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Cours d&rsquo;essai</a>
+        <a href="#methode" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">La M&eacute;thode</a>
         <a href="https://www.methodacting.fr/stages.html" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Stages</a>
-        <a href="#jpo" class="nav-cta">Journ&eacute;es Portes Ouvertes</a>
+        <a href="https://www.methodacting.fr/inscription.html" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Inscription</a>
+        <a href="#jpo" class="nav-link" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C; text-decoration: none" style-hover="color: #14120F">Portes Ouvertes</a>
+        <a href="https://www.methodacting.fr/cours-essai.html" class="nav-cta">Cours d&rsquo;essai gratuit</a>
       </nav>
     </div>
   </header>
@@ -150,10 +180,10 @@
           <p style="font-size: 19px; line-height: 1.7; color: #3B362F; margin: 0">Depuis plus de 25&nbsp;ans, nous formons des g&eacute;n&eacute;rations d&rsquo;actrices et d&rsquo;acteurs &agrave; d&eacute;clencher de vraies &eacute;motions gr&acirc;ce &agrave; la <strong style="color: #14120F">M&eacute;thode Stanislavski</strong>, dont s&rsquo;est inspir&eacute; l&rsquo;Actors Studio.</p>
         </div>
         <div style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 auto; align-items: stretch">
-          <a href="#jpo" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">D&eacute;couvrir les Portes Ouvertes</a>
-          <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">D&eacute;couvrir la M&eacute;thode</a>
+          <a href="https://www.methodacting.fr/cours-essai.html" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">R&eacute;server un cours d&rsquo;essai gratuit</a>
+          <a href="#commencer" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Stages &amp; inscription</a>
           <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; margin-top: 2px">
-            <span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; Une demi-journ&eacute;e</span>
+            <span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; 2 cours offerts</span>
           </div>
         </div>
       </div>
@@ -171,6 +201,53 @@
       <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
     </div>
   </div>
+
+  <!-- ============ PAR OU COMMENCER ============ -->
+  <section id="commencer" data-screen-label="Par ou commencer" style="background: #F7F4EE">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 24px; display: flex; flex-direction: column; gap: 40px">
+      <div data-reveal style="display: flex; flex-direction: column; gap: 20px; max-width: 64ch">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Par o&ugrave; commencer&nbsp;?</span>
+        </div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(38px, 4.5vw, 64px); text-transform: uppercase; line-height: 1.0; margin: 0">Trois fa&ccedil;ons de <span style="color: #E0261F">rejoindre l&rsquo;&eacute;cole.</span></h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C">Pas besoin d&rsquo;attendre une date pour d&eacute;couvrir la M&eacute;thode&nbsp;: choisissez la porte qui vous ressemble, on s&rsquo;occupe du reste.</p>
+      </div>
+
+      <div class="start-grid">
+        <a class="start-card primary" data-reveal href="https://www.methodacting.fr/cours-essai.html">
+          <span class="start-tag">Le plus simple</span>
+          <span class="start-num">01</span>
+          <h3>Cours d&rsquo;essai<br>gratuit</h3>
+          <p>Deux cours offerts dans l&rsquo;atelier de votre choix, au milieu des &eacute;l&egrave;ves de l&rsquo;ann&eacute;e. Vous jouez, vous voyez comment on travaille, vous d&eacute;cidez ensuite.</p>
+          <div class="start-meta"><span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; 2 cours offerts</span></div>
+          <div class="start-btn"><span>R&eacute;server mon cours d&rsquo;essai &rarr;</span></div>
+        </a>
+        <a class="start-card" data-reveal href="https://www.methodacting.fr/stages.html">
+          <span class="start-tag">Format court</span>
+          <span class="start-num">02</span>
+          <h3>Stages week-end<br>&amp; intensifs</h3>
+          <p>Deux jours pour plonger dans la M&eacute;thode&nbsp;: Stage A les 17 &amp; 18 octobre, Stage B les 14 &amp; 15 novembre, puis les stages intensifs pendant les vacances.</p>
+          <div class="start-meta"><span>&#10003; D&egrave;s 160&nbsp;&euro;</span><span>&#10003; Tous niveaux</span><span>&#10003; Un week-end</span></div>
+          <div class="start-btn"><span>Voir les stages &rarr;</span></div>
+        </a>
+        <a class="start-card" data-reveal href="https://www.methodacting.fr/inscription.html">
+          <span class="start-tag">Formation annuelle</span>
+          <span class="start-num">03</span>
+          <h3>Inscription<br>&agrave; la formation</h3>
+          <p>Rejoignez la formation Acting &agrave; la rentr&eacute;e d&eacute;cal&eacute;e de janvier 2027&nbsp;: ateliers hebdomadaires, coachs en activit&eacute;, un vrai parcours jusqu&rsquo;en juillet.</p>
+          <div class="start-meta"><span>&#10003; Rentr&eacute;e d&eacute;cal&eacute;e</span><span>&#10003; 4 janvier 2027</span><span>&#10003; Coachs en activit&eacute;</span></div>
+          <div class="start-btn"><span>Demander une inscription &rarr;</span></div>
+        </a>
+      </div>
+
+      <div class="start-jpo" data-reveal>
+        <span class="start-jpo-kicker">Et aussi</span>
+        <p><strong style="color: #14120F">Journ&eacute;es Portes Ouvertes les 12 &amp; 13 d&eacute;cembre 2026</strong> &mdash; un week-end d&rsquo;ateliers gratuits pour vivre la M&eacute;thode en conditions r&eacute;elles, avant la rentr&eacute;e d&eacute;cal&eacute;e.</p>
+        <a class="start-jpo-link" href="#jpo">Voir le programme &rarr;</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ ARGUMENTS ============ -->
   <section data-screen-label="Arguments" style="background: #F7F4EE; display: flex; align-items: center; box-sizing: border-box">
@@ -265,7 +342,7 @@
       <div data-reveal style="display: flex; flex-direction: column; gap: 22px">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Journ&eacute;es Portes Ouvertes &middot; Paris &middot; Gratuit</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">En compl&eacute;ment &middot; Journ&eacute;es Portes Ouvertes &middot; Gratuit</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">D&eacute;couvrez la M&eacute;thode lors de nos <span style="color: #E0261F">Journ&eacute;es Portes Ouvertes</span></h2>
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
@@ -604,10 +681,16 @@
         Le talent,<br>&ccedil;a s&rsquo;apprend.<br>
         <span style="color: transparent; -webkit-text-stroke: 1.5px #E0261F">C&rsquo;est une question de m&eacute;thode.</span>
       </h2>
-      <p data-reveal style="margin: 0; font-size: 19px; line-height: 1.7; color: #B7B0A6; max-width: 46ch">Ne restez pas &agrave; vous demander si vous &ecirc;tes fait pour &ccedil;a. Venez simplement le vivre, une demi-journ&eacute;e, gratuitement.</p>
-      <div data-reveal style="display: flex; flex-direction: column; align-items: center; gap: 14px">
-        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 44px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">Je r&eacute;serve ma Journ&eacute;e Portes Ouvertes</a>
-        <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">Gratuit &middot; Sans engagement &middot; Une demi-journ&eacute;e</span>
+      <p data-reveal style="margin: 0; font-size: 19px; line-height: 1.7; color: #B7B0A6; max-width: 48ch">Ne restez pas &agrave; vous demander si vous &ecirc;tes fait pour &ccedil;a. Venez le vivre&nbsp;: un cours d&rsquo;essai gratuit, un stage d&rsquo;un week-end, ou directement la formation.</p>
+      <div data-reveal style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+        <div class="cta-row">
+          <a href="https://www.methodacting.fr/cours-essai.html" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 40px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">R&eacute;server un cours d&rsquo;essai gratuit</a>
+          <a class="cta-ghost" href="https://www.methodacting.fr/stages.html">Voir les stages</a>
+          <a class="cta-ghost" href="https://www.methodacting.fr/inscription.html">S&rsquo;inscrire &agrave; la formation</a>
+        </div>
+        <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">Gratuit &middot; Sans engagement &middot; 2 cours d&rsquo;essai offerts</span>
+        <a href="#contact" style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #F4F1EC; text-decoration: none; border-bottom: 2px solid #E0261F; padding-bottom: 2px" style-hover="color: #E0261F">Ou r&eacute;servez vos ateliers Portes Ouvertes des 12 &amp; 13 d&eacute;cembre &rarr;</a>
+      </div>
       </div>
     </div>
   </section>
