@@ -56,7 +56,7 @@ PAGES = [
     ("cours-essai", "cours-essai.html", "Cours d'essai gratuit — Method Acting Center Paris",
      "Testez gratuitement un vrai atelier d'acting, de scénario ou en anglais au Method Acting Center, Paris 13ᵉ : 2 cours d'essai offerts, sans engagement."),
     ("stages",      "stages.html",      "Stages d'acting & de scénario — week-end et intensifs — Method Acting Center Paris",
-     "Stages week-end (Initiation à la Méthode, Approche d'une scène, Scénario & Réalisation, Acting Caméra) et stages intensifs de 20 h pendant les vacances, à Paris."),
+     "Stages week-end (Initiation à la Méthode, Approche d'une scène, Scénario & Réalisation, Acting Caméra) et stages intensifs pendant les vacances, à Paris."),
     ("inscription", "inscription.html", "Inscription — Method Acting Center Paris",
      "Demandez votre rendez-vous d'inscription : formations Acting (4 ans), Scénario · Réalisation & Direction d'acteurs (2 ans) et cours ponctuels. Rentrée de septembre ou rentrée décalée en janvier."),
 ]
