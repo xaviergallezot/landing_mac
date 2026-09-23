@@ -389,6 +389,12 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .pick:hover{ background:#fff; }
 .pick:has(input:checked){ background:#fff; box-shadow:0 0 0 2px var(--seg,var(--red)); }
 
+/* avis cliquables (carte entière → lien Google / Trustpilot) */
+a.card.review{ color:var(--ink); cursor:pointer; }
+a.card.review:hover{ border-color:var(--red); box-shadow:0 0 0 2px var(--red), 0 26px 50px rgba(224,38,31,.12); color:var(--ink); }
+a.rating-badge{ color:var(--ink); }
+a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
+
 </style>
 </head>
 <body>
@@ -547,6 +553,33 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
       <span><i style="background:#5f7a3a"></i> Ateliers en anglais</span>
     </div>
     <div class="btn-row mt-xl" data-reveal style="justify-content:center"><a class="btn btn-red" href="#inscription">Je réserve mes ateliers</a></div>
+  </div>
+</section>
+
+<!-- Avis -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px">
+      <div><span class="kicker">Ils l&rsquo;ont vécu</span><h2 class="h-md">Ils ont poussé<br>la porte</h2></div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+        <a class="rating-badge" href="https://www.google.com/search?q=avis+method+acting+center+paris" target="_blank" rel="noopener" title="Voir tous nos avis sur Google"><span class="score">4,8/5</span><span class="stars">★★★★★</span><span style="color:var(--muted);font-size:14px">Avis Google &rarr;</span></a>
+        <a class="rating-badge" href="https://fr.trustpilot.com/review/methodacting.fr" target="_blank" rel="noopener" title="Voir nos avis vérifiés sur Trustpilot"><span class="stars" style="color:#00b67a">★</span><span style="color:var(--muted);font-size:14px">Avis vérifiés Trustpilot &rarr;</span></a>
+      </div>
+    </div>
+    <div class="grid grid-3 mt-l">
+      <a class="card review" href="https://share.google/yUTwevgW3rUT4DGfe" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">École très bienveillante, les coachs nous forment à la Méthode de l'acteur studio, l'équipe administrative est très accueillante, je recommande vivement que vous soyez débutant.e ou confirmé.e. J'ai intégré la formation professionnelle suite aux portes ouvertes et aux classes de printemps et je…</p>
+        <div class="who"><div class="avatar">L</div><div><div class="name">Laure Delahaye</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2024</div></div></div>
+      </a>
+      <a class="card review" href="https://share.google/h6dEmjSHXDUawJkUK" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">Une très bonne école qui permet à tous et peu importe le niveau ou l’objectif professionnel de continuer à s’entraîner. Le choix de formation est large, les coachs savent ce qu’ils font, connaissent les lois du marché et sont tous très bienveillants. C’est une école qui permet à tous d’embrasser…</p>
+        <div class="who"><div class="avatar">C</div><div><div class="name">Camille Mahana</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2019</div></div></div>
+      </a>
+      <a class="card review" href="https://share.google/J3kxMdOr6kiHnpxhB" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Trustpilot"><div class="stars">★★★★★</div>
+        <p class="quote">Atelier découverte très intéressant, accueil chaleureux, super ambiance, ça donne envie de s'inscrire.</p>
+        <div class="who"><div class="avatar">A</div><div><div class="name">Avis vérifié</div><div class="src"><span style="color:#00b67a; font-weight:700">Trustpilot</span> &middot; 2025</div></div></div>
+      </a>
+    </div>
   </div>
 </section>
 

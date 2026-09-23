@@ -389,6 +389,12 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .pick:hover{ background:#fff; }
 .pick:has(input:checked){ background:#fff; box-shadow:0 0 0 2px var(--seg,var(--red)); }
 
+/* avis cliquables (carte entière → lien Google / Trustpilot) */
+a.card.review{ color:var(--ink); cursor:pointer; }
+a.card.review:hover{ border-color:var(--red); box-shadow:0 0 0 2px var(--red), 0 26px 50px rgba(224,38,31,.12); color:var(--ink); }
+a.rating-badge{ color:var(--ink); }
+a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
+
 </style>
 </head>
 <body>
@@ -535,6 +541,33 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
     <div class="card mt-xl" data-reveal style="background:#faf8f4">
       <h3 class="h-sm">Réservés aux élèves</h3>
       <p class="mt-s" style="color:var(--muted); max-width:72ch">Les ateliers <strong style="color:var(--ink)">Exploration 1 &amp; 2</strong> et les cours de <strong style="color:var(--ink)">3<sup>e</sup> et 4<sup>e</sup> année</strong> ne sont pas ouverts en cours d&rsquo;essai&nbsp;: trop avancés pour être compris en cours d&rsquo;année sans le travail des mois précédents. Vous les découvrirez une fois inscrit(e).</p>
+    </div>
+  </div>
+</section>
+
+<!-- Avis -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px">
+      <div><span class="kicker">Ils l&rsquo;ont vécu</span><h2 class="h-md">Ils ont commencé<br>par un essai</h2></div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+        <a class="rating-badge" href="https://www.google.com/search?q=avis+method+acting+center+paris" target="_blank" rel="noopener" title="Voir tous nos avis sur Google"><span class="score">4,8/5</span><span class="stars">★★★★★</span><span style="color:var(--muted);font-size:14px">Avis Google &rarr;</span></a>
+        <a class="rating-badge" href="https://fr.trustpilot.com/review/methodacting.fr" target="_blank" rel="noopener" title="Voir nos avis vérifiés sur Trustpilot"><span class="stars" style="color:#00b67a">★</span><span style="color:var(--muted);font-size:14px">Avis vérifiés Trustpilot &rarr;</span></a>
+      </div>
+    </div>
+    <div class="grid grid-3 mt-l">
+      <a class="card review" href="https://share.google/kvjSqVYrSQAmvFQSs" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">On pousse la porte pour un cours d'essai, on se retrouve facilement embarquée pour les stages et/ou les cours du programme. Une équipe très humaine et accessible, une bonne ambiance et des profs à l'écoute, je ne peux que vous conseiller de tester :)</p>
+        <div class="who"><div class="avatar">L</div><div><div class="name">Laura L</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2022</div></div></div>
+      </a>
+      <a class="card review" href="https://share.google/sb0Pzz1Jk1HGGKyeN" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">J'ai testé plusieurs écoles d'acting et théâtre, Method est de loin ma préférée. Je n'ai pas testé l'ensemble de la formation, mais le cours que je suis (Acting in English) est un des meilleurs auquel j'ai jamais participé : la coach est excellente, compétente, passionnée, avec un sacré bagage…</p>
+        <div class="who"><div class="avatar">L</div><div><div class="name">Lucie Morice</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2020</div></div></div>
+      </a>
+      <a class="card review" href="https://share.google/GrJU0Um1iPoO6zPjm" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">Exceptionnel! J'ai beaucoup aimé l'approche des formateurs, très clair, efficace, on rigole bien, et surtout très respectueux de l'humain! C'est une école de l'humain et c'est juste passionnant. Tout le monde est très bienveillant, un super état d'esprit, et très rapidement j'ai compris les rouages…</p>
+        <div class="who"><div class="avatar">D</div><div><div class="name">Duong VU</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2022</div></div></div>
+      </a>
     </div>
   </div>
 </section>

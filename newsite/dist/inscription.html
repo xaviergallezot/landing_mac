@@ -389,6 +389,12 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .pick:hover{ background:#fff; }
 .pick:has(input:checked){ background:#fff; box-shadow:0 0 0 2px var(--seg,var(--red)); }
 
+/* avis cliquables (carte entière → lien Google / Trustpilot) */
+a.card.review{ color:var(--ink); cursor:pointer; }
+a.card.review:hover{ border-color:var(--red); box-shadow:0 0 0 2px var(--red), 0 26px 50px rgba(224,38,31,.12); color:var(--ink); }
+a.rating-badge{ color:var(--ink); }
+a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
+
 </style>
 </head>
 <body>
@@ -530,6 +536,33 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
         <p class="mt-s" style="color:var(--muted)">Tous les créneaux de la semaine, par formation et par année, pour composer votre programme.</p>
       </div>
       <div class="btn-row"><a class="btn btn-dark" href="/uploads/planning-hebdomadaire.pdf" download>Télécharger le planning (PDF)</a><a class="btn btn-outline" href="planning.html">Les dates de l&rsquo;année</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Avis -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px">
+      <div><span class="kicker">Ils l&rsquo;ont vécu</span><h2 class="h-md">Ils ont franchi<br>le pas</h2></div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center">
+        <a class="rating-badge" href="https://www.google.com/search?q=avis+method+acting+center+paris" target="_blank" rel="noopener" title="Voir tous nos avis sur Google"><span class="score">4,8/5</span><span class="stars">★★★★★</span><span style="color:var(--muted);font-size:14px">Avis Google &rarr;</span></a>
+        <a class="rating-badge" href="https://fr.trustpilot.com/review/methodacting.fr" target="_blank" rel="noopener" title="Voir nos avis vérifiés sur Trustpilot"><span class="stars" style="color:#00b67a">★</span><span style="color:var(--muted);font-size:14px">Avis vérifiés Trustpilot &rarr;</span></a>
+      </div>
+    </div>
+    <div class="grid grid-3 mt-l">
+      <a class="card review" href="https://share.google/gHOOVGW4kXwnZEvL8" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">En suivant des cours à Method Acting j’ai enfin eu l’impression d’évoluer au sein d’un groupe. L’équipe pédagogique est variée et sait nous pousser a nous impliquer dans notre travail. De plus, la bienveillance est omniprésente ce qui crée une vrai relation de confiance.</p>
+        <div class="who"><div class="avatar">M</div><div><div class="name">Mélanie Bokata</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2020</div></div></div>
+      </a>
+      <a class="card review" href="https://share.google/goLxXaTrU5X0HO9PR" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">Une excellente école avec des formateurs bienveillants et pédagogues. Jamais je n'ai été jugé, mais conseillé. Contrairement à mon ancienne école. Si vous cherchez un centre de formation génial , c'est sans hésitation que je vous recommande METHODE ACTING CENTER. J'ai trouvé dans cette école ce qui…</p>
+        <div class="who"><div class="avatar">A</div><div><div class="name">Amlan Larcher</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2018</div></div></div>
+      </a>
+      <a class="card review" href="https://share.google/Ucb21wkCKlVEZUza0" target="_blank" rel="noopener" data-reveal title="Lire l’avis complet sur Google"><div class="stars">★★★★★</div>
+        <p class="quote">Une école géniale, avec un enseignement super précis, où les coachs sont passionnés, pro, et surtout prennent le temps pour chaque élèves. On apprend vraiment sur sois-même, les autres, l'humain en général. Le tout avec des outils super intéressants.</p>
+        <div class="who"><div class="avatar">T</div><div><div class="name">Timothé Reyes</div><div class="src"><span class="g"><b>G</b><b>o</b><b>o</b><b>g</b><b>l</b><b>e</b></span> &middot; 2018</div></div></div>
+      </a>
     </div>
   </div>
 </section>
