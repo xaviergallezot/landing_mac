@@ -61,6 +61,10 @@
   #mac-landing .rev-dot { width:8px; height:8px; border-radius:999px; border:none; background:rgba(20,18,15,0.2); cursor:pointer; padding:0; transition:all .3s ease; }
   #mac-landing .rev-dot.active { width:26px; background:#E0261F; }
 
+  #mac-landing a.rev-card { text-decoration:none; color:#14120F; border:1px solid transparent; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  #mac-landing a.rev-card:hover { color:#14120F; transform:translateY(-3px); box-shadow:0 24px 48px rgba(20,18,15,0.10); border-color:rgba(224,38,31,0.45); }
+  #mac-landing .rev-more { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#E0261F; font-weight:600; margin-left:auto; white-space:nowrap; }
+
   /* Sticky mobile CTA */
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
@@ -763,11 +767,12 @@
      Ajoutez-en autant que vous voulez : le carrousel s'adapte.
      ============================================================ */
   var REVIEWS = [
-    { quote: "École très bienveillante, les coachs nous forment à la Méthode de l'Actors Studio. J'ai intégré la formation professionnelle suite aux portes ouvertes, et je suis très contente du contenu de la formation !", name: "Laure Delahaye" },
-    { quote: "Method Acting Center, c'est bien plus qu'une école. Les coachs sont d'excellents pédagogues, ils savent parfaitement nous aider à dépasser nos blocages grâce à la Méthode — et croyez-moi, ça marche ! Une formation qui conjugue exigence et bienveillance : foncez.", name: "Romain Devevey" },
-    { quote: "Cette formation est absolument géniale et les coachs nous apportent énormément à chaque cours. La Méthode est juste parfaite et permet de reprendre l'acting à la base pour construire son jeu étape par étape.", name: "Mathieu D." },
-    { quote: "J'ai cherché pendant 3 ans l'école qui me conviendrait. Ici j'ai trouvé une maison qui nous forge et nous nourrit, en naviguant entre notre sensibilité, la Méthode et la pratique !", name: "Cess Red" },
-    { quote: "Tout simplement l'école qui m'a fait découvrir l'acting en stage et tomber amoureux de la Méthode. Aujourd'hui en formation chez eux pour devenir acteur. Bienveillance et compétence — n'hésitez pas à venir tester !", name: "David Attias" }
+    {"quote": "J'ai cherché pendant 3 ans l'école qui me conviendrait pour ramener à un stade professionnel mon écriture et ma conduite d'acteurs.trices sans fourvoyer ma vision et prendre plaisir… Ici j'ai trouvé cette maison qui nous forge et nourrit car elle fait naviguer entre notre…", "name": "Cess Red", "date": "novembre 2025", "link": "https://share.google/5fRkeUljKZMQeMCC6"},
+    {"quote": "Une superbe école mêlant exigence et bienveillance.Ayant suivi les cours d’acting en anglais, en français, ainsi que la formation scénario, je peux dire que la qualité se retrouve dans chaque discipline.Depuis maintenant trois ans, j’ai pu voir des actrices et acteurs de l’école…", "name": "I.", "date": "mars 2026", "link": "https://share.google/7D9V9PMaMID6VKPbz"},
+    {"quote": "Si vous cherchez une École d Arts Dramatiques, je vous conseille de participer aux journées portes ouvertes organisées régulièrement par Method Acting Center. Les quelques heures passées auprès des coaches passionnés et bienveillants vous donneront un avant-goût de ce que vous…", "name": "Rodrigues Sam", "date": "2019", "link": "https://share.google/iI0METqeuF0naCOCk"},
+    {"quote": "Excellente école pour devenir acteur, scénariste ou réalisateur au cinéma. Les Coachs sont très humains. Je recommande vivement !", "name": "Zina Boushih", "date": "2025", "link": "https://share.google/yJYVtaA2hhkhC2GoV"},
+    {"quote": "École très bienveillante, les coachs nous forment à la Méthode de l'acteur studio, l'équipe administrative est très accueillante, je recommande vivement que vous soyez débutant.e ou confirmé.e. J'ai intégré la formation professionnelle suite aux portes ouvertes et aux classes de…", "name": "Laure Delahaye", "date": "2024", "link": "https://share.google/yUTwevgW3rUT4DGfe"},
+    {"quote": "Une très bonne école qui permet à tous et peu importe le niveau ou l’objectif professionnel de continuer à s’entraîner. Le choix de formation est large, les coachs savent ce qu’ils font, connaissent les lois du marché et sont tous très bienveillants. C’est une école qui permet à…", "name": "Camille Mahana", "date": "2019", "link": "https://share.google/h6dEmjSHXDUawJkUK"}
   ];
 
   /* ============================================================
@@ -914,12 +919,13 @@
     if(!REVIEWS.length){ var c=track.closest(".rev-carousel"); if(c) c.style.display="none"; return; }
     track.innerHTML = REVIEWS.map(function(r){
       var initial = (r.name||"?").trim().charAt(0).toUpperCase();
-      return '<div class="rev-slide"><div class="rev-card">'+
+      return '<div class="rev-slide"><a class="rev-card" href="'+esc(r.link)+'" target="_blank" rel="noopener" title="Lire l\'avis complet sur Google">'+
         '<span class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>'+
         '<p class="rev-quote">&laquo;&nbsp;'+esc(r.quote)+'&nbsp;&raquo;</p>'+
         '<div class="rev-author"><span class="rev-avatar">'+esc(initial)+'</span>'+
-        '<span><span class="rev-name">'+esc(r.name)+'</span><br><span class="rev-src">avis Google</span></span></div>'+
-        '</div></div>';
+        '<span><span class="rev-name">'+esc(r.name)+'</span><br><span class="rev-src">avis Google &middot; '+esc(r.date)+'</span></span>'+
+        '<span class="rev-more">Lire l\'avis &rarr;</span></div>'+
+        '</a></div>';
     }).join("");
     var slides=[].slice.call(track.children);
     var idx=0, perView=1, maxIdx=0, timer=null;

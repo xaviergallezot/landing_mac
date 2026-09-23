@@ -61,6 +61,10 @@
   #mac-landing .rev-dot { width:8px; height:8px; border-radius:999px; border:none; background:rgba(20,18,15,0.2); cursor:pointer; padding:0; transition:all .3s ease; }
   #mac-landing .rev-dot.active { width:26px; background:#E0261F; }
 
+  #mac-landing a.rev-card { text-decoration:none; color:#14120F; border:1px solid transparent; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  #mac-landing a.rev-card:hover { color:#14120F; transform:translateY(-3px); box-shadow:0 24px 48px rgba(20,18,15,0.10); border-color:rgba(224,38,31,0.45); }
+  #mac-landing .rev-more { font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#E0261F; font-weight:600; margin-left:auto; white-space:nowrap; }
+
   /* Sticky mobile CTA */
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
@@ -770,11 +774,12 @@
      Ajoutez-en autant que vous voulez : le carrousel s'adapte.
      ============================================================ */
   var REVIEWS = [
-    { quote: "École très bienveillante, les coachs nous forment à la Méthode de l'Actors Studio. J'ai intégré la formation professionnelle suite aux portes ouvertes, et je suis très contente du contenu de la formation !", name: "Laure Delahaye" },
-    { quote: "Method Acting Center, c'est bien plus qu'une école. Les coachs sont d'excellents pédagogues, ils savent parfaitement nous aider à dépasser nos blocages grâce à la Méthode — et croyez-moi, ça marche ! Une formation qui conjugue exigence et bienveillance : foncez.", name: "Romain Devevey" },
-    { quote: "Cette formation est absolument géniale et les coachs nous apportent énormément à chaque cours. La Méthode est juste parfaite et permet de reprendre l'acting à la base pour construire son jeu étape par étape.", name: "Mathieu D." },
-    { quote: "J'ai cherché pendant 3 ans l'école qui me conviendrait. Ici j'ai trouvé une maison qui nous forge et nous nourrit, en naviguant entre notre sensibilité, la Méthode et la pratique !", name: "Cess Red" },
-    { quote: "Tout simplement l'école qui m'a fait découvrir l'acting en stage et tomber amoureux de la Méthode. Aujourd'hui en formation chez eux pour devenir acteur. Bienveillance et compétence — n'hésitez pas à venir tester !", name: "David Attias" }
+    {"quote": "École très bienveillante, les coachs nous forment à la Méthode de l'acteur studio, l'équipe administrative est très accueillante, je recommande vivement que vous soyez débutant.e ou confirmé.e. J'ai intégré la formation professionnelle suite aux portes ouvertes et aux classes de…", "name": "Laure Delahaye", "date": "2024", "link": "https://share.google/yUTwevgW3rUT4DGfe"},
+    {"quote": "On pousse la porte pour un cours d'essai, on se retrouve facilement embarquée pour les stages et/ou les cours du programme. Une équipe très humaine et accessible, une bonne ambiance et des profs à l'écoute, je ne peux que vous conseiller de tester :)", "name": "Laura L", "date": "2022", "link": "https://share.google/kvjSqVYrSQAmvFQSs"},
+    {"quote": "Tout simplement l'école qui m'a fait découvrir l'acting en stage et tomber amoureux de la méthode. Aujourd'hui en formation chez eux pour devenir acteur. Bienveillance et compétence! N'hésitez pas à venir tester!", "name": "David Attias", "date": "mars 2026", "link": "https://share.google/QjNkjZYQ5CqgG6ehX"},
+    {"quote": "J y suis allée par hasard pour un stage. J ai adoré ! Allez-y ! J ai aimé l accueil bienveillant du début à la fin, la passion du prof ( Rami au top !), la pédagogie adaptée à tous, dans une ambiance très humaine. Je suis repartie avec plein de pistes de travail et d outils. C…", "name": "Sam H", "date": "2023", "link": "https://share.google/9TOHPAnjW9j7wSt7w"},
+    {"quote": "J'ai intégré cette formation d'acting en septembre 2022 après avoir réalisé des stages d'été. Que dire… Method Acting Center, c'est bien plus qu'une école. Les cours sont extrêmement enrichissants, les coachs sont d'excellents pédagogues, ils savent parfaitement comment nous…", "name": "Romain Devevey", "date": "2023", "link": "https://share.google/0Xbq4KwaYPThxLl1E"},
+    {"quote": "Cette formation est absolument géniale et les coach nous apportent énormément à chaque cours. C'est un bonheur d'évoluer ensemble, sans esprit de compétition, vers la meilleure version de notre Comédien. La méthode est juste parfaite et permet de reprendre l'acting à la base…", "name": "Mathieu Dcn", "date": "2024", "link": "https://share.google/USPjneNUa45Mzlyow"}
   ];
 
   /* ============================================================
@@ -935,12 +940,13 @@
     if(!REVIEWS.length){ var c=track.closest(".rev-carousel"); if(c) c.style.display="none"; return; }
     track.innerHTML = REVIEWS.map(function(r){
       var initial = (r.name||"?").trim().charAt(0).toUpperCase();
-      return '<div class="rev-slide"><div class="rev-card">'+
+      return '<div class="rev-slide"><a class="rev-card" href="'+esc(r.link)+'" target="_blank" rel="noopener" title="Lire l\'avis complet sur Google">'+
         '<span class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>'+
         '<p class="rev-quote">&laquo;&nbsp;'+esc(r.quote)+'&nbsp;&raquo;</p>'+
         '<div class="rev-author"><span class="rev-avatar">'+esc(initial)+'</span>'+
-        '<span><span class="rev-name">'+esc(r.name)+'</span><br><span class="rev-src">avis Google</span></span></div>'+
-        '</div></div>';
+        '<span><span class="rev-name">'+esc(r.name)+'</span><br><span class="rev-src">avis Google &middot; '+esc(r.date)+'</span></span>'+
+        '<span class="rev-more">Lire l\'avis &rarr;</span></div>'+
+        '</a></div>';
     }).join("");
     var slides=[].slice.call(track.children);
     var idx=0, perView=1, maxIdx=0, timer=null;
