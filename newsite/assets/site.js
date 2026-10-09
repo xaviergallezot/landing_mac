@@ -23,6 +23,11 @@
     });
   }
 
+  /* ---- hauteur du bloc fixe (bandeau + header) pour les ancres ---- */
+  var topbar=document.querySelector(".topbar");
+  function setTopbarH(){ if(topbar) document.documentElement.style.setProperty("--topbar-h", topbar.offsetHeight+"px"); }
+  setTopbarH(); window.addEventListener("resize", setTopbarH); window.addEventListener("load", setTopbarH);
+
   /* ---- apparitions au scroll ---- */
   var reveals = [].slice.call(document.querySelectorAll("[data-reveal]"));
   if("IntersectionObserver" in window && reveals.length){

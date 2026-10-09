@@ -80,7 +80,9 @@ p{ margin:0; }
 .btn-row{ display:flex; flex-wrap:wrap; gap:14px; }
 
 /* ===== Header / nav ===== */
-.site-header{ position:sticky; top:0; z-index:80; background:rgba(247,244,238,.85);
+.topbar{ position:sticky; top:0; z-index:80; }
+[id]{ scroll-margin-top:calc(var(--topbar-h, 120px) + 16px); }
+.site-header{ position:relative; background:rgba(247,244,238,.85);
   backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(20,18,15,.08); }
 .nav{ display:flex; align-items:center; justify-content:space-between; height:var(--nav-h); gap:20px; }
 .brand{ font-family:'Oswald',sans-serif; font-weight:700; font-size:19px; letter-spacing:.5px; text-transform:uppercase; color:var(--ink); white-space:nowrap; }
@@ -96,7 +98,7 @@ p{ margin:0; }
 
 @media (max-width:960px){
   .nav-toggle{ display:block; }
-  .nav-menu{ position:fixed; inset:var(--nav-h) 0 auto 0; background:var(--cream);
+  .nav-menu{ position:absolute; top:100%; left:0; right:0; background:var(--cream);
     border-bottom:1px solid var(--line); flex-direction:column; align-items:stretch; gap:0;
     padding:12px 24px 24px; display:none; box-shadow:0 24px 40px rgba(20,18,15,.1); }
   .nav-menu.open{ display:flex; }
@@ -329,6 +331,7 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   letter-spacing:1px; font-size:13.5px; padding:9px 16px; line-height:1.4; }
 .annce a{ color:#fff; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
 .annce a:hover{ color:#fff; opacity:.85; }
+@media (max-width:640px){ .annce{ font-size:12.5px; padding:8px 12px; } .annce-more{ display:none; } }
 
 /* ===== Badge date ===== */
 .date-badge{ display:inline-block; font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(19px,2.4vw,28px);
@@ -407,7 +410,8 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
 </style>
 </head>
 <body>
-<div class="annce">Cours d&rsquo;essai gratuits &middot; 2 essais offerts &middot; toute l&rsquo;année &mdash; <a href="cours-essai.html">Réservez votre cours d&rsquo;essai &rarr;</a></div>
+<div class="topbar">
+<div class="annce">Cours d&rsquo;essai gratuits<span class="annce-more"> &middot; 2 essais offerts &middot; toute l&rsquo;année</span> &mdash; <a href="cours-essai.html">Réservez<span class="annce-more"> votre cours d&rsquo;essai</span> &rarr;</a></div>
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="index.html">METHOD <b>ACTING</b> CENTER</a>
@@ -433,6 +437,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
     </nav>
   </div>
 </header>
+</div>
 <main>
 <!-- ================= JOURNÉES PORTES OUVERTES ================= -->
 <section class="hero">
@@ -729,6 +734,11 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
       a.addEventListener("click", function(){ menu.classList.remove("open"); });
     });
   }
+
+  /* ---- hauteur du bloc fixe (bandeau + header) pour les ancres ---- */
+  var topbar=document.querySelector(".topbar");
+  function setTopbarH(){ if(topbar) document.documentElement.style.setProperty("--topbar-h", topbar.offsetHeight+"px"); }
+  setTopbarH(); window.addEventListener("resize", setTopbarH); window.addEventListener("load", setTopbarH);
 
   /* ---- apparitions au scroll ---- */
   var reveals = [].slice.call(document.querySelectorAll("[data-reveal]"));
