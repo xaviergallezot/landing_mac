@@ -459,6 +459,52 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
 .offer.featured{ border-color:rgba(224,38,31,.45); box-shadow:0 20px 50px rgba(224,38,31,.08); }
 .offer.featured .offer-date{ background:var(--red); color:#fff; }
 
+/* ===== Timeline planning (scroll) ===== */
+.tl{ list-style:none; margin:0; padding:0; position:relative; --tl-x:28px; --tl-progress:0px; }
+.tl::before{ content:""; position:absolute; left:var(--tl-x); top:0; bottom:0; width:2px; background:rgba(20,18,15,.12); transform:translateX(-50%); }
+.tl::after{ content:""; position:absolute; left:var(--tl-x); top:0; width:2px; height:var(--tl-progress); background:var(--red); transform:translateX(-50%); transition:height .12s linear; }
+.tl-today{ position:relative; padding-left:calc(var(--tl-x) + 32px); margin-bottom:28px; z-index:1; }
+.tl-today::before{ content:""; position:absolute; left:var(--tl-x); top:50%; width:14px; height:14px; border-radius:999px; background:var(--red); transform:translate(-50%,-50%); box-shadow:0 0 0 6px rgba(224,38,31,.18); }
+.tl-today span{ font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#fff; background:var(--ink); padding:7px 14px; border-radius:999px; }
+.tl-sep{ margin-top:12px; } .tl-sep::before{ background:rgba(20,18,15,.35); box-shadow:none; } .tl-sep span{ background:rgba(20,18,15,.35); }
+.tl-item{ position:relative; padding-left:calc(var(--tl-x) + 32px); padding-bottom:28px; z-index:1; }
+.tl-dot{ position:absolute; left:var(--tl-x); top:34px; width:14px; height:14px; border-radius:999px; background:var(--cream); border:2px solid rgba(20,18,15,.25); transform:translate(-50%,-50%); transition:background .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.tl-card{ display:grid; grid-template-columns:118px 1fr; gap:0; background:var(--card); border:1px solid var(--line); border-radius:22px; overflow:hidden;
+  opacity:.45; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease, box-shadow .3s ease, border-color .3s ease; }
+.tl-item.is-on .tl-card{ opacity:1; transform:none; }
+.tl-item.is-on .tl-dot{ background:var(--red); border-color:var(--red); box-shadow:0 0 0 6px rgba(224,38,31,.16); }
+.tl-item.is-past .tl-card{ opacity:.55; filter:grayscale(.4); }
+.tl-item.is-past .tl-dot{ background:rgba(20,18,15,.35); border-color:rgba(20,18,15,.35); box-shadow:none; }
+.tl-date{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:4px; padding:20px 12px; background:var(--ink); color:var(--ondark); }
+.tl-day{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(22px,2.2vw,30px); line-height:1; }
+.tl-month{ font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--ondark-muted); }
+.tl-month:empty{ display:none; }
+.tl-body{ padding:22px 26px 24px; display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+.tl-cat{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:var(--seg,var(--red)); }
+.tl-body h3{ font-size:clamp(19px,1.8vw,24px); line-height:1.1; }
+.tl-body p{ color:var(--muted); font-size:15px; line-height:1.65; margin:0; }
+.tl-body .pill{ margin-top:6px; }
+.tl-stage{ --seg:#cf5a54; } .tl-jpo{ --seg:#E0261F; } .tl-rentree{ --seg:#4a6fb5; } .tl-vac{ --seg:#8a8a8a; }
+.tl-stage .tl-date{ background:var(--red); } .tl-stage .tl-month{ color:rgba(255,255,255,.75); }
+.tl-rentree .tl-date{ background:#4a6fb5; } .tl-rentree .tl-month{ color:rgba(255,255,255,.75); }
+.tl-vac .tl-date{ background:#EEE9DF; color:var(--ink); } .tl-vac .tl-month{ color:var(--muted); }
+.tl-item.is-on .tl-card:hover{ transform:translateY(-3px); box-shadow:0 22px 44px rgba(20,18,15,.09); border-color:rgba(224,38,31,.3); }
+@media (min-width:900px){
+  .tl{ --tl-x:50%; }
+  .tl-today{ padding-left:0; text-align:center; }
+  .tl-item{ padding-left:0; width:50%; padding-right:56px; padding-bottom:36px; }
+  .tl-item:nth-child(odd){ margin-left:50%; padding-right:0; padding-left:56px; }
+  .tl-item .tl-dot{ left:auto; right:0; transform:translate(50%,-50%); }
+  .tl-item:nth-child(odd) .tl-dot{ right:auto; left:0; transform:translate(-50%,-50%); }
+}
+.tl-vac .tl-day{ font-size:clamp(18px,1.6vw,22px); }
+@media (max-width:560px){
+  .tl-card{ grid-template-columns:1fr; }
+  .tl-date{ flex-direction:row; justify-content:flex-start; gap:10px; padding:12px 18px; }
+  .tl-body{ padding:18px 20px 20px; }
+}
+@media (prefers-reduced-motion:reduce){ .tl-card{ opacity:1; transform:none; transition:none; } .tl::after{ transition:none; } }
+
 </style>
 </head>
 <body>
@@ -656,6 +702,48 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   var topbar=document.querySelector(".topbar");
   function setTopbarH(){ if(topbar) document.documentElement.style.setProperty("--topbar-h", topbar.offsetHeight+"px"); }
   setTopbarH(); window.addEventListener("resize", setTopbarH); window.addEventListener("load", setTopbarH);
+
+  /* ---- timeline du planning : passé / à venir + ligne qui avance avec le scroll ---- */
+  (function(){
+    var tl=document.querySelector(".tl"); if(!tl) return;
+    var items=[].slice.call(tl.querySelectorAll(".tl-item")), today=new Date(); today.setHours(0,0,0,0);
+    var todayMark=tl.querySelector(".tl-today"), firstUpcoming=null;
+    items.forEach(function(it){
+      var end=new Date((it.getAttribute("data-end")||it.getAttribute("data-start"))+"T23:59:59");
+      if(end<today){ it.classList.add("is-past"); } else if(!firstUpcoming){ firstUpcoming=it; }
+    });
+    /* ordre : à venir d'abord (du plus proche au plus lointain), puis les dates déjà passées */
+    var past=items.filter(function(i){ return i.classList.contains("is-past"); });
+    past.forEach(function(i){ tl.appendChild(i); });
+    if(past.length){ var sep=document.createElement("li"); sep.className="tl-today tl-sep"; sep.setAttribute("aria-hidden","true"); sep.innerHTML="<span>Déjà passé</span>"; tl.insertBefore(sep, past[0]); }
+    /* zigzag desktop : chaque carte démarre un peu sous la précédente (côté opposé), sans chevaucher celle du même côté */
+    function zigzag(){
+      var lis=[].slice.call(tl.children); lis.forEach(function(li){ li.style.marginTop=""; });
+      if(window.innerWidth<900) return;
+      var H=lis.map(function(li){ return li.offsetHeight; }), top=[];
+      lis.forEach(function(li,i){
+        if(i===0){ top[i]=0; return; }
+        var natural=top[i-1]+H[i-1], t=natural, isItem=li.classList.contains("tl-item"), prevItem=lis[i-1].classList.contains("tl-item");
+        if(isItem && prevItem){
+          t=top[i-1]+120;
+          if(i>=2 && lis[i-2].classList.contains("tl-item")) t=Math.max(t, top[i-2]+H[i-2]);
+        } else if(!isItem){
+          t=natural; if(i>=2) t=Math.max(t, top[i-2]+H[i-2]);
+        }
+        top[i]=t; li.style.marginTop=(t-natural)+"px";
+      });
+    }
+    function update(){
+      var r=tl.getBoundingClientRect(), line=window.innerHeight*0.62;
+      var prog=Math.max(0, Math.min(r.height, line-r.top));
+      tl.style.setProperty("--tl-progress", prog+"px");
+      items.forEach(function(it){ var d=it.querySelector(".tl-dot").getBoundingClientRect(); it.classList.toggle("is-on", d.top<=line+8); });
+    }
+    zigzag(); update();
+    window.addEventListener("scroll", update, {passive:true});
+    window.addEventListener("resize", function(){ zigzag(); update(); });
+    window.addEventListener("load", function(){ zigzag(); update(); });
+  })();
 
   /* ---- apparitions au scroll ---- */
   var reveals = [].slice.call(document.querySelectorAll("[data-reveal]"));

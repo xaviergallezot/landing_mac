@@ -28,6 +28,48 @@
   function setTopbarH(){ if(topbar) document.documentElement.style.setProperty("--topbar-h", topbar.offsetHeight+"px"); }
   setTopbarH(); window.addEventListener("resize", setTopbarH); window.addEventListener("load", setTopbarH);
 
+  /* ---- timeline du planning : passé / à venir + ligne qui avance avec le scroll ---- */
+  (function(){
+    var tl=document.querySelector(".tl"); if(!tl) return;
+    var items=[].slice.call(tl.querySelectorAll(".tl-item")), today=new Date(); today.setHours(0,0,0,0);
+    var todayMark=tl.querySelector(".tl-today"), firstUpcoming=null;
+    items.forEach(function(it){
+      var end=new Date((it.getAttribute("data-end")||it.getAttribute("data-start"))+"T23:59:59");
+      if(end<today){ it.classList.add("is-past"); } else if(!firstUpcoming){ firstUpcoming=it; }
+    });
+    /* ordre : à venir d'abord (du plus proche au plus lointain), puis les dates déjà passées */
+    var past=items.filter(function(i){ return i.classList.contains("is-past"); });
+    past.forEach(function(i){ tl.appendChild(i); });
+    if(past.length){ var sep=document.createElement("li"); sep.className="tl-today tl-sep"; sep.setAttribute("aria-hidden","true"); sep.innerHTML="<span>Déjà passé</span>"; tl.insertBefore(sep, past[0]); }
+    /* zigzag desktop : chaque carte démarre un peu sous la précédente (côté opposé), sans chevaucher celle du même côté */
+    function zigzag(){
+      var lis=[].slice.call(tl.children); lis.forEach(function(li){ li.style.marginTop=""; });
+      if(window.innerWidth<900) return;
+      var H=lis.map(function(li){ return li.offsetHeight; }), top=[];
+      lis.forEach(function(li,i){
+        if(i===0){ top[i]=0; return; }
+        var natural=top[i-1]+H[i-1], t=natural, isItem=li.classList.contains("tl-item"), prevItem=lis[i-1].classList.contains("tl-item");
+        if(isItem && prevItem){
+          t=top[i-1]+120;
+          if(i>=2 && lis[i-2].classList.contains("tl-item")) t=Math.max(t, top[i-2]+H[i-2]);
+        } else if(!isItem){
+          t=natural; if(i>=2) t=Math.max(t, top[i-2]+H[i-2]);
+        }
+        top[i]=t; li.style.marginTop=(t-natural)+"px";
+      });
+    }
+    function update(){
+      var r=tl.getBoundingClientRect(), line=window.innerHeight*0.62;
+      var prog=Math.max(0, Math.min(r.height, line-r.top));
+      tl.style.setProperty("--tl-progress", prog+"px");
+      items.forEach(function(it){ var d=it.querySelector(".tl-dot").getBoundingClientRect(); it.classList.toggle("is-on", d.top<=line+8); });
+    }
+    zigzag(); update();
+    window.addEventListener("scroll", update, {passive:true});
+    window.addEventListener("resize", function(){ zigzag(); update(); });
+    window.addEventListener("load", function(){ zigzag(); update(); });
+  })();
+
   /* ---- apparitions au scroll ---- */
   var reveals = [].slice.call(document.querySelectorAll("[data-reveal]"));
   if("IntersectionObserver" in window && reveals.length){

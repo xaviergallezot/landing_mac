@@ -459,6 +459,52 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
 .offer.featured{ border-color:rgba(224,38,31,.45); box-shadow:0 20px 50px rgba(224,38,31,.08); }
 .offer.featured .offer-date{ background:var(--red); color:#fff; }
 
+/* ===== Timeline planning (scroll) ===== */
+.tl{ list-style:none; margin:0; padding:0; position:relative; --tl-x:28px; --tl-progress:0px; }
+.tl::before{ content:""; position:absolute; left:var(--tl-x); top:0; bottom:0; width:2px; background:rgba(20,18,15,.12); transform:translateX(-50%); }
+.tl::after{ content:""; position:absolute; left:var(--tl-x); top:0; width:2px; height:var(--tl-progress); background:var(--red); transform:translateX(-50%); transition:height .12s linear; }
+.tl-today{ position:relative; padding-left:calc(var(--tl-x) + 32px); margin-bottom:28px; z-index:1; }
+.tl-today::before{ content:""; position:absolute; left:var(--tl-x); top:50%; width:14px; height:14px; border-radius:999px; background:var(--red); transform:translate(-50%,-50%); box-shadow:0 0 0 6px rgba(224,38,31,.18); }
+.tl-today span{ font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#fff; background:var(--ink); padding:7px 14px; border-radius:999px; }
+.tl-sep{ margin-top:12px; } .tl-sep::before{ background:rgba(20,18,15,.35); box-shadow:none; } .tl-sep span{ background:rgba(20,18,15,.35); }
+.tl-item{ position:relative; padding-left:calc(var(--tl-x) + 32px); padding-bottom:28px; z-index:1; }
+.tl-dot{ position:absolute; left:var(--tl-x); top:34px; width:14px; height:14px; border-radius:999px; background:var(--cream); border:2px solid rgba(20,18,15,.25); transform:translate(-50%,-50%); transition:background .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.tl-card{ display:grid; grid-template-columns:118px 1fr; gap:0; background:var(--card); border:1px solid var(--line); border-radius:22px; overflow:hidden;
+  opacity:.45; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease, box-shadow .3s ease, border-color .3s ease; }
+.tl-item.is-on .tl-card{ opacity:1; transform:none; }
+.tl-item.is-on .tl-dot{ background:var(--red); border-color:var(--red); box-shadow:0 0 0 6px rgba(224,38,31,.16); }
+.tl-item.is-past .tl-card{ opacity:.55; filter:grayscale(.4); }
+.tl-item.is-past .tl-dot{ background:rgba(20,18,15,.35); border-color:rgba(20,18,15,.35); box-shadow:none; }
+.tl-date{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:4px; padding:20px 12px; background:var(--ink); color:var(--ondark); }
+.tl-day{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(22px,2.2vw,30px); line-height:1; }
+.tl-month{ font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--ondark-muted); }
+.tl-month:empty{ display:none; }
+.tl-body{ padding:22px 26px 24px; display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+.tl-cat{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:var(--seg,var(--red)); }
+.tl-body h3{ font-size:clamp(19px,1.8vw,24px); line-height:1.1; }
+.tl-body p{ color:var(--muted); font-size:15px; line-height:1.65; margin:0; }
+.tl-body .pill{ margin-top:6px; }
+.tl-stage{ --seg:#cf5a54; } .tl-jpo{ --seg:#E0261F; } .tl-rentree{ --seg:#4a6fb5; } .tl-vac{ --seg:#8a8a8a; }
+.tl-stage .tl-date{ background:var(--red); } .tl-stage .tl-month{ color:rgba(255,255,255,.75); }
+.tl-rentree .tl-date{ background:#4a6fb5; } .tl-rentree .tl-month{ color:rgba(255,255,255,.75); }
+.tl-vac .tl-date{ background:#EEE9DF; color:var(--ink); } .tl-vac .tl-month{ color:var(--muted); }
+.tl-item.is-on .tl-card:hover{ transform:translateY(-3px); box-shadow:0 22px 44px rgba(20,18,15,.09); border-color:rgba(224,38,31,.3); }
+@media (min-width:900px){
+  .tl{ --tl-x:50%; }
+  .tl-today{ padding-left:0; text-align:center; }
+  .tl-item{ padding-left:0; width:50%; padding-right:56px; padding-bottom:36px; }
+  .tl-item:nth-child(odd){ margin-left:50%; padding-right:0; padding-left:56px; }
+  .tl-item .tl-dot{ left:auto; right:0; transform:translate(50%,-50%); }
+  .tl-item:nth-child(odd) .tl-dot{ right:auto; left:0; transform:translate(-50%,-50%); }
+}
+.tl-vac .tl-day{ font-size:clamp(18px,1.6vw,22px); }
+@media (max-width:560px){
+  .tl-card{ grid-template-columns:1fr; }
+  .tl-date{ flex-direction:row; justify-content:flex-start; gap:10px; padding:12px 18px; }
+  .tl-body{ padding:18px 20px 20px; }
+}
+@media (prefers-reduced-motion:reduce){ .tl-card{ opacity:1; transform:none; transition:none; } .tl::after{ transition:none; } }
+
 </style>
 </head>
 <body>
@@ -502,7 +548,207 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   </div>
 </section>
 
-<section class="section" style="padding-top:0">
+<!-- Timeline -->
+<section class="section" id="timeline" style="padding-top:0">
+  <div class="container">
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px">
+      <div><span class="kicker">L&rsquo;année 2026&ndash;2027</span><h2 class="h-md">Au fil de<br><span class="text-red">l&rsquo;année</span></h2></div>
+      <p class="lead" style="max-width:46ch; margin:0">Faites défiler&nbsp;: la ligne avance avec vous, du prochain rendez-vous jusqu&rsquo;à la fin de l&rsquo;année. Et toute l&rsquo;année, <a href="cours-essai.html">2 cours d&rsquo;essai gratuits</a>.</p>
+    </div>
+    <ol class="tl mt-xl">
+      <li class="tl-today" aria-hidden="true"><span>Aujourd&rsquo;hui</span></li>
+      <li class="tl-item tl-rentree" data-start="2026-09-21" data-end="2026-09-27">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">21 &rarr; 27</span><span class="tl-month">sept. 2026</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Rentrée</span>
+            <h3>Semaine intensive de rentrée</h3>
+            <p>Acting &amp; Scénario&nbsp;: une semaine pour lancer l&rsquo;année avant le démarrage des ateliers.</p>
+            <a class="pill" href="inscription.html">Inscription &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-rentree" data-start="2026-09-28" data-end="2026-09-28">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">28</span><span class="tl-month">sept. 2026</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Rentrée</span>
+            <h3>Début des ateliers hebdomadaires</h3>
+            <p>Démarrage des ateliers pour toutes les formations.</p>
+            <a class="pill" href="inscription.html">Inscription &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-stage" data-start="2026-10-17" data-end="2026-10-18">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">17 &amp; 18</span><span class="tl-month">oct. 2026</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Stage week-end</span>
+            <h3>Stage A &mdash; Initiation à la Méthode</h3>
+            <p>Déclencher de vraies émotions, se libérer du trac, croire à la situation. Dès 160&nbsp;€.</p>
+            <a class="pill" href="stages.html?stage=a#reservation">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-stage" data-start="2026-11-07" data-end="2026-11-08">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">7 &amp; 8</span><span class="tl-month">nov. 2026</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Stage week-end</span>
+            <h3>Stage Scénario, Réalisation &amp; Direction d&rsquo;acteurs</h3>
+            <p>De l&rsquo;inspiration systématique à la direction d&rsquo;acteurs. Dès 160&nbsp;€.</p>
+            <a class="pill" href="stages.html?stage=scenario#reservation">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-stage" data-start="2026-11-14" data-end="2026-11-15">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">14 &amp; 15</span><span class="tl-month">nov. 2026</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Stage week-end</span>
+            <h3>Stage B &mdash; Approche d&rsquo;une scène</h3>
+            <p>Donner vie à un texte sans le réciter, infuser ses émotions dans une scène. Dès 160&nbsp;€.</p>
+            <a class="pill" href="stages.html?stage=b#reservation">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-jpo" data-start="2026-12-12" data-end="2026-12-13">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">12 &amp; 13</span><span class="tl-month">déc. 2026</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Portes Ouvertes</span>
+            <h3>Journées Portes Ouvertes &mdash; rentrée décalée</h3>
+            <p>Un week-end d&rsquo;ateliers gratuits pour vivre la Méthode avant la rentrée de janvier.</p>
+            <a class="pill" href="jpo.html">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-vac" data-start="2026-12-21" data-end="2027-01-03">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">21 déc. &rarr; 3 janv.</span><span class="tl-month"></span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Vacances</span>
+            <h3>Vacances de Noël</h3>
+            <p>Pas d&rsquo;ateliers du 21 décembre au 3 janvier.</p>
+            
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-rentree" data-start="2027-01-04" data-end="2027-01-04">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">4</span><span class="tl-month">janv. 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Rentrée</span>
+            <h3>Rentrée décalée</h3>
+            <p>Une seconde rentrée, du 4 janvier au 2 juillet 2027, pour toutes les formations.</p>
+            <a class="pill" href="inscription.html">Demander une inscription &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-stage" data-start="2027-01-09" data-end="2027-01-10">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">9 &amp; 10</span><span class="tl-month">janv. 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Stage intensif</span>
+            <h3>Stage intensif d&rsquo;hiver</h3>
+            <p>Le stage de la rentrée décalée, pour se mettre à niveau. Tarif sur demande.</p>
+            <a class="pill" href="stages.html?stage=hiver#reservation">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-stage" data-start="2027-02-20" data-end="2027-02-21">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">20 &amp; 21</span><span class="tl-month">févr. 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Stage week-end</span>
+            <h3>Stage Acting Caméra</h3>
+            <p>Adapter son jeu aux contraintes d&rsquo;un vrai tournage. Tarif sur demande.</p>
+            <a class="pill" href="stages.html?stage=camera#reservation">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-jpo" data-start="2027-03-19" data-end="2027-03-21">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">19 &rarr; 21</span><span class="tl-month">mars 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Portes Ouvertes</span>
+            <h3>Journées Portes Ouvertes &mdash; printemps</h3>
+            <p>Trois jours d&rsquo;ateliers gratuits pour découvrir l&rsquo;école.</p>
+            <a class="pill" href="contact.html">Être prévenu(e) &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-vac" data-start="2027-04-05" data-end="2027-04-18">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">5 &rarr; 18</span><span class="tl-month">avril 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Vacances</span>
+            <h3>Vacances de printemps</h3>
+            <p>Pas d&rsquo;ateliers hebdomadaires pendant deux semaines.</p>
+            
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-stage" data-start="2027-04-16" data-end="2027-04-18">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">16 &rarr; 18</span><span class="tl-month">avril 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Stage intensif</span>
+            <h3>Stage intensif de printemps</h3>
+            <p>Trois jours pour condenser les techniques des stages A et B. Tarif sur demande.</p>
+            <a class="pill" href="stages.html?stage=printemps#reservation">Réserver &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-jpo" data-start="2027-05-28" data-end="2027-05-30">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">28 &rarr; 30</span><span class="tl-month">mai 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Portes Ouvertes</span>
+            <h3>Journées Portes Ouvertes &mdash; rentrée 2027</h3>
+            <p>Trois jours d&rsquo;ateliers gratuits avant la rentrée de septembre 2027.</p>
+            <a class="pill" href="contact.html">Être prévenu(e) &rarr;</a>
+          </div>
+        </article>
+      </li>
+      <li class="tl-item tl-rentree" data-start="2027-07-02" data-end="2027-07-02">
+        <div class="tl-dot"></div>
+        <article class="tl-card">
+          <div class="tl-date"><span class="tl-day">2</span><span class="tl-month">juillet 2027</span></div>
+          <div class="tl-body">
+            <span class="tl-cat">Fin d&rsquo;année</span>
+            <h3>Fin des ateliers</h3>
+            <p>Clôture de l&rsquo;année 2026&ndash;2027, pour toutes les formations.</p>
+            
+          </div>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Toutes les dates en détail -->
+<section class="section" style="padding-bottom:0; border-top:1px solid var(--line)">
+  <div class="container">
+    <div data-reveal style="max-width:60ch"><span class="kicker">En détail</span><h2 class="h-md">Toutes les dates,<br><span class="text-red">en clair</span></h2></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:clamp(40px,5vw,64px)">
   <div class="container stack gap-l">
 
     <div data-reveal>
@@ -668,6 +914,48 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   var topbar=document.querySelector(".topbar");
   function setTopbarH(){ if(topbar) document.documentElement.style.setProperty("--topbar-h", topbar.offsetHeight+"px"); }
   setTopbarH(); window.addEventListener("resize", setTopbarH); window.addEventListener("load", setTopbarH);
+
+  /* ---- timeline du planning : passé / à venir + ligne qui avance avec le scroll ---- */
+  (function(){
+    var tl=document.querySelector(".tl"); if(!tl) return;
+    var items=[].slice.call(tl.querySelectorAll(".tl-item")), today=new Date(); today.setHours(0,0,0,0);
+    var todayMark=tl.querySelector(".tl-today"), firstUpcoming=null;
+    items.forEach(function(it){
+      var end=new Date((it.getAttribute("data-end")||it.getAttribute("data-start"))+"T23:59:59");
+      if(end<today){ it.classList.add("is-past"); } else if(!firstUpcoming){ firstUpcoming=it; }
+    });
+    /* ordre : à venir d'abord (du plus proche au plus lointain), puis les dates déjà passées */
+    var past=items.filter(function(i){ return i.classList.contains("is-past"); });
+    past.forEach(function(i){ tl.appendChild(i); });
+    if(past.length){ var sep=document.createElement("li"); sep.className="tl-today tl-sep"; sep.setAttribute("aria-hidden","true"); sep.innerHTML="<span>Déjà passé</span>"; tl.insertBefore(sep, past[0]); }
+    /* zigzag desktop : chaque carte démarre un peu sous la précédente (côté opposé), sans chevaucher celle du même côté */
+    function zigzag(){
+      var lis=[].slice.call(tl.children); lis.forEach(function(li){ li.style.marginTop=""; });
+      if(window.innerWidth<900) return;
+      var H=lis.map(function(li){ return li.offsetHeight; }), top=[];
+      lis.forEach(function(li,i){
+        if(i===0){ top[i]=0; return; }
+        var natural=top[i-1]+H[i-1], t=natural, isItem=li.classList.contains("tl-item"), prevItem=lis[i-1].classList.contains("tl-item");
+        if(isItem && prevItem){
+          t=top[i-1]+120;
+          if(i>=2 && lis[i-2].classList.contains("tl-item")) t=Math.max(t, top[i-2]+H[i-2]);
+        } else if(!isItem){
+          t=natural; if(i>=2) t=Math.max(t, top[i-2]+H[i-2]);
+        }
+        top[i]=t; li.style.marginTop=(t-natural)+"px";
+      });
+    }
+    function update(){
+      var r=tl.getBoundingClientRect(), line=window.innerHeight*0.62;
+      var prog=Math.max(0, Math.min(r.height, line-r.top));
+      tl.style.setProperty("--tl-progress", prog+"px");
+      items.forEach(function(it){ var d=it.querySelector(".tl-dot").getBoundingClientRect(); it.classList.toggle("is-on", d.top<=line+8); });
+    }
+    zigzag(); update();
+    window.addEventListener("scroll", update, {passive:true});
+    window.addEventListener("resize", function(){ zigzag(); update(); });
+    window.addEventListener("load", function(){ zigzag(); update(); });
+  })();
 
   /* ---- apparitions au scroll ---- */
   var reveals = [].slice.call(document.querySelectorAll("[data-reveal]"));
