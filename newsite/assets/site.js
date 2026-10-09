@@ -187,6 +187,13 @@
     validate:function(field){ return field("stage") ? "" : "Choisissez un stage avant d’envoyer."; },
     fields:[["Stage","stage"],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
   });
+  /* compte à rebours « J-x » des prochains stages */
+  [].slice.call(document.querySelectorAll(".next-count[data-date]")).forEach(function(el){
+    var d=new Date(el.getAttribute("data-date")+"T00:00:00"), now=new Date(); now.setHours(0,0,0,0);
+    var days=Math.round((d-now)/86400000);
+    el.textContent = days>1 ? "J-"+days : days===1 ? "Demain" : days===0 ? "Aujourd’hui" : "";
+  });
+
   /* boutons « Réserver ce stage » : pré-remplissent le formulaire */
   (function(){
     var sel=document.querySelector('#stages-form select[name="stage"]'); if(!sel) return;

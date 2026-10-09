@@ -2,16 +2,46 @@
 <section class="hero">
   <div class="container split">
     <div data-reveal>
-      <span class="kicker">Stages &middot; Week-end &amp; intensifs &middot; Paris 13ᵉ</span>
+      <span class="kicker">Prochain stage &middot; 17 &amp; 18 octobre 2026 &middot; Paris 13ᵉ</span>
       <h1 class="h-lg">Un week-end pour tester<br>la Méthode, <span class="outline">pour de vrai.</span></h1>
       <p class="lead mt-m">Nos stages condensent, sur un week-end ou une semaine, les outils les plus concrets de notre pédagogie. Plus long qu&rsquo;un atelier Portes Ouvertes, plus intense qu&rsquo;un cours d&rsquo;essai&nbsp;: vous repartez avec des <strong style="color:var(--ink)">techniques que vous savez utiliser</strong>.</p>
       <div class="btn-row mt-l">
-        <a class="btn btn-red" href="#reservation">Réserver un stage</a>
-        <a class="btn btn-outline" href="#weekend">Voir les stages</a>
+        <a class="btn btn-red" href="#reservation" data-stage="Stage A — Initiation à la Méthode (17 &amp; 18 oct. 2026)">Réserver le stage des 17 &amp; 18 oct. &rarr;</a>
+        <a class="btn btn-outline" href="#prochainement">Voir les prochains stages</a>
       </div>
     </div>
     <div data-reveal>
       <div class="media-frame tall"><img src="{{ROOT}}assets/img/travail-de-scene-method-acting-center.jpg" alt="Travail de scène entre acteurs en stage au Method Acting Center"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Prochainement -->
+<section class="section section--ink rounded-top" id="prochainement" style="padding-top:clamp(48px,6vw,80px); padding-bottom:clamp(48px,6vw,80px)">
+  <div class="container">
+    <div data-reveal style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:20px">
+      <div><span class="kicker">Prochainement</span><h2 class="h-md">Les deux prochains<br><span class="text-red">stages</span></h2></div>
+      <p class="lead" style="max-width:44ch; margin:0">Deux week-ends, deux portes d&rsquo;entrée&nbsp;: l&rsquo;émotion pour les acteurs, l&rsquo;écriture et la direction pour les futurs réalisateurs. Places limitées.</p>
+    </div>
+    <div class="grid grid-2 mt-l">
+      <a class="next-card" data-reveal href="#reservation" data-stage="Stage A — Initiation à la Méthode (17 &amp; 18 oct. 2026)">
+        <div class="next-top"><span class="next-date">17 &amp; 18<small>octobre 2026</small></span><span class="next-count" data-date="2026-10-17"></span></div>
+        <div class="next-body">
+          <span class="tag">Acting &middot; tous niveaux</span>
+          <h3>Stage A &mdash; Initiation à la Méthode</h3>
+          <p>Déclencher de vraies émotions, se libérer du trac, croire à la situation&nbsp;: les bases de la Méthode en deux jours.</p>
+        </div>
+        <div class="next-foot"><span class="next-price">dès 160&nbsp;€</span><span class="btn btn-red">Je réserve ma place &rarr;</span></div>
+      </a>
+      <a class="next-card" data-reveal href="#reservation" data-stage="Stage Scénario, Réalisation &amp; Direction d’acteurs (7 &amp; 8 nov. 2026)">
+        <div class="next-top"><span class="next-date">7 &amp; 8<small>novembre 2026</small></span><span class="next-count" data-date="2026-11-07"></span></div>
+        <div class="next-body">
+          <span class="tag" style="color:#4a6fb5; border-color:rgba(74,111,181,.35)">Scénario &middot; Réalisation &middot; Direction d&rsquo;acteurs</span>
+          <h3>Stage Scénario, Réalisation &amp; Direction d&rsquo;acteurs</h3>
+          <p>De l&rsquo;inspiration systématique à la direction d&rsquo;acteurs&nbsp;: écrire, structurer, réaliser. Dites adieu à la page blanche.</p>
+        </div>
+        <div class="next-foot"><span class="next-price">dès 160&nbsp;€</span><span class="btn btn-red">Je réserve ma place &rarr;</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -59,11 +89,11 @@
       <p class="lead mt-m">Chaque stage est autonome et se réserve indépendamment. Les stages A et B sont complémentaires&nbsp;: A pour aller chercher l&rsquo;émotion, B pour l&rsquo;infuser dans une scène.</p></div>
 
     <div class="offers mt-xl">
-      <article class="offer" data-reveal id="stage-acting">
+      <article class="offer featured" data-reveal id="stage-acting">
         <div class="offer-media"><img src="{{ROOT}}assets/img/methode-declencher.jpg" alt="Acteur en pleine émotion pendant un stage"><span class="offer-date">17 &amp; 18 octobre 2026</span></div>
         <div class="offer-body">
           <div>
-            <span class="kicker">Stage week-end</span>
+            <span class="kicker">Stage week-end &middot; <span class="text-red">Prochaine session</span></span>
             <h3>Stage A &mdash; Initiation à la Méthode</h3>
           </div>
           <p class="offer-intro">Découvrir les bases du travail émotionnel avec les outils de la Méthode Stanislavski. Une version plus longue et plus développée de l&rsquo;atelier «&nbsp;Travail Émotionnel&nbsp;», et une introduction à l&rsquo;atelier hebdomadaire Exploration 1.</p>
@@ -74,7 +104,22 @@
           </div>
         </div>
       </article>
-      <article class="offer alt" data-reveal>
+      <article class="offer alt featured" data-reveal id="stage-scenario">
+        <div class="offer-media"><img src="{{ROOT}}assets/img/direction-acteurs-method-acting-center.jpg" alt="Direction d'acteurs pendant le stage Scénario et Réalisation"><span class="offer-date">7 &amp; 8 novembre 2026</span></div>
+        <div class="offer-body">
+          <div>
+            <span class="kicker">Stage week-end &middot; <span class="text-red">Prochaine session</span></span>
+            <h3>Stage Scénario, Réalisation &amp; Direction d&rsquo;acteurs</h3>
+          </div>
+          <p class="offer-intro">Une introduction à nos techniques d&rsquo;écriture, de réalisation et de direction d&rsquo;acteurs &mdash; avec, en point fort, des outils pour rendre votre inspiration <strong style="color:var(--ink)">systématique</strong>&nbsp;: dites adieu à la page blanche.</p>
+          <div class="offer-cols"><div><p class="offer-sub">Scénario</p><ul class="checklist"><li>Les bases de l&rsquo;écriture dramaturgique&nbsp;: écrire le comportement humain</li><li>Travailler son inspiration avec des outils concrets</li><li>Construire des personnages complexes et intéressants</li><li>Structurer une intrigue en fonction de ses personnages</li><li>Les bases de la vente d&rsquo;un scénario</li></ul></div><div><p class="offer-sub">Réalisation &amp; direction d&rsquo;acteurs</p><ul class="checklist"><li>Trouver sa vision unique de réalisateur</li><li>Les piliers du langage cinématographique</li><li>Diriger des acteurs pour qu&rsquo;ils aillent loin dans l&rsquo;émotion</li><li>Les bases de la gestion de plateau et de l&rsquo;intelligence sociale de tournage</li></ul></div></div>
+          <div class="offer-foot">
+            <div class="offer-price">dès 160&nbsp;€</div>
+            <a class="btn btn-red" href="#reservation" data-stage="Stage Scénario, Réalisation &amp; Direction d’acteurs (7 &amp; 8 nov. 2026)">Réserver ce stage &rarr;</a>
+          </div>
+        </div>
+      </article>
+      <article class="offer" data-reveal>
         <div class="offer-media"><img src="{{ROOT}}assets/img/atelier-scene-method-acting-center.jpg" alt="Travail de scène à deux en stage"><span class="offer-date">14 &amp; 15 novembre 2026</span></div>
         <div class="offer-body">
           <div>
@@ -87,21 +132,6 @@
           <div class="offer-foot">
             <div class="offer-price">dès 160&nbsp;€</div>
             <a class="btn btn-red" href="#reservation" data-stage="Stage B — Approche d’une scène (14 &amp; 15 nov. 2026)">Réserver ce stage &rarr;</a>
-          </div>
-        </div>
-      </article>
-      <article class="offer" data-reveal id="stage-scenario">
-        <div class="offer-media"><img src="{{ROOT}}assets/img/direction-acteurs-method-acting-center.jpg" alt="Direction d'acteurs pendant le stage Scénario et Réalisation"><span class="offer-date">7 &amp; 8 novembre 2026</span></div>
-        <div class="offer-body">
-          <div>
-            <span class="kicker">Stage week-end</span>
-            <h3>Stage Scénario, Réalisation &amp; Direction d&rsquo;acteurs</h3>
-          </div>
-          <p class="offer-intro">Une introduction à nos techniques d&rsquo;écriture, de réalisation et de direction d&rsquo;acteurs &mdash; avec, en point fort, des outils pour rendre votre inspiration <strong style="color:var(--ink)">systématique</strong>&nbsp;: dites adieu à la page blanche.</p>
-          <div class="offer-cols"><div><p class="offer-sub">Scénario</p><ul class="checklist"><li>Les bases de l&rsquo;écriture dramaturgique&nbsp;: écrire le comportement humain</li><li>Travailler son inspiration avec des outils concrets</li><li>Construire des personnages complexes et intéressants</li><li>Structurer une intrigue en fonction de ses personnages</li><li>Les bases de la vente d&rsquo;un scénario</li></ul></div><div><p class="offer-sub">Réalisation &amp; direction d&rsquo;acteurs</p><ul class="checklist"><li>Trouver sa vision unique de réalisateur</li><li>Les piliers du langage cinématographique</li><li>Diriger des acteurs pour qu&rsquo;ils aillent loin dans l&rsquo;émotion</li><li>Les bases de la gestion de plateau et de l&rsquo;intelligence sociale de tournage</li></ul></div></div>
-          <div class="offer-foot">
-            <div class="offer-price">dès 160&nbsp;€</div>
-            <a class="btn btn-red" href="#reservation" data-stage="Stage Scénario, Réalisation &amp; Direction d’acteurs (7 &amp; 8 nov. 2026)">Réserver ce stage &rarr;</a>
           </div>
         </div>
       </article>
