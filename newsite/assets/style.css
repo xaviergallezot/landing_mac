@@ -383,3 +383,12 @@ a.card.review{ color:var(--ink); cursor:pointer; }
 a.card.review:hover{ border-color:var(--red); box-shadow:0 0 0 2px var(--red), 0 26px 50px rgba(224,38,31,.12); color:var(--ink); }
 a.rating-badge{ color:var(--ink); }
 a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
+
+/* choix du parcours (inscription) : programmes mis en avant + année d'entrée */
+.pick--prog{ padding:16px 18px; }
+.pick--prog strong{ font-size:18px; }
+.pick--prog small{ font-size:13px; }
+.pick-year{ display:none; align-items:center; gap:10px; flex-wrap:wrap; margin-top:10px; font-size:12.5px; }
+.pick-year em{ font-style:normal; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+.pick-year select{ font-family:'Archivo',sans-serif; font-size:14px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:var(--cream); color:var(--ink); flex:1 1 200px; max-width:100%; }
+.pick:has(input:checked) .pick-year{ display:flex; }

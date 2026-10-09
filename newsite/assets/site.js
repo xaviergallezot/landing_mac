@@ -184,7 +184,8 @@
   });
   bindForm({
     id:"inscription-form", subject:"Demande d'inscription", from:"Inscriptions · Method Acting Center",
-    validate:function(field){ return field("parcours") ? "" : "Choisissez un parcours avant d’envoyer."; },
-    fields:[["Parcours","parcours"],["Rentrée souhaitée","rentree"],["Créneaux préférés","creneau"],["Options",function(f,c){return joinList(c("option"));}],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
+    recapName:"programme", recapUnit:"programme", recapEmpty:"Aucun programme coché pour l’instant — vous pouvez aussi ne choisir que des cours ponctuels.",
+    validate:function(field,checked){ return (checked("programme").length||checked("option").length) ? "" : "Cochez au moins un programme ou un cours ponctuel avant d’envoyer."; },
+    fields:[["Programmes",function(f,c){ return joinList(c("programme").map(function(v){ if(/Scénario/.test(v)) return v+" — "+f("scenario_annee"); if(/Acting/.test(v)) return v+" — "+f("acting_annee"); return v; })); }],["Cours ponctuels",function(f,c){return joinList(c("option"));}],["Rentrée souhaitée","rentree"],["Créneaux préférés","creneau"],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
   });
 })();
