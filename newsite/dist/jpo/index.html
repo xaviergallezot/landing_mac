@@ -11,7 +11,7 @@
   #mac-landing *, #mac-landing *::before, #mac-landing *::after { box-sizing:border-box; }
   #mac-landing a { color:#E0261F; }
   #mac-landing a:hover { color:#14120F; }
-  #mac-landing [id] { scroll-margin-top:84px; }
+  #mac-landing [id] { scroll-margin-top:130px; }
   #mac-landing details > summary { list-style:none; cursor:pointer; }
   #mac-landing details > summary::-webkit-details-marker { display:none; }
   #mac-landing details[open] .faq-chevron { transform:rotate(45deg); }
@@ -79,6 +79,13 @@
   .footer-alt { margin-top:14px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#F4F1EC !important; border:1px solid rgba(244,241,236,0.3); padding:10px 16px !important; border-radius:14px; display:inline-block !important; line-height:1.35; transition:background .15s ease, border-color .15s ease; }
   .footer-alt:hover { background:#E0261F; border-color:#E0261F; color:#FFFFFF !important; }
   .footer-bottom { border-top:1px solid rgba(244,241,236,.12); margin-top:44px; padding-top:24px; display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; color:#B7B0A6; font-size:13px; }
+
+  /* Bandeau cours d'essai (fixé avec le header) */
+  #mac-landing .topbar { position:sticky; top:0; z-index:60; }
+  #mac-landing .annce { background:#E0261F; color:#FFFFFF; text-align:center; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:1px; font-size:13.5px; padding:9px 16px; line-height:1.4; }
+  #mac-landing .annce a { color:#FFFFFF; font-weight:700; text-decoration:underline; text-underline-offset:2px; }
+  #mac-landing .annce a:hover { color:#FFFFFF; opacity:.85; }
+  @media (max-width:640px){ #mac-landing .annce { font-size:12.5px; padding:8px 12px; } #mac-landing .annce-more { display:none; } }
 
   /* Sticky mobile CTA */
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
@@ -173,7 +180,9 @@
 <div id="mac-landing" style="background: #F7F4EE; min-width: 320px; overflow-x: clip">
 
   <!-- ============ BARRE STICKY ============ -->
-  <header data-screen-label="Barre sticky" style="position: sticky; top: 0; z-index: 60; background: rgba(247,244,238,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(20,18,15,0.08)">
+  <div class="topbar">
+  <div class="annce">Cours d&rsquo;essai gratuits<span class="annce-more"> &middot; 2 essais offerts &middot; toute l&rsquo;ann&eacute;e</span> &mdash; <a href="https://www.methodacting.fr/cours-essai.html#reservation">R&eacute;servez<span class="annce-more"> votre cours d&rsquo;essai</span> &rarr;</a></div>
+  <header data-screen-label="Barre sticky" style="position: relative; background: rgba(247,244,238,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(20,18,15,0.08)">
     <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
       <a href="https://www.methodacting.fr/" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: #14120F; text-decoration: none; cursor: pointer">Method <span style="color: #E0261F">Acting</span> Center</a>
       <nav style="display: flex; align-items: center; gap: 26px">
@@ -185,6 +194,7 @@
       </nav>
     </div>
   </header>
+  </div>
 
   <!-- ============ HERO ============ -->
   <section data-screen-label="Hero" style="background: #F7F4EE">
@@ -199,7 +209,7 @@
       </h1>
         <div class="hero-actions" style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 auto; align-items: stretch">
           <a href="https://www.methodacting.fr/cours-essai.html#reservation" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">R&eacute;server un cours d&rsquo;essai gratuit</a>
-          <a href="#commencer" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Stages &amp; inscription</a>
+          <a href="https://www.methodacting.fr/stages.html#stage-acting" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Tester en stage</a>
           <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; margin-top: 2px">
             <span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; 2 cours offerts</span>
           </div>
