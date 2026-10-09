@@ -505,6 +505,77 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
 }
 @media (prefers-reduced-motion:reduce){ .tl-card{ opacity:1; transform:none; transition:none; } .tl::after{ transition:none; } }
 
+/* ===== Page tarifs ===== */
+.trust{ display:flex; flex-wrap:wrap; gap:8px 20px; font-family:'Oswald',sans-serif; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+.btn-outline-light{ background:transparent; color:var(--ondark); border-color:rgba(244,241,236,.35); }
+.btn-outline-light:hover{ background:var(--ondark); color:var(--ink); border-color:var(--ondark); }
+/* trois niveaux d'engagement */
+.steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:24px; }
+.step{ position:relative; display:flex; flex-direction:column; background:var(--darkcard); border:1px solid rgba(244,241,236,.14); border-radius:26px; overflow:hidden; color:var(--ondark); transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.step:hover{ transform:translateY(-5px); border-color:var(--red); box-shadow:0 30px 60px rgba(224,38,31,.18); color:var(--ondark); }
+.step--main{ border-color:rgba(224,38,31,.6); }
+.step-num{ position:absolute; top:16px; left:18px; z-index:2; font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; line-height:1; color:transparent; -webkit-text-stroke:1.5px #fff; }
+.step-media{ aspect-ratio:16/10; overflow:hidden; background:var(--ink); }
+.step-media img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+.step:hover .step-media img{ transform:scale(1.05); }
+.step-body{ display:flex; flex-direction:column; gap:10px; padding:26px 26px 28px; flex:1; }
+.step-price{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(26px,2.6vw,34px); line-height:1; color:var(--red); }
+.step-price small{ font-size:14px; color:var(--ondark-muted); font-weight:400; }
+.step-body h3{ font-size:clamp(22px,2.1vw,28px); line-height:1.08; }
+.step-body p{ color:var(--ondark-muted); font-size:15.5px; line-height:1.65; margin:0; }
+.step-body .arrow{ margin-top:auto; padding-top:12px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#fff; }
+/* deux formations */
+.plans{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr)); gap:28px; align-items:stretch; }
+.plan{ display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:28px; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
+.plan:hover{ transform:translateY(-4px); box-shadow:0 30px 60px rgba(20,18,15,.10); }
+.plan--red{ border-color:rgba(224,38,31,.45); box-shadow:0 26px 50px rgba(224,38,31,.10); }
+.plan--blue{ border-color:rgba(46,109,164,.45); box-shadow:0 26px 50px rgba(46,109,164,.10); }
+.plan-media{ position:relative; aspect-ratio:16/8; overflow:hidden; background:var(--ink); }
+.plan-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.plan-badge{ position:absolute; top:18px; left:18px; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; background:var(--red); color:#fff; padding:8px 14px; border-radius:999px; }
+.plan-badge--blue{ background:#2e6da4; }
+.plan-body{ display:flex; flex-direction:column; gap:18px; padding:clamp(26px,3.5vw,44px); flex:1; }
+.plan-body h3{ font-size:clamp(26px,2.6vw,36px); line-height:1.04; margin-top:-6px; }
+.plan-price{ display:flex; align-items:center; gap:16px; padding:18px 22px; background:var(--cream); border-radius:18px; }
+.plan-amount{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(36px,4vw,52px); line-height:1; color:var(--red); white-space:nowrap; }
+.plan-amount--blue{ color:#2e6da4; }
+.plan-unit{ font-size:13.5px; line-height:1.4; color:var(--muted); }
+.plan-intro{ color:var(--muted); font-size:16px; line-height:1.7; margin:0; }
+.plan .checklist li{ font-size:15px; }
+.plan .note{ margin:0; }
+.plan-foot{ display:flex; flex-wrap:wrap; gap:12px; margin-top:auto; padding-top:8px; }
+.pay-strip{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:20px 40px; background:#faf8f4; border:1px solid var(--line); border-radius:22px; padding:clamp(22px,3vw,32px) clamp(22px,3vw,36px); font-size:15px; line-height:1.6; color:var(--muted); }
+.pay-strip strong{ font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:1px; font-size:14px; color:var(--ink); }
+/* à la carte (fond sombre) */
+.carte{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:22px; }
+.carte-item{ display:flex; flex-direction:column; background:var(--darkcard); border:1px solid rgba(244,241,236,.14); border-radius:22px; overflow:hidden; color:var(--ondark); transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.carte-item:hover{ transform:translateY(-4px); border-color:rgba(224,38,31,.6); box-shadow:0 24px 48px rgba(0,0,0,.25); color:var(--ondark); }
+.carte-media{ aspect-ratio:16/9; overflow:hidden; background:var(--ink); }
+.carte-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.carte-body{ display:flex; flex-direction:column; gap:8px; padding:22px 22px 24px; flex:1; }
+.carte-body .tag{ align-self:flex-start; color:var(--ondark-muted); border-color:rgba(244,241,236,.25); }
+.carte-body h3{ font-size:clamp(19px,1.8vw,23px); line-height:1.1; }
+.carte-body p{ color:var(--ondark-muted); font-size:14.5px; line-height:1.6; margin:0; }
+.carte-price{ margin-top:auto; padding-top:12px; font-family:'Oswald',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:1px; font-size:14px; color:var(--ondark-muted); }
+.carte-price--amount{ font-size:24px; color:var(--red); letter-spacing:0; text-transform:none; }
+.carte-price--amount small{ font-size:13px; color:var(--ondark-muted); font-weight:400; }
+/* découverte */
+.disc{ display:flex; flex-direction:column; }
+.disc-price{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(34px,3.6vw,46px); line-height:1; color:var(--red); margin:12px 0 10px; }
+.disc .note{ font-size:14.5px; flex:1; }
+.disc .btn{ align-self:flex-start; }
+/* questions tarifs */
+.faq-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:40px; align-items:start; }
+.faq{ display:flex; flex-direction:column; gap:10px; }
+.faq details{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:0 22px; transition:border-color .2s ease; }
+.faq details[open]{ border-color:rgba(224,38,31,.4); }
+.faq summary{ list-style:none; cursor:pointer; padding:18px 0; font-family:'Oswald',sans-serif; font-size:17px; text-transform:uppercase; letter-spacing:.5px; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.faq summary::-webkit-details-marker{ display:none; }
+.faq summary::after{ content:"+"; font-size:24px; color:var(--red); line-height:1; transition:transform .2s ease; }
+.faq details[open] summary::after{ transform:rotate(45deg); }
+.faq details p{ margin:0; padding:0 0 20px; color:var(--muted); font-size:15.5px; line-height:1.7; }
+@media (min-width:900px){ .faq-grid{ grid-template-columns:1fr 1.4fr; } }
+
 </style>
 </head>
 <body>
@@ -937,6 +1008,20 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
         tick(boxes.filter(function(x){ return norm(x.value)===want; })[0]);
       });
     });
+  })();
+
+  /* arrivée sur l'inscription avec ?programme=acting|scenario (plusieurs séparés par des virgules) : coche le programme */
+  (function(){
+    var form=document.getElementById("inscription-form"); if(!form) return;
+    try{
+      var q=new URLSearchParams(location.search).get("programme"); if(!q) return;
+      var boxes=[].slice.call(form.querySelectorAll('input[name="programme"]'));
+      q.toLowerCase().split(",").forEach(function(key){
+        key=key.trim(); var needle=key==="acting"?"Programme complet Acting":key==="scenario"?"Scénario":"";
+        var box=needle&&boxes.filter(function(b){ return b.value.indexOf(needle)>=0; })[0];
+        if(box){ box.checked=true; box.dispatchEvent(new Event("change",{bubbles:true})); var row=box.closest(".pick"); if(row){ row.classList.add("is-prefilled"); setTimeout(function(){ row.classList.remove("is-prefilled"); },4000); } }
+      });
+    }catch(e){}
   })();
 
   bindForm({

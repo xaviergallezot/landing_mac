@@ -264,6 +264,20 @@
     });
   })();
 
+  /* arrivée sur l'inscription avec ?programme=acting|scenario (plusieurs séparés par des virgules) : coche le programme */
+  (function(){
+    var form=document.getElementById("inscription-form"); if(!form) return;
+    try{
+      var q=new URLSearchParams(location.search).get("programme"); if(!q) return;
+      var boxes=[].slice.call(form.querySelectorAll('input[name="programme"]'));
+      q.toLowerCase().split(",").forEach(function(key){
+        key=key.trim(); var needle=key==="acting"?"Programme complet Acting":key==="scenario"?"Scénario":"";
+        var box=needle&&boxes.filter(function(b){ return b.value.indexOf(needle)>=0; })[0];
+        if(box){ box.checked=true; box.dispatchEvent(new Event("change",{bubbles:true})); var row=box.closest(".pick"); if(row){ row.classList.add("is-prefilled"); setTimeout(function(){ row.classList.remove("is-prefilled"); },4000); } }
+      });
+    }catch(e){}
+  })();
+
   bindForm({
     id:"inscription-form", subject:"Demande d'inscription", from:"Inscriptions · Method Acting Center",
     recapName:"programme", recapUnit:"programme", recapEmpty:"Aucun programme coché pour l’instant — vous pouvez aussi ne choisir que des cours ponctuels.",
