@@ -212,21 +212,17 @@
         <form id="stages-form" class="form">
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
-            <label>Le stage qui m&rsquo;intéresse</label>
-            <select name="stage" required>
-              <option value="">— Choisissez un stage —</option>
-              <optgroup label="Stages week-end">
-                <option>Stage A — Initiation à la Méthode (17 & 18 oct. 2026)</option>
-                <option>Stage B — Approche d’une scène (14 & 15 nov. 2026)</option>
-                <option>Stage Scénario, Réalisation & Direction d’acteurs (7 & 8 nov. 2026)</option>
-                <option>Stage Acting Caméra (20 & 21 févr. 2027)</option>
-              </optgroup>
-              <optgroup label="Stages intensifs">
-                <option>Stage intensif d’hiver — 9 & 10 janv. 2027 (rentrée décalée)</option>
-                <option>Stage intensif de printemps — 16, 17 & 18 avril 2027</option>
-                <option>Stage intensif d’été 2027 (dates à venir)</option>
-              </optgroup>
-            </select>
+            <label>Les stages qui m&rsquo;intéressent <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(un ou plusieurs)</span></label>
+            <div class="stack gap-s">
+              <label class="pick" style="--seg:#cf5a54"><input type="checkbox" name="stage" value="Stage A — Initiation à la Méthode (17 &amp; 18 oct. 2026)"><span><strong>Stage A &mdash; Initiation à la Méthode</strong><small>Week-end &middot; 17 &amp; 18 octobre 2026 &middot; dès 160&nbsp;€</small></span></label>
+              <label class="pick" style="--seg:#4a6fb5"><input type="checkbox" name="stage" value="Stage Scénario, Réalisation &amp; Direction d’acteurs (7 &amp; 8 nov. 2026)"><span><strong>Stage Scénario, Réalisation &amp; Direction d&rsquo;acteurs</strong><small>Week-end &middot; 7 &amp; 8 novembre 2026 &middot; dès 160&nbsp;€</small></span></label>
+              <label class="pick" style="--seg:#cf5a54"><input type="checkbox" name="stage" value="Stage B — Approche d’une scène (14 &amp; 15 nov. 2026)"><span><strong>Stage B &mdash; Approche d&rsquo;une scène</strong><small>Week-end &middot; 14 &amp; 15 novembre 2026 &middot; dès 160&nbsp;€</small></span></label>
+              <label class="pick" style="--seg:#cf5a54"><input type="checkbox" name="stage" value="Stage Acting Caméra (20 &amp; 21 févr. 2027)"><span><strong>Stage Acting Caméra</strong><small>Week-end &middot; 20 &amp; 21 février 2027 &middot; tarif sur demande</small></span></label>
+              <label class="pick" style="--seg:#8a8a8a"><input type="checkbox" name="stage" value="Stage intensif d’hiver — 9 &amp; 10 janv. 2027 (rentrée décalée)"><span><strong>Stage intensif d&rsquo;hiver</strong><small>9 &amp; 10 janvier 2027 &middot; rentrée décalée &middot; tarif sur demande</small></span></label>
+              <label class="pick" style="--seg:#8a8a8a"><input type="checkbox" name="stage" value="Stage intensif de printemps — 16, 17 &amp; 18 avril 2027"><span><strong>Stage intensif de printemps</strong><small>16, 17 &amp; 18 avril 2027 &middot; tarif sur demande</small></span></label>
+              <label class="pick" style="--seg:#8a8a8a"><input type="checkbox" name="stage" value="Stage intensif d’été 2027 (dates à venir)"><span><strong>Stage intensif d&rsquo;été 2027</strong><small>Dates à venir</small></span></label>
+            </div>
+            <div id="stages-recap" class="book-recap">Aucun stage coché pour l&rsquo;instant.</div>
           </div>
           <div class="field-2">
             <div class="field"><label>Prénom</label><input type="text" name="prenom" required placeholder="Votre prénom"></div>

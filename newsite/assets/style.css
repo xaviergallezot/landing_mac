@@ -425,7 +425,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   .offer.alt .offer-media{ order:0; }
 }
 /* champ pré-rempli depuis un bouton « Réserver ce stage » */
-.field select.is-prefilled{ border-color:var(--red); box-shadow:0 0 0 3px rgba(224,38,31,.18); }
+.field select.is-prefilled, .pick.is-prefilled{ border-color:var(--red); box-shadow:0 0 0 3px rgba(224,38,31,.22) !important; }
 
 /* ===== Prochains stages (mise en avant) ===== */
 .next-card{ display:flex; flex-direction:column; gap:22px; background:var(--darkcard); border:1px solid rgba(244,241,236,.14); border-radius:28px; padding:clamp(26px,3vw,38px); color:var(--ondark);

@@ -436,7 +436,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   .offer.alt .offer-media{ order:0; }
 }
 /* champ pré-rempli depuis un bouton « Réserver ce stage » */
-.field select.is-prefilled{ border-color:var(--red); box-shadow:0 0 0 3px rgba(224,38,31,.18); }
+.field select.is-prefilled, .pick.is-prefilled{ border-color:var(--red); box-shadow:0 0 0 3px rgba(224,38,31,.22) !important; }
 
 /* ===== Prochains stages (mise en avant) ===== */
 .next-card{ display:flex; flex-direction:column; gap:22px; background:var(--darkcard); border:1px solid rgba(244,241,236,.14); border-radius:28px; padding:clamp(26px,3vw,38px); color:var(--ondark);
@@ -825,8 +825,9 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   });
   bindForm({
     id:"stages-form", subject:"Réservation stage", from:"Stages · Method Acting Center",
-    validate:function(field){ return field("stage") ? "" : "Choisissez un stage avant d’envoyer."; },
-    fields:[["Stage","stage"],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
+    recapName:"stage", recapUnit:"stage", recapEmpty:"Aucun stage coché pour l’instant.",
+    validate:function(field,checked){ return checked("stage").length ? "" : "Cochez au moins un stage avant d’envoyer."; },
+    fields:[["Stages",function(f,c){return joinList(c("stage"));}],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
   });
   /* compte à rebours « J-x » des prochains stages */
   [].slice.call(document.querySelectorAll(".next-count[data-date]")).forEach(function(el){
@@ -835,26 +836,29 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
     el.textContent = days>1 ? "J-"+days : days===1 ? "Demain" : days===0 ? "Aujourd’hui" : "";
   });
 
-  /* boutons « Réserver ce stage » : pré-remplissent le formulaire */
+  /* boutons « Réserver ce stage » et ?stage= : cochent le(s) stage(s) dans le formulaire */
   (function(){
-    var sel=document.querySelector('#stages-form select[name="stage"]'); if(!sel) return;
-    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|printemps */
-    try{
-      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver", printemps:"intensif de printemps"};
-      var key=new URLSearchParams(location.search).get("stage"), needle=key&&KEYS[key.toLowerCase()];
-      if(needle){ var o=[].slice.call(sel.options).filter(function(o){ return o.text.indexOf(needle)>=0; })[0]; if(o){ sel.value=o.value; sel.classList.add("is-prefilled"); setTimeout(function(){ sel.classList.remove("is-prefilled"); },4000); } }
-    }catch(e){}
+    var form=document.getElementById("stages-form"); if(!form) return;
+    var boxes=[].slice.call(form.querySelectorAll('input[name="stage"]')); if(!boxes.length) return;
     var tmp=document.createElement("textarea");
     function decode(t){ tmp.innerHTML=t; return tmp.value; }
-    function norm(t){ return t.replace(/\s+/g," ").trim(); }
+    function norm(t){ return decode(t).replace(/\s+/g," ").trim(); }
+    function tick(box, ms){
+      if(!box) return;
+      box.checked=true; box.dispatchEvent(new Event("change",{bubbles:true}));
+      var row=box.closest(".pick"); if(row){ row.classList.add("is-prefilled"); setTimeout(function(){ row.classList.remove("is-prefilled"); }, ms||2500); }
+    }
+    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|printemps (plusieurs séparés par des virgules) */
+    try{
+      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver", printemps:"intensif de printemps", ete:"intensif d’été"};
+      var q=new URLSearchParams(location.search).get("stage");
+      if(q){ q.toLowerCase().split(",").forEach(function(key){ var needle=KEYS[key.trim()]; if(!needle) return;
+        tick(boxes.filter(function(b){ return norm(b.value).indexOf(needle)>=0; })[0], 4000); }); }
+    }catch(e){}
     [].slice.call(document.querySelectorAll("[data-stage]")).forEach(function(b){
       b.addEventListener("click",function(){
-        var want=norm(decode(b.getAttribute("data-stage")));
-        var opt=[].slice.call(sel.options).filter(function(o){ return norm(o.text)===want; })[0];
-        if(!opt) return;
-        sel.value=opt.value; sel.classList.add("is-prefilled");
-        sel.dispatchEvent(new Event("change",{bubbles:true}));
-        setTimeout(function(){ sel.classList.remove("is-prefilled"); },2500);
+        var want=norm(b.getAttribute("data-stage"));
+        tick(boxes.filter(function(x){ return norm(x.value)===want; })[0]);
       });
     });
   })();
