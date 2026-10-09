@@ -187,6 +187,24 @@
     validate:function(field){ return field("stage") ? "" : "Choisissez un stage avant d’envoyer."; },
     fields:[["Stage","stage"],["Prénom","prenom"],["Nom","nom"],["Email","email"],["Téléphone","telephone"],["Message","message"],["Comment nous a connus","source"]]
   });
+  /* boutons « Réserver ce stage » : pré-remplissent le formulaire */
+  (function(){
+    var sel=document.querySelector('#stages-form select[name="stage"]'); if(!sel) return;
+    var tmp=document.createElement("textarea");
+    function decode(t){ tmp.innerHTML=t; return tmp.value; }
+    function norm(t){ return t.replace(/\s+/g," ").trim(); }
+    [].slice.call(document.querySelectorAll("[data-stage]")).forEach(function(b){
+      b.addEventListener("click",function(){
+        var want=norm(decode(b.getAttribute("data-stage")));
+        var opt=[].slice.call(sel.options).filter(function(o){ return norm(o.text)===want; })[0];
+        if(!opt) return;
+        sel.value=opt.value; sel.classList.add("is-prefilled");
+        sel.dispatchEvent(new Event("change",{bubbles:true}));
+        setTimeout(function(){ sel.classList.remove("is-prefilled"); },2500);
+      });
+    });
+  })();
+
   bindForm({
     id:"inscription-form", subject:"Demande d'inscription", from:"Inscriptions · Method Acting Center",
     recapName:"programme", recapUnit:"programme", recapEmpty:"Aucun programme coché pour l’instant — vous pouvez aussi ne choisir que des cours ponctuels.",
