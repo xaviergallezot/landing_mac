@@ -961,6 +961,12 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   /* boutons « Réserver ce stage » : pré-remplissent le formulaire */
   (function(){
     var sel=document.querySelector('#stages-form select[name="stage"]'); if(!sel) return;
+    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|printemps */
+    try{
+      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver", printemps:"intensif de printemps"};
+      var key=new URLSearchParams(location.search).get("stage"), needle=key&&KEYS[key.toLowerCase()];
+      if(needle){ var o=[].slice.call(sel.options).filter(function(o){ return o.text.indexOf(needle)>=0; })[0]; if(o){ sel.value=o.value; sel.classList.add("is-prefilled"); setTimeout(function(){ sel.classList.remove("is-prefilled"); },4000); } }
+    }catch(e){}
     var tmp=document.createElement("textarea");
     function decode(t){ tmp.innerHTML=t; return tmp.value; }
     function norm(t){ return t.replace(/\s+/g," ").trim(); }

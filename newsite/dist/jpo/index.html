@@ -87,6 +87,9 @@
   #mac-landing .annce a:hover { color:#FFFFFF; opacity:.85; }
   @media (max-width:640px){ #mac-landing .annce { font-size:12.5px; padding:8px 12px; } #mac-landing .annce-more { display:none; } }
 
+  #mac-landing .start-count { position:absolute; top:14px; right:14px; z-index:2; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:700; background:#E0261F; color:#FFFFFF; padding:7px 12px; border-radius:999px; }
+  #mac-landing .start-count:empty { display:none; }
+
   /* Sticky mobile CTA */
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
@@ -209,7 +212,7 @@
       </h1>
         <div class="hero-actions" style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 auto; align-items: stretch">
           <a href="https://www.methodacting.fr/cours-essai.html#reservation" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">R&eacute;server un cours d&rsquo;essai gratuit</a>
-          <a href="https://www.methodacting.fr/stages.html#stage-acting" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Tester en stage</a>
+          <a href="https://www.methodacting.fr/stages.html?stage=a#stage-acting" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: transparent; color: #14120F; text-decoration: none; padding: 18px 36px; border-radius: 999px; border: 1px solid rgba(20,18,15,0.3); text-align: center; transition: transform .15s ease, border-color .15s ease" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Tester en stage</a>
           <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; margin-top: 2px">
             <span>&#10003; Gratuit</span><span>&#10003; Sans engagement</span><span>&#10003; 2 cours offerts</span>
           </div>
@@ -258,13 +261,13 @@
             <div class="start-btn"><span>R&eacute;server mon cours d&rsquo;essai &rarr;</span></div>
           </div>
         </a>
-        <a class="start-card" data-reveal href="https://www.methodacting.fr/stages.html#reservation">
-          <div class="start-media"><img data-img="stage_1" alt="Stages week-end et intensifs"><span class="start-tag">Format court</span></div>
+        <a class="start-card" data-reveal href="https://www.methodacting.fr/stages.html?stage=a#reservation">
+          <div class="start-media"><img data-img="stage_1" alt="Stages week-end et intensifs"><span class="start-tag">Format court</span><span class="start-count" data-date="2026-10-17"></span></div>
           <div class="start-body">
-            <h3>Stages week-end<br>&amp; intensifs</h3>
-            <p>Deux jours pour plonger dans la M&eacute;thode&nbsp;: Stage A les 17 &amp; 18 octobre, Stage B les 14 &amp; 15 novembre, puis les intensifs pendant les vacances.</p>
+            <h3>Prochain stage&nbsp;:<br>17 &amp; 18 octobre</h3>
+            <p>Stage A &mdash; Initiation &agrave; la M&eacute;thode&nbsp;: d&eacute;clencher de vraies &eacute;motions, se lib&eacute;rer du trac, croire &agrave; la situation. Puis Stage B les 14 &amp; 15 novembre et les intensifs pendant les vacances.</p>
             <div class="start-meta"><span>&#10003; D&egrave;s 160&nbsp;&euro;</span><span>&#10003; Tous niveaux</span></div>
-            <div class="start-btn"><span>R&eacute;server un stage &rarr;</span></div>
+            <div class="start-btn"><span>R&eacute;server le stage des 17 &amp; 18 oct. &rarr;</span></div>
           </div>
         </a>
         <a class="start-card" data-reveal href="https://www.methodacting.fr/inscription.html#formulaire">
@@ -726,7 +729,7 @@
       <div data-reveal style="display: flex; flex-direction: column; align-items: center; gap: 18px">
         <div class="cta-row">
           <a href="https://www.methodacting.fr/cours-essai.html#reservation" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 21px 40px; border-radius: 999px; display: inline-block; transition: transform .15s ease, background .15s ease" style-hover="background: #F4F1EC; color: #0B0A0A; transform: translateY(-2px)">R&eacute;server un cours d&rsquo;essai gratuit</a>
-          <a class="cta-ghost" href="https://www.methodacting.fr/stages.html#reservation">Voir les stages</a>
+          <a class="cta-ghost" href="https://www.methodacting.fr/stages.html?stage=a#reservation">Voir les stages</a>
           <a class="cta-ghost" href="https://www.methodacting.fr/inscription.html#formulaire">S&rsquo;inscrire &agrave; la formation</a>
         </div>
         <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(244,241,236,0.5)">Gratuit &middot; Sans engagement &middot; 2 cours d&rsquo;essai offerts</span>
@@ -886,6 +889,12 @@
   }
 
   function applyImages(){
+    /* compte à rebours du prochain stage */
+    [].slice.call(document.querySelectorAll(".start-count[data-date]")).forEach(function(el){
+      var d=new Date(el.getAttribute("data-date")+"T00:00:00"), now=new Date(); now.setHours(0,0,0,0);
+      var days=Math.round((d-now)/86400000);
+      el.textContent = days>1 ? "J-"+days : days===1 ? "Demain" : days===0 ? "Aujourd\u2019hui" : "";
+    });
     ROOT.querySelectorAll("img[data-img]").forEach(function(img){
       var c = conf(img.getAttribute("data-img"));
       var label = c.label || img.getAttribute("alt") || "Visuel à ajouter";
