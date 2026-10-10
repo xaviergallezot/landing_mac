@@ -886,15 +886,27 @@
   }
 
 
-  /* JPO accordion (one open at a time) */
+  /* Accordéons (un seul ouvert) — l'en-tête cliqué reste fixe à l'écran pendant l'animation */
   function initJpo(){
     var cards=[].slice.call(ROOT.querySelectorAll(".jpo-card"));
+    var topbar=document.querySelector(".topbar");
+    function hold(el, ms){
+      var hb=topbar?topbar.getBoundingClientRect().bottom:0;
+      var target=el.getBoundingClientRect().top; if(target<hb+12) target=hb+12;
+      var start=performance.now();
+      (function step(now){
+        var d=el.getBoundingClientRect().top-target;
+        if(Math.abs(d)>0.5) window.scrollBy(0,d);
+        if(now-start<ms) requestAnimationFrame(step);
+      })(start);
+    }
     cards.forEach(function(card){
       var head=card.querySelector(".jpo-head");
       head.addEventListener("click",function(){
         var isOpen=card.classList.contains("open");
         cards.forEach(function(c){ c.classList.remove("open"); var h=c.querySelector(".jpo-head"); if(h) h.setAttribute("aria-expanded","false"); });
         if(!isOpen){ card.classList.add("open"); head.setAttribute("aria-expanded","true"); }
+        hold(card, 520);
       });
     });
   }
