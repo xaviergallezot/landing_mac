@@ -29,6 +29,10 @@ Options -Indexes
   RewriteRule ^ / [R=301,L]
   RewriteRule ^index/?$ / [R=301,L]
 
+  #    Exception : /stages.html reste la page « Stages » du site (le dossier /stages/ est une landing)
+  RewriteCond %{THE_REQUEST} \s/+stages\.html[\s?] [NC]
+  RewriteRule ^ - [L]
+
   #    /page.html  ->  /page  (redirection visible)
   RewriteCond %{THE_REQUEST} \s/+([^.\s?/]+)\.html[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
