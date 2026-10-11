@@ -523,7 +523,7 @@ for fn in ("initProgram","initBooking","initMobileCta"):
 assert "function initBooking" not in s and "function initProgram" not in s
 
 # Footer : le lien Portes Ouvertes pointe vers la landing JPO (pas d'ancre locale)
-s = sub1(s, '<a href="#jpo">Journ&eacute;es Portes Ouvertes</a>', '<a href="https://www.methodacting.fr/jpo/">Journ&eacute;es Portes Ouvertes</a>', "footer jpo")
+s = sub1(s, '<a href="#jpo">Journ&eacute;es Portes Ouvertes</a>', '<a href="https://www.methodacting.fr/jpo.html">Journ&eacute;es Portes Ouvertes</a>', "footer jpo")
 
 # Images : la source (static/jpo) est déjà en /uploads/ absolu ; blocs Méthode et visuels du hero
 assert 'url: "/uploads/' in s and 'url: "uploads/' not in s and "data:image" not in s
