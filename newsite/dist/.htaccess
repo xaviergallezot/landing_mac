@@ -39,8 +39,9 @@ LimitRequestBody 10485760
   RewriteRule ^ / [R=301,L]
   RewriteRule ^index/?$ / [R=301,L]
 
-  #    Exception : /stages.html reste la page « Stages » du site (le dossier /stages/ est une landing)
-  RewriteCond %{THE_REQUEST} \s/+stages\.html[\s?] [NC]
+  #    Exceptions : /jpo.html et /stages.html sont des pages du site, les dossiers /jpo/ et /stages/
+  #    sont des landings. On ne retire pas le .html, sinon Apache servirait le dossier.
+  RewriteCond %{THE_REQUEST} \s/+(jpo|stages)\.html[\s?] [NC]
   RewriteRule ^ - [L]
 
   #    /page.html  ->  /page  (redirection visible)
