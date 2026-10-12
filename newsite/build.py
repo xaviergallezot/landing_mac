@@ -87,7 +87,7 @@ ORG = {
     "url": SITE + "/",
     "logo": SITE + "/uploads/scene-a-deux-acteurs-method-acting-center.jpg",
     "image": SITE + "/uploads/scene-a-deux-acteurs-method-acting-center.jpg",
-    "description": "École de cinéma à Paris depuis 1999 : formations d'acteur, de scénariste et de réalisateur fondées sur la Méthode (Stanislavski / Actors Studio).",
+    "description": "École d'art dramatique et de cinéma à Paris depuis 1999 : formations d'acteur, de scénariste et de réalisateur fondées sur la Méthode (Stanislavski / Actors Studio). Note Google 4,8/5 sur 98 avis.",
     "foundingDate": "1999",
     "telephone": "+33607414125",
     "email": "contact@methodacting.fr",
@@ -95,6 +95,8 @@ ORG = {
     "areaServed": "Paris, France",
     "knowsAbout": ["Méthode Stanislavski", "Actors Studio", "formation d'acteur", "écriture de scénario", "réalisation", "direction d'acteurs"],
     "sameAs": ["https://fr.trustpilot.com/review/methodacting.fr"],
+    "additionalType": "https://schema.org/School",
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "bestRating": "5", "reviewCount": "98"},
 }
 
 def event(name, start, end, url, desc, price=None, location_name="Method Acting Center"):
