@@ -1,0 +1,66 @@
+# Method Acting Center — https://www.methodacting.fr
+# Le site est ouvert à tous les moteurs de recherche et aux assistants IA
+# (recherche, réponses et entraînement). Seule la copie /tarifs/ est exclue
+# pour éviter un doublon de la page /tarifs.
+
+User-agent: *
+Allow: /
+Disallow: /tarifs/
+
+# --- Moteurs de recherche ---
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+
+# --- Assistants et recherche IA ---
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: GoogleOther
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: YouBot
+Allow: /
+User-agent: MistralAI-User
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://www.methodacting.fr/sitemap.xml
