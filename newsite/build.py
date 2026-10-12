@@ -97,6 +97,11 @@ ORG = {
     "sameAs": ["https://www.instagram.com/method_acting_center/", "https://www.youtube.com/@MethodActingCenterParis",
                "https://www.facebook.com/MethodActingCenter", "https://fr.trustpilot.com/review/methodacting.fr"],
     "additionalType": "https://schema.org/School",
+    "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "10:00", "closes": "20:30"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "19:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "11:00", "closes": "17:00"},
+    ],
     "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "bestRating": "5", "reviewCount": "98"},
 }
 
