@@ -94,7 +94,8 @@ ORG = {
     "address": {"@type": "PostalAddress", "streetAddress": "93 avenue d'Italie", "postalCode": "75013", "addressLocality": "Paris", "addressCountry": "FR"},
     "areaServed": "Paris, France",
     "knowsAbout": ["Méthode Stanislavski", "Actors Studio", "formation d'acteur", "écriture de scénario", "réalisation", "direction d'acteurs"],
-    "sameAs": ["https://fr.trustpilot.com/review/methodacting.fr"],
+    "sameAs": ["https://www.instagram.com/method_acting_center/", "https://www.youtube.com/@MethodActingCenterParis",
+               "https://www.facebook.com/MethodActingCenter", "https://fr.trustpilot.com/review/methodacting.fr"],
     "additionalType": "https://schema.org/School",
     "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "bestRating": "5", "reviewCount": "98"},
 }
