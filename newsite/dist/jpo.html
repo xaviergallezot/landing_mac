@@ -300,6 +300,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .field input, .field textarea, .field select{ font-family:'Archivo',sans-serif; font-size:16px; background:var(--cream);
   border:1px solid var(--line); border-radius:12px; color:var(--ink); padding:14px 16px; outline:none; width:100%; }
 .field input:focus, .field textarea:focus, .field select:focus{ border-color:var(--red); }
+.field input.is-invalid, .field select.is-invalid{ border-color:var(--red); box-shadow:0 0 0 3px rgba(224,38,31,.15); }
+.field-warn{ font-size:14px; line-height:1.5; color:var(--ink); padding:12px 14px; border:1px solid var(--red); border-radius:12px; background:rgba(224,38,31,.10); }
 .field-2{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:20px; }
 .form-note{ font-size:13px; color:var(--muted); line-height:1.5; }
 .form-success{ background:#fff; border:1px solid var(--red); border-radius:var(--radius); padding:56px 40px; text-align:center; }
@@ -801,7 +803,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
         </ul>
       </div>
       <div data-reveal>
-        <form id="jpo-form" class="form">
+        <form id="jpo-form" class="form" novalidate>
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label>Vos ateliers &middot; choisissez votre jour</label>
@@ -813,8 +815,8 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
             <div class="field"><label>Nom</label><input type="text" name="nom" required placeholder="Votre nom"></div>
           </div>
           <div class="field-2">
-            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="vous@exemple.fr"></div>
-            <div class="field"><label>Téléphone</label><input type="tel" name="telephone" placeholder="06 12 34 56 78"></div>
+            <div class="field"><label>Email <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(ou téléphone)</span></label><input type="email" name="email" autocomplete="email" placeholder="vous@exemple.fr"></div>
+            <div class="field"><label>Téléphone <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(ou email)</span></label><input type="tel" name="telephone" autocomplete="tel" placeholder="06 12 34 56 78"></div>
           </div>
           <div class="field"><label>Message <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(facultatif)</span></label><textarea name="message" rows="3" placeholder="Une question, une précision…"></textarea></div>
           <div class="field">
@@ -983,6 +985,38 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
     reveals.forEach(function(el){ io.observe(el); });
   } else { reveals.forEach(function(el){ el.classList.add("in"); }); }
 
+
+  /* ---- champs obligatoires communs : prénom + nom, et email ou téléphone ---- */
+  function checkIdentity(form){
+    function el(n){ return form.querySelector('[name="'+n+'"]'); }
+    function val(n){ var e=el(n); return e?String(e.value||"").trim():""; }
+    var bad=[], msgs=[];
+    if(!val("prenom")) bad.push(el("prenom"));
+    if(!val("nom")) bad.push(el("nom"));
+    if(bad.length) msgs.push("votre prénom et votre nom");
+    var email=val("email"), tel=val("telephone");
+    if(!email && !tel){ bad.push(el("email"), el("telephone")); msgs.push("un email ou un numéro de téléphone"); }
+    else {
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ bad.push(el("email")); msgs.push("un email valide"); }
+      if(tel && tel.replace(/\D/g,"").length<9){ bad.push(el("telephone")); msgs.push("un numéro de téléphone valide"); }
+    }
+    var warn=form.querySelector(".field-warn");
+    if(!warn){
+      warn=document.createElement("div"); warn.className="field-warn"; warn.setAttribute("role","alert");
+      var telEl=el("telephone"), row=telEl&&(telEl.closest(".field-2")||telEl.parentNode.parentNode);
+      if(row&&row.parentNode) row.parentNode.insertBefore(warn,row.nextSibling); else form.insertBefore(warn,form.firstChild);
+    }
+    [].slice.call(form.querySelectorAll(".is-invalid")).forEach(function(i){ i.classList.remove("is-invalid"); i.removeAttribute("aria-invalid"); });
+    if(!bad.length){ warn.style.display="none"; return true; }
+    bad.forEach(function(i){ if(!i) return; i.classList.add("is-invalid"); i.setAttribute("aria-invalid","true");
+      i.addEventListener("input",function h(){ i.classList.remove("is-invalid"); i.removeAttribute("aria-invalid"); i.removeEventListener("input",h); }); });
+    warn.textContent="Pour vous recontacter, merci d’indiquer "+msgs.join(", ")+".";
+    warn.style.display="";
+    warn.scrollIntoView({behavior:"smooth",block:"center"});
+    var first=bad.filter(Boolean)[0]; if(first) try{ first.focus({preventScroll:true}); }catch(e){ first.focus(); }
+    return false;
+  }
+
   /* ---- formulaire de contact ---- */
   var form = document.getElementById("contact-form");
   if(form){
@@ -991,6 +1025,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
     function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
     form.addEventListener("submit", function(e){
       e.preventDefault();
+      if(!checkIdentity(form)) return;
       var btn = form.querySelector('button[type="submit"]'); var label = btn?btn.innerHTML:"";
       if(errBox){ errBox.style.display="none"; }
       var payload = {
@@ -1061,6 +1096,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
       e.preventDefault();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier (avec son créneau) avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
       if(errBox) errBox.style.display="none";
       var payload={
@@ -1105,6 +1141,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
     form.addEventListener("submit",function(e){
       e.preventDefault();
       if(cfg.validate){ var msg=cfg.validate(field,checked); if(msg){ if(recap){ recap.className="book-recap warn"; recap.textContent=msg; recap.scrollIntoView({behavior:"smooth",block:"center"}); } else { alert(msg); } return; } }
+      if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
       if(errBox) errBox.style.display="none";
       var name=(field("prenom")+" "+field("nom")).trim()||"sans nom";

@@ -209,7 +209,7 @@
         <div class="mt-l" style="color:var(--muted); font-size:14px; line-height:1.6">Une question&nbsp;? <a href="tel:+33607414125">+33 6 07 41 41 25</a> &middot; <a href="mailto:contact@methodacting.fr">contact@methodacting.fr</a></div>
       </div>
       <div data-reveal>
-        <form id="stages-form" class="form">
+        <form id="stages-form" class="form" novalidate>
           <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label>Les stages qui m&rsquo;intéressent <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(un ou plusieurs)</span></label>
@@ -229,8 +229,8 @@
             <div class="field"><label>Nom</label><input type="text" name="nom" required placeholder="Votre nom"></div>
           </div>
           <div class="field-2">
-            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="vous@exemple.fr"></div>
-            <div class="field"><label>Téléphone</label><input type="tel" name="telephone" required placeholder="06 12 34 56 78"></div>
+            <div class="field"><label>Email <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(ou téléphone)</span></label><input type="email" name="email" autocomplete="email" placeholder="vous@exemple.fr"></div>
+            <div class="field"><label>Téléphone <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(ou email)</span></label><input type="tel" name="telephone" autocomplete="tel" placeholder="06 12 34 56 78"></div>
           </div>
           <div class="field"><label>Message <span style="text-transform:none; letter-spacing:0; color:var(--muted)">(facultatif)</span></label><textarea name="message" rows="3" placeholder="Votre expérience, une question…"></textarea></div>
           <div class="field">

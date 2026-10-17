@@ -285,7 +285,7 @@ FORM = f'''  <!-- ============ RÉSERVATION ============ -->
         <div style="width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; margin-top: 12px"><img data-img="contact_scene" alt="Deux acteurs en travail de scène, noir et blanc" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
       </div>
       <div data-reveal>
-        <form id="stages-form" novalidate="false" style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
+        <form id="stages-form" novalidate style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 28px; padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px">
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 0; height: 0; opacity: 0">
           <div style="display: flex; flex-direction: column; gap: 12px">
             <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Les stages qui m'intéressent <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(un ou plusieurs)</span></span>
@@ -298,8 +298,8 @@ FORM = f'''  <!-- ============ RÉSERVATION ============ -->
             <label style="{lab}">Nom<input name="nom" type="text" required placeholder="Votre nom" style="{input_css}"></label>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
-            <label style="{lab}">Email<input name="email" type="email" required placeholder="vous@exemple.fr" style="{input_css}"></label>
-            <label style="{lab}">Téléphone<input name="telephone" type="tel" required placeholder="06 12 34 56 78" style="{input_css}"></label>
+            <label style="{lab}">Email <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(ou téléphone)</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" style="{input_css}"></label>
+            <label style="{lab}">Téléphone <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(ou email)</span><input name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" style="{input_css}"></label>
           </div>
           <label style="{lab}">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span><textarea name="message" rows="3" placeholder="Votre expérience, une question…" style="{input_css}; resize: vertical"></textarea></label>
           <label style="{lab}">Comment avez-vous connu Method Acting Center&nbsp;?
@@ -467,6 +467,37 @@ JS = r'''
       if(q){ q.toLowerCase().split(",").forEach(function(key){ var row=document.getElementById("stage-"+key.trim()); var kw=row?row.querySelector(".stage-title").textContent:""; if(kw) tick(boxes.filter(function(b){ return norm(b.value).indexOf(norm(kw))===0; })[0],4000); }); }
     }catch(e){}
 
+
+    /* ---- champs obligatoires communs : prénom + nom, et email ou téléphone ---- */
+    function checkIdentity(form){
+      function el(n){ return form.querySelector('[name="'+n+'"]'); }
+      function val(n){ var e=el(n); return e?String(e.value||"").trim():""; }
+      var bad=[], msgs=[];
+      if(!val("prenom")) bad.push(el("prenom"));
+      if(!val("nom")) bad.push(el("nom"));
+      if(bad.length) msgs.push("votre prénom et votre nom");
+      var email=val("email"), tel=val("telephone");
+      if(!email && !tel){ bad.push(el("email"), el("telephone")); msgs.push("un email ou un numéro de téléphone"); }
+      else {
+        if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ bad.push(el("email")); msgs.push("un email valide"); }
+        if(tel && tel.replace(/\D/g,"").length<9){ bad.push(el("telephone")); msgs.push("un numéro de téléphone valide"); }
+      }
+      var warn=form.querySelector(".field-warn");
+      if(!warn){
+        warn=document.createElement("div"); warn.className="field-warn"; warn.style.cssText="font-size:14px;line-height:1.5;color:#14120F;padding:12px 14px;border:1px solid #E0261F;border-radius:12px;background:rgba(224,38,31,.10)"; warn.setAttribute("role","alert");
+        var telEl=el("telephone"), row=telEl&&(telEl.closest(".field-2")||telEl.parentNode.parentNode);
+        if(row&&row.parentNode) row.parentNode.insertBefore(warn,row.nextSibling); else form.insertBefore(warn,form.firstChild);
+      }
+      [].slice.call(form.querySelectorAll(".is-invalid")).forEach(function(i){ i.classList.remove("is-invalid"); i.removeAttribute("aria-invalid"); i.style.borderColor="#EEE9DF"; });
+      if(!bad.length){ warn.style.display="none"; return true; }
+      bad.forEach(function(i){ if(!i) return; i.classList.add("is-invalid"); i.setAttribute("aria-invalid","true"); i.style.borderColor="#E0261F";
+        i.addEventListener("input",function h(){ i.classList.remove("is-invalid"); i.removeAttribute("aria-invalid"); i.style.borderColor="#EEE9DF"; i.removeEventListener("input",h); }); });
+      warn.textContent="Pour vous recontacter, merci d’indiquer "+msgs.join(", ")+".";
+      warn.style.display="";
+      warn.scrollIntoView({behavior:"smooth",block:"center"});
+      var first=bad.filter(Boolean)[0]; if(first) try{ first.focus({preventScroll:true}); }catch(e){ first.focus(); }
+      return false;
+    }
     function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
     function campaign(){
       try{
@@ -491,6 +522,7 @@ JS = r'''
       e.preventDefault();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Cochez au moins un stage avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), btnLabel=btn?btn.innerHTML:"";
       var name=(field("prenom")+" "+field("nom")).trim()||"sans nom";
       var payload={

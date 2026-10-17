@@ -79,6 +79,38 @@
     reveals.forEach(function(el){ io.observe(el); });
   } else { reveals.forEach(function(el){ el.classList.add("in"); }); }
 
+
+  /* ---- champs obligatoires communs : prénom + nom, et email ou téléphone ---- */
+  function checkIdentity(form){
+    function el(n){ return form.querySelector('[name="'+n+'"]'); }
+    function val(n){ var e=el(n); return e?String(e.value||"").trim():""; }
+    var bad=[], msgs=[];
+    if(!val("prenom")) bad.push(el("prenom"));
+    if(!val("nom")) bad.push(el("nom"));
+    if(bad.length) msgs.push("votre prénom et votre nom");
+    var email=val("email"), tel=val("telephone");
+    if(!email && !tel){ bad.push(el("email"), el("telephone")); msgs.push("un email ou un numéro de téléphone"); }
+    else {
+      if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ bad.push(el("email")); msgs.push("un email valide"); }
+      if(tel && tel.replace(/\D/g,"").length<9){ bad.push(el("telephone")); msgs.push("un numéro de téléphone valide"); }
+    }
+    var warn=form.querySelector(".field-warn");
+    if(!warn){
+      warn=document.createElement("div"); warn.className="field-warn"; warn.setAttribute("role","alert");
+      var telEl=el("telephone"), row=telEl&&(telEl.closest(".field-2")||telEl.parentNode.parentNode);
+      if(row&&row.parentNode) row.parentNode.insertBefore(warn,row.nextSibling); else form.insertBefore(warn,form.firstChild);
+    }
+    [].slice.call(form.querySelectorAll(".is-invalid")).forEach(function(i){ i.classList.remove("is-invalid"); i.removeAttribute("aria-invalid"); });
+    if(!bad.length){ warn.style.display="none"; return true; }
+    bad.forEach(function(i){ if(!i) return; i.classList.add("is-invalid"); i.setAttribute("aria-invalid","true");
+      i.addEventListener("input",function h(){ i.classList.remove("is-invalid"); i.removeAttribute("aria-invalid"); i.removeEventListener("input",h); }); });
+    warn.textContent="Pour vous recontacter, merci d’indiquer "+msgs.join(", ")+".";
+    warn.style.display="";
+    warn.scrollIntoView({behavior:"smooth",block:"center"});
+    var first=bad.filter(Boolean)[0]; if(first) try{ first.focus({preventScroll:true}); }catch(e){ first.focus(); }
+    return false;
+  }
+
   /* ---- formulaire de contact ---- */
   var form = document.getElementById("contact-form");
   if(form){
@@ -87,6 +119,7 @@
     function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
     form.addEventListener("submit", function(e){
       e.preventDefault();
+      if(!checkIdentity(form)) return;
       var btn = form.querySelector('button[type="submit"]'); var label = btn?btn.innerHTML:"";
       if(errBox){ errBox.style.display="none"; }
       var payload = {
@@ -157,6 +190,7 @@
       e.preventDefault();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier (avec son créneau) avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
       if(errBox) errBox.style.display="none";
       var payload={
@@ -201,6 +235,7 @@
     form.addEventListener("submit",function(e){
       e.preventDefault();
       if(cfg.validate){ var msg=cfg.validate(field,checked); if(msg){ if(recap){ recap.className="book-recap warn"; recap.textContent=msg; recap.scrollIntoView({behavior:"smooth",block:"center"}); } else { alert(msg); } return; } }
+      if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), label=btn?btn.innerHTML:"";
       if(errBox) errBox.style.display="none";
       var name=(field("prenom")+" "+field("nom")).trim()||"sans nom";

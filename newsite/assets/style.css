@@ -276,6 +276,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
 .field input, .field textarea, .field select{ font-family:'Archivo',sans-serif; font-size:16px; background:var(--cream);
   border:1px solid var(--line); border-radius:12px; color:var(--ink); padding:14px 16px; outline:none; width:100%; }
 .field input:focus, .field textarea:focus, .field select:focus{ border-color:var(--red); }
+.field input.is-invalid, .field select.is-invalid{ border-color:var(--red); box-shadow:0 0 0 3px rgba(224,38,31,.15); }
+.field-warn{ font-size:14px; line-height:1.5; color:var(--ink); padding:12px 14px; border:1px solid var(--red); border-radius:12px; background:rgba(224,38,31,.10); }
 .field-2{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr)); gap:20px; }
 .form-note{ font-size:13px; color:var(--muted); line-height:1.5; }
 .form-success{ background:#fff; border:1px solid var(--red); border-radius:var(--radius); padding:56px 40px; text-align:center; }
