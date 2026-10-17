@@ -298,8 +298,8 @@ FORM = f'''  <!-- ============ RÉSERVATION ============ -->
             <label style="{lab}">Nom<input name="nom" type="text" required placeholder="Votre nom" style="{input_css}"></label>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
-            <label style="{lab}">Email <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(ou téléphone)</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" style="{input_css}"></label>
-            <label style="{lab}">Téléphone <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(ou email)</span><input name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" style="{input_css}"></label>
+            <label style="{lab}">Email<input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" style="{input_css}"></label>
+            <label style="{lab}">Téléphone<input name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" style="{input_css}"></label>
           </div>
           <label style="{lab}">Message <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(facultatif)</span><textarea name="message" rows="3" placeholder="Votre expérience, une question…" style="{input_css}; resize: vertical"></textarea></label>
           <label style="{lab}">Comment avez-vous connu Method Acting Center&nbsp;?
