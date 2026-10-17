@@ -73,7 +73,7 @@ OG_IMAGES = {
     "scenario-real": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg",
     "stages": "scene-theatre-tension-acteurs-method-acting-center.jpg",
     "cours-essai": "cours-acting-groupe-method-acting-center.jpg",
-    "jpo": "actrice-emotion-stage-initiation-method-acting-center.jpg",
+    "jpo": "etreinte-emotion-scene-a-deux-method-acting-center.jpg",
     "inscription": "portrait-acteur-method-acting-center.jpg",
     "tarifs": "methode-maitriser.jpg",
     "planning": "methode-reproduire.jpg",

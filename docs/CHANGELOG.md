@@ -93,5 +93,29 @@ après avoir écrit ses quatre livrables ; ils sont complets.
 - Date de suivi : 28 jours après déploiement (volume de demandes Web3Forms par type).
 - Résultats observés après suivi : —
 
+### 2026-10-17 — [JPO-001]
+
+- Catégorie : contenu / conversion
+- Problème initial : la page `/jpo.html` annonçait « les horaires détaillés arrivent » et proposait
+  Screenwriting in English, qui n'est plus au programme ; la photo du hero ne convenait pas.
+- URL ou fichier concerné : `newsite/pages/jpo.html`, `newsite/assets/site.js` (liste des ateliers du
+  formulaire), `newsite/build.py` (image Open Graph de la page), nouvelle image
+  `newsite/assets/img/etreinte-emotion-scene-a-deux-method-acting-center.jpg`.
+- Modification : planning horaire du samedi et du dimanche ; bloc « Avant le week-end : intégrez un cours
+  de la semaine » (Acting Amateur mer. 9 déc., Improvisation ven. 11 déc.) ; mention correspondante sur
+  les cartes Improvisation et Acting Amateur ; retrait de Screenwriting in English ; formulaire avec les
+  créneaux exacts ; photo du hero et image de partage remplacées par la photo fournie.
+- Justification : planning transmis par le propriétaire.
+- Source ou preuve : message du propriétaire du 2026-10-17 (FACTS_REGISTER, JPO décembre · horaires).
+- Auteur / agent : chef de projet.
+- Validation humaine : demande du propriétaire.
+- Tests effectués : build sans assertion ; Playwright desktop et mobile (aucun débordement, aucune erreur
+  JS) ; envoi simulé du formulaire : les créneaux choisis arrivent dans l'email.
+- Résultats : conformes.
+- Risques : les landings `/jpo/` et `/jposr/` ont leur propre liste d'ateliers, non modifiée.
+- Procédure de retour arrière : `git revert` du commit, rebuild.
+- Date de suivi : après les JPO (nombre de réservations par atelier).
+- Résultats observés après suivi : —
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

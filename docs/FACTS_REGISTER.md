@@ -110,6 +110,7 @@ de prix pour les intensifs tant qu'ils ne sont pas confirmés.
 | Session | Dates | Prix | Source | Statut |
 |---|---|---|---|---|
 | JPO décembre | 12 & 13 décembre 2026 | gratuit | Pages jpo, planning | Vérifié |
+| JPO décembre · horaires | Sam. 12 déc. : Travail émotionnel 13h–15h, Travail de scène 15h30–17h30, Scénario, Réalisation & Direction d'acteurs 18h–20h · Dim. 13 déc. : Travail émotionnel 13h–15h, Travail de scène 15h30–17h30, Acting in English 18h–20h · En semaine (intégration du cours hebdomadaire, comme un cours d'essai) : Acting Amateur mer. 9 déc. 19h30–22h30, Improvisation ven. 11 déc. 10h–13h · Screenwriting in English non proposé | gratuit | Propriétaire, message du 2026-10-17 | Vérifié |
 | JPO mars | 19 au 21 mars 2027 | gratuit | Page planning, llms.txt | Vérifié |
 | JPO mai | 28 au 30 mai 2027 | gratuit | Page planning, llms.txt | Vérifié |
 

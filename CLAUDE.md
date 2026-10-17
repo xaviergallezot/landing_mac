@@ -14,6 +14,8 @@ du HTML assemblé par un script Python.
 - `newsite/prod-snapshot/` est une copie figée de la prod avant mise en conformité : référence, ne pas modifier.
 - Déploiement : manuel par FTP, par le propriétaire. Aucun agent ne déploie.
 - Les faits déjà vérifiés sont dans `docs/FACTS_REGISTER.md` : ne pas les re-questionner, les compléter.
+- Photos : choisir des images actives, explosives en jeu d'acteur, visage bien visible (face ou trois-quarts face).
+  Les affiches du carrousel de films ne changent pas. Détails dans `newsite/README.md`.
 
 ## 1. MISSION
 

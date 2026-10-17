@@ -56,6 +56,10 @@ Après le premier déploiement de cette architecture, supprimer sur le serveur :
 
 ## Ajouter ou remplacer une photo
 
+Choix des photos (consigne du propriétaire, 2026-10-17) : privilégier des photos **actives, explosives
+en jeu d'acteur**, où le **visage est bien visible** (de face ou de trois-quarts face). Éviter les dos,
+les profils perdus et les plans statiques. Les affiches du carrousel de films ne changent pas.
+
 1. Déposer le fichier dans `assets/img/` avec un nom explicite (minuscules, tirets, sans accents).
 2. Le référencer dans la page source avec `{{ROOT}}assets/img/nom.jpg` (pages du site)
    ou `/uploads/nom.jpg` (landings et générateur).
