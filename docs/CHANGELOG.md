@@ -117,5 +117,18 @@ après avoir écrit ses quatre livrables ; ils sont complets.
 - Date de suivi : après les JPO (nombre de réservations par atelier).
 - Résultats observés après suivi : —
 
+### 2026-10-17 — [JPO-002]
+
+- Catégorie : conversion
+- Modification : sur les landings `/jpo/` et `/jposr/`, premier bouton du haut de page « Réserver les
+  Portes Ouvertes » (rouge) vers `https://www.methodacting.fr/jpo.html#inscription` ; le bouton cours
+  d'essai passe en noir pour garder un seul bouton rouge ; « Tester en stage » inchangé.
+- Fichiers : `newsite/static/jpo/index.html`, `newsite/static/jposr/index.html` ; `dist/` régénéré.
+  La landing `/stages/` n'est pas concernée (son haut de page est réécrit par le générateur).
+- Justification : demande du propriétaire du 2026-10-17.
+- Tests : build sans assertion ; Playwright desktop et mobile sur les deux landings (bouton en premier,
+  lien correct, aucun débordement, aucune erreur JS).
+- Retour arrière : `git revert` du commit, rebuild.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.
