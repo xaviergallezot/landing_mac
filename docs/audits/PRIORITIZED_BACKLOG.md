@@ -59,7 +59,7 @@ Tous réversibles par `git revert`. Test commun : `cd newsite && python3 build.p
 
 | ID | Décision | Recommandation | Débloque | Rapports |
 |---|---|---|---|---|
-| B1 | Sort des landings `/jpo/`, `/jposr/`, `/stages/` : indexables ou réservées aux campagnes ? | `noindex, follow` sur les trois (sans effet sur Google Ads) ; vérifier d'abord les URL finales des campagnes et qu'aucune ne pointe vers `/tarifs/` | A1 (liens), cannibalisation P03/P04/D4 | SEO P03-P04, D4 |
+| B1 | Sort des landings `/jpo/`, `/jposr/`, `/stages/` : indexables ou réservées aux campagnes ? | **Tranché le 2026-10-17 par le propriétaire : aucun changement, les landings restent indexables.** Conséquence : P03/P04/D4 fermés ; la différenciation des titres et H1 entre landings et pages du site passe par C4 ; A3 (canonical unique de `/stages/`) reste nécessaire. | — | SEO P03-P04, D4 |
 | B2 | Offre « 100 € de remise, valable jusqu'au 31/08/2026 » encore affichée sur `/jpo/` et `/jposr/` (expirée), et proposée pour janvier 2027 dans la case du formulaire | Retirer, ou fournir les nouvelles conditions écrites (montant, date limite, rentrée concernée) | correction immédiate des landings | contenu P1, G8, I-6 |
 | B3 | Rythme de la 4ᵉ année Acting : `planning.html:274` « 1 atelier de 3 h le mardi » contre `inscription.html:67` « 2 ateliers de 3 h par semaine » | Trancher | correction immédiate | contenu P1, I-2 |
 | B4 | Formulation officielle du 3ᵉ temps de la Méthode : « Reproduire » (accueil, tarifs, llms.txt, landings) ou « Composer » (`acting.html:50`) | Une seule formulation partout | A5, C1 | SEO P16, I-1 |
