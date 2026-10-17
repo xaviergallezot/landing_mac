@@ -959,9 +959,10 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
     function el(n){ return form.querySelector('[name="'+n+'"]'); }
     function val(n){ var e=el(n); return e?String(e.value||"").trim():""; }
     var bad=[], msgs=[];
-    if(!val("prenom")) bad.push(el("prenom"));
-    if(!val("nom")) bad.push(el("nom"));
-    if(bad.length) msgs.push("votre prénom et votre nom");
+    var miss=[];
+    if(!val("prenom")){ bad.push(el("prenom")); miss.push("votre prénom"); }
+    if(!val("nom")){ bad.push(el("nom")); miss.push("votre nom"); }
+    if(miss.length) msgs.push(miss.join(" et "));
     var email=val("email"), tel=val("telephone");
     if(!email && !tel){ bad.push(el("email"), el("telephone")); msgs.push("un email ou un numéro de téléphone"); }
     else {
