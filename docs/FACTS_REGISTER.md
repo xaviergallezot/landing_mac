@@ -178,7 +178,33 @@ publier**.
 | FACT-004 | Tarifs des formations, frais, ateliers, stages dès 160 € | https://www.methodacting.fr/tarifs (source `newsite/pages/tarifs.html`) | 2026-10-12 | Élevé |
 | FACT-005 | Dates 2026-2027 (stages, JPO, rentrée décalée, fin des ateliers) | https://www.methodacting.fr/planning (source `newsite/pages/planning.html`) | 2026-10-12 | Élevé |
 | FACT-006 | 2 cours d'essai gratuits toute l'année ; créneaux 10h–14h et Acting in English 15h–18h | https://www.methodacting.fr/cours-essai | 2026-10-12 | Élevé |
-| FACT-007 | Année de création 1999 | Site (« depuis 1999 ») | 2026-10-12 | Moyen (à confirmer par le propriétaire) |
+| FACT-007 | Année de création 1999 | Site (« depuis 1999 ») | 2026-10-12 | Moyen (à confirmer par le propriétaire) ; contredit par des tiers, voir FACT-010 |
+| FACT-008 | Le fondateur, David Barrouk, est l'auteur du livre « Stan ou Le solfège de l'acting » (2017) | Notice du catalogue BnF / data.bnf.fr (extrait de recherche, page non ouverte) ; alt d'une image du site « Davids Barrouk » | 2026-10-12 | Moyen : nom et ouvrage rapportés par une source de référence, orthographe et autorisation de publication à confirmer |
+| FACT-009 | Un ouvrage anglais « Stanislavski and The Method for the 21st Century Actor » (Bloomsbury, 2024) serait du même auteur | Extrait de recherche (Bloomsbury / National Theatre Bookshop) | 2026-10-12 | Faible : attribution non vérifiée, ne pas citer |
+| FACT-010 | Année de création selon des tiers : 2002 (interview Coup de théâtre), 2009 (L'Étudiant) | Extraits de recherche | 2026-10-12 | Faible : contradiction avec le site (1999), décision propriétaire requise |
+| FACT-011 | Ancienne adresse « 105 B rue de Tolbiac, 75013 » affichée par Gowork ; anciens tarifs « 250 €/mois », « 3 jours d'essai gratuits », fiches 2017-2018 sur Emagister ; « chant, danse » sur L'Étudiant | https://gowork.fr/method-acting-center-paris ; https://www.emagister.fr/formation_method_acting_center-cen-97852.htm ; fiche L'Étudiant | 2026-10-12 | Élevé sur l'existence des erreurs, données elles-mêmes périmées : à corriger chez les tiers, ne jamais reprendre |
+| FACT-012 | Profil Trustpilot : 4,0/5 sur 3 avis (extrait) | Extrait de recherche fr.trustpilot.com | 2026-10-12 | Faible : page non ouverte ; le badge « Avis vérifiés Trustpilot » du site est à vérifier |
+| FACT-013 | Spectable attribue la pédagogie à « Robert Lewis, créateur de l'Actors Studio » et annonce un atelier enfants/ados à 100 €/mois | https://www.spectable.com/method-acting-center-acting-camera/798333 | 2026-10-12 | Faible : non confirmé par le propriétaire ni par le site |
+| FACT-014 | Offre « 100 € de remise pour toute inscription à la rentrée 2026-2027, valable jusqu'au 31/08/2026 » encore affichée sur les landings `/jpo/` et `/jposr/` | `newsite/static/jpo/index.html:546-547`, `jposr/index.html:527-528` | 2026-10-17 | Élevé sur le constat ; offre expirée, conditions actuelles inconnues |
+| FACT-015 | Rythme de la 4ᵉ année Acting contradictoire : « 1 atelier de 3 h le mardi » (`planning.html:274`) et « 2 ateliers de 3 h par semaine » (`inscription.html:67`) | Sources du site | 2026-10-17 | Élevé sur la contradiction ; valeur réelle à trancher |
+| FACT-016 | Troisième temps de la Méthode nommé « Reproduire » (accueil, tarifs, llms.txt, landings) et « Composer » (`acting.html:50`) | Sources du site | 2026-10-17 | Élevé sur la contradiction ; formulation officielle à trancher |
+| FACT-017 | Les 8 affiches de films du carrousel « Nos acteurs tournent ! » ne sont accompagnées d'aucun nom d'ancien élève ni d'aucune source | `pages/index.html:206-213`, `acting.html:165-172`, `scenario-real.html:138-144` | 2026-10-17 | Élevé sur le constat ; preuve des participations et droits des affiches à fournir |
+| FACT-018 | Anciennes URL encore présentes dans les résultats de recherche : `/portes-ouvertes-septembre-2021/`, `/contact.html`, `/tarifs/`, `/jpo/` | Extraits de recherche | 2026-10-12 | Moyen : codes HTTP réels à vérifier en production |
+
+## Contradictions signalées (à trancher par le propriétaire)
+
+| # | Sujet | Valeurs en présence | Où | Impact si non tranché |
+|---|---|---|---|---|
+| X-1 | Année de création | 1999 / 2002 / 2009 | site, Coup de théâtre, L'Étudiant | les IA et annuaires continueront à diverger |
+| X-2 | Rythme 4ᵉ année Acting | 1 atelier / 2 ateliers de 3 h | planning vs inscription | information fausse sur une des deux pages |
+| X-3 | 3ᵉ temps de la Méthode | Reproduire / Composer | acting vs reste du site | description de la pédagogie incohérente |
+| X-4 | Nom des stages | Stage A, Stage B / Actors Studio A, B | site vs landing `/stages/` | confusion avec The Actors Studio (New York) |
+| X-5 | Offre 100 € | expirée le 31/08/2026 / proposée pour janvier 2027 | landings JPO | offre commerciale non valide affichée |
+| X-6 | Cours ados / enfants | annoncé 100 €/mois (Spectable), mentionné `/jpo/` / absent du site et du registre | tiers vs site | prospects induits en erreur |
+| X-7 | Filiation pédagogique | « descendant direct » de Stanislavski, liste Brando/Streep/DiCaprio / Robert Lewis (Spectable) / livre du fondateur (BnF) | site vs tiers | affirmations invérifiables sur le site alors qu'une preuve solide (ouvrage) existe |
+
+Tant qu'une contradiction n'est pas tranchée, les contenus existants ne sont pas étendus et aucune
+nouvelle page ne reprend la valeur concernée.
 
 ## Processus de mise à jour
 
