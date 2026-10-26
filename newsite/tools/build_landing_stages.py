@@ -23,13 +23,13 @@ def sub1(s, old, new, label=""):
 s = sub1(s, "<title>Method Acting Center — Devenez acteur · Journées Portes Ouvertes à Paris</title>",
          "<title>Stages d'acting à Paris — Week-end &amp; intensifs · Method Acting Center</title>")
 s = re.sub(r'<meta name="description" content="[^"]*">',
-           '<meta name="description" content="Vous voulez devenir acteur ? Découvrez la Méthode (Stanislavski / Actors Studio) lors d\'un stage week-end ou intensif au Method Acting Center, Paris 13ᵉ. Prochain stage d\'initiation : 17 &amp; 18 octobre 2026.">\n'
+           '<meta name="description" content="Vous voulez devenir acteur ? Découvrez la Méthode (Stanislavski / Actors Studio) lors d\'un stage week-end ou intensif au Method Acting Center, Paris 13ᵉ. Prochain stage d\'acting : 14 &amp; 15 novembre 2026.">\n'
            '  <link rel="canonical" href="https://www.methodacting.fr/stages/">\n'
            '  <meta name="robots" content="index, follow">\n'
            '  <meta property="og:type" content="website">\n'
            '  <meta property="og:url" content="https://www.methodacting.fr/stages/">\n'
            '  <meta property="og:title" content="Stages d\'acting à Paris — Method Acting Center">\n'
-           '  <meta property="og:description" content="Un week-end pour vivre la Méthode. Prochain stage d\'initiation : 17 &amp; 18 octobre 2026, Paris 13ᵉ.">\n'
+           '  <meta property="og:description" content="Un week-end pour vivre la Méthode. Prochain stage d\'acting : 14 &amp; 15 novembre 2026, Paris 13ᵉ.">\n'
            '  <!-- Google Ads / Tag Manager : collez ici votre balise globale (gtag.js ou GTM). Les envois de formulaire réussis déclenchent dataLayer.push({event:"stage_form_success"}) et gtag("event","generate_lead") si gtag est présent. -->',
            s, count=1)
 
@@ -52,7 +52,7 @@ btn = "font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; 
 hero_actions = (m.group(1) + "\n"
     f'          <a href="#stages" style="{btn}; background: #E0261F; color: #FFFFFF" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Découvrir nos stages</a>\n'
     f'          <a href="#methode" style="{btn}; background: transparent; color: #14120F; padding: 18px 36px; border: 1px solid rgba(20,18,15,0.3)" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Comprendre la Méthode</a>\n'
-    '          <div class="hero-next" style="font-family: \'Oswald\', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; text-align: center; margin-top: 2px">Prochain stage d\'initiation&nbsp;: <strong style="color: #14120F; font-weight: 600">17 &amp; 18 octobre 2026</strong> &middot; Paris 13ᵉ</div>\n'
+    '          <div class="hero-next" style="font-family: \'Oswald\', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; text-align: center; margin-top: 2px">Prochain stage d\'acting&nbsp;: <strong style="color: #14120F; font-weight: 600">14 &amp; 15 novembre 2026</strong> &middot; Paris 13ᵉ</div>\n'
     '        </div>')
 s = s[:m.start()] + hero_actions + s[m.end():]
 
@@ -77,7 +77,7 @@ films = films.replace('padding: 100px 24px 40px;', 'padding: 40px 24px 40px;', 1
 # ---------- 6. Données des sessions (à mettre à jour ici) ----------
 # Chaque session : id, nom, date (texte), data-end (ISO : masquée automatiquement après), durée, tarif, intro courte
 SESSIONS = {
- "a":  dict(name="Actors Studio A — Faites vos premiers pas dans la Méthode", short="Actors Studio A", date="17 & 18 octobre 2026", end="2026-10-18", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
+ "a":  dict(name="Actors Studio A — Faites vos premiers pas dans la Méthode", short="Actors Studio A", date="Prochaine session : dates à venir", end="2099-12-31", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
  "sc": dict(name="Scénario, réalisation & direction d'acteurs", short="Scénario, réalisation & direction d'acteurs", date="7 & 8 novembre 2026", end="2026-11-08", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
  "b":  dict(name="Actors Studio B — Approche d'une scène", short="Actors Studio B", date="14 & 15 novembre 2026", end="2026-11-15", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
  "cam":dict(name="Acting Caméra", short="Acting Caméra", date="20 & 21 février 2027", end="2027-02-21", duration="2 jours (week-end)", price="Tarif sur demande", kind="Stage week-end"),
@@ -103,8 +103,8 @@ def embed(name, width=720, quality=66):
     buf = _io.BytesIO(); im.save(buf, "JPEG", quality=quality, optimize=True, progressive=True)
     _EMB[key] = "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
     return _EMB[key]
-PHOTOS = {"sc": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg", "b": "scene-de-bar-acteur-tournage-method-acting-center.jpg", "cam": "retour-camera-tournage-exterieur-actrices-method-acting-center.jpg", "hiv": "tournage-exterieur-foret-acteurs-method-acting-center.jpg", "pri": "direction-acteurs-stage-scenario-realisation-method-acting-center.jpg"}
-def accordion(k, desc, programme, benefits, extra_note=""):
+PHOTOS = {"a": "actrice-emotion-forte-method-acting-center.jpg", "sc": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg", "b": "scene-de-bar-acteur-tournage-method-acting-center.jpg", "cam": "retour-camera-tournage-exterieur-actrices-method-acting-center.jpg", "hiv": "tournage-exterieur-foret-acteurs-method-acting-center.jpg", "pri": "direction-acteurs-stage-scenario-realisation-method-acting-center.jpg"}
+def accordion(k, desc, programme, benefits, extra_note="", cta_label="Je m'inscris au stage"):
     d = SESSIONS[k]
     photo = f'<div class="stage-photo"><img src="/uploads/{PHOTOS[k]}" alt="{d["name"]} — Method Acting Center" loading="lazy"></div>' if k in PHOTOS else ""
     prog = "".join(f'<div class="jpo-field"><span class="jpo-label">{lab}</span><ul class="stage-list">{lis(items)}</ul></div>' for lab, items in programme)
@@ -128,7 +128,7 @@ def accordion(k, desc, programme, benefits, extra_note=""):
               {ben}
               <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; {d["duration"]} &middot; {d["price"]}. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
               {note}
-              {cta(k)}
+              {cta(k, cta_label)}
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ def accordion(k, desc, programme, benefits, extra_note=""):
 
 FEAT_IMG = "/uploads/scene-theatre-tension-acteurs-method-acting-center.jpg"
 
-d = SESSIONS["a"]
+d = SESSIONS["b"]
 SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE ============ -->
   <section id="stages" data-screen-label="Stages" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
     <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 48px; display: flex; flex-direction: column; gap: 48px">
@@ -162,12 +162,12 @@ SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE =====
         </div>
         <div class="feat-body">
           <span class="feat-tag">Stage à la une</span>
-          <h3>Actors Studio A &mdash; Faites vos premiers pas dans la Méthode.</h3>
-          <p class="feat-desc">Deux jours d'immersion pour découvrir les fondamentaux du jeu d'acteur, apprendre à mobiliser vos émotions et explorer votre créativité à travers des exercices pratiques, accompagnés par les coaches du Method Acting Center.</p>
+          <h3>Actors Studio B &mdash; Approche d'une scène.</h3>
+          <p class="feat-desc">Retenir un texte, c'est 5&nbsp;% du travail. Pendant deux jours, apprenez à le rendre naturel et chargé émotionnellement, comme s'il était spontané, en scènes à deux avec les retours des coaches du Method Acting Center. Le stage Actors Studio A n'est pas un prérequis.</p>
           <ul class="stage-list feat-list">
-            <li>Libérer votre expression et dépasser vos appréhensions.</li>
-            <li>Découvrir comment accéder à des émotions authentiques.</li>
-            <li>Développer votre imagination et votre écoute du partenaire.</li>
+            <li>Comprendre le sous-texte d'une scène.</li>
+            <li>Donner vie à n'importe quel texte, sans le réciter.</li>
+            <li>Infuser vos émotions dans une scène écrite, face à votre partenaire.</li>
           </ul>
           <div class="feat-meta">
             <div><span>Dates</span><strong>{d["date"]}</strong></div>
@@ -175,7 +175,7 @@ SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE =====
             <div><span>Durée</span><strong>{d["duration"]}</strong></div>
             <div><span>Tarif</span><strong class="feat-price">{d["price"]}</strong></div>
           </div>
-          <a href="#reservation" class="feat-cta" data-stage="{esc_attr(value("a"))}">Je m'inscris au stage &rarr;</a>
+          <a href="#reservation" class="feat-cta" data-stage="{esc_attr(value("b"))}">Je m'inscris au stage &rarr;</a>
         </div>
       </article>
       <!-- ====================== fin STAGE À LA UNE ====================== -->
@@ -198,13 +198,13 @@ SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE =====
     [("Scénario", ["Les bases de l'écriture dramaturgique : écrire le comportement humain", "Travailler son inspiration avec des outils concrets", "Construire des personnages complexes et intéressants", "Structurer une intrigue en fonction de ses personnages", "Les bases de la vente d'un scénario"]),
      ("Réalisation & direction d'acteurs", ["Trouver sa vision unique de réalisateur", "Les piliers du langage cinématographique", "Diriger des acteurs pour qu'ils aillent loin dans l'émotion", "Les bases de la gestion de plateau et de l'intelligence sociale de tournage"])],
     ["Des outils pour rendre votre inspiration systématique : dites adieu à la page blanche", "Une introduction aux techniques d'écriture, de réalisation et de direction d'acteurs du Method Acting Center"])}
-{accordion("b", "Approfondissez la Méthode et apprenez à la mettre au service d'une scène et de votre partenaire.",
-    [("Au programme", ["Comprendre le sous-texte d'une scène", "Donner vie au texte de n'importe quelle scène, sans le réciter", "Infuser ses émotions au sein d'une scène écrite", "Travailler des scènes à deux, avec retours du coach"])],
-    ["Rendre un texte naturel et chargé émotionnellement : donner l'illusion qu'il est spontané", "Une version développée de l'atelier « Travail de Scène »"],
-    "Complémentaire au stage Actors Studio A : recommandé avant, mais pas obligatoire.")}
 {accordion("cam", "Découvrez les exigences du jeu face caméra et adaptez votre interprétation à l'image.",
     [("Au programme", ["Respecter des déplacements et des marquages au sol précis", "Adapter son jeu à la valeur du cadre, du gros plan au plan d'ensemble", "Tourner des scènes dans le désordre, comme sur un vrai plateau", "Respecter des placements par rapport à la lumière"])],
     ["Adapter « l'aléatoire » de vos émotions à des limites techniques très précises", "Une introduction au cours « Acting Caméra & Tournages »"])}
+{accordion("a", "Faites vos premiers pas dans la Méthode : déclencher de vraies émotions, se libérer du trac, croire à la situation.",
+    [("Au programme", ["Déclencher de fortes émotions", "Se relaxer et se débarrasser du trac avant de jouer", "Creuser dans son imagination pour croire à la situation", "Se connecter à son partenaire de jeu", "Utiliser les actions physiques pour traduire son monde intérieur"])],
+    ["Les bases du travail émotionnel avec les outils de la Méthode Stanislavski", "Une version développée de l'atelier « Travail Émotionnel »"],
+    "Les prochaines dates ne sont pas encore fixées : réservez pour être prévenu(e) en priorité.", "Être prévenu(e) des prochaines dates")}
       </div>
     </div>
   </section>
@@ -290,7 +290,7 @@ FORM = f'''  <!-- ============ RÉSERVATION ============ -->
           <div style="display: flex; flex-direction: column; gap: 12px">
             <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Les stages qui m'intéressent <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(un ou plusieurs)</span></span>
             <div id="stage-list" style="display: flex; flex-direction: column; gap: 10px">
-{pick("a")}{pick("sc")}{pick("b")}{pick("cam")}{pick("hiv")}{pick("pri")}            </div>
+{pick("sc")}{pick("b")}{pick("hiv")}{pick("cam")}{pick("pri")}{pick("a")}            </div>
             <div id="stages-recap" class="book-recap">Aucun stage sélectionné pour l'instant.</div>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
@@ -408,7 +408,7 @@ reviews = [
 ]
 js_rev = "  var REVIEWS = [\n" + ",\n".join("    " + json.dumps(r, ensure_ascii=False) for r in reviews) + "\n  ];"
 s, n = re.subn(r"  var REVIEWS = \[\n.*?\n  \];", lambda m: js_rev, s, count=1, flags=re.S); assert n == 1
-s, n = re.subn(r"  var JPO_DAYS = .*?\n  var ATELIERS = \[\n.*?\n  \];\n", "", s, count=1, flags=re.S); assert n == 1
+s, n = re.subn(r"  var ATELIERS = \[\n.*?\n  \];\n", "", s, count=1, flags=re.S); assert n == 1
 s, n = re.subn(r"  var PROGRAM = \[\n.*?\n  \];\n", "", s, count=1, flags=re.S); assert n == 1
 s = sub1(s, "initProgram(); initJpo(); initReviews(); initBooking(); initAnchors(); initMobileCta(); }",
             "initExpired(); initJpo(); initReviews(); initStagesForm(); initAnchors(); }", "init line")
@@ -463,8 +463,9 @@ JS = r'''
       });
     });
     try{
+      var STAGE_NAMES=__STAGE_NAMES__;
       var q=new URLSearchParams(location.search).get("stage");
-      if(q){ q.toLowerCase().split(",").forEach(function(key){ var row=document.getElementById("stage-"+key.trim()); var kw=row?row.querySelector(".stage-title").textContent:""; if(kw) tick(boxes.filter(function(b){ return norm(b.value).indexOf(norm(kw))===0; })[0],4000); }); }
+      if(q){ q.toLowerCase().split(",").forEach(function(key){ var kw=STAGE_NAMES[key.trim()]||""; if(kw) tick(boxes.filter(function(b){ return norm(b.value).indexOf(norm(kw))===0; })[0],4000); }); }
     }catch(e){}
 
 
@@ -547,6 +548,7 @@ JS = r'''
   }
 
   /* in-page anchor smooth scroll */'''
+JS = JS.replace("__STAGE_NAMES__", json.dumps({k: v["name"] for k, v in SESSIONS.items()}, ensure_ascii=False))
 s = sub1(s, "\n  /* in-page anchor smooth scroll */", JS, "js insert")
 
 # Fonctions JPO devenues inutiles (programme 4 ans, formulaire ateliers, CTA mobile)

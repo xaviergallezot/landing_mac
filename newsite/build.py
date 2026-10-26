@@ -153,6 +153,9 @@ def jsonld(slug, out, title, desc):
             {"@type": "Question", "name": "Le tarif exact dépend-il de mon programme ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Les tarifs « dès » correspondent au programme de base. Ateliers à l'unité, année avancée ou cumul Acting + Scénario : un devis précis est établi ensemble."}},
             {"@type": "Question", "name": "Puis-je entrer directement en 2e ou 3e année ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, sur audition, selon votre expérience. Les tarifs sont dégressifs à partir de la 3e année d'Acting."}},
             {"@type": "Question", "name": "Et si je ne suis pas sûr(e) ?", "acceptedAnswer": {"@type": "Answer", "text": "Commencez par un cours d'essai gratuit ou un stage d'un week-end. Rien ne vous engage avant la demande d'inscription."}}]})
+    # événements terminés : retirés des données structurées au moment du build
+    today = datetime.date.today().isoformat()
+    graph = [g for g in graph if not (g.get("@type") == "Event" and g.get("endDate", "9999") < today)]
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":"))
 
 def sitemap():

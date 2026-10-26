@@ -465,6 +465,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
 .tl-item.is-on .tl-card{ opacity:1; transform:none; }
 .tl-item.is-on .tl-dot{ background:var(--red); border-color:var(--red); box-shadow:0 0 0 6px rgba(224,38,31,.16); }
 .tl-item.is-past .tl-card{ opacity:.55; filter:grayscale(.4); }
+.tl-item.is-past .pill{ display:none; }
 .tl-item.is-past .tl-dot{ background:rgba(20,18,15,.35); border-color:rgba(20,18,15,.35); box-shadow:none; }
 .tl-date{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:4px; padding:20px 12px; background:var(--ink); color:var(--ondark); }
 .tl-day{ font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(22px,2.2vw,30px); line-height:1; }

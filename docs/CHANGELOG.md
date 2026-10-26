@@ -130,5 +130,30 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   lien correct, aucun débordement, aucune erreur JS).
 - Retour arrière : `git revert` du commit, rebuild.
 
+### 2026-10-26 — [DATES-001]
+
+- Catégorie : contenu / conversion
+- Problème initial : le stage A des 17 & 18 octobre 2026, passé, restait mis en avant sur la page Stages,
+  la page Tarifs, les landings `/jpo/` et `/stages/`, dans `llms.txt` et dans les données structurées ;
+  les landings JPO affichaient encore « horaires communiqués prochainement » et Screenwriting in English ;
+  l'accueil et la page Cours d'essai disaient « Vous avez raté les Portes Ouvertes ? ».
+- Modification : mise en avant des stages des 7 & 8 novembre (Scénario) et 14 & 15 novembre (Stage B) ;
+  stage A présenté en « prochaine session à venir », réservable pour être prévenu ; planning horaire de
+  décembre et cours de la semaine sur `/jpo/` ; atelier du samedi 12 décembre 18h–20h sur `/jposr/` ;
+  Screenwriting in English retiré des landings ; mention des Portes Ouvertes des 12 & 13 décembre sur
+  l'accueil et la page Cours d'essai ; bouton « Réserver » masqué sur les événements passés du planning ;
+  `build.py` retire automatiquement des données structurées les événements terminés ; le préremplissage
+  `?stage=` de la landing `/stages/` ne dépend plus de l'ordre des cartes.
+- Fichiers : `newsite/pages/{stages,tarifs,index,cours-essai}.html`, `newsite/assets/style.css`,
+  `newsite/static/{llms.txt,jpo/index.html,jposr/index.html}`, `newsite/tools/build_landing_stages.py`,
+  `newsite/build.py` ; `dist/` régénéré.
+- Justification : demande du propriétaire du 2026-10-26 ; dates issues du registre de vérité.
+- Tests : build sans assertion ; plus aucune mention du 17-18 octobre hors tableau annuel brut du planning ;
+  Playwright : captures desktop, aucun débordement ni erreur JS, réservations simulées sur `/stages.html`,
+  `/stages/`, `/jpo/` et `/jposr/` avec les bons créneaux, préremplissage `?stage=` vérifié.
+- Retour arrière : `git revert` du commit, rebuild.
+- Suivi : après le 15 novembre, le prochain rendez-vous à mettre en avant sera l'intensif d'hiver
+  (9 & 10 janvier) et les Portes Ouvertes (12 & 13 décembre).
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.
