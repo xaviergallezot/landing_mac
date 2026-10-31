@@ -155,5 +155,23 @@ après avoir écrit ses quatre livrables ; ils sont complets.
 - Suivi : après le 15 novembre, le prochain rendez-vous à mettre en avant sera l'intensif d'hiver
   (9 & 10 janvier) et les Portes Ouvertes (12 & 13 décembre).
 
+### 2026-10-31 — [PLANNING-001]
+
+- Catégorie : contenu / exactitude
+- Source : planning officiel 2026-2027 V3 (PDF transmis par le propriétaire le 2026-10-31).
+- Écarts trouvés avec le planning publié jusque-là : cours du matin 9h30–13h30 devenus 10h–14h ;
+  Acting in English passé du mercredi 15h30–18h30 au vendredi 15h–18h ; Improvisation passée du jeudi
+  15h30–18h30 au vendredi 10h–13h ; Scènes 4 (mardi 15h30–18h30) retiré ; intervenants des cours du soir
+  désormais nommés dans le PDF.
+- Modification : `static/uploads/planning-hebdomadaire.pdf` remplacé par le nouveau PDF (même nom, les liens
+  ne changent pas) ; page Cours d'essai : Acting in English le vendredi 15h–18h (carte et formulaire) ;
+  page Planning et page Inscription : 4e année = 1 atelier de 3 h, le lundi 15h30–18h30 ; `llms.txt` :
+  section « Planning hebdomadaire 2026-2027 » ; registre de vérité complété et contradiction X-2 tranchée.
+- Non modifié : descriptions pédagogiques qui citent Scènes 4 (page Acting, programme de la landing `/jpo/`),
+  en attente de confirmation du propriétaire ; noms des coachs (décision B7 du backlog).
+- Tests : build sans assertion ; pages Cours d'essai, Inscription et Planning chargées en mobile sans
+  erreur ni débordement ; PDF servi correctement.
+- Retour arrière : `git revert` du commit, rebuild.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

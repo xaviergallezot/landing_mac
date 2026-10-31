@@ -53,7 +53,7 @@ signalée avant usage.
 | Public visé | Débutants et acteurs souhaitant se perfectionner | Page acting | À confirmer |
 | Prérequis | Aucun prérequis affiché ; admission sur rendez-vous | Page inscription | À confirmer |
 | Durée | Jusqu'à 4 années | Page acting, llms.txt | Vérifié |
-| Volume horaire | Ateliers hebdomadaires, matin ou soir | Page acting, planning hebdomadaire (PDF) | À confirmer (heures exactes) |
+| Volume horaire | 1re et 2e année : 2 ateliers de 4 h par semaine (matin 10h–14h ou soir 19h–23h) ; 3e année : Composition A & B + Exploration 3 le vendredi 19h–23h, Stratégie de carrière 9 samedis 16h–19h en visio ; 4e année : Acting Caméra & Tournages le lundi 15h30–18h30 | Planning officiel 2026-2027 V3 (PDF transmis par le propriétaire le 2026-10-31, publié sur /uploads/planning-hebdomadaire.pdf) | Vérifié |
 | Prix | dès 370 € / mois, 9 mensualités par an | Page tarifs | Vérifié |
 | Frais annexes | 200 € de frais d'inscription annuels ; semaine intensive de rentrée en supplément : 300 € | Page tarifs | Vérifié |
 | Modalités de paiement | Mensualités ; aucun paiement en ligne, finalisation avec le bureau | Page tarifs | Vérifié |
@@ -72,7 +72,7 @@ signalée avant usage.
 | Public visé | Auteurs, réalisateurs, personnes en reconversion | Page scenario-real | À confirmer |
 | Prérequis | Aucun prérequis affiché | Page scenario-real | À confirmer |
 | Durée | 2 années | Page scenario-real, llms.txt | Vérifié |
-| Volume horaire | Sessions le week-end, atelier d'acting hebdomadaire inclus | Page scenario-real | À confirmer (heures exactes) |
+| Volume horaire | 1re année : 26 samedis (Direction d'acteurs 10h–13h, Scénario & Réalisation 14h–19h) ; 2e année : 24 dimanches (10h–13h et 14h–16h) | Planning officiel 2026-2027 V3 (PDF transmis par le propriétaire le 2026-10-31, publié sur /uploads/planning-hebdomadaire.pdf) | Vérifié |
 | Prix | dès 350 € / mois, 9 mensualités par an | Page tarifs | Vérifié |
 | Frais annexes | 200 € de frais d'inscription annuels | Page tarifs | Vérifié |
 | Modalités de paiement | Mensualités ; aucun paiement en ligne | Page tarifs | Vérifié |
@@ -85,10 +85,10 @@ signalée avant usage.
 
 | Atelier | Valeur | Source | Statut |
 |---|---|---|---|
-| Acting Amateur | atelier hebdomadaire loisir, dès 140 € / mois | Page tarifs | Vérifié |
-| Improvisation | atelier à l'unité | Pages tarifs, inscription | À confirmer (prix) |
-| Acting in English | scènes jouées intégralement en anglais, 15h–18h | Page cours-essai | À confirmer (jour, prix) |
-| Screenwriting in English | atelier à l'unité | Page inscription | À confirmer (prix) |
+| Acting Amateur | atelier hebdomadaire loisir, mercredi 19h30–22h30, dès 140 € / mois | Page tarifs ; Planning officiel 2026-2027 V3 (PDF du 2026-10-31) | Vérifié |
+| Improvisation | atelier à l'unité, vendredi 10h–13h, tous niveaux | Pages tarifs, inscription ; Planning officiel 2026-2027 V3 (PDF transmis par le propriétaire le 2026-10-31, publié sur /uploads/planning-hebdomadaire.pdf) | Vérifié (horaire) / À confirmer (prix) |
+| Acting in English | scènes jouées intégralement en anglais, vendredi 15h–18h | Page cours-essai ; Planning officiel 2026-2027 V3 (PDF transmis par le propriétaire le 2026-10-31, publié sur /uploads/planning-hebdomadaire.pdf) | Vérifié (jour, horaire) / À confirmer (prix) |
+| Screenwriting in English | atelier à l'unité, jeudi 19h30–22h30 | Page inscription ; Planning officiel 2026-2027 V3 (PDF du 2026-10-31) | Vérifié (horaire) / À confirmer (prix) |
 | Marché Professionnel & Stratégie de carrière | 18 sessions : 9 avec intervenants extérieurs, 9 de stratégie de carrière avec David, fondateur du Method Acting Center ; à l'année ou à la session | Page inscription | À confirmer (prix) |
 
 ### Stages
@@ -197,7 +197,7 @@ publier**.
 | # | Sujet | Valeurs en présence | Où | Impact si non tranché |
 |---|---|---|---|---|
 | X-1 | Année de création | 1999 / 2002 / 2009 | site, Coup de théâtre, L'Étudiant | les IA et annuaires continueront à diverger |
-| X-2 | Rythme 4ᵉ année Acting | 1 atelier / 2 ateliers de 3 h | planning vs inscription | information fausse sur une des deux pages |
+| X-2 | Rythme 4ᵉ année Acting | 1 atelier / 2 ateliers de 3 h | planning vs inscription | information fausse sur une des deux pages | **Tranché le 2026-10-31 par le planning officiel V3 : 1 atelier de 3 h, le lundi 15h30–18h30 (Acting Caméra & Tournages). Scènes 4 n'y figure plus.**
 | X-3 | 3ᵉ temps de la Méthode | Reproduire / Composer | acting vs reste du site | description de la pédagogie incohérente |
 | X-4 | Nom des stages | Stage A, Stage B / Actors Studio A, B | site vs landing `/stages/` | confusion avec The Actors Studio (New York) |
 | X-5 | Offre 100 € | expirée le 31/08/2026 / proposée pour janvier 2027 | landings JPO | offre commerciale non valide affichée |
