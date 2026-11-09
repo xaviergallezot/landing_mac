@@ -114,6 +114,15 @@ de prix pour les intensifs tant qu'ils ne sont pas confirmés.
 | JPO mars | 19 au 21 mars 2027 | gratuit | Page planning, llms.txt | Vérifié |
 | JPO mai | 28 au 30 mai 2027 | gratuit | Page planning, llms.txt | Vérifié |
 
+### Modalités et niveaux des stages (brief du propriétaire du 2026-11-09)
+
+| Stage | Valeur | Source | Statut |
+|---|---|---|---|
+| Scénario, réalisation & direction d'acteurs (7 & 8 nov. 2026) | 2 jours, Paris 13ᵉ ou à distance (participation en ligne au choix), dès 160 € | Brief landing /stages/ du propriétaire | Vérifié |
+| Actors Studio B (14 & 15 nov. 2026) | 2 jours, Paris 13ᵉ, dès 160 €, tous niveaux, sans prérequis | Brief landing /stages/ du propriétaire | Vérifié |
+| Acting Caméra (20 & 21 févr. 2027) | 2 jours, Paris 13ᵉ, tarif sur demande ; niveau « tous niveaux » à confirmer par l'école | Brief landing /stages/ du propriétaire | Vérifié / niveau À confirmer (non affiché) |
+| Intensif d'hiver (9 & 10 janv. 2027) et de printemps (16-18 avril 2027) | Paris 13ᵉ, tarif sur demande | Brief landing /stages/ du propriétaire | Vérifié |
+
 ## Équipe pédagogique
 
 Pour chaque personne :

@@ -173,5 +173,31 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   erreur ni débordement ; PDF servi correctement.
 - Retour arrière : `git revert` du commit, rebuild.
 
+### 2026-11-09 — [STAGES-LP-002]
+
+- Catégorie : landing Google Ads `/stages/`
+- Source : brief « Mise à jour landing page stages » du propriétaire, textes intégrés sans reformulation.
+- Fichier : `newsite/tools/build_landing_stages.py` (seul fichier modifié) ; `dist/stages/index.html` régénéré.
+  Aucune autre page du site n'est modifiée.
+- Modifications : encart « Stage à la une » dans le hero (données `HERO_EVENT`) ; rubrique Stages fusionnée
+  (sur-titre « Nos stages · Paris 13ᵉ et en ligne ») ; grande carte Scénario avec encadré participation en
+  ligne et photo réduite ; accordéons Actors Studio B et Acting Caméra (nouvelle UX) ; carte et option
+  Actors Studio A supprimées ; intensifs en cartes sombres ; « Pourquoi » en grille 2 × 2 avec nouveaux
+  textes ; bandeau animé déplacé sous « Pourquoi », sans séparateurs ; formulaire dans l'ordre demandé avec
+  choix obligatoire présentiel / à distance pour le stage d'écriture, transmis dans l'email et le récapitulatif ;
+  liens du footer gris clair, rouges au survol, focus visible.
+- Corrections techniques sur la même page : une seule balise canonical et un seul jeu Open Graph (le second
+  pointait vers `/jpo/`) ; titre « Ils ont tenté l'expérience » sans barre oblique parasite ; liens du footer
+  qui s'affichaient tous en rouge ; zones tactiles des points de carrousel agrandies ; accordéons sans saut de
+  page à l'ouverture.
+- Point d'attention : le stage d'écriture des 7 & 8 novembre 2026 est passé à la date de la livraison
+  (2026-11-09). L'encart du hero, la grande carte et l'option du formulaire sont donc masqués automatiquement
+  en ligne. Les tests ont été faits avec une date simulée au 4 novembre.
+- Tests (Playwright) : desktop 1280 et mobile 390 sans débordement ni erreur JS ; 7 ancres vérifiées sous le
+  header fixe ; 4 accordéons ouverts et fermés sans décalage ; réservation simple, multiple, stage d'écriture
+  sans format (refusée), en présentiel et à distance ; préremplissage cumulatif par les CTA ; conversion
+  `stage_form_success` uniquement après envoi réussi ; couleurs du footer au repos et au survol.
+- Retour arrière : `git revert` du commit, rebuild.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

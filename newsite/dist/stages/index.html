@@ -12,15 +12,7 @@
   <meta property="og:title" content="Stages d'acting à Paris — Method Acting Center">
   <meta property="og:description" content="Un week-end pour vivre la Méthode. Prochain stage d'acting : 14 &amp; 15 novembre 2026, Paris 13ᵉ.">
   <!-- Google Ads / Tag Manager : collez ici votre balise globale (gtag.js ou GTM). Les envois de formulaire réussis déclenchent dataLayer.push({event:"stage_form_success"}) et gtag("event","generate_lead") si gtag est présent. -->
-  <link rel="canonical" href="https://www.methodacting.fr/jpo/">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Method Acting Center">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:url" content="https://www.methodacting.fr/jpo/">
-  <meta property="og:title" content="Method Acting Center — Devenez acteur · Journées Portes Ouvertes à Paris">
-  <meta property="og:description" content="Vous voulez devenir acteur ? Venez vivre la Méthode (Stanislavski / Actors Studio) lors d'une Journée Portes Ouvertes immersive et gratuite au Method Acting Center, Paris.">
-  <meta property="og:image" content="https://www.methodacting.fr/uploads/actrice-emotion-stage-initiation-method-acting-center.jpg">
+  <meta property="og:image" content="https://www.methodacting.fr/uploads/tournage-equipe-terrasse-acteurs-method-acting-center.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style id="mac-landing-style">
@@ -195,59 +187,121 @@
   @media (max-width:1100px){ #mac-landing .start-grid { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:640px){ #mac-landing .start-grid { grid-template-columns:1fr; } #mac-landing .start-media { aspect-ratio:16 / 9; } }
   /* ===== Landing stages ===== */
-  #mac-landing .hero-next { max-width: 34ch; }
   #mac-landing .stage-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
   #mac-landing .stage-list li { position:relative; padding-left:24px; font-size:15.5px; line-height:1.55; color:#3B362F; }
   #mac-landing .stage-list li::before { content:"\2713"; position:absolute; left:0; top:0; color:#E0261F; font-weight:700; }
-  /* stage à la une */
-  #mac-landing .feat { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); background:#FFFFFF; border:1px solid rgba(224,38,31,0.45); border-radius:28px; overflow:hidden; box-shadow:0 30px 60px rgba(224,38,31,0.10); }
-  #mac-landing .feat-media { position:relative; min-height:360px; background:#14120F; }
+  /* hero : encart « stage à la une » */
+  #mac-landing .hero-event { display:flex; flex-direction:column; gap:6px; background:#FFFFFF; border:1px solid rgba(224,38,31,0.45); border-left:4px solid #E0261F; border-radius:16px; padding:16px 18px; max-width:380px; box-shadow:0 14px 30px rgba(224,38,31,0.08); }
+  #mac-landing .hero-event-tag { font-family:'Oswald',sans-serif; font-size:11.5px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; }
+  #mac-landing .hero-event-title { font-family:'Oswald',sans-serif; font-size:19px; text-transform:uppercase; font-weight:700; line-height:1.15; color:#14120F; }
+  #mac-landing .hero-event p { margin:0; font-size:14.5px; line-height:1.5; color:#3B362F; }
+  #mac-landing .hero-event-cta { align-self:flex-start; margin-top:6px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; text-decoration:none; border-bottom:2px solid #E0261F; padding:4px 0 2px; }
+  #mac-landing .hero-event-cta:hover { color:#14120F; border-color:#14120F; }
+  /* stage à la une : photo réduite, texte prioritaire */
+  #mac-landing .feat { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,8fr); background:#FFFFFF; border:1px solid rgba(224,38,31,0.45); border-radius:28px; overflow:hidden; box-shadow:0 30px 60px rgba(224,38,31,0.10); }
+  #mac-landing .feat-media { position:relative; min-height:300px; background:#14120F; }
   #mac-landing .feat-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-  #mac-landing .feat-date { position:absolute; top:22px; left:22px; background:#E0261F; color:#FFFFFF; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:10px 16px; border-radius:999px; box-shadow:0 10px 24px rgba(20,18,15,0.18); }
-  #mac-landing .feat-body { padding:clamp(28px,4vw,52px); display:flex; flex-direction:column; gap:20px; }
+  #mac-landing .feat-date { position:absolute; top:20px; left:20px; background:#E0261F; color:#FFFFFF; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:10px 16px; border-radius:999px; box-shadow:0 10px 24px rgba(20,18,15,0.18); }
+  #mac-landing .feat-body { padding:clamp(26px,3.6vw,46px); display:flex; flex-direction:column; gap:18px; min-width:0; }
   #mac-landing .feat-tag { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:7px 12px; border-radius:999px; }
   #mac-landing .feat-body h3 { font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(26px,2.8vw,38px); text-transform:uppercase; line-height:1.04; margin:0; }
-  #mac-landing .feat-desc { margin:0; font-size:17px; line-height:1.7; color:#3B362F; }
-  #mac-landing .feat-meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:14px 24px; padding:18px 0; border-top:1px solid #EEE9DF; border-bottom:1px solid #EEE9DF; }
-  #mac-landing .feat-meta div { display:flex; flex-direction:column; gap:4px; }
+  #mac-landing .feat-hook { margin:-6px 0 0; font-family:'Oswald',sans-serif; font-size:clamp(18px,1.8vw,22px); font-weight:500; color:#E0261F; line-height:1.3; }
+  #mac-landing .feat-desc { margin:0; font-size:16.5px; line-height:1.7; color:#3B362F; }
+  #mac-landing .feat-meta { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px 20px; padding:16px 0; border-top:1px solid #EEE9DF; border-bottom:1px solid #EEE9DF; }
+  #mac-landing .feat-meta div { display:flex; flex-direction:column; gap:4px; min-width:0; }
   #mac-landing .feat-meta span { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
   #mac-landing .feat-meta strong { font-size:15px; color:#14120F; font-weight:600; line-height:1.3; }
-  #mac-landing .feat-meta .feat-price { font-family:'Oswald',sans-serif; font-size:24px; color:#E0261F; font-weight:700; }
+  #mac-landing .feat-meta .feat-price { font-family:'Oswald',sans-serif; font-size:22px; color:#E0261F; font-weight:700; }
+  #mac-landing .feat-online { display:grid; grid-template-columns:auto 1fr; gap:14px; background:#14120F; color:#F4F1EC; border-radius:18px; padding:20px 22px; }
+  #mac-landing .feat-online-icon { color:#E0261F; font-size:22px; line-height:1.2; }
+  #mac-landing .feat-online strong { display:block; font-family:'Oswald',sans-serif; font-size:18px; text-transform:uppercase; letter-spacing:.5px; line-height:1.2; margin-bottom:6px; }
+  #mac-landing .feat-online p { margin:0 0 10px; font-size:15px; line-height:1.6; color:#D9D3CA; }
+  #mac-landing .feat-online-mode { display:inline-block; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.3px; text-transform:uppercase; font-weight:600; color:#FFFFFF; background:#E0261F; padding:7px 12px; border-radius:999px; }
   #mac-landing .feat-cta { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:#E0261F; color:#FFFFFF; text-decoration:none; padding:18px 34px; border-radius:999px; transition:background .15s ease, transform .15s ease; }
   #mac-landing .feat-cta:hover { background:#14120F; color:#FFFFFF; transform:translateY(-2px); }
-  /* accordéons stages */
-  #mac-landing .stage-head { align-items:flex-start; padding:28px 32px; }
-  #mac-landing .stage-head-main { flex:1; display:flex; flex-direction:column; gap:8px; min-width:0; }
+  /* accordéons stages : carte fermée compacte */
+  #mac-landing .stage-head { align-items:flex-start; padding:24px 30px; }
+  #mac-landing .stage-head-main { flex:1; display:flex; flex-direction:column; gap:7px; min-width:0; }
   #mac-landing .stage-kind { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; }
   #mac-landing .stage-title { font-family:'Oswald',sans-serif; font-size:clamp(20px,2.2vw,27px); text-transform:uppercase; font-weight:600; color:#14120F; margin:0; line-height:1.12; }
-  #mac-landing .stage-meta { display:flex; flex-wrap:wrap; gap:6px 18px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.2px; text-transform:uppercase; color:#6B655C; }
+  #mac-landing .stage-hook { margin:0; font-size:16px; line-height:1.5; color:#3B362F; }
+  #mac-landing .stage-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px 18px; margin-top:2px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.2px; text-transform:uppercase; color:#6B655C; }
   #mac-landing .stage-price { color:#E0261F; font-weight:700; }
-  #mac-landing .stage-short { margin:2px 0 0; font-size:15.5px; line-height:1.6; color:#6B655C; max-width:70ch; }
-  #mac-landing .stage-card.open .jpo-panel { max-height:2200px; }
-  #mac-landing .stage-photo { aspect-ratio:16/8; border-radius:16px; overflow:hidden; background:#14120F; }
+  #mac-landing .stage-level { font-size:11.5px; letter-spacing:1.2px; color:#14120F; background:rgba(224,38,31,0.10); border:1px solid rgba(224,38,31,0.35); padding:5px 10px; border-radius:999px; }
+  #mac-landing .stage-card.open .jpo-panel { max-height:1600px; }
+  /* carte ouverte : texte + photo réduite */
+  #mac-landing .stage-card .jpo-panel-inner.stage-panel { padding:0 30px 30px; display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:28px; align-items:start; }
+  #mac-landing .stage-panel-text { display:flex; flex-direction:column; gap:18px; min-width:0; }
+  #mac-landing .stage-desc { margin:0; font-size:16px; line-height:1.7; color:#3B362F; max-width:70ch; }
+  #mac-landing .stage-photo { aspect-ratio:4/3; border-radius:14px; overflow:hidden; background:#14120F; }
   #mac-landing .stage-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  #mac-landing .stage-note { margin:0; font-size:14px; line-height:1.5; color:#6B655C; font-style:italic; }
-  #mac-landing .stage-card .jpo-panel-inner { padding:0 32px 34px; gap:22px; }
+  #mac-landing .stage-reassure { background:#F7F4EE; border-left:3px solid #E0261F; border-radius:10px; padding:14px 16px; }
+  #mac-landing .stage-reassure strong { display:block; font-size:15px; color:#14120F; margin-bottom:4px; }
+  #mac-landing .stage-reassure p { margin:0; font-size:14.5px; line-height:1.6; color:#6B655C; }
   #mac-landing .stage-card .jpo-field p { max-width:70ch; }
   #mac-landing [data-end].is-expired { display:none !important; }
-  /* pourquoi */
-  #mac-landing .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:20px; }
-  #mac-landing .why-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:30px 32px; display:grid; grid-template-columns:clamp(48px,4.5vw,64px) 1fr; gap:20px; align-items:start; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  /* intensifs : variante sombre */
+  #mac-landing .stage-card--dark { background:#14120F; border-color:#2A2622; }
+  #mac-landing .stage-card--dark.open { border-color:rgba(224,38,31,0.55); box-shadow:0 24px 48px rgba(20,18,15,0.25); }
+  #mac-landing .stage-card--dark .stage-title { color:#FFFFFF; }
+  #mac-landing .stage-card--dark .stage-hook, #mac-landing .stage-card--dark .stage-desc { color:#E6E0D6; }
+  #mac-landing .stage-card--dark .stage-meta { color:#C9C2B8; }
+  #mac-landing .stage-card--dark .stage-price { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .stage-kind { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .jpo-plus { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .jpo-label { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .stage-list li { color:#E6E0D6; }
+  #mac-landing .stage-card--dark .stage-list li::before { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .jpo-field p { color:#C9C2B8; }
+  #mac-landing .stage-card--dark .jpo-cta { background:#E0261F; }
+  #mac-landing .stage-card--dark .jpo-cta:hover { background:#FFFFFF; color:#14120F; }
+  #mac-landing .stage-card--dark .jpo-head:focus-visible, #mac-landing .stage-head:focus-visible { outline:2px solid #E0261F; outline-offset:-4px; border-radius:18px; }
+  /* pourquoi : 2 × 2 */
+  #mac-landing .why-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+  #mac-landing .why-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:24px 28px; display:grid; grid-template-columns:clamp(46px,4.2vw,58px) 1fr; gap:18px; align-items:start; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   #mac-landing .why-card:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
-  #mac-landing .why-num { font-family:'Oswald',sans-serif; font-size:clamp(34px,3.4vw,48px); font-weight:700; color:transparent; -webkit-text-stroke:1.5px #E0261F; line-height:1; }
-  #mac-landing .why-card h3 { font-family:'Oswald',sans-serif; font-size:21px; text-transform:uppercase; margin:0 0 8px; line-height:1.15; }
-  #mac-landing .why-card p { margin:0; font-size:15.5px; line-height:1.65; color:#6B655C; }
+  #mac-landing .why-num { font-family:'Oswald',sans-serif; font-size:clamp(32px,3.2vw,44px); font-weight:700; color:transparent; -webkit-text-stroke:1.5px #E0261F; line-height:1; }
+  #mac-landing .why-card h3 { font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin:0 0 6px; line-height:1.15; }
+  #mac-landing .why-card p { margin:0; font-size:15.5px; line-height:1.6; color:#6B655C; }
+  /* bandeau animé */
+  #mac-landing .mq { overflow:hidden; background:#F7F4EE; padding:8px 0 0; white-space:nowrap; }
+  #mac-landing .mq-track { display:flex; width:max-content; animation:mac-marquee 30s linear infinite; will-change:transform; }
+  #mac-landing .mq-group { display:flex; flex:0 0 auto; }
+  #mac-landing .mq-group span { font-family:'Oswald',sans-serif; font-size:clamp(34px,4.6vw,68px); letter-spacing:3px; text-transform:uppercase; font-weight:600; color:transparent; -webkit-text-stroke:1px #14120F; padding-right:.85em; line-height:1.15; }
+  #mac-landing .mq-group .mq-hl { color:#E0261F; -webkit-text-stroke:0; }
+  @media (prefers-reduced-motion: reduce){ #mac-landing .mq-track { animation:none; } }
   /* formulaire : cases à cocher stages */
-  #mac-landing .stage-pick { display:flex; align-items:flex-start; gap:12px; cursor:pointer; background:#F7F4EE; border:1px solid #EEE9DF; border-left:3px solid #E0261F; border-radius:12px; padding:12px 14px; transition:background .15s ease, box-shadow .15s ease; }
+  #mac-landing .stage-pick { display:flex; align-items:flex-start; gap:12px; cursor:pointer; background:#F7F4EE; border:1px solid #EEE9DF; border-left:3px solid #E0261F; border-radius:12px; padding:13px 14px; transition:background .15s ease, box-shadow .15s ease; }
   #mac-landing .stage-pick:hover { background:#FFFFFF; }
-  #mac-landing .stage-pick input { margin:3px 0 0; width:18px; height:18px; accent-color:#E0261F; flex:0 0 auto; }
+  #mac-landing .stage-pick input { margin:3px 0 0; width:20px; height:20px; accent-color:#E0261F; flex:0 0 auto; }
   #mac-landing .stage-pick > span { display:flex; flex-direction:column; gap:2px; min-width:0; }
   #mac-landing .stage-pick strong { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:.3px; color:#14120F; font-weight:600; line-height:1.25; }
   #mac-landing .stage-pick small { font-size:12.5px; color:#6B655C; line-height:1.4; }
   #mac-landing .stage-pick:has(input:checked) { background:#FFFFFF; box-shadow:0 0 0 2px #E0261F; }
   #mac-landing .stage-pick.is-prefilled { box-shadow:0 0 0 3px rgba(224,38,31,0.35); }
-  @media (max-width:860px){ #mac-landing .feat { grid-template-columns:1fr; } #mac-landing .feat-media { min-height:0; aspect-ratio:16/9; } }
-  @media (max-width:640px){ #mac-landing .stage-head { padding:22px 20px; } #mac-landing .stage-card .jpo-panel-inner { padding:0 20px 26px; } #mac-landing .hero-next { max-width:none; } }
+  #mac-landing .sc-format { margin:-2px 0 4px 18px; }
+  #mac-landing .sc-format fieldset { margin:0; border:1px solid #EEE9DF; border-radius:12px; padding:12px 14px 14px; display:flex; flex-wrap:wrap; gap:10px; background:#FFFFFF; }
+  #mac-landing .sc-format legend { padding:0 6px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#14120F; font-weight:600; }
+  #mac-landing .sc-format .fmt { flex:1 1 200px; display:flex; align-items:center; gap:10px; cursor:pointer; border:1px solid #EEE9DF; border-radius:10px; padding:12px 14px; font-size:15px; color:#14120F; background:#F7F4EE; min-height:48px; }
+  #mac-landing .sc-format .fmt input { width:20px; height:20px; margin:0; accent-color:#E0261F; flex:0 0 auto; }
+  #mac-landing .sc-format .fmt:has(input:checked) { background:#FFFFFF; box-shadow:0 0 0 2px #E0261F; border-color:transparent; }
+  #mac-landing .sc-format.is-error fieldset { border-color:#E0261F; background:rgba(224,38,31,0.06); }
+  @media (max-width:900px){ #mac-landing .feat { grid-template-columns:1fr; } #mac-landing .feat-media { min-height:0; aspect-ratio:16/7; } #mac-landing .feat-meta { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:760px){ #mac-landing .why-grid { grid-template-columns:1fr; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { grid-template-columns:1fr; } #mac-landing .stage-photo { order:-1; aspect-ratio:16/8; max-height:220px; } }
+  @media (max-width:640px){ #mac-landing .stage-head { padding:20px 18px; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { padding:0 18px 24px; } #mac-landing .hero-event { max-width:none; padding:14px 16px; } #mac-landing .feat-online { padding:18px; } #mac-landing .sc-format { margin-left:0; } }
+  /* footer : couleurs harmonisées (cette page uniquement ; #mac-landing a l'emportait et colorait tout en rouge) */
+  #mac-landing .site-footer h4 { color:#FFFFFF; }
+  #mac-landing .site-footer a { color:#DAD4CB; }
+  #mac-landing .site-footer a:hover { color:#E0261F; }
+  #mac-landing .site-footer a[aria-current="page"] { color:#E0261F; }
+  #mac-landing .site-footer a.brand, #mac-landing .site-footer a.brand:hover { color:#E0261F; }
+  #mac-landing .site-footer .footer-alt { border-color:rgba(244,241,236,0.45); }
+  #mac-landing .site-footer .footer-alt:hover { background:#E0261F; border-color:#E0261F; color:#FFFFFF !important; }
+  #mac-landing a:focus-visible, #mac-landing button:focus-visible, #mac-landing input:focus-visible, #mac-landing select:focus-visible, #mac-landing textarea:focus-visible { outline:2px solid #E0261F; outline-offset:3px; border-radius:4px; }
+  /* zones tactiles : points des carrousels et liens de contact */
+  #mac-landing .rev-dot, #mac-landing #hero-dots button { position:relative; }
+  #mac-landing .rev-dot::after, #mac-landing #hero-dots button::after { content:""; position:absolute; inset:-14px -6px; }
+  #mac-landing #reservation a[href^="tel:"], #mac-landing #reservation a[href^="mailto:"], #mac-landing #reservation a[href*="wa.me"] { display:inline-block; padding:8px 0; }
 </style>
 </head>
 <body style="margin:0;background:#F7F4EE">
@@ -283,7 +337,14 @@
         <div class="hero-actions" style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 auto; align-items: stretch">
           <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease, border-color .15s ease; background: #E0261F; color: #FFFFFF" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Découvrir nos stages</a>
           <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease, border-color .15s ease; background: transparent; color: #14120F; padding: 18px 36px; border: 1px solid rgba(20,18,15,0.3)" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Comprendre la Méthode</a>
-          <div class="hero-next" style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; text-align: center; margin-top: 2px">Prochain stage d'acting&nbsp;: <strong style="color: #14120F; font-weight: 600">14 &amp; 15 novembre 2026</strong> &middot; Paris 13ᵉ</div>
+          <!-- encart événement : modifiez HERO_EVENT dans tools/build_landing_stages.py ; masqué automatiquement après le 2026-11-08 -->
+          <aside class="hero-event" data-end="2026-11-08">
+            <span class="hero-event-tag">Stage à la une &middot; 7 &amp; 8 novembre 2026</span>
+            <strong class="hero-event-title">Scénario, réalisation &amp; direction d'acteurs</strong>
+            <p>À Paris ou en ligne, où que vous soyez.</p>
+            <p>Deux jours pour apprendre à donner vie à vos histoires.</p>
+            <a class="hero-event-cta" href="#stage-une">Découvrir ce stage &rarr;</a>
+          </aside>
         </div>
       </div>
       <div data-reveal>
@@ -298,14 +359,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ MARQUEE ============ -->
-  <div data-screen-label="Marquee" style="overflow: hidden; padding: 36px 0 0; white-space: nowrap; background: #F7F4EE">
-    <div style="display: inline-flex; gap: 0; animation: mac-marquee 26s linear infinite; will-change: transform">
-      <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
-      <span style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3.4vw, 48px); letter-spacing: 3px; text-transform: uppercase; font-weight: 600; color: transparent; -webkit-text-stroke: 1px #14120F; padding-right: 56px">D&eacute;clencher &middot; Ma&icirc;triser &middot; Reproduire &middot; <span style="color: #E0261F; -webkit-text-stroke: 0">Jouer vrai</span> &middot; M&eacute;thode Stanislavski &middot; Actors Studio &middot;&nbsp;</span>
-    </div>
-  </div>
 
   <!-- ============ TALENT / METHODE ============ -->
   <section id="methode" data-screen-label="La Methode" style="background: #0B0A0A; color: #F4F1EC; border-radius: 40px 40px 0 0">
@@ -346,132 +399,110 @@
     </div>
   </section>
 
-  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE ============ -->
+  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE + STAGES WEEK-END ============ -->
   <section id="stages" data-screen-label="Stages" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 48px; display: flex; flex-direction: column; gap: 48px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; display: flex; flex-direction: column; gap: 48px">
       <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ et en ligne</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">La Méthode ne se comprend pas seulement. <span style="color: #E0261F">Elle se vit.</span></h2>
         <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F">Découvrez nos stages pratiques. Que vous souhaitiez faire vos premiers pas dans le jeu d'acteur, approfondir votre technique ou explorer l'écriture et la réalisation, chaque stage est une occasion d'expérimenter, de créer et de progresser.</p>
       </div>
 
+      <div style="display: flex; flex-direction: column; gap: 16px">
       <!-- ======================================================================
-           STAGE À LA UNE — bloc autonome.
-           Après le 2026-11-15 il est masqué automatiquement (data-end). Pour le remplacer :
-           changez la session dans SESSIONS (script de génération) ou éditez le bloc ci-dessous
-           sans toucher à l'introduction permanente au-dessus.
+           STAGE À LA UNE — Scénario, réalisation & direction d'acteurs.
+           Masqué automatiquement après le 2026-11-08 (data-end). Dates et tarif : SESSIONS["sc"].
            ====================================================================== -->
-      <article class="feat" data-reveal data-end="2026-11-15" id="stage-une">
+      <article class="feat" data-reveal data-end="2026-11-08" id="stage-une">
         <div class="feat-media">
-          <img src="/uploads/scene-theatre-tension-acteurs-method-acting-center.jpg" alt="Scène de tension jouée par deux élèves acteurs du Method Acting Center" style="object-position: 50% 45%">
-          <span class="feat-date">14 & 15 novembre 2026</span>
+          <img src="/uploads/tournage-equipe-terrasse-acteurs-method-acting-center.jpg" alt="Tournage en extérieur : équipe et acteurs d'un projet du Method Acting Center" style="object-position: 80% 50%">
+          <span class="feat-date">7 &amp; 8 novembre 2026</span>
         </div>
         <div class="feat-body">
           <span class="feat-tag">Stage à la une</span>
-          <h3>Actors Studio B &mdash; Approche d'une scène.</h3>
-          <p class="feat-desc">Retenir un texte, c'est 5&nbsp;% du travail. Pendant deux jours, apprenez à le rendre naturel et chargé émotionnellement, comme s'il était spontané, en scènes à deux avec les retours des coaches du Method Acting Center. Le stage Actors Studio A n'est pas un prérequis.</p>
-          <ul class="stage-list feat-list">
-            <li>Comprendre le sous-texte d'une scène.</li>
-            <li>Donner vie à n'importe quel texte, sans le réciter.</li>
-            <li>Infuser vos émotions dans une scène écrite, face à votre partenaire.</li>
-          </ul>
+          <h3>Scénario, réalisation &amp; direction d'acteurs</h3>
+          <p class="feat-hook">De l'idée à l'écran, apprenez à donner vie à vos histoires.</p>
           <div class="feat-meta">
-            <div><span>Dates</span><strong>14 & 15 novembre 2026</strong></div>
-            <div><span>Lieu</span><strong>Method Acting Center, Paris 13ᵉ</strong></div>
-            <div><span>Durée</span><strong>2 jours (week-end)</strong></div>
+            <div><span>Dates</span><strong>7 &amp; 8 novembre 2026</strong></div>
+            <div><span>Durée</span><strong>2 jours</strong></div>
+            <div><span>Lieu</span><strong>Paris 13ᵉ ou à distance</strong></div>
             <div><span>Tarif</span><strong class="feat-price">dès 160 €</strong></div>
           </div>
-          <a href="#reservation" class="feat-cta" data-stage="Actors Studio B — Approche d'une scène (14 &amp; 15 novembre 2026)">Je m'inscris au stage &rarr;</a>
+          <p class="feat-desc">Pendant deux jours, découvrez des techniques concrètes pour développer votre inspiration, construire des personnages captivants et transformer vos idées en récits. Explorez également les fondamentaux de la réalisation et de la direction d'acteurs pour donner vie à votre vision.</p>
+          <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span>
+            <ul class="stage-list">
+              <li>Développer votre créativité et trouver l'inspiration grâce à des outils d'écriture concrets.</li>
+              <li>Construire des histoires et des personnages qui suscitent l'intérêt et l'émotion.</li>
+              <li>Donner vie à votre vision en découvrant les bases de la mise en scène et de la direction d'acteurs.</li>
+            </ul>
+          </div>
+          <div class="feat-online">
+            <span class="feat-online-icon" aria-hidden="true">&#9673;</span>
+            <div>
+              <strong>Vous n'habitez pas en région parisienne&nbsp;?</strong>
+              <p>Bonne nouvelle : vous pouvez aussi participer à ce stage à distance ! Grâce à des outils et supports dédiés, découvrez et expérimentez les techniques d'écriture et de création du Method Acting Center depuis chez vous.</p>
+              <span class="feat-online-mode">Présentiel à Paris ou participation en ligne, au choix.</span>
+            </div>
+          </div>
+          <a href="#reservation" class="feat-cta" data-stage="Scénario, réalisation &amp; direction d'acteurs (7 &amp; 8 novembre 2026)">Je m'inscris au stage &rarr;</a>
         </div>
       </article>
       <!-- ====================== fin STAGE À LA UNE ====================== -->
-    </div>
-  </section>
 
-  <!-- ============ AUTRES STAGES WEEK-END ============ -->
-  <section id="weekend" data-screen-label="Stages week-end" style="background: #F7F4EE">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; display: flex; flex-direction: column; gap: 32px">
-      <div data-reveal style="display: flex; flex-direction: column; gap: 14px; max-width: 64ch">
-        <div style="display: flex; align-items: center; gap: 12px">
-          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Autres stages week-end</span>
-        </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(32px, 4vw, 56px); text-transform: uppercase; line-height: 1.02; margin: 0">Deux jours, <span style="color: #E0261F">une technique.</span></h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #6B655C">Chaque stage est autonome et se réserve indépendamment. Dépliez une carte pour voir le programme détaillé.</p>
-      </div>
-      <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
-        <!-- session sc : 7 & 8 novembre 2026 — masquée automatiquement après le 2026-11-08 ; supprimez le bloc pour la retirer définitivement -->
-        <div class="jpo-card stage-card" data-end="2026-11-08" id="stage-sc">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false">
+      <!-- ============ STAGES WEEK-END (accordéons) ============ -->
+      <div id="weekend" data-reveal style="display: flex; flex-direction: column; gap: 16px">
+        <!-- session b : 14 &amp; 15 novembre 2026 — masquée automatiquement après le 2026-11-15 ; données dans SESSIONS -->
+        <div class="jpo-card stage-card" data-end="2026-11-15" id="stage-b">
+          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-b">
             <div class="stage-head-main">
               <span class="stage-kind">Stage week-end</span>
-              <h3 class="stage-title">Scénario, réalisation & direction d'acteurs</h3>
-              <div class="stage-meta"><span>7 & 8 novembre 2026</span><span>2 jours (week-end)</span><span class="stage-price">dès 160 €</span></div>
-              <p class="stage-short">Explorez les liens entre écriture, mise en scène et direction d'acteurs, de l'intention à sa concrétisation.</p>
+              <h3 class="stage-title">Actors Studio B — Approche d'une scène</h3>
+              <p class="stage-hook">Donnez vie à un personnage. Faites exister une scène.</p>
+              <div class="stage-meta"><span>14 &amp; 15 novembre 2026 &middot; 2 jours</span><span>Paris 13ᵉ</span><span class="stage-price">dès 160 €</span><span class="stage-level">Tous niveaux · Sans prérequis</span></div>
             </div>
             <span class="jpo-plus" aria-hidden="true">+</span>
           </button>
-          <div class="jpo-panel">
-            <div class="jpo-panel-inner">
-              <div class="stage-photo"><img src="/uploads/tournage-equipe-terrasse-acteurs-method-acting-center.jpg" alt="Scénario, réalisation & direction d'acteurs — Method Acting Center" loading="lazy"></div>
-              <div class="jpo-field"><span class="jpo-label">Scénario</span><ul class="stage-list"><li>Les bases de l'écriture dramaturgique : écrire le comportement humain</li><li>Travailler son inspiration avec des outils concrets</li><li>Construire des personnages complexes et intéressants</li><li>Structurer une intrigue en fonction de ses personnages</li><li>Les bases de la vente d'un scénario</li></ul></div><div class="jpo-field"><span class="jpo-label">Réalisation & direction d'acteurs</span><ul class="stage-list"><li>Trouver sa vision unique de réalisateur</li><li>Les piliers du langage cinématographique</li><li>Diriger des acteurs pour qu'ils aillent loin dans l'émotion</li><li>Les bases de la gestion de plateau et de l'intelligence sociale de tournage</li></ul></div>
-              <div class="jpo-field"><span class="jpo-label">Ce que vous en retirez</span><ul class="stage-list"><li>Des outils pour rendre votre inspiration systématique : dites adieu à la page blanche</li><li>Une introduction aux techniques d'écriture, de réalisation et de direction d'acteurs du Method Acting Center</li></ul></div>
-              <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 2 jours (week-end) &middot; dès 160 €. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-              
-              <a href="#reservation" class="jpo-cta" data-stage="Scénario, réalisation &amp; direction d'acteurs (7 &amp; 8 novembre 2026)">Je m'inscris au stage &rarr;</a>
+          <div class="jpo-panel" id="panel-b">
+            <div class="jpo-panel-inner stage-panel">
+              <div class="stage-panel-text">
+                <p class="stage-desc">Passez de la technique à l'interprétation. Pendant deux jours, apprenez à utiliser les outils de la Méthode pour construire une scène, développer votre relation au partenaire et donner davantage de justesse à votre jeu.</p>
+                <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span><ul class="stage-list"><li>Construire une scène en comprenant ses enjeux et les intentions de votre personnage.</li><li>Développer votre écoute et votre réactivité pour créer une véritable connexion avec votre partenaire.</li><li>Donner de la justesse à votre interprétation en mettant vos émotions au service de la scène.</li></ul></div>
+                <div class="stage-reassure"><strong>Accessible à tous les niveaux, sans prérequis.</strong><p>Que vous découvriez la Méthode ou souhaitiez approfondir votre pratique, nos coaches adaptent leur accompagnement à votre expérience et à votre progression.</p></div>
+                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 14 &amp; 15 novembre 2026 &middot; 2 jours &middot; dès 160 €. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
+                <a href="#reservation" class="jpo-cta" data-stage="Actors Studio B — Approche d'une scène (14 &amp; 15 novembre 2026)">Je m'inscris au stage &rarr;</a>
+              </div>
+              <div class="stage-photo"><img src="/uploads/scene-de-bar-acteur-tournage-method-acting-center.jpg" alt="Actors Studio B — Approche d'une scène — Method Acting Center" loading="lazy"></div>
             </div>
           </div>
         </div>
-
-        <!-- session cam : 20 & 21 février 2027 — masquée automatiquement après le 2027-02-21 ; supprimez le bloc pour la retirer définitivement -->
+        <!-- session cam : 20 &amp; 21 février 2027 — masquée automatiquement après le 2027-02-21 ; données dans SESSIONS -->
         <div class="jpo-card stage-card" data-end="2027-02-21" id="stage-cam">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false">
+          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-cam">
             <div class="stage-head-main">
               <span class="stage-kind">Stage week-end</span>
               <h3 class="stage-title">Acting Caméra</h3>
-              <div class="stage-meta"><span>20 & 21 février 2027</span><span>2 jours (week-end)</span><span class="stage-price">Tarif sur demande</span></div>
-              <p class="stage-short">Découvrez les exigences du jeu face caméra et adaptez votre interprétation à l'image.</p>
+              <p class="stage-hook">Apprenez à jouer juste, même quand la caméra capte tout.</p>
+              <div class="stage-meta"><span>20 &amp; 21 février 2027 &middot; 2 jours</span><span>Paris 13ᵉ</span><span class="stage-price">Tarif sur demande</span></div>
             </div>
             <span class="jpo-plus" aria-hidden="true">+</span>
           </button>
-          <div class="jpo-panel">
-            <div class="jpo-panel-inner">
+          <div class="jpo-panel" id="panel-cam">
+            <div class="jpo-panel-inner stage-panel">
+              <div class="stage-panel-text">
+                <p class="stage-desc">Face à la caméra, chaque détail compte. Pendant deux jours, découvrez les spécificités du jeu à l'image, apprenez à adapter votre interprétation au cadrage et explorez comment transmettre des émotions authentiques avec naturel et précision.</p>
+                <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span><ul class="stage-list"><li>Adapter votre jeu à la caméra en comprenant les exigences du cadrage et les nuances de l'interprétation à l'écran.</li><li>Gagner en naturel et en justesse pour transmettre des émotions authentiques, même dans les plans les plus rapprochés.</li><li>Développer votre aisance face à l'objectif et apprendre à mobiliser vos outils d'acteur dans les conditions du tournage.</li></ul></div>
+                
+                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 20 &amp; 21 février 2027 &middot; 2 jours &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
+                <a href="#reservation" class="jpo-cta" data-stage="Acting Caméra (20 &amp; 21 février 2027)">Je m'inscris au stage &rarr;</a>
+              </div>
               <div class="stage-photo"><img src="/uploads/retour-camera-tournage-exterieur-actrices-method-acting-center.jpg" alt="Acting Caméra — Method Acting Center" loading="lazy"></div>
-              <div class="jpo-field"><span class="jpo-label">Au programme</span><ul class="stage-list"><li>Respecter des déplacements et des marquages au sol précis</li><li>Adapter son jeu à la valeur du cadre, du gros plan au plan d'ensemble</li><li>Tourner des scènes dans le désordre, comme sur un vrai plateau</li><li>Respecter des placements par rapport à la lumière</li></ul></div>
-              <div class="jpo-field"><span class="jpo-label">Ce que vous en retirez</span><ul class="stage-list"><li>Adapter « l'aléatoire » de vos émotions à des limites techniques très précises</li><li>Une introduction au cours « Acting Caméra & Tournages »</li></ul></div>
-              <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 2 jours (week-end) &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-              
-              <a href="#reservation" class="jpo-cta" data-stage="Acting Caméra (20 &amp; 21 février 2027)">Je m'inscris au stage &rarr;</a>
             </div>
           </div>
         </div>
-
-        <!-- session a : Prochaine session : dates à venir — masquée automatiquement après le 2099-12-31 ; supprimez le bloc pour la retirer définitivement -->
-        <div class="jpo-card stage-card" data-end="2099-12-31" id="stage-a">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false">
-            <div class="stage-head-main">
-              <span class="stage-kind">Stage week-end</span>
-              <h3 class="stage-title">Actors Studio A — Faites vos premiers pas dans la Méthode</h3>
-              <div class="stage-meta"><span>Prochaine session : dates à venir</span><span>2 jours (week-end)</span><span class="stage-price">dès 160 €</span></div>
-              <p class="stage-short">Faites vos premiers pas dans la Méthode : déclencher de vraies émotions, se libérer du trac, croire à la situation.</p>
-            </div>
-            <span class="jpo-plus" aria-hidden="true">+</span>
-          </button>
-          <div class="jpo-panel">
-            <div class="jpo-panel-inner">
-              <div class="stage-photo"><img src="/uploads/actrice-emotion-forte-method-acting-center.jpg" alt="Actors Studio A — Faites vos premiers pas dans la Méthode — Method Acting Center" loading="lazy"></div>
-              <div class="jpo-field"><span class="jpo-label">Au programme</span><ul class="stage-list"><li>Déclencher de fortes émotions</li><li>Se relaxer et se débarrasser du trac avant de jouer</li><li>Creuser dans son imagination pour croire à la situation</li><li>Se connecter à son partenaire de jeu</li><li>Utiliser les actions physiques pour traduire son monde intérieur</li></ul></div>
-              <div class="jpo-field"><span class="jpo-label">Ce que vous en retirez</span><ul class="stage-list"><li>Les bases du travail émotionnel avec les outils de la Méthode Stanislavski</li><li>Une version développée de l'atelier « Travail Émotionnel »</li></ul></div>
-              <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 2 jours (week-end) &middot; dès 160 €. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-              <p class="stage-note">Les prochaines dates ne sont pas encore fixées : réservez pour être prévenu(e) en priorité.</p>
-              <a href="#reservation" class="jpo-cta" data-stage="Actors Studio A — Faites vos premiers pas dans la Méthode (Prochaine session : dates à venir)">Être prévenu(e) des prochaines dates &rarr;</a>
-            </div>
-          </div>
-        </div>
-
+      </div>
       </div>
     </div>
   </section>
@@ -488,59 +519,61 @@
         <p style="margin: 0; font-size: 18px; line-height: 1.75; color: #3B362F">Profitez des vacances pour vous immerger dans la pratique du jeu d'acteur. Pendant plusieurs jours, approfondissez votre technique, explorez de nouvelles facettes de votre jeu et progressez à votre rythme, accompagnés par les coaches du Method Acting Center.</p>
       </div>
       <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
-        <!-- session hiv : 9 & 10 janvier 2027 — masquée automatiquement après le 2027-01-10 ; supprimez le bloc pour la retirer définitivement -->
-        <div class="jpo-card stage-card" data-end="2027-01-10" id="stage-hiv">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false">
+        <!-- session hiv : 9 &amp; 10 janvier 2027 — masquée automatiquement après le 2027-01-10 ; données dans SESSIONS -->
+        <div class="jpo-card stage-card stage-card--dark" data-end="2027-01-10" id="stage-hiv">
+          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-hiv">
             <div class="stage-head-main">
               <span class="stage-kind">Stage intensif</span>
               <h3 class="stage-title">Stage intensif d'hiver</h3>
-              <div class="stage-meta"><span>9 & 10 janvier 2027</span><span>2 jours</span><span class="stage-price">Tarif sur demande</span></div>
-              <p class="stage-short">Le stage de la rentrée décalée de janvier 2027 : deux jours pour condenser les techniques des stages Actors Studio A et B.</p>
+              <p class="stage-hook">Deux jours pour aller plus loin dans votre jeu.</p>
+              <div class="stage-meta"><span>9 &amp; 10 janvier 2027 &middot; 2 jours</span><span>Paris 13ᵉ</span><span class="stage-price">Tarif sur demande</span></div>
             </div>
             <span class="jpo-plus" aria-hidden="true">+</span>
           </button>
-          <div class="jpo-panel">
-            <div class="jpo-panel-inner">
+          <div class="jpo-panel" id="panel-hiv">
+            <div class="jpo-panel-inner stage-panel">
+              <div class="stage-panel-text">
+                <p class="stage-desc">Le stage intensif d'hiver rassemble les techniques des stages Actors Studio A et B dans une expérience concentrée. Explorez vos émotions, développez votre imagination et apprenez à donner vie à des scènes grâce à un accompagnement pratique.</p>
+                <div class="jpo-field"><span class="jpo-label">Ce que vous allez expérimenter</span><ul class="stage-list"><li>Explorer vos émotions pour nourrir votre interprétation et gagner en authenticité.</li><li>Construire une scène avec votre partenaire, du travail préparatoire jusqu'à l'interprétation.</li><li>Comprendre le sous-texte et découvrir comment donner plusieurs sens à une même réplique.</li></ul></div>
+                
+                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 9 &amp; 10 janvier 2027 &middot; 2 jours &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
+                <a href="#reservation" class="jpo-cta" data-stage="Stage intensif d'hiver (9 &amp; 10 janvier 2027)">Je m'inscris au stage &rarr;</a>
+              </div>
               <div class="stage-photo"><img src="/uploads/tournage-exterieur-foret-acteurs-method-acting-center.jpg" alt="Stage intensif d'hiver — Method Acting Center" loading="lazy"></div>
-              <div class="jpo-field"><span class="jpo-label">Au programme</span><ul class="stage-list"><li>Exploration émotionnelle : creuser en soi pour trouver ce qui vous touche, puis alimenter ce travail avec d'autres outils</li><li>Backstory : création des binômes, élaboration des répétitions, passage des scènes préparées, retours du coach et reprises</li><li>Atelier « Mini-Scènes » : des scènes de 4 répliques qui ne veulent rien dire hors contexte — la démonstration la plus directe du sous-texte</li></ul></div>
-              
-              <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 2 jours &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-              <p class="stage-note">L'ordre et le dosage des ateliers varient selon le planning.</p>
-              <a href="#reservation" class="jpo-cta" data-stage="Stage intensif d'hiver (9 &amp; 10 janvier 2027)">Je m'inscris au stage &rarr;</a>
             </div>
           </div>
         </div>
-
-        <!-- session pri : 16, 17 & 18 avril 2027 — masquée automatiquement après le 2027-04-18 ; supprimez le bloc pour la retirer définitivement -->
-        <div class="jpo-card stage-card" data-end="2027-04-18" id="stage-pri">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false">
+        <!-- session pri : 16, 17 &amp; 18 avril 2027 — masquée automatiquement après le 2027-04-18 ; données dans SESSIONS -->
+        <div class="jpo-card stage-card stage-card--dark" data-end="2027-04-18" id="stage-pri">
+          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-pri">
             <div class="stage-head-main">
               <span class="stage-kind">Stage intensif</span>
               <h3 class="stage-title">Stage intensif de printemps</h3>
-              <div class="stage-meta"><span>16, 17 & 18 avril 2027</span><span>3 jours</span><span class="stage-price">Tarif sur demande</span></div>
-              <p class="stage-short">Trois jours pendant les vacances de printemps pour approfondir votre technique et explorer de nouvelles facettes de votre jeu.</p>
+              <p class="stage-hook">3 jours pour donner plus de profondeur à votre jeu.</p>
+              <div class="stage-meta"><span>16, 17 &amp; 18 avril 2027 &middot; 3 jours</span><span>Paris 13ᵉ</span><span class="stage-price">Tarif sur demande</span></div>
             </div>
             <span class="jpo-plus" aria-hidden="true">+</span>
           </button>
-          <div class="jpo-panel">
-            <div class="jpo-panel-inner">
+          <div class="jpo-panel" id="panel-pri">
+            <div class="jpo-panel-inner stage-panel">
+              <div class="stage-panel-text">
+                <p class="stage-desc">Profitez de trois jours d'immersion pour approfondir votre pratique du jeu d'acteur. À travers des exercices d'exploration émotionnelle et de travail de scène, développez votre créativité, votre spontanéité et votre capacité à donner vie à un personnage, accompagné par les coaches du Method Acting Center.</p>
+                <div class="jpo-field"><span class="jpo-label">Ce que vous allez expérimenter</span><ul class="stage-list"><li>Explorer votre palette émotionnelle pour enrichir votre interprétation.</li><li>Approfondir le travail de scène en développant votre écoute, votre imagination et votre relation au partenaire.</li><li>Gagner en liberté et en justesse grâce à une pratique intensive et aux retours des coaches.</li></ul></div>
+                
+                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 16, 17 &amp; 18 avril 2027 &middot; 3 jours &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
+                <a href="#reservation" class="jpo-cta" data-stage="Stage intensif de printemps (16, 17 &amp; 18 avril 2027)">Je m'inscris au stage &rarr;</a>
+              </div>
               <div class="stage-photo"><img src="/uploads/direction-acteurs-stage-scenario-realisation-method-acting-center.jpg" alt="Stage intensif de printemps — Method Acting Center" loading="lazy"></div>
-              <div class="jpo-field"><span class="jpo-label">Au programme</span><ul class="stage-list"><li>Exploration émotionnelle : creuser en soi pour trouver ce qui vous touche, puis alimenter ce travail avec d'autres outils</li><li>Backstory : création des binômes, élaboration des répétitions, passage des scènes préparées, retours du coach et reprises</li><li>Atelier « Mini-Scènes » : des scènes de 4 répliques qui ne veulent rien dire hors contexte — la démonstration la plus directe du sous-texte</li></ul></div>
-              
-              <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 3 jours &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-              <p class="stage-note">L'ordre et le dosage des ateliers varient selon le planning.</p>
-              <a href="#reservation" class="jpo-cta" data-stage="Stage intensif de printemps (16, 17 &amp; 18 avril 2027)">Je m'inscris au stage &rarr;</a>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ============ POURQUOI LE METHOD ACTING CENTER ============ -->
   <section id="pourquoi" data-screen-label="Pourquoi" style="background: #F7F4EE">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 40px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 48px; display: flex; flex-direction: column; gap: 40px">
       <div data-reveal style="display: flex; flex-direction: column; gap: 18px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
@@ -550,19 +583,27 @@
         <p style="margin: 0; font-size: 18px; line-height: 1.75; color: #3B362F">Au Method Acting Center, apprendre à jouer, c'est aussi apprendre à explorer, à expérimenter et à prendre des risques. Nos coaches vous accompagnent dans un environnement à la fois bienveillant et exigeant, où chacun peut progresser à son rythme.</p>
       </div>
       <div class="why-grid">
-        <div class="why-card" data-reveal><span class="why-num">01</span><div><h3>Une Méthode concrète, éprouvée depuis plus de 25 ans</h3><p>Inspirée de Stanislavski et de l'Actors Studio, la Méthode vous apprend à ressentir et à jouer vrai grâce à des outils précis, enrichis au fil des années pour répondre aux exigences du métier d'acteur d'aujourd'hui.</p></div></div>
-        <div class="why-card" data-reveal><span class="why-num">02</span><div><h3>Des coaches en activité</h3><p>Acteurs et professionnels toujours présents sur les plateaux, aux castings et sur les tournages, ils transmettent un savoir-faire ancré dans les réalités du métier.</p></div></div>
-        <div class="why-card" data-reveal><span class="why-num">03</span><div><h3>Un cadre bienveillant et exigeant</h3><p>Un environnement où vous pouvez expérimenter, vous tromper et recommencer, avec des retours constructifs pour progresser et développer votre singularité.</p></div></div>
-        <div class="why-card" data-reveal><span class="why-num">04</span><div><h3>Une véritable communauté de création</h3><p>Acteurs, scénaristes et réalisateurs se rencontrent, échangent et collaborent autour de projets communs. Une dynamique qui se prolonge au-delà des cours.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">01</span><div><h3>Une Méthode concrète, éprouvée depuis plus de 25 ans</h3><p>Inspirée de Stanislavski et de l'Actors Studio, notre Méthode vous apprend à ressentir et à jouer vrai grâce à des outils concrets, enrichis depuis 1999.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">02</span><div><h3>Des coaches en activité</h3><p>Acteurs et professionnels en activité, nos coaches transmettent une expérience concrète des plateaux, castings et tournages.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">03</span><div><h3>Un cadre bienveillant et exigeant</h3><p>Un environnement où vous pouvez expérimenter, vous tromper et progresser grâce à un accompagnement personnalisé et des retours constructifs.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">04</span><div><h3>Une véritable communauté de création</h3><p>Acteurs, scénaristes et réalisateurs se rencontrent et collaborent autour de projets communs, au-delà des cours.</p></div></div>
       </div>
     </div>
   </section>
 
+  <!-- ============ BANDEAU ANIMÉ (déplacé sous « Pourquoi ») ============ -->
+  <div class="mq" data-screen-label="Marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span class="mq-group"><span>Déclencher</span><span>Maîtriser</span><span>Reproduire</span><span class="mq-hl">Jouer vrai</span><span>Méthode Stanislavski</span></span>
+      <span class="mq-group"><span>Déclencher</span><span>Maîtriser</span><span>Reproduire</span><span class="mq-hl">Jouer vrai</span><span>Méthode Stanislavski</span></span>
+    </div>
+  </div>
+
   <!-- ============ AVIS (carrousel) ============ -->
   <section id="avis" data-screen-label="Avis" style="background: #F7F4EE; overflow: hidden">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 40px; display: flex; flex-direction: column; gap: 44px; width: 100%; box-sizing: border-box">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 44px; width: 100%; box-sizing: border-box">
       <div data-reveal style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap">
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(32px, 4vw, 60px); text-transform: uppercase; line-height: 1.02; margin: 0; max-width: 20ch">Ils ont tenté <span style="color: #E0261F">l\'expérience.</span></h2>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(32px, 4vw, 60px); text-transform: uppercase; line-height: 1.02; margin: 0; max-width: 20ch">Ils ont tenté <span style="color: #E0261F">l’expérience.</span></h2>
         <div style="display: flex; flex-direction: column; gap: 6px">
           <span style="color: #F5B301; font-size: 22px; letter-spacing: 3px">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <span style="font-size: 15px; color: #6B655C"><strong style="color: #14120F">4,8/5</strong> sur Google</span>
@@ -635,17 +676,23 @@
             <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Les stages qui m'intéressent <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(un ou plusieurs)</span></span>
             <div id="stage-list" style="display: flex; flex-direction: column; gap: 10px">
             <!-- session sc — masquée automatiquement après le 2026-11-08 -->
-            <label class="stage-pick" data-end="2026-11-08"><input type="checkbox" name="stage" value="Scénario, réalisation &amp; direction d'acteurs (7 &amp; 8 novembre 2026)" data-date="7 & 8 novembre 2026" data-price="dès 160 €"><span><strong>Scénario, réalisation & direction d'acteurs</strong><small>Stage week-end &middot; 7 & 8 novembre 2026 &middot; dès 160 €</small></span></label>
+            <label class="stage-pick" data-end="2026-11-08"><input type="checkbox" name="stage" data-key="sc" value="Scénario, réalisation &amp; direction d'acteurs (7 &amp; 8 novembre 2026)" data-date="7 &amp; 8 novembre 2026" data-price="dès 160 €"><span><strong>Scénario, réalisation &amp; direction d'acteurs</strong><small>Stage week-end &middot; 7 &amp; 8 novembre 2026 &middot; dès 160 €</small></span></label>
+            <!-- choix du format, visible seulement quand le stage d'écriture est coché -->
+            <div class="sc-format" id="sc-format" data-end="2026-11-08" style="display:none">
+              <fieldset>
+                <legend>Comment souhaitez-vous participer&nbsp;?</legend>
+                <label class="fmt"><input type="radio" name="format_sc" value="En présentiel — Paris 13ᵉ"><span>En présentiel &mdash; Paris 13ᵉ</span></label>
+                <label class="fmt"><input type="radio" name="format_sc" value="À distance — En ligne"><span>À distance &mdash; En ligne</span></label>
+              </fieldset>
+            </div>
             <!-- session b — masquée automatiquement après le 2026-11-15 -->
-            <label class="stage-pick" data-end="2026-11-15"><input type="checkbox" name="stage" value="Actors Studio B — Approche d'une scène (14 &amp; 15 novembre 2026)" data-date="14 & 15 novembre 2026" data-price="dès 160 €"><span><strong>Actors Studio B — Approche d'une scène</strong><small>Stage week-end &middot; 14 & 15 novembre 2026 &middot; dès 160 €</small></span></label>
-            <!-- session hiv — masquée automatiquement après le 2027-01-10 -->
-            <label class="stage-pick" data-end="2027-01-10"><input type="checkbox" name="stage" value="Stage intensif d'hiver (9 &amp; 10 janvier 2027)" data-date="9 & 10 janvier 2027" data-price="Tarif sur demande"><span><strong>Stage intensif d'hiver</strong><small>Stage intensif &middot; 9 & 10 janvier 2027 &middot; Tarif sur demande</small></span></label>
+            <label class="stage-pick" data-end="2026-11-15"><input type="checkbox" name="stage" data-key="b" value="Actors Studio B — Approche d'une scène (14 &amp; 15 novembre 2026)" data-date="14 &amp; 15 novembre 2026" data-price="dès 160 €"><span><strong>Actors Studio B — Approche d'une scène</strong><small>Stage week-end &middot; 14 &amp; 15 novembre 2026 &middot; dès 160 €</small></span></label>
             <!-- session cam — masquée automatiquement après le 2027-02-21 -->
-            <label class="stage-pick" data-end="2027-02-21"><input type="checkbox" name="stage" value="Acting Caméra (20 &amp; 21 février 2027)" data-date="20 & 21 février 2027" data-price="Tarif sur demande"><span><strong>Acting Caméra</strong><small>Stage week-end &middot; 20 & 21 février 2027 &middot; Tarif sur demande</small></span></label>
+            <label class="stage-pick" data-end="2027-02-21"><input type="checkbox" name="stage" data-key="cam" value="Acting Caméra (20 &amp; 21 février 2027)" data-date="20 &amp; 21 février 2027" data-price="Tarif sur demande"><span><strong>Acting Caméra</strong><small>Stage week-end &middot; 20 &amp; 21 février 2027 &middot; Tarif sur demande</small></span></label>
+            <!-- session hiv — masquée automatiquement après le 2027-01-10 -->
+            <label class="stage-pick" data-end="2027-01-10"><input type="checkbox" name="stage" data-key="hiv" value="Stage intensif d'hiver (9 &amp; 10 janvier 2027)" data-date="9 &amp; 10 janvier 2027" data-price="Tarif sur demande"><span><strong>Stage intensif d'hiver</strong><small>Stage intensif &middot; 9 &amp; 10 janvier 2027 &middot; Tarif sur demande</small></span></label>
             <!-- session pri — masquée automatiquement après le 2027-04-18 -->
-            <label class="stage-pick" data-end="2027-04-18"><input type="checkbox" name="stage" value="Stage intensif de printemps (16, 17 &amp; 18 avril 2027)" data-date="16, 17 & 18 avril 2027" data-price="Tarif sur demande"><span><strong>Stage intensif de printemps</strong><small>Stage intensif &middot; 16, 17 & 18 avril 2027 &middot; Tarif sur demande</small></span></label>
-            <!-- session a — masquée automatiquement après le 2099-12-31 -->
-            <label class="stage-pick" data-end="2099-12-31"><input type="checkbox" name="stage" value="Actors Studio A — Faites vos premiers pas dans la Méthode (Prochaine session : dates à venir)" data-date="Prochaine session : dates à venir" data-price="dès 160 €"><span><strong>Actors Studio A — Faites vos premiers pas dans la Méthode</strong><small>Stage week-end &middot; Prochaine session : dates à venir &middot; dès 160 €</small></span></label>
+            <label class="stage-pick" data-end="2027-04-18"><input type="checkbox" name="stage" data-key="pri" value="Stage intensif de printemps (16, 17 &amp; 18 avril 2027)" data-date="16, 17 &amp; 18 avril 2027" data-price="Tarif sur demande"><span><strong>Stage intensif de printemps</strong><small>Stage intensif &middot; 16, 17 &amp; 18 avril 2027 &middot; Tarif sur demande</small></span></label>
             </div>
             <div id="stages-recap" class="book-recap">Aucun stage sélectionné pour l'instant.</div>
           </div>
@@ -904,11 +951,12 @@
   function initJpo(){
     var cards=[].slice.call(ROOT.querySelectorAll(".jpo-card"));
     cards.forEach(function(card){
-      var head=card.querySelector(".jpo-head");
+      var head=card.querySelector(".jpo-head"); if(!head) return;
       head.addEventListener("click",function(){
-        var isOpen=card.classList.contains("open");
-        cards.forEach(function(c){ c.classList.remove("open"); var h=c.querySelector(".jpo-head"); if(h) h.setAttribute("aria-expanded","false"); });
-        if(!isOpen){ card.classList.add("open"); head.setAttribute("aria-expanded","true"); }
+        var isOpen=card.classList.contains("open"), top0=head.getBoundingClientRect().top, t0=Date.now();
+        cards.forEach(function(c){ if(c!==card){ c.classList.remove("open"); var h=c.querySelector(".jpo-head"); if(h) h.setAttribute("aria-expanded","false"); } });
+        card.classList.toggle("open", !isOpen); head.setAttribute("aria-expanded", String(!isOpen));
+        (function hold(){ var d=head.getBoundingClientRect().top-top0; if(Math.abs(d)>1) window.scrollTo({top:window.pageYOffset+d, behavior:"instant"}); if(Date.now()-t0<500) requestAnimationFrame(hold); })();
       });
     });
   }
@@ -982,17 +1030,28 @@
     if(!form) return;
     var boxes=[].slice.call(form.querySelectorAll('input[name="stage"]'));
     function available(){ return boxes.filter(function(b){ var row=b.closest("[data-end]"); return !(row&&row.classList.contains("is-expired")); }); }
-    function chosen(){ return available().filter(function(b){return b.checked;}).map(function(b){ return {name:b.value.replace(/\s*\([^)]*\)\s*$/,""), date:b.getAttribute("data-date")||"", price:b.getAttribute("data-price")||""}; }); }
+    var fmtBox=document.getElementById("sc-format");
+    var scBox=boxes.filter(function(b){ return b.getAttribute("data-key")==="sc"; })[0];
+    function scOn(){ return !!(scBox && scBox.checked && available().indexOf(scBox)>=0); }
+    function scFormat(){ var r=form.querySelector('input[name="format_sc"]:checked'); return r?r.value:""; }
+    function syncFormat(){
+      if(!fmtBox) return;
+      if(scOn()){ fmtBox.style.display=""; }
+      else { fmtBox.style.display="none"; fmtBox.classList.remove("is-error"); [].slice.call(fmtBox.querySelectorAll("input")).forEach(function(r){ r.checked=false; }); }
+    }
+    function chosen(){ return available().filter(function(b){return b.checked;}).map(function(b){ var isSc=b.getAttribute("data-key")==="sc"; return {key:b.getAttribute("data-key")||"", name:b.value.replace(/\s*\([^)]*\)\s*$/,""), date:b.getAttribute("data-date")||"", price:b.getAttribute("data-price")||"", format:isSc?scFormat():""}; }); }
     function updateRecap(){
+      syncFormat();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun stage sélectionné pour l’instant."; return; }
       recap.className="book-recap active";
-      recap.innerHTML=ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){ return "<strong>"+esc(c.name)+"</strong> ("+esc(c.date)+(c.price?" · "+esc(c.price):"")+")"; }).join(" · ");
+      recap.innerHTML=ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){ return "<strong>"+esc(c.name)+"</strong> ("+esc(c.date)+(c.price?" · "+esc(c.price):"")+(c.key==="sc"?" · "+(c.format?esc(c.format):"format à choisir"):"")+")"; }).join(" · ");
     }
     boxes.forEach(function(b){ b.addEventListener("change",updateRecap); });
+    if(fmtBox) [].slice.call(fmtBox.querySelectorAll("input")).forEach(function(r){ r.addEventListener("change",function(){ fmtBox.classList.remove("is-error"); updateRecap(); }); });
     updateRecap();
 
-    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=a,sc,b,cam,hiv,pri à l'arrivée */
+    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=sc,b,cam,hiv,pri à l'arrivée */
     var tmp=document.createElement("textarea");
     function norm(t){ tmp.innerHTML=t; return tmp.value.replace(/\s+/g," ").trim(); }
     function tick(box, ms){
@@ -1007,7 +1066,7 @@
       });
     });
     try{
-      var STAGE_NAMES={"a": "Actors Studio A — Faites vos premiers pas dans la Méthode", "sc": "Scénario, réalisation & direction d'acteurs", "b": "Actors Studio B — Approche d'une scène", "cam": "Acting Caméra", "hiv": "Stage intensif d'hiver", "pri": "Stage intensif de printemps"};
+      var STAGE_NAMES={"sc": "Scénario, réalisation & direction d'acteurs", "b": "Actors Studio B — Approche d'une scène", "cam": "Acting Caméra", "hiv": "Stage intensif d'hiver", "pri": "Stage intensif de printemps"};
       var q=new URLSearchParams(location.search).get("stage");
       if(q){ q.toLowerCase().split(",").forEach(function(key){ var kw=STAGE_NAMES[key.trim()]||""; if(kw) tick(boxes.filter(function(b){ return norm(b.value).indexOf(norm(kw))===0; })[0],4000); }); }
     }catch(e){}
@@ -1055,12 +1114,12 @@
     function track(ch){
       try{
         window.dataLayer=window.dataLayer||[];
-        window.dataLayer.push({event:"stage_form_success", stages:ch.map(function(c){return c.name;}), stage_count:ch.length});
+        window.dataLayer.push({event:"stage_form_success", stages:ch.map(function(c){return c.name;}), stage_count:ch.length, format_ecriture:scOn()?scFormat():""});
         if(typeof window.gtag==="function"){ window.gtag("event","generate_lead",{event_category:"stages",event_label:ch.map(function(c){return c.name;}).join(" | "),value:ch.length}); }
       }catch(e){}
     }
     function showSuccess(ch){
-      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong>";}).join(", ")+". L’équipe du Method Acting Center vous confirme votre place et les modalités pratiques par email."; }
+      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong>"+(c.format?" ("+esc(c.format)+")":"");}).join(", ")+". L’équipe du Method Acting Center vous confirme votre place et les modalités pratiques par email."; }
       form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
       track(ch);
     }
@@ -1068,6 +1127,12 @@
       e.preventDefault();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Cochez au moins un stage avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(scOn() && !scFormat()){
+        fmtBox.classList.add("is-error");
+        recap.className="book-recap warn"; recap.textContent="Pour le stage Scénario, réalisation & direction d’acteurs, indiquez si vous participez en présentiel ou à distance.";
+        fmtBox.scrollIntoView({behavior:"smooth",block:"center"}); var r0=fmtBox.querySelector("input"); if(r0) try{ r0.focus({preventScroll:true}); }catch(e){}
+        return;
+      }
       if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), btnLabel=btn?btn.innerHTML:"";
       var name=(field("prenom")+" "+field("nom")).trim()||"sans nom";
@@ -1076,7 +1141,8 @@
         subject: "Réservation stage — "+name,
         from_name: "Stages · Method Acting Center (landing)",
         "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"), "Téléphone": field("telephone")||"—",
-        "Stages": ch.map(function(c){ return "• "+c.name+" — "+c.date+(c.price?" — "+c.price:""); }).join("\n"),
+        "Stages": ch.map(function(c){ return "• "+c.name+" — "+c.date+(c.price?" — "+c.price:"")+(c.format?" — "+c.format:""); }).join("\n"),
+        "Format (stage d'écriture)": scOn()?scFormat():"—",
         "Message": field("message")||"—",
         "Comment nous a connus": field("source")||"—",
         "Campagne": campaign()||"—",

@@ -33,6 +33,12 @@ s = re.sub(r'<meta name="description" content="[^"]*">',
            '  <!-- Google Ads / Tag Manager : collez ici votre balise globale (gtag.js ou GTM). Les envois de formulaire réussis déclenchent dataLayer.push({event:"stage_form_success"}) et gtag("event","generate_lead") si gtag est présent. -->',
            s, count=1)
 
+# Balises héritées de /jpo/ retirées (une seule canonical / un seul jeu Open Graph, ceux de /stages/)
+s, n = re.subn(r'  <link rel="canonical" href="https://www.methodacting.fr/jpo/">\n  <meta name="robots"[^>]*>\n(  <meta property="og:(type|site_name|locale)"[^>]*>\n)*  <meta property="og:url"[^>]*>\n  <meta property="og:title"[^>]*>\n  <meta property="og:description"[^>]*>\n', "", s, count=1)
+assert n == 1, "head jpo"
+s = s.replace('content="https://www.methodacting.fr/uploads/actrice-emotion-stage-initiation-method-acting-center.jpg"', 'content="https://www.methodacting.fr/uploads/tournage-equipe-terrasse-acteurs-method-acting-center.jpg"', 1)
+assert s.count('rel="canonical"') == 1 and s.count('property="og:url"') == 1
+
 # ---------- 2. Bandeau cours d'essai retiré, header conservé (sticky) ----------
 s = re.sub(r'  <div class="topbar">\n  <div class="annce">.*?</div>\n', '  <div class="topbar">\n', s, count=1, flags=re.S)
 assert 'class="annce"' not in s
@@ -45,29 +51,45 @@ nav_new = ('      <nav style="display: flex; align-items: center; gap: 26px">\n'
            + '        <a href="#reservation" class="nav-cta">Réserver un stage</a>\n      </nav>')
 s = s.replace(nav_old, nav_new)
 
-# ---------- 4. Hero : CTA + mention discrète ----------
+# ---------- 4. Hero : CTA + encart « stage à la une » ----------
+# Encart du hero : à actualiser ici pour le prochain événement (masqué automatiquement après `end`).
+HERO_EVENT = dict(
+    end="2026-11-08",
+    tag="Stage à la une &middot; 7 &amp; 8 novembre 2026",
+    title="Scénario, réalisation &amp; direction d'acteurs",
+    lines=["À Paris ou en ligne, où que vous soyez.", "Deux jours pour apprendre à donner vie à vos histoires."],
+    cta="Découvrir ce stage", href="#stage-une",
+)
 m = re.search(r'(<div class="hero-actions"[^>]*>).*?\n          </div>\n        </div>', s, re.S)
 assert m
 btn = "font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease, border-color .15s ease"
+he = HERO_EVENT
 hero_actions = (m.group(1) + "\n"
     f'          <a href="#stages" style="{btn}; background: #E0261F; color: #FFFFFF" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Découvrir nos stages</a>\n'
     f'          <a href="#methode" style="{btn}; background: transparent; color: #14120F; padding: 18px 36px; border: 1px solid rgba(20,18,15,0.3)" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Comprendre la Méthode</a>\n'
-    '          <div class="hero-next" style="font-family: \'Oswald\', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B655C; text-align: center; margin-top: 2px">Prochain stage d\'acting&nbsp;: <strong style="color: #14120F; font-weight: 600">14 &amp; 15 novembre 2026</strong> &middot; Paris 13ᵉ</div>\n'
+    f'          <!-- encart événement : modifiez HERO_EVENT dans tools/build_landing_stages.py ; masqué automatiquement après le {he["end"]} -->\n'
+    f'          <aside class="hero-event" data-end="{he["end"]}">\n'
+    f'            <span class="hero-event-tag">{he["tag"]}</span>\n'
+    f'            <strong class="hero-event-title">{he["title"]}</strong>\n'
+    + "".join(f'            <p>{t}</p>\n' for t in he["lines"]) +
+    f'            <a class="hero-event-cta" href="{he["href"]}">{he["cta"]} &rarr;</a>\n'
+    '          </aside>\n'
     '        </div>')
 s = s[:m.start()] + hero_actions + s[m.end():]
 
-# ---------- 5. Sections à retirer ----------
+# ---------- 5. Sections à retirer / déplacer ----------
+s, marquee_old = cut(s, "  <!-- ============ MARQUEE ============ -->", "  <!-- ============ PAR OU COMMENCER ============ -->")
 s, _ = cut(s, "  <!-- ============ PAR OU COMMENCER ============ -->", "  <!-- ============ TALENT / METHODE ============ -->")
 s, _ = cut(s, "  <!-- ============ JOURNEES PORTES OUVERTES (refonte) ============ -->", "  <!-- ============ NOS ACTEURS TOURNENT (carrousel continu) ============ -->")
 s, films = cut(s, "  <!-- ============ NOS ACTEURS TOURNENT (carrousel continu) ============ -->", "  <!-- ============ AVIS (carrousel) ============ -->")
 s, avis = cut(s, "  <!-- ============ AVIS (carrousel) ============ -->", "  <!-- ============ FAQ ============ -->")
 s, _ = cut(s, "  <!-- ============ FAQ ============ -->", "  <!-- ============ FOOTER (identique au site) ============ -->")
 
-# Avis : titre
+# Avis : titre (apostrophe typographique)
 avis = re.sub(r'<h2 style="([^"]*)">Ils sont venus d&eacute;couvrir la M&eacute;thode\.<br><span style="color: #E0261F">Voici ce qu&rsquo;ils en disent\.</span></h2>',
-              r'<h2 style="\1">Ils ont tenté <span style="color: #E0261F">l\'expérience.</span></h2>', avis, count=1)
-assert "Ils ont tenté" in avis
-avis = avis.replace('padding: 100px 24px 100px;', 'padding: 100px 24px 40px;', 1)
+              lambda mm: f'<h2 style="{mm.group(1)}">Ils ont tenté <span style="color: #E0261F">l’expérience.</span></h2>', avis, count=1)
+assert "Ils ont tenté" in avis and "l\\'exp" not in avis
+avis = avis.replace('padding: 100px 24px 40px;', 'padding: 56px 24px 40px;', 1)
 # Films : phrase ajoutée
 films = re.sub(r'(<p data-reveal style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 74ch">.*?</p>)',
                r'\1\n      <p data-reveal style="font-size: 18px; line-height: 1.7; color: #14120F; margin: 0; max-width: 74ch; font-weight: 500">Retrouvez nos élèves et anciens élèves à l\'affiche de productions cinématographiques et audiovisuelles.</p>', films, count=1, flags=re.S)
@@ -75,136 +97,150 @@ assert "Retrouvez nos élèves" in films
 films = films.replace('padding: 100px 24px 40px;', 'padding: 40px 24px 40px;', 1)
 
 # ---------- 6. Données des sessions (à mettre à jour ici) ----------
-# Chaque session : id, nom, date (texte), data-end (ISO : masquée automatiquement après), durée, tarif, intro courte
+# end : date ISO après laquelle la session est masquée automatiquement (carte, case du formulaire).
+# level : n'afficher qu'un niveau confirmé par l'école (laisser vide sinon).
 SESSIONS = {
- "a":  dict(name="Actors Studio A — Faites vos premiers pas dans la Méthode", short="Actors Studio A", date="Prochaine session : dates à venir", end="2099-12-31", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
- "sc": dict(name="Scénario, réalisation & direction d'acteurs", short="Scénario, réalisation & direction d'acteurs", date="7 & 8 novembre 2026", end="2026-11-08", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
- "b":  dict(name="Actors Studio B — Approche d'une scène", short="Actors Studio B", date="14 & 15 novembre 2026", end="2026-11-15", duration="2 jours (week-end)", price="dès 160 €", kind="Stage week-end"),
- "cam":dict(name="Acting Caméra", short="Acting Caméra", date="20 & 21 février 2027", end="2027-02-21", duration="2 jours (week-end)", price="Tarif sur demande", kind="Stage week-end"),
- "hiv":dict(name="Stage intensif d'hiver", short="Stage intensif d'hiver", date="9 & 10 janvier 2027", end="2027-01-10", duration="2 jours", price="Tarif sur demande", kind="Stage intensif"),
- "pri":dict(name="Stage intensif de printemps", short="Stage intensif de printemps", date="16, 17 & 18 avril 2027", end="2027-04-18", duration="3 jours", price="Tarif sur demande", kind="Stage intensif"),
+ "sc": dict(name="Scénario, réalisation & direction d'acteurs", date="7 & 8 novembre 2026", end="2026-11-08",
+            duration="2 jours", place="Paris 13ᵉ ou à distance", price="dès 160 €", level="", kind="Stage week-end"),
+ "b":  dict(name="Actors Studio B — Approche d'une scène", date="14 & 15 novembre 2026", end="2026-11-15",
+            duration="2 jours", place="Paris 13ᵉ", price="dès 160 €", level="Tous niveaux · Sans prérequis", kind="Stage week-end",
+            hook="Donnez vie à un personnage. Faites exister une scène.",
+            desc="Passez de la technique à l'interprétation. Pendant deux jours, apprenez à utiliser les outils de la Méthode pour construire une scène, développer votre relation au partenaire et donner davantage de justesse à votre jeu.",
+            benefits_label="Ce que vous allez apprendre",
+            benefits=["Construire une scène en comprenant ses enjeux et les intentions de votre personnage.",
+                      "Développer votre écoute et votre réactivité pour créer une véritable connexion avec votre partenaire.",
+                      "Donner de la justesse à votre interprétation en mettant vos émotions au service de la scène."],
+            reassure=("Accessible à tous les niveaux, sans prérequis.",
+                      "Que vous découvriez la Méthode ou souhaitiez approfondir votre pratique, nos coaches adaptent leur accompagnement à votre expérience et à votre progression.")),
+ "cam":dict(name="Acting Caméra", date="20 & 21 février 2027", end="2027-02-21",
+            duration="2 jours", place="Paris 13ᵉ", price="Tarif sur demande", level="", kind="Stage week-end",
+            hook="Apprenez à jouer juste, même quand la caméra capte tout.",
+            desc="Face à la caméra, chaque détail compte. Pendant deux jours, découvrez les spécificités du jeu à l'image, apprenez à adapter votre interprétation au cadrage et explorez comment transmettre des émotions authentiques avec naturel et précision.",
+            benefits_label="Ce que vous allez apprendre",
+            benefits=["Adapter votre jeu à la caméra en comprenant les exigences du cadrage et les nuances de l'interprétation à l'écran.",
+                      "Gagner en naturel et en justesse pour transmettre des émotions authentiques, même dans les plans les plus rapprochés.",
+                      "Développer votre aisance face à l'objectif et apprendre à mobiliser vos outils d'acteur dans les conditions du tournage."]),
+ "hiv":dict(name="Stage intensif d'hiver", date="9 & 10 janvier 2027", end="2027-01-10",
+            duration="2 jours", place="Paris 13ᵉ", price="Tarif sur demande", level="", kind="Stage intensif",
+            hook="Deux jours pour aller plus loin dans votre jeu.",
+            desc="Le stage intensif d'hiver rassemble les techniques des stages Actors Studio A et B dans une expérience concentrée. Explorez vos émotions, développez votre imagination et apprenez à donner vie à des scènes grâce à un accompagnement pratique.",
+            benefits_label="Ce que vous allez expérimenter",
+            benefits=["Explorer vos émotions pour nourrir votre interprétation et gagner en authenticité.",
+                      "Construire une scène avec votre partenaire, du travail préparatoire jusqu'à l'interprétation.",
+                      "Comprendre le sous-texte et découvrir comment donner plusieurs sens à une même réplique."]),
+ "pri":dict(name="Stage intensif de printemps", date="16, 17 & 18 avril 2027", end="2027-04-18",
+            duration="3 jours", place="Paris 13ᵉ", price="Tarif sur demande", level="", kind="Stage intensif",
+            hook="3 jours pour donner plus de profondeur à votre jeu.",
+            desc="Profitez de trois jours d'immersion pour approfondir votre pratique du jeu d'acteur. À travers des exercices d'exploration émotionnelle et de travail de scène, développez votre créativité, votre spontanéité et votre capacité à donner vie à un personnage, accompagné par les coaches du Method Acting Center.",
+            benefits_label="Ce que vous allez expérimenter",
+            benefits=["Explorer votre palette émotionnelle pour enrichir votre interprétation.",
+                      "Approfondir le travail de scène en développant votre écoute, votre imagination et votre relation au partenaire.",
+                      "Gagner en liberté et en justesse grâce à une pratique intensive et aux retours des coaches."]),
 }
+def h(t): return t.replace("&", "&amp;")
 def value(k):
     d = SESSIONS[k]; return f'{d["name"]} ({d["date"]})'
 def esc_attr(t): return t.replace("&", "&amp;").replace('"', "&quot;")
-def cta(k, label="Je m'inscris au stage"):
-    return f'<a href="#reservation" class="jpo-cta" data-stage="{esc_attr(value(k))}">{label} &rarr;</a>'
+def cta(k, label="Je m'inscris au stage", cls="jpo-cta"):
+    return f'<a href="#reservation" class="{cls}" data-stage="{esc_attr(value(k))}">{label} &rarr;</a>'
 
 def lis(items): return "".join(f"<li>{i}</li>" for i in items)
 
-import io as _io
-from PIL import Image as _PILImage
-_EMB = {}
-def embed(name, width=720, quality=66):
-    key = (name, width, quality)
-    if key in _EMB: return _EMB[key]
-    im = _PILImage.open(IMG + name).convert("RGB")
-    if im.width > width: im = im.resize((width, int(im.height * width / im.width)), _PILImage.LANCZOS)
-    buf = _io.BytesIO(); im.save(buf, "JPEG", quality=quality, optimize=True, progressive=True)
-    _EMB[key] = "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
-    return _EMB[key]
-PHOTOS = {"a": "actrice-emotion-forte-method-acting-center.jpg", "sc": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg", "b": "scene-de-bar-acteur-tournage-method-acting-center.jpg", "cam": "retour-camera-tournage-exterieur-actrices-method-acting-center.jpg", "hiv": "tournage-exterieur-foret-acteurs-method-acting-center.jpg", "pri": "direction-acteurs-stage-scenario-realisation-method-acting-center.jpg"}
-def accordion(k, desc, programme, benefits, extra_note="", cta_label="Je m'inscris au stage"):
+PHOTOS = {"sc": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg", "b": "scene-de-bar-acteur-tournage-method-acting-center.jpg", "cam": "retour-camera-tournage-exterieur-actrices-method-acting-center.jpg", "hiv": "tournage-exterieur-foret-acteurs-method-acting-center.jpg", "pri": "direction-acteurs-stage-scenario-realisation-method-acting-center.jpg"}
+
+def meta_chips(d):
+    lvl = f'<span class="stage-level">{h(d["level"])}</span>' if d.get("level") else ""
+    return (f'<div class="stage-meta"><span>{h(d["date"])} &middot; {d["duration"]}</span><span>{d["place"]}</span>'
+            f'<span class="stage-price">{d["price"]}</span>{lvl}</div>')
+
+def accordion(k, dark=False):
     d = SESSIONS[k]
-    photo = f'<div class="stage-photo"><img src="/uploads/{PHOTOS[k]}" alt="{d["name"]} — Method Acting Center" loading="lazy"></div>' if k in PHOTOS else ""
-    prog = "".join(f'<div class="jpo-field"><span class="jpo-label">{lab}</span><ul class="stage-list">{lis(items)}</ul></div>' for lab, items in programme)
-    ben = f'<div class="jpo-field"><span class="jpo-label">Ce que vous en retirez</span><ul class="stage-list">{lis(benefits)}</ul></div>' if benefits else ""
-    note = f'<p class="stage-note">{extra_note}</p>' if extra_note else ""
-    return f'''        <!-- session {k} : {d["date"]} — masquée automatiquement après le {d["end"]} ; supprimez le bloc pour la retirer définitivement -->
-        <div class="jpo-card stage-card" data-end="{d["end"]}" id="stage-{k}">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false">
+    reassure = ""
+    if d.get("reassure"):
+        reassure = f'<div class="stage-reassure"><strong>{d["reassure"][0]}</strong><p>{d["reassure"][1]}</p></div>'
+    return f'''        <!-- session {k} : {h(d["date"])} — masquée automatiquement après le {d["end"]} ; données dans SESSIONS -->
+        <div class="jpo-card stage-card{' stage-card--dark' if dark else ''}" data-end="{d["end"]}" id="stage-{k}">
+          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-{k}">
             <div class="stage-head-main">
               <span class="stage-kind">{d["kind"]}</span>
-              <h3 class="stage-title">{d["name"]}</h3>
-              <div class="stage-meta"><span>{d["date"]}</span><span>{d["duration"]}</span><span class="stage-price">{d["price"]}</span></div>
-              <p class="stage-short">{desc}</p>
+              <h3 class="stage-title">{h(d["name"])}</h3>
+              <p class="stage-hook">{d["hook"]}</p>
+              {meta_chips(d)}
             </div>
             <span class="jpo-plus" aria-hidden="true">+</span>
           </button>
-          <div class="jpo-panel">
-            <div class="jpo-panel-inner">
-              {photo}
-              {prog}
-              {ben}
-              <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; {d["duration"]} &middot; {d["price"]}. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-              {note}
-              {cta(k, cta_label)}
+          <div class="jpo-panel" id="panel-{k}">
+            <div class="jpo-panel-inner stage-panel">
+              <div class="stage-panel-text">
+                <p class="stage-desc">{d["desc"]}</p>
+                <div class="jpo-field"><span class="jpo-label">{d["benefits_label"]}</span><ul class="stage-list">{lis(d["benefits"])}</ul></div>
+                {reassure}
+                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, {d["place"]} &middot; {h(d["date"])} &middot; {d["duration"]} &middot; {d["price"]}. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
+                {cta(k)}
+              </div>
+              <div class="stage-photo"><img src="/uploads/{PHOTOS[k]}" alt="{h(d["name"])} — Method Acting Center" loading="lazy"></div>
             </div>
           </div>
         </div>
 '''
 
-FEAT_IMG = "/uploads/scene-theatre-tension-acteurs-method-acting-center.jpg"
-
-d = SESSIONS["b"]
-SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE ============ -->
+d = SESSIONS["sc"]
+SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE + STAGES WEEK-END ============ -->
   <section id="stages" data-screen-label="Stages" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 48px; display: flex; flex-direction: column; gap: 48px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; display: flex; flex-direction: column; gap: 48px">
       <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ et en ligne</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">La Méthode ne se comprend pas seulement. <span style="color: #E0261F">Elle se vit.</span></h2>
         <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F">Découvrez nos stages pratiques. Que vous souhaitiez faire vos premiers pas dans le jeu d'acteur, approfondir votre technique ou explorer l'écriture et la réalisation, chaque stage est une occasion d'expérimenter, de créer et de progresser.</p>
       </div>
 
+      <div style="display: flex; flex-direction: column; gap: 16px">
       <!-- ======================================================================
-           STAGE À LA UNE — bloc autonome.
-           Après le {d["end"]} il est masqué automatiquement (data-end). Pour le remplacer :
-           changez la session dans SESSIONS (script de génération) ou éditez le bloc ci-dessous
-           sans toucher à l'introduction permanente au-dessus.
+           STAGE À LA UNE — Scénario, réalisation & direction d'acteurs.
+           Masqué automatiquement après le {d["end"]} (data-end). Dates et tarif : SESSIONS["sc"].
            ====================================================================== -->
       <article class="feat" data-reveal data-end="{d["end"]}" id="stage-une">
         <div class="feat-media">
-          <img src="{FEAT_IMG}" alt="Scène de tension jouée par deux élèves acteurs du Method Acting Center" style="object-position: 50% 45%">
-          <span class="feat-date">{d["date"]}</span>
+          <img src="/uploads/{PHOTOS["sc"]}" alt="Tournage en extérieur : équipe et acteurs d'un projet du Method Acting Center" style="object-position: 80% 50%">
+          <span class="feat-date">{h(d["date"])}</span>
         </div>
         <div class="feat-body">
           <span class="feat-tag">Stage à la une</span>
-          <h3>Actors Studio B &mdash; Approche d'une scène.</h3>
-          <p class="feat-desc">Retenir un texte, c'est 5&nbsp;% du travail. Pendant deux jours, apprenez à le rendre naturel et chargé émotionnellement, comme s'il était spontané, en scènes à deux avec les retours des coaches du Method Acting Center. Le stage Actors Studio A n'est pas un prérequis.</p>
-          <ul class="stage-list feat-list">
-            <li>Comprendre le sous-texte d'une scène.</li>
-            <li>Donner vie à n'importe quel texte, sans le réciter.</li>
-            <li>Infuser vos émotions dans une scène écrite, face à votre partenaire.</li>
-          </ul>
+          <h3>Scénario, réalisation &amp; direction d'acteurs</h3>
+          <p class="feat-hook">De l'idée à l'écran, apprenez à donner vie à vos histoires.</p>
           <div class="feat-meta">
-            <div><span>Dates</span><strong>{d["date"]}</strong></div>
-            <div><span>Lieu</span><strong>Method Acting Center, Paris 13ᵉ</strong></div>
+            <div><span>Dates</span><strong>{h(d["date"])}</strong></div>
             <div><span>Durée</span><strong>{d["duration"]}</strong></div>
+            <div><span>Lieu</span><strong>{d["place"]}</strong></div>
             <div><span>Tarif</span><strong class="feat-price">{d["price"]}</strong></div>
           </div>
-          <a href="#reservation" class="feat-cta" data-stage="{esc_attr(value("b"))}">Je m'inscris au stage &rarr;</a>
+          <p class="feat-desc">Pendant deux jours, découvrez des techniques concrètes pour développer votre inspiration, construire des personnages captivants et transformer vos idées en récits. Explorez également les fondamentaux de la réalisation et de la direction d'acteurs pour donner vie à votre vision.</p>
+          <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span>
+            <ul class="stage-list">
+              <li>Développer votre créativité et trouver l'inspiration grâce à des outils d'écriture concrets.</li>
+              <li>Construire des histoires et des personnages qui suscitent l'intérêt et l'émotion.</li>
+              <li>Donner vie à votre vision en découvrant les bases de la mise en scène et de la direction d'acteurs.</li>
+            </ul>
+          </div>
+          <div class="feat-online">
+            <span class="feat-online-icon" aria-hidden="true">&#9673;</span>
+            <div>
+              <strong>Vous n'habitez pas en région parisienne&nbsp;?</strong>
+              <p>Bonne nouvelle : vous pouvez aussi participer à ce stage à distance ! Grâce à des outils et supports dédiés, découvrez et expérimentez les techniques d'écriture et de création du Method Acting Center depuis chez vous.</p>
+              <span class="feat-online-mode">Présentiel à Paris ou participation en ligne, au choix.</span>
+            </div>
+          </div>
+          {cta("sc", cls="feat-cta")}
         </div>
       </article>
       <!-- ====================== fin STAGE À LA UNE ====================== -->
-    </div>
-  </section>
 
-  <!-- ============ AUTRES STAGES WEEK-END ============ -->
-  <section id="weekend" data-screen-label="Stages week-end" style="background: #F7F4EE">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; display: flex; flex-direction: column; gap: 32px">
-      <div data-reveal style="display: flex; flex-direction: column; gap: 14px; max-width: 64ch">
-        <div style="display: flex; align-items: center; gap: 12px">
-          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Autres stages week-end</span>
-        </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(32px, 4vw, 56px); text-transform: uppercase; line-height: 1.02; margin: 0">Deux jours, <span style="color: #E0261F">une technique.</span></h2>
-        <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #6B655C">Chaque stage est autonome et se réserve indépendamment. Dépliez une carte pour voir le programme détaillé.</p>
-      </div>
-      <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
-{accordion("sc", "Explorez les liens entre écriture, mise en scène et direction d'acteurs, de l'intention à sa concrétisation.",
-    [("Scénario", ["Les bases de l'écriture dramaturgique : écrire le comportement humain", "Travailler son inspiration avec des outils concrets", "Construire des personnages complexes et intéressants", "Structurer une intrigue en fonction de ses personnages", "Les bases de la vente d'un scénario"]),
-     ("Réalisation & direction d'acteurs", ["Trouver sa vision unique de réalisateur", "Les piliers du langage cinématographique", "Diriger des acteurs pour qu'ils aillent loin dans l'émotion", "Les bases de la gestion de plateau et de l'intelligence sociale de tournage"])],
-    ["Des outils pour rendre votre inspiration systématique : dites adieu à la page blanche", "Une introduction aux techniques d'écriture, de réalisation et de direction d'acteurs du Method Acting Center"])}
-{accordion("cam", "Découvrez les exigences du jeu face caméra et adaptez votre interprétation à l'image.",
-    [("Au programme", ["Respecter des déplacements et des marquages au sol précis", "Adapter son jeu à la valeur du cadre, du gros plan au plan d'ensemble", "Tourner des scènes dans le désordre, comme sur un vrai plateau", "Respecter des placements par rapport à la lumière"])],
-    ["Adapter « l'aléatoire » de vos émotions à des limites techniques très précises", "Une introduction au cours « Acting Caméra & Tournages »"])}
-{accordion("a", "Faites vos premiers pas dans la Méthode : déclencher de vraies émotions, se libérer du trac, croire à la situation.",
-    [("Au programme", ["Déclencher de fortes émotions", "Se relaxer et se débarrasser du trac avant de jouer", "Creuser dans son imagination pour croire à la situation", "Se connecter à son partenaire de jeu", "Utiliser les actions physiques pour traduire son monde intérieur"])],
-    ["Les bases du travail émotionnel avec les outils de la Méthode Stanislavski", "Une version développée de l'atelier « Travail Émotionnel »"],
-    "Les prochaines dates ne sont pas encore fixées : réservez pour être prévenu(e) en priorité.", "Être prévenu(e) des prochaines dates")}
+      <!-- ============ STAGES WEEK-END (accordéons) ============ -->
+      <div id="weekend" data-reveal style="display: flex; flex-direction: column; gap: 16px">
+{accordion("b")}{accordion("cam")}      </div>
       </div>
     </div>
   </section>
@@ -221,19 +257,13 @@ SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE =====
         <p style="margin: 0; font-size: 18px; line-height: 1.75; color: #3B362F">Profitez des vacances pour vous immerger dans la pratique du jeu d'acteur. Pendant plusieurs jours, approfondissez votre technique, explorez de nouvelles facettes de votre jeu et progressez à votre rythme, accompagnés par les coaches du Method Acting Center.</p>
       </div>
       <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
-{accordion("hiv", "Le stage de la rentrée décalée de janvier 2027 : deux jours pour condenser les techniques des stages Actors Studio A et B.",
-    [("Au programme", ["Exploration émotionnelle : creuser en soi pour trouver ce qui vous touche, puis alimenter ce travail avec d'autres outils", "Backstory : création des binômes, élaboration des répétitions, passage des scènes préparées, retours du coach et reprises", "Atelier « Mini-Scènes » : des scènes de 4 répliques qui ne veulent rien dire hors contexte — la démonstration la plus directe du sous-texte"])],
-    [], "L'ordre et le dosage des ateliers varient selon le planning.")}
-{accordion("pri", "Trois jours pendant les vacances de printemps pour approfondir votre technique et explorer de nouvelles facettes de votre jeu.",
-    [("Au programme", ["Exploration émotionnelle : creuser en soi pour trouver ce qui vous touche, puis alimenter ce travail avec d'autres outils", "Backstory : création des binômes, élaboration des répétitions, passage des scènes préparées, retours du coach et reprises", "Atelier « Mini-Scènes » : des scènes de 4 répliques qui ne veulent rien dire hors contexte — la démonstration la plus directe du sous-texte"])],
-    [], "L'ordre et le dosage des ateliers varient selon le planning.")}
-      </div>
+{accordion("hiv", dark=True)}{accordion("pri", dark=True)}      </div>
     </div>
   </section>
 
   <!-- ============ POURQUOI LE METHOD ACTING CENTER ============ -->
   <section id="pourquoi" data-screen-label="Pourquoi" style="background: #F7F4EE">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 100px; display: flex; flex-direction: column; gap: 40px">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 48px; display: flex; flex-direction: column; gap: 40px">
       <div data-reveal style="display: flex; flex-direction: column; gap: 18px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
@@ -243,21 +273,39 @@ SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE =====
         <p style="margin: 0; font-size: 18px; line-height: 1.75; color: #3B362F">Au Method Acting Center, apprendre à jouer, c'est aussi apprendre à explorer, à expérimenter et à prendre des risques. Nos coaches vous accompagnent dans un environnement à la fois bienveillant et exigeant, où chacun peut progresser à son rythme.</p>
       </div>
       <div class="why-grid">
-        <div class="why-card" data-reveal><span class="why-num">01</span><div><h3>Une Méthode concrète, éprouvée depuis plus de 25 ans</h3><p>Inspirée de Stanislavski et de l'Actors Studio, la Méthode vous apprend à ressentir et à jouer vrai grâce à des outils précis, enrichis au fil des années pour répondre aux exigences du métier d'acteur d'aujourd'hui.</p></div></div>
-        <div class="why-card" data-reveal><span class="why-num">02</span><div><h3>Des coaches en activité</h3><p>Acteurs et professionnels toujours présents sur les plateaux, aux castings et sur les tournages, ils transmettent un savoir-faire ancré dans les réalités du métier.</p></div></div>
-        <div class="why-card" data-reveal><span class="why-num">03</span><div><h3>Un cadre bienveillant et exigeant</h3><p>Un environnement où vous pouvez expérimenter, vous tromper et recommencer, avec des retours constructifs pour progresser et développer votre singularité.</p></div></div>
-        <div class="why-card" data-reveal><span class="why-num">04</span><div><h3>Une véritable communauté de création</h3><p>Acteurs, scénaristes et réalisateurs se rencontrent, échangent et collaborent autour de projets communs. Une dynamique qui se prolonge au-delà des cours.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">01</span><div><h3>Une Méthode concrète, éprouvée depuis plus de 25 ans</h3><p>Inspirée de Stanislavski et de l'Actors Studio, notre Méthode vous apprend à ressentir et à jouer vrai grâce à des outils concrets, enrichis depuis 1999.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">02</span><div><h3>Des coaches en activité</h3><p>Acteurs et professionnels en activité, nos coaches transmettent une expérience concrète des plateaux, castings et tournages.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">03</span><div><h3>Un cadre bienveillant et exigeant</h3><p>Un environnement où vous pouvez expérimenter, vous tromper et progresser grâce à un accompagnement personnalisé et des retours constructifs.</p></div></div>
+        <div class="why-card" data-reveal><span class="why-num">04</span><div><h3>Une véritable communauté de création</h3><p>Acteurs, scénaristes et réalisateurs se rencontrent et collaborent autour de projets communs, au-delà des cours.</p></div></div>
       </div>
     </div>
   </section>
+
+  <!-- ============ BANDEAU ANIMÉ (déplacé sous « Pourquoi ») ============ -->
+  <div class="mq" data-screen-label="Marquee" aria-hidden="true">
+    <div class="mq-track">
+      <span class="mq-group"><span>Déclencher</span><span>Maîtriser</span><span>Reproduire</span><span class="mq-hl">Jouer vrai</span><span>Méthode Stanislavski</span></span>
+      <span class="mq-group"><span>Déclencher</span><span>Maîtriser</span><span>Reproduire</span><span class="mq-hl">Jouer vrai</span><span>Méthode Stanislavski</span></span>
+    </div>
+  </div>
 
 '''
 
 def pick(k):
     d = SESSIONS[k]
     return (f'            <!-- session {k} — masquée automatiquement après le {d["end"]} -->\n'
-            f'            <label class="stage-pick" data-end="{d["end"]}"><input type="checkbox" name="stage" value="{esc_attr(value(k))}" data-date="{d["date"]}" data-price="{d["price"]}">'
-            f'<span><strong>{d["name"]}</strong><small>{d["kind"]} &middot; {d["date"]} &middot; {d["price"]}</small></span></label>\n')
+            f'            <label class="stage-pick" data-end="{d["end"]}"><input type="checkbox" name="stage" data-key="{k}" value="{esc_attr(value(k))}" data-date="{esc_attr(d["date"])}" data-price="{d["price"]}">'
+            f'<span><strong>{h(d["name"])}</strong><small>{d["kind"]} &middot; {h(d["date"])} &middot; {d["price"]}</small></span></label>\n')
+
+FORMAT_SC = f'''            <!-- choix du format, visible seulement quand le stage d'écriture est coché -->
+            <div class="sc-format" id="sc-format" data-end="{SESSIONS["sc"]["end"]}" style="display:none">
+              <fieldset>
+                <legend>Comment souhaitez-vous participer&nbsp;?</legend>
+                <label class="fmt"><input type="radio" name="format_sc" value="En présentiel — Paris 13ᵉ"><span>En présentiel &mdash; Paris 13ᵉ</span></label>
+                <label class="fmt"><input type="radio" name="format_sc" value="À distance — En ligne"><span>À distance &mdash; En ligne</span></label>
+              </fieldset>
+            </div>
+'''
 
 input_css = "font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%"
 lab = "display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C"
@@ -290,7 +338,7 @@ FORM = f'''  <!-- ============ RÉSERVATION ============ -->
           <div style="display: flex; flex-direction: column; gap: 12px">
             <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Les stages qui m'intéressent <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(un ou plusieurs)</span></span>
             <div id="stage-list" style="display: flex; flex-direction: column; gap: 10px">
-{pick("sc")}{pick("b")}{pick("hiv")}{pick("cam")}{pick("pri")}{pick("a")}            </div>
+{pick("sc")}{FORMAT_SC}{pick("b")}{pick("cam")}{pick("hiv")}{pick("pri")}            </div>
             <div id="stages-recap" class="book-recap">Aucun stage sélectionné pour l'instant.</div>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
@@ -344,59 +392,121 @@ s = s.replace(footer_marker, SECTIONS + avis + films + FORM + footer_marker, 1)
 # ---------- 7. CSS ----------
 CSS = '''
   /* ===== Landing stages ===== */
-  #mac-landing .hero-next { max-width: 34ch; }
   #mac-landing .stage-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px; }
   #mac-landing .stage-list li { position:relative; padding-left:24px; font-size:15.5px; line-height:1.55; color:#3B362F; }
   #mac-landing .stage-list li::before { content:"\\2713"; position:absolute; left:0; top:0; color:#E0261F; font-weight:700; }
-  /* stage à la une */
-  #mac-landing .feat { display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); background:#FFFFFF; border:1px solid rgba(224,38,31,0.45); border-radius:28px; overflow:hidden; box-shadow:0 30px 60px rgba(224,38,31,0.10); }
-  #mac-landing .feat-media { position:relative; min-height:360px; background:#14120F; }
+  /* hero : encart « stage à la une » */
+  #mac-landing .hero-event { display:flex; flex-direction:column; gap:6px; background:#FFFFFF; border:1px solid rgba(224,38,31,0.45); border-left:4px solid #E0261F; border-radius:16px; padding:16px 18px; max-width:380px; box-shadow:0 14px 30px rgba(224,38,31,0.08); }
+  #mac-landing .hero-event-tag { font-family:'Oswald',sans-serif; font-size:11.5px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; }
+  #mac-landing .hero-event-title { font-family:'Oswald',sans-serif; font-size:19px; text-transform:uppercase; font-weight:700; line-height:1.15; color:#14120F; }
+  #mac-landing .hero-event p { margin:0; font-size:14.5px; line-height:1.5; color:#3B362F; }
+  #mac-landing .hero-event-cta { align-self:flex-start; margin-top:6px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; text-decoration:none; border-bottom:2px solid #E0261F; padding:4px 0 2px; }
+  #mac-landing .hero-event-cta:hover { color:#14120F; border-color:#14120F; }
+  /* stage à la une : photo réduite, texte prioritaire */
+  #mac-landing .feat { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,8fr); background:#FFFFFF; border:1px solid rgba(224,38,31,0.45); border-radius:28px; overflow:hidden; box-shadow:0 30px 60px rgba(224,38,31,0.10); }
+  #mac-landing .feat-media { position:relative; min-height:300px; background:#14120F; }
   #mac-landing .feat-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-  #mac-landing .feat-date { position:absolute; top:22px; left:22px; background:#E0261F; color:#FFFFFF; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:10px 16px; border-radius:999px; box-shadow:0 10px 24px rgba(20,18,15,0.18); }
-  #mac-landing .feat-body { padding:clamp(28px,4vw,52px); display:flex; flex-direction:column; gap:20px; }
+  #mac-landing .feat-date { position:absolute; top:20px; left:20px; background:#E0261F; color:#FFFFFF; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:10px 16px; border-radius:999px; box-shadow:0 10px 24px rgba(20,18,15,0.18); }
+  #mac-landing .feat-body { padding:clamp(26px,3.6vw,46px); display:flex; flex-direction:column; gap:18px; min-width:0; }
   #mac-landing .feat-tag { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:7px 12px; border-radius:999px; }
   #mac-landing .feat-body h3 { font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(26px,2.8vw,38px); text-transform:uppercase; line-height:1.04; margin:0; }
-  #mac-landing .feat-desc { margin:0; font-size:17px; line-height:1.7; color:#3B362F; }
-  #mac-landing .feat-meta { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr)); gap:14px 24px; padding:18px 0; border-top:1px solid #EEE9DF; border-bottom:1px solid #EEE9DF; }
-  #mac-landing .feat-meta div { display:flex; flex-direction:column; gap:4px; }
+  #mac-landing .feat-hook { margin:-6px 0 0; font-family:'Oswald',sans-serif; font-size:clamp(18px,1.8vw,22px); font-weight:500; color:#E0261F; line-height:1.3; }
+  #mac-landing .feat-desc { margin:0; font-size:16.5px; line-height:1.7; color:#3B362F; }
+  #mac-landing .feat-meta { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px 20px; padding:16px 0; border-top:1px solid #EEE9DF; border-bottom:1px solid #EEE9DF; }
+  #mac-landing .feat-meta div { display:flex; flex-direction:column; gap:4px; min-width:0; }
   #mac-landing .feat-meta span { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
   #mac-landing .feat-meta strong { font-size:15px; color:#14120F; font-weight:600; line-height:1.3; }
-  #mac-landing .feat-meta .feat-price { font-family:'Oswald',sans-serif; font-size:24px; color:#E0261F; font-weight:700; }
+  #mac-landing .feat-meta .feat-price { font-family:'Oswald',sans-serif; font-size:22px; color:#E0261F; font-weight:700; }
+  #mac-landing .feat-online { display:grid; grid-template-columns:auto 1fr; gap:14px; background:#14120F; color:#F4F1EC; border-radius:18px; padding:20px 22px; }
+  #mac-landing .feat-online-icon { color:#E0261F; font-size:22px; line-height:1.2; }
+  #mac-landing .feat-online strong { display:block; font-family:'Oswald',sans-serif; font-size:18px; text-transform:uppercase; letter-spacing:.5px; line-height:1.2; margin-bottom:6px; }
+  #mac-landing .feat-online p { margin:0 0 10px; font-size:15px; line-height:1.6; color:#D9D3CA; }
+  #mac-landing .feat-online-mode { display:inline-block; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.3px; text-transform:uppercase; font-weight:600; color:#FFFFFF; background:#E0261F; padding:7px 12px; border-radius:999px; }
   #mac-landing .feat-cta { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:#E0261F; color:#FFFFFF; text-decoration:none; padding:18px 34px; border-radius:999px; transition:background .15s ease, transform .15s ease; }
   #mac-landing .feat-cta:hover { background:#14120F; color:#FFFFFF; transform:translateY(-2px); }
-  /* accordéons stages */
-  #mac-landing .stage-head { align-items:flex-start; padding:28px 32px; }
-  #mac-landing .stage-head-main { flex:1; display:flex; flex-direction:column; gap:8px; min-width:0; }
+  /* accordéons stages : carte fermée compacte */
+  #mac-landing .stage-head { align-items:flex-start; padding:24px 30px; }
+  #mac-landing .stage-head-main { flex:1; display:flex; flex-direction:column; gap:7px; min-width:0; }
   #mac-landing .stage-kind { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; }
   #mac-landing .stage-title { font-family:'Oswald',sans-serif; font-size:clamp(20px,2.2vw,27px); text-transform:uppercase; font-weight:600; color:#14120F; margin:0; line-height:1.12; }
-  #mac-landing .stage-meta { display:flex; flex-wrap:wrap; gap:6px 18px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.2px; text-transform:uppercase; color:#6B655C; }
+  #mac-landing .stage-hook { margin:0; font-size:16px; line-height:1.5; color:#3B362F; }
+  #mac-landing .stage-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px 18px; margin-top:2px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.2px; text-transform:uppercase; color:#6B655C; }
   #mac-landing .stage-price { color:#E0261F; font-weight:700; }
-  #mac-landing .stage-short { margin:2px 0 0; font-size:15.5px; line-height:1.6; color:#6B655C; max-width:70ch; }
-  #mac-landing .stage-card.open .jpo-panel { max-height:2200px; }
-  #mac-landing .stage-photo { aspect-ratio:16/8; border-radius:16px; overflow:hidden; background:#14120F; }
+  #mac-landing .stage-level { font-size:11.5px; letter-spacing:1.2px; color:#14120F; background:rgba(224,38,31,0.10); border:1px solid rgba(224,38,31,0.35); padding:5px 10px; border-radius:999px; }
+  #mac-landing .stage-card.open .jpo-panel { max-height:1600px; }
+  /* carte ouverte : texte + photo réduite */
+  #mac-landing .stage-card .jpo-panel-inner.stage-panel { padding:0 30px 30px; display:grid; grid-template-columns:minmax(0,1fr) 260px; gap:28px; align-items:start; }
+  #mac-landing .stage-panel-text { display:flex; flex-direction:column; gap:18px; min-width:0; }
+  #mac-landing .stage-desc { margin:0; font-size:16px; line-height:1.7; color:#3B362F; max-width:70ch; }
+  #mac-landing .stage-photo { aspect-ratio:4/3; border-radius:14px; overflow:hidden; background:#14120F; }
   #mac-landing .stage-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  #mac-landing .stage-note { margin:0; font-size:14px; line-height:1.5; color:#6B655C; font-style:italic; }
-  #mac-landing .stage-card .jpo-panel-inner { padding:0 32px 34px; gap:22px; }
+  #mac-landing .stage-reassure { background:#F7F4EE; border-left:3px solid #E0261F; border-radius:10px; padding:14px 16px; }
+  #mac-landing .stage-reassure strong { display:block; font-size:15px; color:#14120F; margin-bottom:4px; }
+  #mac-landing .stage-reassure p { margin:0; font-size:14.5px; line-height:1.6; color:#6B655C; }
   #mac-landing .stage-card .jpo-field p { max-width:70ch; }
   #mac-landing [data-end].is-expired { display:none !important; }
-  /* pourquoi */
-  #mac-landing .why-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:20px; }
-  #mac-landing .why-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:30px 32px; display:grid; grid-template-columns:clamp(48px,4.5vw,64px) 1fr; gap:20px; align-items:start; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+  /* intensifs : variante sombre */
+  #mac-landing .stage-card--dark { background:#14120F; border-color:#2A2622; }
+  #mac-landing .stage-card--dark.open { border-color:rgba(224,38,31,0.55); box-shadow:0 24px 48px rgba(20,18,15,0.25); }
+  #mac-landing .stage-card--dark .stage-title { color:#FFFFFF; }
+  #mac-landing .stage-card--dark .stage-hook, #mac-landing .stage-card--dark .stage-desc { color:#E6E0D6; }
+  #mac-landing .stage-card--dark .stage-meta { color:#C9C2B8; }
+  #mac-landing .stage-card--dark .stage-price { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .stage-kind { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .jpo-plus { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .jpo-label { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .stage-list li { color:#E6E0D6; }
+  #mac-landing .stage-card--dark .stage-list li::before { color:#FF5A4F; }
+  #mac-landing .stage-card--dark .jpo-field p { color:#C9C2B8; }
+  #mac-landing .stage-card--dark .jpo-cta { background:#E0261F; }
+  #mac-landing .stage-card--dark .jpo-cta:hover { background:#FFFFFF; color:#14120F; }
+  #mac-landing .stage-card--dark .jpo-head:focus-visible, #mac-landing .stage-head:focus-visible { outline:2px solid #E0261F; outline-offset:-4px; border-radius:18px; }
+  /* pourquoi : 2 × 2 */
+  #mac-landing .why-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+  #mac-landing .why-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:24px 28px; display:grid; grid-template-columns:clamp(46px,4.2vw,58px) 1fr; gap:18px; align-items:start; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   #mac-landing .why-card:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
-  #mac-landing .why-num { font-family:'Oswald',sans-serif; font-size:clamp(34px,3.4vw,48px); font-weight:700; color:transparent; -webkit-text-stroke:1.5px #E0261F; line-height:1; }
-  #mac-landing .why-card h3 { font-family:'Oswald',sans-serif; font-size:21px; text-transform:uppercase; margin:0 0 8px; line-height:1.15; }
-  #mac-landing .why-card p { margin:0; font-size:15.5px; line-height:1.65; color:#6B655C; }
+  #mac-landing .why-num { font-family:'Oswald',sans-serif; font-size:clamp(32px,3.2vw,44px); font-weight:700; color:transparent; -webkit-text-stroke:1.5px #E0261F; line-height:1; }
+  #mac-landing .why-card h3 { font-family:'Oswald',sans-serif; font-size:20px; text-transform:uppercase; margin:0 0 6px; line-height:1.15; }
+  #mac-landing .why-card p { margin:0; font-size:15.5px; line-height:1.6; color:#6B655C; }
+  /* bandeau animé */
+  #mac-landing .mq { overflow:hidden; background:#F7F4EE; padding:8px 0 0; white-space:nowrap; }
+  #mac-landing .mq-track { display:flex; width:max-content; animation:mac-marquee 30s linear infinite; will-change:transform; }
+  #mac-landing .mq-group { display:flex; flex:0 0 auto; }
+  #mac-landing .mq-group span { font-family:'Oswald',sans-serif; font-size:clamp(34px,4.6vw,68px); letter-spacing:3px; text-transform:uppercase; font-weight:600; color:transparent; -webkit-text-stroke:1px #14120F; padding-right:.85em; line-height:1.15; }
+  #mac-landing .mq-group .mq-hl { color:#E0261F; -webkit-text-stroke:0; }
+  @media (prefers-reduced-motion: reduce){ #mac-landing .mq-track { animation:none; } }
   /* formulaire : cases à cocher stages */
-  #mac-landing .stage-pick { display:flex; align-items:flex-start; gap:12px; cursor:pointer; background:#F7F4EE; border:1px solid #EEE9DF; border-left:3px solid #E0261F; border-radius:12px; padding:12px 14px; transition:background .15s ease, box-shadow .15s ease; }
+  #mac-landing .stage-pick { display:flex; align-items:flex-start; gap:12px; cursor:pointer; background:#F7F4EE; border:1px solid #EEE9DF; border-left:3px solid #E0261F; border-radius:12px; padding:13px 14px; transition:background .15s ease, box-shadow .15s ease; }
   #mac-landing .stage-pick:hover { background:#FFFFFF; }
-  #mac-landing .stage-pick input { margin:3px 0 0; width:18px; height:18px; accent-color:#E0261F; flex:0 0 auto; }
+  #mac-landing .stage-pick input { margin:3px 0 0; width:20px; height:20px; accent-color:#E0261F; flex:0 0 auto; }
   #mac-landing .stage-pick > span { display:flex; flex-direction:column; gap:2px; min-width:0; }
   #mac-landing .stage-pick strong { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:.3px; color:#14120F; font-weight:600; line-height:1.25; }
   #mac-landing .stage-pick small { font-size:12.5px; color:#6B655C; line-height:1.4; }
   #mac-landing .stage-pick:has(input:checked) { background:#FFFFFF; box-shadow:0 0 0 2px #E0261F; }
   #mac-landing .stage-pick.is-prefilled { box-shadow:0 0 0 3px rgba(224,38,31,0.35); }
-  @media (max-width:860px){ #mac-landing .feat { grid-template-columns:1fr; } #mac-landing .feat-media { min-height:0; aspect-ratio:16/9; } }
-  @media (max-width:640px){ #mac-landing .stage-head { padding:22px 20px; } #mac-landing .stage-card .jpo-panel-inner { padding:0 20px 26px; } #mac-landing .hero-next { max-width:none; } }
+  #mac-landing .sc-format { margin:-2px 0 4px 18px; }
+  #mac-landing .sc-format fieldset { margin:0; border:1px solid #EEE9DF; border-radius:12px; padding:12px 14px 14px; display:flex; flex-wrap:wrap; gap:10px; background:#FFFFFF; }
+  #mac-landing .sc-format legend { padding:0 6px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:#14120F; font-weight:600; }
+  #mac-landing .sc-format .fmt { flex:1 1 200px; display:flex; align-items:center; gap:10px; cursor:pointer; border:1px solid #EEE9DF; border-radius:10px; padding:12px 14px; font-size:15px; color:#14120F; background:#F7F4EE; min-height:48px; }
+  #mac-landing .sc-format .fmt input { width:20px; height:20px; margin:0; accent-color:#E0261F; flex:0 0 auto; }
+  #mac-landing .sc-format .fmt:has(input:checked) { background:#FFFFFF; box-shadow:0 0 0 2px #E0261F; border-color:transparent; }
+  #mac-landing .sc-format.is-error fieldset { border-color:#E0261F; background:rgba(224,38,31,0.06); }
+  @media (max-width:900px){ #mac-landing .feat { grid-template-columns:1fr; } #mac-landing .feat-media { min-height:0; aspect-ratio:16/7; } #mac-landing .feat-meta { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:760px){ #mac-landing .why-grid { grid-template-columns:1fr; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { grid-template-columns:1fr; } #mac-landing .stage-photo { order:-1; aspect-ratio:16/8; max-height:220px; } }
+  @media (max-width:640px){ #mac-landing .stage-head { padding:20px 18px; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { padding:0 18px 24px; } #mac-landing .hero-event { max-width:none; padding:14px 16px; } #mac-landing .feat-online { padding:18px; } #mac-landing .sc-format { margin-left:0; } }
+  /* footer : couleurs harmonisées (cette page uniquement ; #mac-landing a l'emportait et colorait tout en rouge) */
+  #mac-landing .site-footer h4 { color:#FFFFFF; }
+  #mac-landing .site-footer a { color:#DAD4CB; }
+  #mac-landing .site-footer a:hover { color:#E0261F; }
+  #mac-landing .site-footer a[aria-current="page"] { color:#E0261F; }
+  #mac-landing .site-footer a.brand, #mac-landing .site-footer a.brand:hover { color:#E0261F; }
+  #mac-landing .site-footer .footer-alt { border-color:rgba(244,241,236,0.45); }
+  #mac-landing .site-footer .footer-alt:hover { background:#E0261F; border-color:#E0261F; color:#FFFFFF !important; }
+  #mac-landing a:focus-visible, #mac-landing button:focus-visible, #mac-landing input:focus-visible, #mac-landing select:focus-visible, #mac-landing textarea:focus-visible { outline:2px solid #E0261F; outline-offset:3px; border-radius:4px; }
+  /* zones tactiles : points des carrousels et liens de contact */
+  #mac-landing .rev-dot, #mac-landing #hero-dots button { position:relative; }
+  #mac-landing .rev-dot::after, #mac-landing #hero-dots button::after { content:""; position:absolute; inset:-14px -6px; }
+  #mac-landing #reservation a[href^="tel:"], #mac-landing #reservation a[href^="mailto:"], #mac-landing #reservation a[href*="wa.me"] { display:inline-block; padding:8px 0; }
 '''
 s = s.replace("\n</style>", CSS + "</style>", 1)
 
@@ -410,6 +520,19 @@ js_rev = "  var REVIEWS = [\n" + ",\n".join("    " + json.dumps(r, ensure_ascii=
 s, n = re.subn(r"  var REVIEWS = \[\n.*?\n  \];", lambda m: js_rev, s, count=1, flags=re.S); assert n == 1
 s, n = re.subn(r"  var ATELIERS = \[\n.*?\n  \];\n", "", s, count=1, flags=re.S); assert n == 1
 s, n = re.subn(r"  var PROGRAM = \[\n.*?\n  \];\n", "", s, count=1, flags=re.S); assert n == 1
+s, n = re.subn(r"  function initJpo\(\)\{.*?\n  \}\n", lambda mm: """  function initJpo(){
+    var cards=[].slice.call(ROOT.querySelectorAll(".jpo-card"));
+    cards.forEach(function(card){
+      var head=card.querySelector(".jpo-head"); if(!head) return;
+      head.addEventListener("click",function(){
+        var isOpen=card.classList.contains("open"), top0=head.getBoundingClientRect().top, t0=Date.now();
+        cards.forEach(function(c){ if(c!==card){ c.classList.remove("open"); var h=c.querySelector(".jpo-head"); if(h) h.setAttribute("aria-expanded","false"); } });
+        card.classList.toggle("open", !isOpen); head.setAttribute("aria-expanded", String(!isOpen));
+        (function hold(){ var d=head.getBoundingClientRect().top-top0; if(Math.abs(d)>1) window.scrollTo({top:window.pageYOffset+d, behavior:"instant"}); if(Date.now()-t0<500) requestAnimationFrame(hold); })();
+      });
+    });
+  }
+""", s, count=1, flags=re.S); assert n == 1
 s = sub1(s, "initProgram(); initJpo(); initReviews(); initBooking(); initAnchors(); initMobileCta(); }",
             "initExpired(); initJpo(); initReviews(); initStagesForm(); initAnchors(); }", "init line")
 
@@ -438,17 +561,28 @@ JS = r'''
     if(!form) return;
     var boxes=[].slice.call(form.querySelectorAll('input[name="stage"]'));
     function available(){ return boxes.filter(function(b){ var row=b.closest("[data-end]"); return !(row&&row.classList.contains("is-expired")); }); }
-    function chosen(){ return available().filter(function(b){return b.checked;}).map(function(b){ return {name:b.value.replace(/\s*\([^)]*\)\s*$/,""), date:b.getAttribute("data-date")||"", price:b.getAttribute("data-price")||""}; }); }
+    var fmtBox=document.getElementById("sc-format");
+    var scBox=boxes.filter(function(b){ return b.getAttribute("data-key")==="sc"; })[0];
+    function scOn(){ return !!(scBox && scBox.checked && available().indexOf(scBox)>=0); }
+    function scFormat(){ var r=form.querySelector('input[name="format_sc"]:checked'); return r?r.value:""; }
+    function syncFormat(){
+      if(!fmtBox) return;
+      if(scOn()){ fmtBox.style.display=""; }
+      else { fmtBox.style.display="none"; fmtBox.classList.remove("is-error"); [].slice.call(fmtBox.querySelectorAll("input")).forEach(function(r){ r.checked=false; }); }
+    }
+    function chosen(){ return available().filter(function(b){return b.checked;}).map(function(b){ var isSc=b.getAttribute("data-key")==="sc"; return {key:b.getAttribute("data-key")||"", name:b.value.replace(/\s*\([^)]*\)\s*$/,""), date:b.getAttribute("data-date")||"", price:b.getAttribute("data-price")||"", format:isSc?scFormat():""}; }); }
     function updateRecap(){
+      syncFormat();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap"; recap.textContent="Aucun stage sélectionné pour l’instant."; return; }
       recap.className="book-recap active";
-      recap.innerHTML=ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){ return "<strong>"+esc(c.name)+"</strong> ("+esc(c.date)+(c.price?" · "+esc(c.price):"")+")"; }).join(" · ");
+      recap.innerHTML=ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){ return "<strong>"+esc(c.name)+"</strong> ("+esc(c.date)+(c.price?" · "+esc(c.price):"")+(c.key==="sc"?" · "+(c.format?esc(c.format):"format à choisir"):"")+")"; }).join(" · ");
     }
     boxes.forEach(function(b){ b.addEventListener("change",updateRecap); });
+    if(fmtBox) [].slice.call(fmtBox.querySelectorAll("input")).forEach(function(r){ r.addEventListener("change",function(){ fmtBox.classList.remove("is-error"); updateRecap(); }); });
     updateRecap();
 
-    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=a,sc,b,cam,hiv,pri à l'arrivée */
+    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=sc,b,cam,hiv,pri à l'arrivée */
     var tmp=document.createElement("textarea");
     function norm(t){ tmp.innerHTML=t; return tmp.value.replace(/\s+/g," ").trim(); }
     function tick(box, ms){
@@ -511,12 +645,12 @@ JS = r'''
     function track(ch){
       try{
         window.dataLayer=window.dataLayer||[];
-        window.dataLayer.push({event:"stage_form_success", stages:ch.map(function(c){return c.name;}), stage_count:ch.length});
+        window.dataLayer.push({event:"stage_form_success", stages:ch.map(function(c){return c.name;}), stage_count:ch.length, format_ecriture:scOn()?scFormat():""});
         if(typeof window.gtag==="function"){ window.gtag("event","generate_lead",{event_category:"stages",event_label:ch.map(function(c){return c.name;}).join(" | "),value:ch.length}); }
       }catch(e){}
     }
     function showSuccess(ch){
-      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong>";}).join(", ")+". L’équipe du Method Acting Center vous confirme votre place et les modalités pratiques par email."; }
+      if(successRecap){ successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" stage"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong>"+(c.format?" ("+esc(c.format)+")":"");}).join(", ")+". L’équipe du Method Acting Center vous confirme votre place et les modalités pratiques par email."; }
       form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
       track(ch);
     }
@@ -524,6 +658,12 @@ JS = r'''
       e.preventDefault();
       var ch=chosen();
       if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Cochez au moins un stage avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(scOn() && !scFormat()){
+        fmtBox.classList.add("is-error");
+        recap.className="book-recap warn"; recap.textContent="Pour le stage Scénario, réalisation & direction d’acteurs, indiquez si vous participez en présentiel ou à distance.";
+        fmtBox.scrollIntoView({behavior:"smooth",block:"center"}); var r0=fmtBox.querySelector("input"); if(r0) try{ r0.focus({preventScroll:true}); }catch(e){}
+        return;
+      }
       if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), btnLabel=btn?btn.innerHTML:"";
       var name=(field("prenom")+" "+field("nom")).trim()||"sans nom";
@@ -532,7 +672,8 @@ JS = r'''
         subject: "Réservation stage — "+name,
         from_name: "Stages · Method Acting Center (landing)",
         "Prénom": field("prenom"), "Nom": field("nom"), "Email": field("email"), "Téléphone": field("telephone")||"—",
-        "Stages": ch.map(function(c){ return "• "+c.name+" — "+c.date+(c.price?" — "+c.price:""); }).join("\n"),
+        "Stages": ch.map(function(c){ return "• "+c.name+" — "+c.date+(c.price?" — "+c.price:"")+(c.format?" — "+c.format:""); }).join("\n"),
+        "Format (stage d'écriture)": scOn()?scFormat():"—",
         "Message": field("message")||"—",
         "Comment nous a connus": field("source")||"—",
         "Campagne": campaign()||"—",
@@ -573,8 +714,10 @@ open(DST, "w", encoding="utf-8").write(s)
 assert "data:image" not in s and 'src="uploads/' not in s and 'url: "uploads/' not in s
 print("landing écrite :", DST, len(s)//1024, "Ko")
 # contrôles
-for must in ["Vous voulez devenir", "Commencez par apprendre", "Ce n&rsquo;est pas<br>le talent", "Elle se vit.", "Stage à la une", "Plus de temps pour explorer", "Une Méthode exigeante", "Ils ont tenté", "Retrouvez nos élèves", "À vous de jouer", "Pas encore prêt", "jposr"]:
+for must in ["Vous voulez devenir", "Commencez par apprendre", "Ce n&rsquo;est pas<br>le talent", "Elle se vit.", "Stage à la une", "Plus de temps pour explorer", "Une Méthode exigeante", "Ils ont tenté", "Retrouvez nos élèves", "À vous de jouer", "Pas encore prêt", "jposr",
+             'class="hero-event"', 'id="sc-format"', "Vous n'habitez pas en région parisienne", "Nos stages &middot; Paris 13ᵉ et en ligne", 'class="mq"', "stage-card--dark"]:
     assert must in s, must
-for mustnot in ["Journ&eacute;es Portes Ouvertes</span></h2>", 'id="jpo"', 'id="formation"', 'id="faq"', "booking-form", "Cours d&rsquo;essai gratuit</a>\n      </nav>", "class=\"annce\""]:
+for mustnot in ["Journ&eacute;es Portes Ouvertes</span></h2>", 'id="jpo"', 'id="formation"', 'id="faq"', "booking-form", "Cours d&rsquo;essai gratuit</a>\n      </nav>", "class=\"annce\"",
+                "Actors Studio A —", "Autres stages week-end", "Deux jours, <span", "Dépliez une carte", 'data-screen-label="Marquee" style=', "hero-next", "l\\'exp"]:
     assert mustnot not in s, mustnot
 print("contrôles ok")
