@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Construit la landing /stages/ à partir de la landing /jpo/ (qui reste intacte)."""
-import re, base64, json
+import re, base64, json, datetime
+TODAY = datetime.date.today().isoformat()
 
 import os as _os
 HERE = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
@@ -54,12 +55,15 @@ s = s.replace(nav_old, nav_new)
 # ---------- 4. Hero : CTA + encart « stage à la une » ----------
 # Encart du hero : à actualiser ici pour le prochain événement (masqué automatiquement après `end`).
 HERO_EVENT = dict(
-    end="2026-11-08",
-    tag="Stage à la une &middot; 7 &amp; 8 novembre 2026",
-    title="Scénario, réalisation &amp; direction d'acteurs",
-    lines=["À Paris ou en ligne, où que vous soyez.", "Deux jours pour apprendre à donner vie à vos histoires."],
+    end="2026-11-15",
+    tag="Stage à la une &middot; 14 &amp; 15 novembre 2026",
+    title="Actors Studio B &mdash; Approche d'une scène",
+    lines=["Donnez vie à un personnage. Faites exister une scène.", "Tous niveaux &middot; Sans prérequis."],
     cta="Découvrir ce stage", href="#stage-une",
 )
+# Précédent encart (stage d'écriture des 7 & 8 novembre 2026), à réutiliser pour une prochaine session :
+# tag="Stage à la une &middot; 7 &amp; 8 novembre 2026", title="Scénario, réalisation &amp; direction d'acteurs",
+# lines=["À Paris ou en ligne, où que vous soyez.", "Deux jours pour apprendre à donner vie à vos histoires."]
 m = re.search(r'(<div class="hero-actions"[^>]*>).*?\n          </div>\n        </div>', s, re.S)
 assert m
 btn = "font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease, border-color .15s ease"
@@ -101,9 +105,22 @@ films = films.replace('padding: 100px 24px 40px;', 'padding: 40px 24px 40px;', 1
 # level : n'afficher qu'un niveau confirmé par l'école (laisser vide sinon).
 SESSIONS = {
  "sc": dict(name="Scénario, réalisation & direction d'acteurs", date="7 & 8 novembre 2026", end="2026-11-08",
-            duration="2 jours", place="Paris 13ᵉ ou à distance", price="dès 160 €", level="", kind="Stage week-end"),
+            duration="2 jours", place="Paris 13ᵉ ou à distance", price="dès 160 €", level="", kind="Stage week-end",
+            hook="De l'idée à l'écran, apprenez à donner vie à vos histoires.",
+            desc="Pendant deux jours, découvrez des techniques concrètes pour développer votre inspiration, construire des personnages captivants et transformer vos idées en récits. Explorez également les fondamentaux de la réalisation et de la direction d'acteurs pour donner vie à votre vision.",
+            benefits_label="Ce que vous allez apprendre",
+            benefits=["Développer votre créativité et trouver l'inspiration grâce à des outils d'écriture concrets.",
+                      "Construire des histoires et des personnages qui suscitent l'intérêt et l'émotion.",
+                      "Donner vie à votre vision en découvrant les bases de la mise en scène et de la direction d'acteurs."],
+            online=("Vous n'habitez pas en région parisienne&nbsp;?",
+                    "Bonne nouvelle : vous pouvez aussi participer à ce stage à distance ! Grâce à des outils et supports dédiés, découvrez et expérimentez les techniques d'écriture et de création du Method Acting Center depuis chez vous.",
+                    "Présentiel à Paris ou participation en ligne, au choix."),
+            feat_photo="tournage-equipe-terrasse-acteurs-method-acting-center.jpg", feat_pos="80% 50%",
+            feat_alt="Tournage en extérieur : équipe et acteurs d'un projet du Method Acting Center"),
  "b":  dict(name="Actors Studio B — Approche d'une scène", date="14 & 15 novembre 2026", end="2026-11-15",
             duration="2 jours", place="Paris 13ᵉ", price="dès 160 €", level="Tous niveaux · Sans prérequis", kind="Stage week-end",
+            feat_photo="scene-theatre-tension-acteurs-method-acting-center.jpg", feat_pos="50% 45%",
+            feat_alt="Scène de tension jouée par deux élèves acteurs du Method Acting Center",
             hook="Donnez vie à un personnage. Faites exister une scène.",
             desc="Passez de la technique à l'interprétation. Pendant deux jours, apprenez à utiliser les outils de la Méthode pour construire une scène, développer votre relation au partenaire et donner davantage de justesse à votre jeu.",
             benefits_label="Ce que vous allez apprendre",
@@ -184,63 +201,68 @@ def accordion(k, dark=False):
         </div>
 '''
 
-d = SESSIONS["sc"]
-SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE + STAGES WEEK-END ============ -->
-  <section id="stages" data-screen-label="Stages" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; display: flex; flex-direction: column; gap: 48px">
-      <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 70ch">
-        <div style="display: flex; align-items: center; gap: 12px">
-          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ et en ligne</span>
-        </div>
-        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">La Méthode ne se comprend pas seulement. <span style="color: #E0261F">Elle se vit.</span></h2>
-        <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F">Découvrez nos stages pratiques. Que vous souhaitiez faire vos premiers pas dans le jeu d'acteur, approfondir votre technique ou explorer l'écriture et la réalisation, chaque stage est une occasion d'expérimenter, de créer et de progresser.</p>
-      </div>
+# ---------- Stage à la une : changer FEATURED pour mettre un autre stage en avant ----------
+FEATURED = "b"
+WEEKEND = ["sc", "b", "cam"]          # ordre des stages week-end ; les sessions passées sont retirées au build
 
-      <div style="display: flex; flex-direction: column; gap: 16px">
-      <!-- ======================================================================
-           STAGE À LA UNE — Scénario, réalisation & direction d'acteurs.
-           Masqué automatiquement après le {d["end"]} (data-end). Dates et tarif : SESSIONS["sc"].
+def featured(k):
+    d = SESSIONS[k]
+    online = ""
+    if d.get("online"):
+        t, txt, mode = d["online"]
+        online = (f'\n          <div class="feat-online">\n            <span class="feat-online-icon" aria-hidden="true">&#9673;</span>\n            <div>\n'
+                  f'              <strong>{t}</strong>\n              <p>{txt}</p>\n              <span class="feat-online-mode">{mode}</span>\n            </div>\n          </div>')
+    reassure = (f'\n          <div class="stage-reassure"><strong>{d["reassure"][0]}</strong><p>{d["reassure"][1]}</p></div>' if d.get("reassure") else "")
+    level = (f'\n          <span class="stage-level feat-level">{h(d["level"])}</span>' if d.get("level") else "")
+    return (f'''      <!-- ======================================================================
+           STAGE À LA UNE — {h(d["name"])} (FEATURED = "{k}").
+           Masqué automatiquement après le {d["end"]} (data-end). Textes et dates : SESSIONS["{k}"].
            ====================================================================== -->
       <article class="feat" data-reveal data-end="{d["end"]}" id="stage-une">
         <div class="feat-media">
-          <img src="/uploads/{PHOTOS["sc"]}" alt="Tournage en extérieur : équipe et acteurs d'un projet du Method Acting Center" style="object-position: 80% 50%">
+          <img src="/uploads/{d["feat_photo"]}" alt="{d["feat_alt"]}" style="object-position: {d["feat_pos"]}">
           <span class="feat-date">{h(d["date"])}</span>
         </div>
         <div class="feat-body">
           <span class="feat-tag">Stage à la une</span>
-          <h3>Scénario, réalisation &amp; direction d'acteurs</h3>
-          <p class="feat-hook">De l'idée à l'écran, apprenez à donner vie à vos histoires.</p>
+          <h3>{h(d["name"])}</h3>
+          <p class="feat-hook">{d["hook"]}</p>{level}
           <div class="feat-meta">
             <div><span>Dates</span><strong>{h(d["date"])}</strong></div>
             <div><span>Durée</span><strong>{d["duration"]}</strong></div>
             <div><span>Lieu</span><strong>{d["place"]}</strong></div>
             <div><span>Tarif</span><strong class="feat-price">{d["price"]}</strong></div>
           </div>
-          <p class="feat-desc">Pendant deux jours, découvrez des techniques concrètes pour développer votre inspiration, construire des personnages captivants et transformer vos idées en récits. Explorez également les fondamentaux de la réalisation et de la direction d'acteurs pour donner vie à votre vision.</p>
-          <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span>
-            <ul class="stage-list">
-              <li>Développer votre créativité et trouver l'inspiration grâce à des outils d'écriture concrets.</li>
-              <li>Construire des histoires et des personnages qui suscitent l'intérêt et l'émotion.</li>
-              <li>Donner vie à votre vision en découvrant les bases de la mise en scène et de la direction d'acteurs.</li>
-            </ul>
-          </div>
-          <div class="feat-online">
-            <span class="feat-online-icon" aria-hidden="true">&#9673;</span>
-            <div>
-              <strong>Vous n'habitez pas en région parisienne&nbsp;?</strong>
-              <p>Bonne nouvelle : vous pouvez aussi participer à ce stage à distance ! Grâce à des outils et supports dédiés, découvrez et expérimentez les techniques d'écriture et de création du Method Acting Center depuis chez vous.</p>
-              <span class="feat-online-mode">Présentiel à Paris ou participation en ligne, au choix.</span>
-            </div>
-          </div>
-          {cta("sc", cls="feat-cta")}
+          <p class="feat-desc">{d["desc"]}</p>
+          <div class="jpo-field"><span class="jpo-label">{d["benefits_label"]}</span>
+            <ul class="stage-list">{lis(d["benefits"])}</ul>
+          </div>{reassure}{online}
+          {cta(k, cls="feat-cta")}
         </div>
       </article>
       <!-- ====================== fin STAGE À LA UNE ====================== -->
+''')
 
+UPCOMING = [k for k in WEEKEND if SESSIONS[k]["end"] >= TODAY]
+ONLINE_OFFER = any(SESSIONS[k].get("online") for k in UPCOMING)
+d = SESSIONS[FEATURED]
+SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE + STAGES WEEK-END ============ -->
+  <section id="stages" data-screen-label="Stages" style="background: #F7F4EE; border-radius: 40px 40px 0 0; margin-top: -40px; position: relative">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 24px 80px; display: flex; flex-direction: column; gap: 48px">
+      <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 70ch">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ{" et en ligne" if ONLINE_OFFER else ""}</span>
+        </div>
+        <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">La Méthode ne se comprend pas seulement. <span style="color: #E0261F">Elle se vit.</span></h2>
+        <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F">Découvrez nos stages pratiques. Que vous souhaitiez faire vos premiers pas dans le jeu d'acteur, approfondir votre technique ou explorer l'écriture et la réalisation, chaque stage est une occasion d'expérimenter, de créer et de progresser.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+{featured(FEATURED)}
       <!-- ============ STAGES WEEK-END (accordéons) ============ -->
       <div id="weekend" data-reveal style="display: flex; flex-direction: column; gap: 16px">
-{accordion("b")}{accordion("cam")}      </div>
+{"".join(accordion(k) for k in UPCOMING if k != FEATURED)}      </div>
       </div>
     </div>
   </section>
@@ -410,6 +432,7 @@ CSS = '''
   #mac-landing .feat-body { padding:clamp(26px,3.6vw,46px); display:flex; flex-direction:column; gap:18px; min-width:0; }
   #mac-landing .feat-tag { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:7px 12px; border-radius:999px; }
   #mac-landing .feat-body h3 { font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(26px,2.8vw,38px); text-transform:uppercase; line-height:1.04; margin:0; }
+  #mac-landing .feat-level { align-self:flex-start; margin-top:-4px; }
   #mac-landing .feat-hook { margin:-6px 0 0; font-family:'Oswald',sans-serif; font-size:clamp(18px,1.8vw,22px); font-weight:500; color:#E0261F; line-height:1.3; }
   #mac-landing .feat-desc { margin:0; font-size:16.5px; line-height:1.7; color:#3B362F; }
   #mac-landing .feat-meta { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px 20px; padding:16px 0; border-top:1px solid #EEE9DF; border-bottom:1px solid #EEE9DF; }
@@ -715,7 +738,7 @@ assert "data:image" not in s and 'src="uploads/' not in s and 'url: "uploads/' n
 print("landing écrite :", DST, len(s)//1024, "Ko")
 # contrôles
 for must in ["Vous voulez devenir", "Commencez par apprendre", "Ce n&rsquo;est pas<br>le talent", "Elle se vit.", "Stage à la une", "Plus de temps pour explorer", "Une Méthode exigeante", "Ils ont tenté", "Retrouvez nos élèves", "À vous de jouer", "Pas encore prêt", "jposr",
-             'class="hero-event"', 'id="sc-format"', "Vous n'habitez pas en région parisienne", "Nos stages &middot; Paris 13ᵉ et en ligne", 'class="mq"', "stage-card--dark"]:
+             'class="hero-event"', 'id="sc-format"', "Nos stages &middot; Paris 13ᵉ", 'class="mq"', "stage-card--dark"]:
     assert must in s, must
 for mustnot in ["Journ&eacute;es Portes Ouvertes</span></h2>", 'id="jpo"', 'id="formation"', 'id="faq"', "booking-form", "Cours d&rsquo;essai gratuit</a>\n      </nav>", "class=\"annce\"",
                 "Actors Studio A —", "Autres stages week-end", "Deux jours, <span", "Dépliez une carte", 'data-screen-label="Marquee" style=', "hero-next", "l\\'exp"]:

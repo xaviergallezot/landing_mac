@@ -199,5 +199,22 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   `stage_form_success` uniquement après envoi réussi ; couleurs du footer au repos et au survol.
 - Retour arrière : `git revert` du commit, rebuild.
 
+### 2026-11-09 — [STAGES-B-001]
+
+- Catégorie : contenu / conversion
+- Demande du propriétaire : le stage Scénario des 7 & 8 novembre étant passé, mettre le stage B au premier plan.
+- Landing `/stages/` (`tools/build_landing_stages.py`) : encart du hero et grande carte « Stage à la une »
+  consacrés à Actors Studio B (textes du brief du propriétaire) ; carte à la une rendue générique
+  (variable `FEATURED`, textes dans `SESSIONS`) ; les stages week-end passés sont retirés au build ;
+  sur-titre « Nos stages · Paris 13ᵉ » sans « et en ligne » tant qu'aucun stage en ligne n'est à venir.
+  Les textes du stage d'écriture restent dans `SESSIONS["sc"]`, prêts pour une prochaine session.
+- Page Stages du site : « Prochain stage · 14 & 15 novembre » ; bloc Prochainement = stage B puis
+  intensif d'hiver ; stage B en première offre ; stage Scénario en « prochaine session à venir »
+  (bouton « Me prévenir des dates ») ; formulaire mis à jour. Page Tarifs : « Prochain stage les 14 & 15 novembre ».
+- Tests : à la date du 2026-11-09, desktop et mobile sans débordement ni erreur JS ; encart et carte
+  visibles ; boutons qui cochent le stage B et l'intensif d'hiver ; envois simulés corrects.
+- Non modifié : landing `/jposr/` (carte « Prochain stage : 7 & 8 novembre ») et `llms.txt`.
+- Retour arrière : `git revert` du commit, rebuild.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

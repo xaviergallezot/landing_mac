@@ -205,6 +205,7 @@
   #mac-landing .feat-body { padding:clamp(26px,3.6vw,46px); display:flex; flex-direction:column; gap:18px; min-width:0; }
   #mac-landing .feat-tag { align-self:flex-start; font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:7px 12px; border-radius:999px; }
   #mac-landing .feat-body h3 { font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(26px,2.8vw,38px); text-transform:uppercase; line-height:1.04; margin:0; }
+  #mac-landing .feat-level { align-self:flex-start; margin-top:-4px; }
   #mac-landing .feat-hook { margin:-6px 0 0; font-family:'Oswald',sans-serif; font-size:clamp(18px,1.8vw,22px); font-weight:500; color:#E0261F; line-height:1.3; }
   #mac-landing .feat-desc { margin:0; font-size:16.5px; line-height:1.7; color:#3B362F; }
   #mac-landing .feat-meta { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px 20px; padding:16px 0; border-top:1px solid #EEE9DF; border-bottom:1px solid #EEE9DF; }
@@ -337,12 +338,12 @@
         <div class="hero-actions" style="display: flex; flex-direction: column; gap: 16px; flex: 0 0 auto; align-items: stretch">
           <a href="#stages" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease, border-color .15s ease; background: #E0261F; color: #FFFFFF" style-hover="background: #14120F; color: #FFFFFF; transform: translateY(-2px)">Découvrir nos stages</a>
           <a href="#methode" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; padding: 19px 36px; border-radius: 999px; text-align: center; transition: transform .15s ease, background .15s ease, border-color .15s ease; background: transparent; color: #14120F; padding: 18px 36px; border: 1px solid rgba(20,18,15,0.3)" style-hover="border-color: #14120F; color: #14120F; transform: translateY(-2px)">Comprendre la Méthode</a>
-          <!-- encart événement : modifiez HERO_EVENT dans tools/build_landing_stages.py ; masqué automatiquement après le 2026-11-08 -->
-          <aside class="hero-event" data-end="2026-11-08">
-            <span class="hero-event-tag">Stage à la une &middot; 7 &amp; 8 novembre 2026</span>
-            <strong class="hero-event-title">Scénario, réalisation &amp; direction d'acteurs</strong>
-            <p>À Paris ou en ligne, où que vous soyez.</p>
-            <p>Deux jours pour apprendre à donner vie à vos histoires.</p>
+          <!-- encart événement : modifiez HERO_EVENT dans tools/build_landing_stages.py ; masqué automatiquement après le 2026-11-15 -->
+          <aside class="hero-event" data-end="2026-11-15">
+            <span class="hero-event-tag">Stage à la une &middot; 14 &amp; 15 novembre 2026</span>
+            <strong class="hero-event-title">Actors Studio B &mdash; Approche d'une scène</strong>
+            <p>Donnez vie à un personnage. Faites exister une scène.</p>
+            <p>Tous niveaux &middot; Sans prérequis.</p>
             <a class="hero-event-cta" href="#stage-une">Découvrir ce stage &rarr;</a>
           </aside>
         </div>
@@ -405,7 +406,7 @@
       <div data-reveal style="display: flex; flex-direction: column; gap: 22px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ et en ligne</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Nos stages &middot; Paris 13ᵉ</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 76px); text-transform: uppercase; line-height: 0.98; margin: 0">La Méthode ne se comprend pas seulement. <span style="color: #E0261F">Elle se vit.</span></h2>
         <p style="margin: 0; font-size: 19px; line-height: 1.75; color: #3B362F">Découvrez nos stages pratiques. Que vous souhaitiez faire vos premiers pas dans le jeu d'acteur, approfondir votre technique ou explorer l'écriture et la réalisation, chaque stage est une occasion d'expérimenter, de créer et de progresser.</p>
@@ -413,71 +414,37 @@
 
       <div style="display: flex; flex-direction: column; gap: 16px">
       <!-- ======================================================================
-           STAGE À LA UNE — Scénario, réalisation & direction d'acteurs.
-           Masqué automatiquement après le 2026-11-08 (data-end). Dates et tarif : SESSIONS["sc"].
+           STAGE À LA UNE — Actors Studio B — Approche d'une scène (FEATURED = "b").
+           Masqué automatiquement après le 2026-11-15 (data-end). Textes et dates : SESSIONS["b"].
            ====================================================================== -->
-      <article class="feat" data-reveal data-end="2026-11-08" id="stage-une">
+      <article class="feat" data-reveal data-end="2026-11-15" id="stage-une">
         <div class="feat-media">
-          <img src="/uploads/tournage-equipe-terrasse-acteurs-method-acting-center.jpg" alt="Tournage en extérieur : équipe et acteurs d'un projet du Method Acting Center" style="object-position: 80% 50%">
-          <span class="feat-date">7 &amp; 8 novembre 2026</span>
+          <img src="/uploads/scene-theatre-tension-acteurs-method-acting-center.jpg" alt="Scène de tension jouée par deux élèves acteurs du Method Acting Center" style="object-position: 50% 45%">
+          <span class="feat-date">14 &amp; 15 novembre 2026</span>
         </div>
         <div class="feat-body">
           <span class="feat-tag">Stage à la une</span>
-          <h3>Scénario, réalisation &amp; direction d'acteurs</h3>
-          <p class="feat-hook">De l'idée à l'écran, apprenez à donner vie à vos histoires.</p>
+          <h3>Actors Studio B — Approche d'une scène</h3>
+          <p class="feat-hook">Donnez vie à un personnage. Faites exister une scène.</p>
+          <span class="stage-level feat-level">Tous niveaux · Sans prérequis</span>
           <div class="feat-meta">
-            <div><span>Dates</span><strong>7 &amp; 8 novembre 2026</strong></div>
+            <div><span>Dates</span><strong>14 &amp; 15 novembre 2026</strong></div>
             <div><span>Durée</span><strong>2 jours</strong></div>
-            <div><span>Lieu</span><strong>Paris 13ᵉ ou à distance</strong></div>
+            <div><span>Lieu</span><strong>Paris 13ᵉ</strong></div>
             <div><span>Tarif</span><strong class="feat-price">dès 160 €</strong></div>
           </div>
-          <p class="feat-desc">Pendant deux jours, découvrez des techniques concrètes pour développer votre inspiration, construire des personnages captivants et transformer vos idées en récits. Explorez également les fondamentaux de la réalisation et de la direction d'acteurs pour donner vie à votre vision.</p>
+          <p class="feat-desc">Passez de la technique à l'interprétation. Pendant deux jours, apprenez à utiliser les outils de la Méthode pour construire une scène, développer votre relation au partenaire et donner davantage de justesse à votre jeu.</p>
           <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span>
-            <ul class="stage-list">
-              <li>Développer votre créativité et trouver l'inspiration grâce à des outils d'écriture concrets.</li>
-              <li>Construire des histoires et des personnages qui suscitent l'intérêt et l'émotion.</li>
-              <li>Donner vie à votre vision en découvrant les bases de la mise en scène et de la direction d'acteurs.</li>
-            </ul>
+            <ul class="stage-list"><li>Construire une scène en comprenant ses enjeux et les intentions de votre personnage.</li><li>Développer votre écoute et votre réactivité pour créer une véritable connexion avec votre partenaire.</li><li>Donner de la justesse à votre interprétation en mettant vos émotions au service de la scène.</li></ul>
           </div>
-          <div class="feat-online">
-            <span class="feat-online-icon" aria-hidden="true">&#9673;</span>
-            <div>
-              <strong>Vous n'habitez pas en région parisienne&nbsp;?</strong>
-              <p>Bonne nouvelle : vous pouvez aussi participer à ce stage à distance ! Grâce à des outils et supports dédiés, découvrez et expérimentez les techniques d'écriture et de création du Method Acting Center depuis chez vous.</p>
-              <span class="feat-online-mode">Présentiel à Paris ou participation en ligne, au choix.</span>
-            </div>
-          </div>
-          <a href="#reservation" class="feat-cta" data-stage="Scénario, réalisation &amp; direction d'acteurs (7 &amp; 8 novembre 2026)">Je m'inscris au stage &rarr;</a>
+          <div class="stage-reassure"><strong>Accessible à tous les niveaux, sans prérequis.</strong><p>Que vous découvriez la Méthode ou souhaitiez approfondir votre pratique, nos coaches adaptent leur accompagnement à votre expérience et à votre progression.</p></div>
+          <a href="#reservation" class="feat-cta" data-stage="Actors Studio B — Approche d'une scène (14 &amp; 15 novembre 2026)">Je m'inscris au stage &rarr;</a>
         </div>
       </article>
       <!-- ====================== fin STAGE À LA UNE ====================== -->
 
       <!-- ============ STAGES WEEK-END (accordéons) ============ -->
       <div id="weekend" data-reveal style="display: flex; flex-direction: column; gap: 16px">
-        <!-- session b : 14 &amp; 15 novembre 2026 — masquée automatiquement après le 2026-11-15 ; données dans SESSIONS -->
-        <div class="jpo-card stage-card" data-end="2026-11-15" id="stage-b">
-          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-b">
-            <div class="stage-head-main">
-              <span class="stage-kind">Stage week-end</span>
-              <h3 class="stage-title">Actors Studio B — Approche d'une scène</h3>
-              <p class="stage-hook">Donnez vie à un personnage. Faites exister une scène.</p>
-              <div class="stage-meta"><span>14 &amp; 15 novembre 2026 &middot; 2 jours</span><span>Paris 13ᵉ</span><span class="stage-price">dès 160 €</span><span class="stage-level">Tous niveaux · Sans prérequis</span></div>
-            </div>
-            <span class="jpo-plus" aria-hidden="true">+</span>
-          </button>
-          <div class="jpo-panel" id="panel-b">
-            <div class="jpo-panel-inner stage-panel">
-              <div class="stage-panel-text">
-                <p class="stage-desc">Passez de la technique à l'interprétation. Pendant deux jours, apprenez à utiliser les outils de la Méthode pour construire une scène, développer votre relation au partenaire et donner davantage de justesse à votre jeu.</p>
-                <div class="jpo-field"><span class="jpo-label">Ce que vous allez apprendre</span><ul class="stage-list"><li>Construire une scène en comprenant ses enjeux et les intentions de votre personnage.</li><li>Développer votre écoute et votre réactivité pour créer une véritable connexion avec votre partenaire.</li><li>Donner de la justesse à votre interprétation en mettant vos émotions au service de la scène.</li></ul></div>
-                <div class="stage-reassure"><strong>Accessible à tous les niveaux, sans prérequis.</strong><p>Que vous découvriez la Méthode ou souhaitiez approfondir votre pratique, nos coaches adaptent leur accompagnement à votre expérience et à votre progression.</p></div>
-                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 14 &amp; 15 novembre 2026 &middot; 2 jours &middot; dès 160 €. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
-                <a href="#reservation" class="jpo-cta" data-stage="Actors Studio B — Approche d'une scène (14 &amp; 15 novembre 2026)">Je m'inscris au stage &rarr;</a>
-              </div>
-              <div class="stage-photo"><img src="/uploads/scene-de-bar-acteur-tournage-method-acting-center.jpg" alt="Actors Studio B — Approche d'une scène — Method Acting Center" loading="lazy"></div>
-            </div>
-          </div>
-        </div>
         <!-- session cam : 20 &amp; 21 février 2027 — masquée automatiquement après le 2027-02-21 ; données dans SESSIONS -->
         <div class="jpo-card stage-card" data-end="2027-02-21" id="stage-cam">
           <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-cam">
