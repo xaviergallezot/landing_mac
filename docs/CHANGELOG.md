@@ -252,5 +252,12 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   `/jpo/` et atteignent la bonne section ; réservation simulée envoyée avec le bon créneau.
 - Retour arrière : `git revert` du commit, rebuild.
 
+### 2026-11-16 — [JPO-LP-002]
+
+- Landing `/jpo/` : bloc noir « Ce n'est pas le talent qui fait l'acteur » rétabli à l'identique (repris de
+  `tools/landing_template.html`), entre « Une école créée par des pros » et les ateliers des Portes Ouvertes,
+  à la demande du propriétaire. Bouton du hero de `/jposr/` dirigé vers le formulaire de la landing.
+- Tests : desktop et mobile sans erreur ni débordement, 3 images chargées, bouton du hero toujours sur le formulaire.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.
