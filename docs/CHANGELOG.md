@@ -233,5 +233,24 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   fermeture des deux cartes sans décalage ; aucune erreur JS ni débordement.
 - Retour arrière : `git revert` du commit, rebuild.
 
+### 2026-11-16 — [JPO-LP-001]
+
+- Catégorie : landing Google Ads `/jpo/` (acteurs), recentrage sur les Journées Portes Ouvertes.
+- Demande du propriétaire : focus JPO (ateliers gratuits), retrait de l'offre cours d'essai, suppression des
+  sections de « 4 façons de rejoindre l'école » jusqu'à « Ce n'est pas le talent qui fait l'acteur » en gardant
+  « Une école créée par des pros », boutons qui restent sur la landing.
+- Fichier : `newsite/static/jpo/index.html`.
+- Modifications : bandeau rouge « cours d'essai » retiré ; menu = Les ateliers, La formation, Avis, FAQ,
+  bouton « Réserver mes ateliers » ; hero = « Réserver les Portes Ouvertes » (vers le formulaire de la landing)
+  et « Découvrir les ateliers » ; sections « Par où commencer » et « Ce n'est pas le talent » supprimées ;
+  CTA final centré sur les Portes Ouvertes ; mention des cours de la semaine reformulée sans « cours d'essai ».
+- Découplage : la landing `/stages/` était générée à partir de ce fichier. Elle utilise désormais une copie
+  figée, `newsite/tools/landing_template.html` ; sa sortie a été vérifiée identique octet pour octet.
+- Non modifié : pied de page (identique au site, demande antérieure du propriétaire), qui contient encore le lien
+  « Cours d'essai gratuit » ; landing `/jposr/`.
+- Tests : Playwright desktop et mobile sans erreur ni débordement ; 8 boutons et liens de menu restent sur
+  `/jpo/` et atteignent la bonne section ; réservation simulée envoyée avec le bon créneau.
+- Retour arrière : `git revert` du commit, rebuild.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

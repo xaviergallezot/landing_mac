@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Construit la landing /stages/ à partir de la landing /jpo/ (qui reste intacte)."""
+"""Construit la landing /stages/ à partir de tools/landing_template.html
+(copie figée de l'ancienne landing /jpo/ : /jpo/ peut évoluer sans casser /stages/)."""
 import re, base64, json, datetime
 TODAY = datetime.date.today().isoformat()
 
 import os as _os
 HERE = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
-SRC = _os.path.join(HERE, "static", "jpo", "index.html")
+SRC = _os.path.join(HERE, "tools", "landing_template.html")
 DST = _os.path.join(HERE, "dist", "stages", "index.html")
 IMG = _os.path.join(HERE, "assets", "img") + "/"
 SITE = "https://www.methodacting.fr/"
