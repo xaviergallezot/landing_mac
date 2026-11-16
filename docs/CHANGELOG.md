@@ -216,5 +216,22 @@ après avoir écrit ses quatre livrables ; ils sont complets.
 - Non modifié : landing `/jposr/` (carte « Prochain stage : 7 & 8 novembre ») et `llms.txt`.
 - Retour arrière : `git revert` du commit, rebuild.
 
+### 2026-11-16 — [STAGES-LP-003]
+
+- Catégorie : landing `/stages/`, correctifs demandés par le propriétaire (brief « Correctifs page stages »).
+- Fichier : `newsite/tools/build_landing_stages.py` uniquement ; `dist/stages/index.html` régénéré.
+- Modifications :
+  1. marge entre le carrousel du hero et la section « Ce n'est pas le talent qui fait l'acteur »
+     (`clamp(48px, 6vw, 88px)`) ;
+  2. intensifs d'hiver et de printemps : photo sur le côté gauche, pleine hauteur de la carte dépliée, même
+     proportion que la carte à la une (environ 27 % de la largeur), recadrage sans déformation ; sur mobile,
+     photo en bandeau 16/7 entre le titre et le contenu ;
+  3. carte « Reproduire » : photo `etreinte-emotion-scene-a-deux-method-acting-center.jpg` à la place de
+     `methode-reproduire.jpg` (sur cette landing seulement) ;
+  4. « à l'affiche » sans barre oblique parasite (échappement dans le générateur).
+- Tests : Playwright desktop 1280 et mobile 390 ; mesures de la marge et de la photo latérale ; ouverture et
+  fermeture des deux cartes sans décalage ; aucune erreur JS ni débordement.
+- Retour arrière : `git revert` du commit, rebuild.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

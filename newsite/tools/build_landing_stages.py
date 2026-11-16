@@ -95,8 +95,10 @@ avis = re.sub(r'<h2 style="([^"]*)">Ils sont venus d&eacute;couvrir la M&eacute;
 assert "Ils ont tenté" in avis and "l\\'exp" not in avis
 avis = avis.replace('padding: 100px 24px 40px;', 'padding: 56px 24px 40px;', 1)
 # Films : phrase ajoutée
+FILMS_LINE = '<p data-reveal style="font-size: 18px; line-height: 1.7; color: #14120F; margin: 0; max-width: 74ch; font-weight: 500">Retrouvez nos élèves et anciens élèves à l\'affiche de productions cinématographiques et audiovisuelles.</p>'
 films = re.sub(r'(<p data-reveal style="font-size: 18px; line-height: 1.7; color: #6B655C; margin: 0; max-width: 74ch">.*?</p>)',
-               r'\1\n      <p data-reveal style="font-size: 18px; line-height: 1.7; color: #14120F; margin: 0; max-width: 74ch; font-weight: 500">Retrouvez nos élèves et anciens élèves à l\'affiche de productions cinématographiques et audiovisuelles.</p>', films, count=1, flags=re.S)
+               lambda mm: mm.group(1) + "\n      " + FILMS_LINE, films, count=1, flags=re.S)
+assert "à l'affiche" in films and "l\\'affiche" not in films
 assert "Retrouvez nos élèves" in films
 films = films.replace('padding: 100px 24px 40px;', 'padding: 40px 24px 40px;', 1)
 
@@ -172,11 +174,13 @@ def meta_chips(d):
 
 def accordion(k, dark=False):
     d = SESSIONS[k]
+    side = (f'\n          <div class="stage-side" aria-hidden="true"><img src="/uploads/{PHOTOS[k]}" alt="" loading="lazy"></div>' if dark else "")
+    photo = ("" if dark else f'\n              <div class="stage-photo"><img src="/uploads/{PHOTOS[k]}" alt="{h(d["name"])} — Method Acting Center" loading="lazy"></div>')
     reassure = ""
     if d.get("reassure"):
         reassure = f'<div class="stage-reassure"><strong>{d["reassure"][0]}</strong><p>{d["reassure"][1]}</p></div>'
     return f'''        <!-- session {k} : {h(d["date"])} — masquée automatiquement après le {d["end"]} ; données dans SESSIONS -->
-        <div class="jpo-card stage-card{' stage-card--dark' if dark else ''}" data-end="{d["end"]}" id="stage-{k}">
+        <div class="jpo-card stage-card{' stage-card--dark' if dark else ''}" data-end="{d["end"]}" id="stage-{k}">{side}
           <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-{k}">
             <div class="stage-head-main">
               <span class="stage-kind">{d["kind"]}</span>
@@ -194,8 +198,7 @@ def accordion(k, dark=False):
                 {reassure}
                 <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, {d["place"]} &middot; {h(d["date"])} &middot; {d["duration"]} &middot; {d["price"]}. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
                 {cta(k)}
-              </div>
-              <div class="stage-photo"><img src="/uploads/{PHOTOS[k]}" alt="{h(d["name"])} — Method Acting Center" loading="lazy"></div>
+              </div>{photo}
             </div>
           </div>
         </div>
@@ -468,6 +471,16 @@ CSS = '''
   #mac-landing .stage-reassure p { margin:0; font-size:14.5px; line-height:1.6; color:#6B655C; }
   #mac-landing .stage-card .jpo-field p { max-width:70ch; }
   #mac-landing [data-end].is-expired { display:none !important; }
+  /* respiration entre le carrousel du hero et « Ce n'est pas le talent » */
+  #mac-landing #methode { margin-top:clamp(48px,6vw,88px); }
+  /* intensifs : photo latérale pleine hauteur à l'ouverture (disposition de la carte à la une) */
+  #mac-landing .stage-card--dark { display:grid; grid-template-columns:0fr minmax(0,1fr); transition:grid-template-columns .35s ease, box-shadow .2s ease, border-color .2s ease; }
+  #mac-landing .stage-card--dark.open { grid-template-columns:minmax(0,3fr) minmax(0,8fr); }
+  #mac-landing .stage-card--dark > .stage-side { grid-column:1; grid-row:1 / span 2; position:relative; min-width:0; overflow:hidden; background:#0B0A0A; }
+  #mac-landing .stage-card--dark > .stage-side img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  #mac-landing .stage-card--dark > .jpo-head { grid-column:2; grid-row:1; }
+  #mac-landing .stage-card--dark > .jpo-panel { grid-column:2; grid-row:2; }
+  #mac-landing .stage-card--dark .jpo-panel-inner.stage-panel { grid-template-columns:minmax(0,1fr); }
   /* intensifs : variante sombre */
   #mac-landing .stage-card--dark { background:#14120F; border-color:#2A2622; }
   #mac-landing .stage-card--dark.open { border-color:rgba(224,38,31,0.55); box-shadow:0 24px 48px rgba(20,18,15,0.25); }
@@ -515,7 +528,7 @@ CSS = '''
   #mac-landing .sc-format .fmt:has(input:checked) { background:#FFFFFF; box-shadow:0 0 0 2px #E0261F; border-color:transparent; }
   #mac-landing .sc-format.is-error fieldset { border-color:#E0261F; background:rgba(224,38,31,0.06); }
   @media (max-width:900px){ #mac-landing .feat { grid-template-columns:1fr; } #mac-landing .feat-media { min-height:0; aspect-ratio:16/7; } #mac-landing .feat-meta { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:760px){ #mac-landing .why-grid { grid-template-columns:1fr; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { grid-template-columns:1fr; } #mac-landing .stage-photo { order:-1; aspect-ratio:16/8; max-height:220px; } }
+  @media (max-width:760px){ #mac-landing .stage-card--dark, #mac-landing .stage-card--dark.open { grid-template-columns:minmax(0,1fr); } #mac-landing .stage-card--dark > .stage-side { grid-column:1; grid-row:2; height:0; transition:height .35s ease; } #mac-landing .stage-card--dark.open > .stage-side { height:auto; aspect-ratio:16/7; } #mac-landing .stage-card--dark > .jpo-head { grid-column:1; } #mac-landing .stage-card--dark > .jpo-panel { grid-column:1; grid-row:3; } #mac-landing .stage-card--dark .jpo-panel-inner.stage-panel { padding-top:22px; } #mac-landing .why-grid { grid-template-columns:1fr; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { grid-template-columns:1fr; } #mac-landing .stage-photo { order:-1; aspect-ratio:16/8; max-height:220px; } }
   @media (max-width:640px){ #mac-landing .stage-head { padding:20px 18px; } #mac-landing .stage-card .jpo-panel-inner.stage-panel { padding:0 18px 24px; } #mac-landing .hero-event { max-width:none; padding:14px 16px; } #mac-landing .feat-online { padding:18px; } #mac-landing .sc-format { margin-left:0; } }
   /* footer : couleurs harmonisées (cette page uniquement ; #mac-landing a l'emportait et colorait tout en rouge) */
   #mac-landing .site-footer h4 { color:#FFFFFF; }
@@ -728,6 +741,9 @@ s = sub1(s, '<a href="#jpo">Journ&eacute;es Portes Ouvertes</a>', '<a href="http
 assert 'url: "/uploads/' in s and 'url: "uploads/' not in s and "data:image" not in s
 s = sub1(s, 'var HERO_KEYS = ["hero_scene"];', 'var HERO_KEYS = ["hero_scene","hero_foret","hero_portrait"];', "hero keys")
 s = sub1(s, "    methode_1: { url:", '    hero_foret: { url: "/uploads/tournage-exterieur-foret-acteurs-method-acting-center.jpg", label: "Tournage en extérieur · deux acteurs face caméra" },\n    hero_portrait: { url: "/uploads/portrait-acteur-costume-lumiere-bleue-method-acting-center.jpg", label: "Acteur en costume sous une lumière bleue" },\n    methode_1: { url:', "hero slides")
+
+# Section « Ce n'est pas le talent » : photo de la carte « Reproduire » (cette landing uniquement)
+s = sub1(s, 'methode_3: { url: "/uploads/methode-reproduire.jpg"', 'methode_3: { url: "/uploads/etreinte-emotion-scene-a-deux-method-acting-center.jpg"', "methode_3")
 
 # Ancre [id] : marge sous le header fixe (bandeau retiré)
 s = s.replace("  #mac-landing [id] { scroll-margin-top:130px; }", "  #mac-landing [id] { scroll-margin-top:96px; }", 1)
