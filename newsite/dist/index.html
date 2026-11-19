@@ -1236,9 +1236,9 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
       box.checked=true; box.dispatchEvent(new Event("change",{bubbles:true}));
       var row=box.closest(".pick"); if(row){ row.classList.add("is-prefilled"); setTimeout(function(){ row.classList.remove("is-prefilled"); }, ms||2500); }
     }
-    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|printemps (plusieurs séparés par des virgules) */
+    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|hiver2|printemps (plusieurs séparés par des virgules) */
     try{
-      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver", printemps:"intensif de printemps", ete:"intensif d’été"};
+      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver —", hiver2:"2e week-end", printemps:"intensif de printemps", ete:"intensif d’été"};
       var q=new URLSearchParams(location.search).get("stage");
       if(q){ q.toLowerCase().split(",").forEach(function(key){ var needle=KEYS[key.trim()]; if(!needle) return;
         tick(boxes.filter(function(b){ return norm(b.value).indexOf(needle)>=0; })[0], 4000); }); }

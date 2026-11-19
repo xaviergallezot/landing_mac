@@ -307,5 +307,34 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   d'hiver ». L'offre 100 € reste sur `/jposr/`, qui ne sera pas utilisée.
 - Retour arrière : `git revert` du commit, puis `python3 build.py`.
 
+### 2026-11-19 — [STAGES-HIV2-001]
+
+- Catégorie : contenu / dates
+- Demande du propriétaire : ajouter le stage du 16–17 janvier 2027 (2e week-end intensif de la rentrée décalée),
+  présenté comme un stage distinct, réservable séparément, tarif sur demande.
+- Fichiers et modifications :
+  - `pages/stages.html` :
+    - hero sur les prochains stages de janvier ;
+    - « Prochainement » = 9–10 puis 16–17 janvier, car le Stage B du 14–15 novembre est passé ;
+    - Stage B passé en « prochaine session à venir » ;
+    - section intensifs avec deux boutons ;
+    - formulaire : 2e week-end ajouté, Stage B sans date.
+  - `pages/planning.html` : frise, carte « Rentrée décalée », tableau des stages.
+  - `pages/tarifs.html` : « Prochains stages les 9 & 10 et 16 & 17 janvier ».
+  - `assets/site.js` : clé `?stage=hiver2` ; `?stage=hiver` ne coche plus que le 9–10.
+  - `static/llms.txt`.
+  - `build.py` : nouvel Event JSON-LD, masqué après sa date comme les autres.
+  - `tools/build_landing_stages.py` : session `hiv2` (accordéon intensif + case du formulaire, photo
+    « actrice émotion forte »).
+- Textes : aucun programme inventé ; la carte indique que le programme détaillé et le tarif sont communiqués sur demande.
+- Tests (Playwright) :
+  - pré-cochage `?stage=hiver`, `?stage=hiver2`, `?stage=hiv`, `?stage=hiv2` ;
+  - boutons de réservation ;
+  - frise du planning et JSON-LD ;
+  - au 12/01/2027, le 9–10 est masqué et le 16–17 reste visible ;
+  - aucune erreur JS ; mobile sans débordement.
+  - Le diff de `/stages/` se limite à l'ajout du stage.
+- Retour arrière : `git revert` du commit, puis `python3 build.py`.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

@@ -676,7 +676,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
         <div class="step-body">
           <span class="step-price">dès 160&nbsp;€</span>
           <h3>Un week-end de stage</h3>
-          <p>Deux jours pour plonger dans la Méthode. Prochain stage les 14 &amp; 15 novembre.</p>
+          <p>Deux jours pour plonger dans la Méthode. Prochains stages les 9 &amp; 10 et 16 &amp; 17 janvier.</p>
           <span class="arrow">Réserver un stage &rarr;</span>
         </div>
       </a>
@@ -749,7 +749,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
 
     <div class="pay-strip mt-l" data-reveal>
       <div><strong>Facilités de paiement</strong><br><span>Au mois sans surcoût, par trimestre ou en une fois&nbsp;: vous choisissez.</span></div>
-      <div><strong>Rentrée décalée</strong><br><span>Une seconde rentrée le 4 janvier 2027, avec le stage intensif d&rsquo;hiver pour se mettre à niveau.</span></div>
+      <div><strong>Rentrée décalée</strong><br><span>Une seconde rentrée le 4 janvier 2027, avec deux week-ends intensifs (9 &amp; 10 et 16 &amp; 17 janvier) pour se mettre à niveau.</span></div>
       <div><strong>Parrainage</strong><br><span>Vous parrainez un proche&nbsp;? Un mois de sa formation vous est offert.</span></div>
     </div>
   </div>
@@ -818,7 +818,7 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
         <span class="tag">Week-end &amp; intensifs</span>
         <h3 class="h-sm mt-s">Stages</h3>
         <div class="disc-price">dès 160&nbsp;€</div>
-        <p class="note">Stages week-end dès 160&nbsp;€, intensifs pendant les vacances sur demande. Prochain stage les 14 &amp; 15 novembre.</p>
+        <p class="note">Stages week-end dès 160&nbsp;€, intensifs pendant les vacances sur demande. Prochains stages les 9 &amp; 10 et 16 &amp; 17 janvier.</p>
         <a class="btn btn-dark mt-m" href="stages.html#prochainement">Réserver un stage</a>
       </div>
     </div>
@@ -1186,9 +1186,9 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
       box.checked=true; box.dispatchEvent(new Event("change",{bubbles:true}));
       var row=box.closest(".pick"); if(row){ row.classList.add("is-prefilled"); setTimeout(function(){ row.classList.remove("is-prefilled"); }, ms||2500); }
     }
-    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|printemps (plusieurs séparés par des virgules) */
+    /* arrivée depuis une autre page (landings…) : ?stage=a|b|scenario|camera|hiver|hiver2|printemps (plusieurs séparés par des virgules) */
     try{
-      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver", printemps:"intensif de printemps", ete:"intensif d’été"};
+      var KEYS={a:"Stage A", b:"Stage B", scenario:"Stage Scénario", camera:"Acting Caméra", hiver:"intensif d’hiver —", hiver2:"2e week-end", printemps:"intensif de printemps", ete:"intensif d’été"};
       var q=new URLSearchParams(location.search).get("stage");
       if(q){ q.toLowerCase().split(",").forEach(function(key){ var needle=KEYS[key.trim()]; if(!needle) return;
         tick(boxes.filter(function(b){ return norm(b.value).indexOf(needle)>=0; })[0], 4000); }); }

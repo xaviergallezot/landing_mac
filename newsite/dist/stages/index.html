@@ -520,6 +520,30 @@
             </div>
           </div>
         </div>
+        <!-- session hiv2 : 16 &amp; 17 janvier 2027 — masquée automatiquement après le 2027-01-17 ; données dans SESSIONS -->
+        <div class="jpo-card stage-card stage-card--dark" data-end="2027-01-17" id="stage-hiv2">
+          <div class="stage-side" aria-hidden="true"><img src="/uploads/actrice-emotion-forte-method-acting-center.jpg" alt="" loading="lazy"></div>
+          <button class="jpo-head stage-head" type="button" aria-expanded="false" aria-controls="panel-hiv2">
+            <div class="stage-head-main">
+              <span class="stage-kind">Stage intensif</span>
+              <h3 class="stage-title">Stage intensif d'hiver, 2e week-end</h3>
+              <p class="stage-hook">Un deuxième week-end intensif en janvier.</p>
+              <div class="stage-meta"><span>16 &amp; 17 janvier 2027 &middot; 2 jours</span><span>Paris 13ᵉ</span><span class="stage-price">Tarif sur demande</span></div>
+            </div>
+            <span class="jpo-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="jpo-panel" id="panel-hiv2">
+            <div class="jpo-panel-inner stage-panel">
+              <div class="stage-panel-text">
+                <p class="stage-desc">Le deuxième week-end intensif de janvier, ouvert en stage. Il accompagne la rentrée décalée de la formation Acting et se réserve indépendamment du premier week-end des 9 &amp; 10 janvier.</p>
+                <div class="jpo-field"><span class="jpo-label">À savoir</span><ul class="stage-list"><li>Un week-end intensif ouvert en stage, réservable seul ou avec celui des 9 &amp; 10 janvier.</li><li>Le deuxième week-end du parcours de rentrée décalée de la formation Acting.</li><li>Programme détaillé et tarif communiqués sur demande.</li></ul></div>
+                
+                <div class="jpo-field"><span class="jpo-label">Informations pratiques</span><p>Method Acting Center, 93 avenue d'Italie, Paris 13ᵉ &middot; 16 &amp; 17 janvier 2027 &middot; 2 jours &middot; Tarif sur demande. Les horaires précis et les modalités vous sont confirmés par email après votre demande.</p></div>
+                <a href="#reservation" class="jpo-cta" data-stage="Stage intensif d'hiver, 2e week-end (16 &amp; 17 janvier 2027)">Je m'inscris au stage &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- session pri : 16, 17 &amp; 18 avril 2027 — masquée automatiquement après le 2027-04-18 ; données dans SESSIONS -->
         <div class="jpo-card stage-card stage-card--dark" data-end="2027-04-18" id="stage-pri">
           <div class="stage-side" aria-hidden="true"><img src="/uploads/direction-acteurs-stage-scenario-realisation-method-acting-center.jpg" alt="" loading="lazy"></div>
@@ -668,6 +692,8 @@
             <label class="stage-pick" data-end="2027-02-21"><input type="checkbox" name="stage" data-key="cam" value="Acting Caméra (20 &amp; 21 février 2027)" data-date="20 &amp; 21 février 2027" data-price="Tarif sur demande"><span><strong>Acting Caméra</strong><small>Stage week-end &middot; 20 &amp; 21 février 2027 &middot; Tarif sur demande</small></span></label>
             <!-- session hiv — masquée automatiquement après le 2027-01-10 -->
             <label class="stage-pick" data-end="2027-01-10"><input type="checkbox" name="stage" data-key="hiv" value="Stage intensif d'hiver (9 &amp; 10 janvier 2027)" data-date="9 &amp; 10 janvier 2027" data-price="Tarif sur demande"><span><strong>Stage intensif d'hiver</strong><small>Stage intensif &middot; 9 &amp; 10 janvier 2027 &middot; Tarif sur demande</small></span></label>
+            <!-- session hiv2 — masquée automatiquement après le 2027-01-17 -->
+            <label class="stage-pick" data-end="2027-01-17"><input type="checkbox" name="stage" data-key="hiv2" value="Stage intensif d'hiver, 2e week-end (16 &amp; 17 janvier 2027)" data-date="16 &amp; 17 janvier 2027" data-price="Tarif sur demande"><span><strong>Stage intensif d'hiver, 2e week-end</strong><small>Stage intensif &middot; 16 &amp; 17 janvier 2027 &middot; Tarif sur demande</small></span></label>
             <!-- session pri — masquée automatiquement après le 2027-04-18 -->
             <label class="stage-pick" data-end="2027-04-18"><input type="checkbox" name="stage" data-key="pri" value="Stage intensif de printemps (16, 17 &amp; 18 avril 2027)" data-date="16, 17 &amp; 18 avril 2027" data-price="Tarif sur demande"><span><strong>Stage intensif de printemps</strong><small>Stage intensif &middot; 16, 17 &amp; 18 avril 2027 &middot; Tarif sur demande</small></span></label>
             </div>
@@ -1028,7 +1054,7 @@
     if(fmtBox) [].slice.call(fmtBox.querySelectorAll("input")).forEach(function(r){ r.addEventListener("change",function(){ fmtBox.classList.remove("is-error"); updateRecap(); }); });
     updateRecap();
 
-    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=sc,b,cam,hiv,pri à l'arrivée */
+    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=sc,b,cam,hiv,hiv2,pri à l'arrivée */
     var tmp=document.createElement("textarea");
     function norm(t){ tmp.innerHTML=t; return tmp.value.replace(/\s+/g," ").trim(); }
     function tick(box, ms){
@@ -1043,7 +1069,7 @@
       });
     });
     try{
-      var STAGE_NAMES={"sc": "Scénario, réalisation & direction d'acteurs", "b": "Actors Studio B — Approche d'une scène", "cam": "Acting Caméra", "hiv": "Stage intensif d'hiver", "pri": "Stage intensif de printemps"};
+      var STAGE_NAMES={"sc": "Scénario, réalisation & direction d'acteurs", "b": "Actors Studio B — Approche d'une scène", "cam": "Acting Caméra", "hiv": "Stage intensif d'hiver", "hiv2": "Stage intensif d'hiver, 2e week-end", "pri": "Stage intensif de printemps"};
       var q=new URLSearchParams(location.search).get("stage");
       if(q){ q.toLowerCase().split(",").forEach(function(key){ var kw=STAGE_NAMES[key.trim()]||""; if(kw) tick(boxes.filter(function(b){ return norm(b.value).indexOf(norm(kw))===0; })[0],4000); }); }
     }catch(e){}

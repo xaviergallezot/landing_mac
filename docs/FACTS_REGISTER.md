@@ -101,6 +101,7 @@ signalée avant usage.
 | Stage Scénario, Réalisation & Direction d'acteurs | 7 & 8 novembre 2026 | 160 € | Idem | Vérifié |
 | Stage B — Approche d'une scène | 14 & 15 novembre 2026 | 160 € | Idem | Vérifié |
 | Stage intensif d'hiver | 9 & 10 janvier 2027 | sur demande | Idem | Vérifié (dates) / À confirmer (prix) |
+| Stage intensif d'hiver, 2e week-end | 16 & 17 janvier 2027 ; réservable séparément du 9 & 10 ; 2e week-end du parcours de rentrée décalée Acting | sur demande | Propriétaire, 2026-11-19 | Vérifié (dates, réservation séparée, tarif sur demande) |
 | Stage Acting Caméra | 20 & 21 février 2027 | sur demande | Idem | Vérifié (dates) / À confirmer (prix) |
 | Stage intensif de printemps | 16, 17 & 18 avril 2027 | sur demande | Idem | Vérifié (dates) / À confirmer (prix) |
 
@@ -109,7 +110,7 @@ de prix pour les intensifs tant qu'ils ne sont pas confirmés.
 
 Note du 2026-11-19 : le premier week-end intensif du parcours de rentrée décalée Acting (9–10 janvier 2027)
 est le « stage intensif d'hiver ». Confirmé par le propriétaire le 2026-11-19. Le second week-end (16–17 janvier)
-n'apparaît pas encore sur les pages stages et planning. Les prix 2 880 € et 2 650 € concernent l'ensemble du parcours de rentrée décalée,
+est un stage distinct, réservable séparément, tarif sur demande (propriétaire, 2026-11-19). Les prix 2 880 € et 2 650 € concernent l'ensemble du parcours de rentrée décalée,
 pas les mensualités annuelles. Ils ne sont publiés que sur `/jpo/` à ce jour.
 
 ### Journées Portes Ouvertes

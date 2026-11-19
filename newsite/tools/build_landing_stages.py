@@ -148,6 +148,14 @@ SESSIONS = {
             benefits=["Explorer vos émotions pour nourrir votre interprétation et gagner en authenticité.",
                       "Construire une scène avec votre partenaire, du travail préparatoire jusqu'à l'interprétation.",
                       "Comprendre le sous-texte et découvrir comment donner plusieurs sens à une même réplique."]),
+ "hiv2":dict(name="Stage intensif d'hiver, 2e week-end", date="16 & 17 janvier 2027", end="2027-01-17",
+            duration="2 jours", place="Paris 13ᵉ", price="Tarif sur demande", level="", kind="Stage intensif",
+            hook="Un deuxième week-end intensif en janvier.",
+            desc="Le deuxième week-end intensif de janvier, ouvert en stage. Il accompagne la rentrée décalée de la formation Acting et se réserve indépendamment du premier week-end des 9 &amp; 10 janvier.",
+            benefits_label="À savoir",
+            benefits=["Un week-end intensif ouvert en stage, réservable seul ou avec celui des 9 &amp; 10 janvier.",
+                      "Le deuxième week-end du parcours de rentrée décalée de la formation Acting.",
+                      "Programme détaillé et tarif communiqués sur demande."]),
  "pri":dict(name="Stage intensif de printemps", date="16, 17 & 18 avril 2027", end="2027-04-18",
             duration="3 jours", place="Paris 13ᵉ", price="Tarif sur demande", level="", kind="Stage intensif",
             hook="3 jours pour donner plus de profondeur à votre jeu.",
@@ -166,7 +174,7 @@ def cta(k, label="Je m'inscris au stage", cls="jpo-cta"):
 
 def lis(items): return "".join(f"<li>{i}</li>" for i in items)
 
-PHOTOS = {"sc": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg", "b": "scene-de-bar-acteur-tournage-method-acting-center.jpg", "cam": "retour-camera-tournage-exterieur-actrices-method-acting-center.jpg", "hiv": "tournage-exterieur-foret-acteurs-method-acting-center.jpg", "pri": "direction-acteurs-stage-scenario-realisation-method-acting-center.jpg"}
+PHOTOS = {"sc": "tournage-equipe-terrasse-acteurs-method-acting-center.jpg", "b": "scene-de-bar-acteur-tournage-method-acting-center.jpg", "cam": "retour-camera-tournage-exterieur-actrices-method-acting-center.jpg", "hiv": "tournage-exterieur-foret-acteurs-method-acting-center.jpg", "hiv2": "actrice-emotion-forte-method-acting-center.jpg", "pri": "direction-acteurs-stage-scenario-realisation-method-acting-center.jpg"}
 
 def meta_chips(d):
     lvl = f'<span class="stage-level">{h(d["level"])}</span>' if d.get("level") else ""
@@ -283,7 +291,7 @@ SECTIONS = f'''  <!-- ============ STAGES : INTRODUCTION + STAGE À LA UNE + STA
         <p style="margin: 0; font-size: 18px; line-height: 1.75; color: #3B362F">Profitez des vacances pour vous immerger dans la pratique du jeu d'acteur. Pendant plusieurs jours, approfondissez votre technique, explorez de nouvelles facettes de votre jeu et progressez à votre rythme, accompagnés par les coaches du Method Acting Center.</p>
       </div>
       <div data-reveal style="display: flex; flex-direction: column; gap: 16px">
-{accordion("hiv", dark=True)}{accordion("pri", dark=True)}      </div>
+{accordion("hiv", dark=True)}{accordion("hiv2", dark=True)}{accordion("pri", dark=True)}      </div>
     </div>
   </section>
 
@@ -364,7 +372,7 @@ FORM = f'''  <!-- ============ RÉSERVATION ============ -->
           <div style="display: flex; flex-direction: column; gap: 12px">
             <span style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Les stages qui m'intéressent <span style="text-transform: none; letter-spacing: 0; color: #6B655C">(un ou plusieurs)</span></span>
             <div id="stage-list" style="display: flex; flex-direction: column; gap: 10px">
-{pick("sc")}{FORMAT_SC}{pick("b")}{pick("cam")}{pick("hiv")}{pick("pri")}            </div>
+{pick("sc")}{FORMAT_SC}{pick("b")}{pick("cam")}{pick("hiv")}{pick("hiv2")}{pick("pri")}            </div>
             <div id="stages-recap" class="book-recap">Aucun stage sélectionné pour l'instant.</div>
           </div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
@@ -619,7 +627,7 @@ JS = r'''
     if(fmtBox) [].slice.call(fmtBox.querySelectorAll("input")).forEach(function(r){ r.addEventListener("change",function(){ fmtBox.classList.remove("is-error"); updateRecap(); }); });
     updateRecap();
 
-    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=sc,b,cam,hiv,pri à l'arrivée */
+    /* pré-cochage : boutons [data-stage] (sans décocher les autres) + ?stage=sc,b,cam,hiv,hiv2,pri à l'arrivée */
     var tmp=document.createElement("textarea");
     function norm(t){ tmp.innerHTML=t; return tmp.value.replace(/\s+/g," ").trim(); }
     function tick(box, ms){
