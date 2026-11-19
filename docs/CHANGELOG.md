@@ -336,5 +336,33 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   - Le diff de `/stages/` se limite à l'ajout du stage.
 - Retour arrière : `git revert` du commit, puis `python3 build.py`.
 
+### 2026-11-19 — [JPO-LP-004]
+
+- Catégorie : landing commerciale
+- Source : « BRIEF CLAUDE — AJUSTEMENTS FINAUX LANDING JPO » (PDF du propriétaire, retours de l'équipe pédagogique).
+- Fichier : `newsite/static/jpo/index.html` uniquement.
+- Modifications :
+  - Ateliers sur trois niveaux, dans l'ordre définitif du brief :
+    1. Travail émotionnel et Travail de scène en grandes cartes côte à côte (titres 36 px au lieu de 24 px,
+       descriptions inchangées) ;
+    2. sous le libellé « Aussi pendant le week-end », les encadrés Scénario/Réalisation (bleu) et
+       Acting in English (vert), côte à côte et de même taille ;
+    3. sous le libellé « Cours de la semaine, ouverts exceptionnellement aux visiteurs des JPO », Acting
+       Amateur et Improvisation en cartes compactes (titres 20 px).
+    Sur mobile, tout est en pleine largeur, dans le même ordre.
+  - Rentrée décalée :
+    - nouvelle introduction (dispositif de rattrapage) ;
+    - nouvelle description de la carte Acting ;
+    - « Deux week-ends intensifs de rattrapage : 9–10 et 16–17 janvier 2027 » ;
+    - « 20 heures de rattrapage en visioconférence, pour faciliter l'intégration au programme commencé en
+      septembre » mis en évidence dans un encadré teinté ;
+    - lignes tarifaires 2 880 € et 2 650 € supprimées.
+  - Aucune remise affichée (vérifié).
+- Non modifié : créneaux, planning, formulaire (ordre, champs, envoi, suivi de conversion), autres sections.
+- Tests (Playwright) : 10 tests obligatoires et contrôles d'ancres repassés avec succès ; ordre et hiérarchie des cartes
+  vérifiés en desktop ; aucun tarif dans la section formation ; mobile et tablette sans débordement ;
+  `/stages/` identique.
+- Retour arrière : `git revert` du commit, puis `python3 build.py`.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

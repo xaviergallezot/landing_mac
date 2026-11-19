@@ -104,7 +104,6 @@
   #mac-landing #mobile-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:70; background:#E0261F; color:#FFFFFF; text-align:center; text-decoration:none; font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; padding:16px 18px; border-radius:999px; box-shadow:0 12px 30px rgba(224,38,31,0.38); transition:opacity .3s ease, transform .3s ease; }
 
   /* JPO atelier cards */
-  #mac-landing .atelier-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:24px; }
   #mac-landing .atelier-card { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:20px; padding:32px 30px; display:flex; flex-direction:column; gap:14px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   #mac-landing .atelier-card:hover { transform:translateY(-4px); box-shadow:0 24px 48px rgba(20,18,15,0.08); border-color:rgba(224,38,31,0.3); }
   #mac-landing .atelier-head { display:flex; align-items:center; gap:12px; }
@@ -113,18 +112,28 @@
   #mac-landing .atelier-name { font-family:'Oswald',sans-serif; font-size:24px; text-transform:uppercase; margin:0; color:#14120F; line-height:1.1; }
   #mac-landing .atelier-card p { margin:0; font-size:15px; line-height:1.65; color:#6B655C; }
   /* Indicateurs de couleur discrets (bande latérale + étiquette), mêmes couleurs que le planning et le formulaire */
-  #mac-landing .atelier-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  /* Hiérarchie des ateliers : 1) Acting en français, 2) complémentaires du week-end, 3) cours de la semaine */
+  #mac-landing .atelier-tiers { display:flex; flex-direction:column; gap:24px; }
+  #mac-landing .atelier-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+  #mac-landing .atelier-main { padding:40px 40px 42px; gap:16px; }
+  #mac-landing .atelier-main .atelier-name { font-size:clamp(28px,2.6vw,36px); line-height:1.05; }
+  #mac-landing .atelier-main p { font-size:16.5px; line-height:1.7; color:#3B362F; }
+  #mac-landing .atelier-tier-label { display:flex; align-items:center; gap:12px; margin:12px 0 -4px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#6B655C; }
+  #mac-landing .atelier-tier-label::before { content:""; width:28px; height:2px; background:#D9D2C5; flex:0 0 auto; }
+  #mac-landing .atelier-row--duo .atelier-card { height:100%; box-sizing:border-box; }
+  #mac-landing .atelier-compact { padding:22px 24px; gap:10px; }
+  #mac-landing .atelier-compact .atelier-name { font-size:20px; }
+  #mac-landing .atelier-compact p { font-size:14px; line-height:1.6; }
   #mac-landing .atelier-c { box-shadow:inset 4px 0 0 var(--c); }
   #mac-landing .atelier-c .atelier-tag, #mac-landing .atelier-wide .atelier-tag { color:var(--c); background:color-mix(in srgb, var(--c) 10%, transparent); }
   #mac-landing .atelier-c:hover { box-shadow:inset 4px 0 0 var(--c), 0 24px 48px rgba(20,18,15,0.08); border-color:color-mix(in srgb, var(--c) 35%, #EEE9DF); }
   #mac-landing .atelier-wide:hover { border-color:var(--c); }
-  #mac-landing .atelier-wide { grid-column:1 / -1; flex-direction:row; align-items:center; justify-content:space-between; gap:28px; border:1.5px solid var(--c); background:#EEF2FA; }
+  #mac-landing .atelier-wide { flex-direction:column; align-items:stretch; gap:18px; border:1.5px solid var(--c); background:#EEF2FA; }
   #mac-landing .atelier-wide-main { display:flex; flex-direction:column; gap:14px; flex:1 1 auto; min-width:0; max-width:72ch; }
-  #mac-landing .atelier-wide-info { display:flex; flex-direction:column; gap:8px; flex:0 0 auto; padding:18px 22px; border-radius:16px; background:#FFFFFF; border:1px solid color-mix(in srgb, var(--c) 30%, #EEE9DF); }
+  #mac-landing .atelier-wide-info { display:flex; flex-direction:column; gap:8px; flex:0 0 auto; align-self:flex-start; padding:14px 18px; border-radius:16px; background:#FFFFFF; border:1px solid color-mix(in srgb, var(--c) 30%, #EEE9DF); }
   #mac-landing .atelier-info-date { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:var(--c); }
   #mac-landing .atelier-info-free { font-family:'Oswald',sans-serif; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
-  @media (max-width:1100px){ #mac-landing .atelier-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:640px){ #mac-landing .atelier-grid { grid-template-columns:1fr; gap:18px; } #mac-landing .atelier-wide { flex-direction:column; align-items:stretch; gap:18px; } #mac-landing .atelier-wide-info { padding:14px 16px; } }
+  @media (max-width:760px){ #mac-landing .atelier-row { grid-template-columns:1fr; gap:18px; } #mac-landing .atelier-main { padding:30px 26px; } #mac-landing .atelier-wide-info { align-self:stretch; } }
   /* Formations de la rentrée décalée de janvier 2027 */
   #mac-landing .form-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
   #mac-landing .form-card { background:#FFFFFF; border:1px solid #EEE9DF; border-top:4px solid var(--c); border-radius:24px; padding:clamp(28px,3.4vw,44px); display:flex; flex-direction:column; gap:16px; min-width:0; }
@@ -136,6 +145,8 @@
   #mac-landing .form-card-info li { position:relative; padding-left:24px; font-size:15.5px; line-height:1.5; color:#3B362F; }
   #mac-landing .form-card-info li::before { content:"\2713"; position:absolute; left:0; top:0; color:var(--c); font-weight:700; }
   #mac-landing .form-card-info strong { color:#14120F; }
+  #mac-landing .form-card-info li.form-card-key { padding:12px 14px 12px 38px; border-radius:12px; background:color-mix(in srgb, var(--c) 8%, #FFFFFF); border:1px solid color-mix(in srgb, var(--c) 28%, #EEE9DF); }
+  #mac-landing .form-card-info li.form-card-key::before { left:14px; top:12px; }
   #mac-landing .form-transition { display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center; }
   #mac-landing .form-transition p { margin:0; font-size:18px; line-height:1.7; color:#3B362F; max-width:62ch; }
   #mac-landing .form-transition-cta { font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:#E0261F; color:#FFFFFF; text-decoration:none; padding:19px 38px; border-radius:999px; transition:background .15s ease, transform .15s ease; }
@@ -351,29 +362,23 @@
 
       <!-- ateliers a tester -->
       <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
-        <div class="atelier-grid">
-          <div class="atelier-card atelier-c" data-reveal style="--c: #E0261F">
+        <div class="atelier-tiers">
+          <!-- niveau 1 : ateliers Acting en français (offre prioritaire) -->
+          <div class="atelier-row atelier-row--main">
+          <div class="atelier-card atelier-c atelier-main" data-reveal style="--c: #E0261F">
             <div class="atelier-head"><span class="atelier-tag">Travail &Eacute;motionnel</span></div>
             <h4 class="atelier-name">Faire jaillir de vraies &eacute;motions</h4>
             <p>La base de l&rsquo;acting&nbsp;: creuser en soi, dans votre v&eacute;cu et votre imaginaire, pour faire surgir de vraies &eacute;motions. Bien guid&eacute;s, la plupart des d&eacute;butants sont surpris d&rsquo;y arriver &mdash; et on vous apprend aussi &agrave; redescendre une fois la sc&egrave;ne finie.</p>
           </div>
-          <div class="atelier-card atelier-c" data-reveal style="--c: #14120F">
+          <div class="atelier-card atelier-c atelier-main" data-reveal style="--c: #14120F">
             <div class="atelier-head"><span class="atelier-tag">Travail de Sc&egrave;ne</span></div>
             <h4 class="atelier-name">Donner vie &agrave; un texte</h4>
             <p>Donner vie &agrave; un texte sans jamais l&rsquo;apprendre par c&oelig;ur. Vous d&eacute;couvrez le sous-texte&nbsp;: en changeant les circonstances d&rsquo;une m&ecirc;me r&eacute;plique, vous entendez le ton, la diction et l&rsquo;&eacute;motion changer d&rsquo;eux-m&ecirc;mes.</p>
           </div>
-          <div class="atelier-card atelier-c" data-reveal style="--c: #6B655C">
-            <div class="atelier-head"><span class="atelier-tag">Acting Amateur</span></div>
-            <h4 class="atelier-name">Oser vous lib&eacute;rer</h4>
-            <p>Pas encore s&ucirc;r de vouloir vous lancer&nbsp;? Un atelier pour d&eacute;passer la peur du ridicule, vous lib&eacute;rer et r&eacute;v&eacute;ler votre potentiel. Beaucoup encha&icirc;nent ensuite sur la formation professionnelle.</p>
-            <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Mercredi 9 d&eacute;cembre &middot; 19h30&ndash;22h30 &middot; cours de la semaine</p>
           </div>
-          <div class="atelier-card atelier-c" data-reveal style="--c: #B8842E">
-            <div class="atelier-head"><span class="atelier-tag">Improvisation</span></div>
-            <h4 class="atelier-name">Gagner en spontan&eacute;it&eacute;</h4>
-            <p>Spontan&eacute;it&eacute;, &eacute;coute, r&eacute;ceptivit&eacute;, r&eacute;activit&eacute;&nbsp;: vous testez diff&eacute;rentes situations d&rsquo;improvisation avec diff&eacute;rents partenaires de jeu.</p>
-            <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Vendredi 11 d&eacute;cembre &middot; 10h&ndash;13h &middot; cours de la semaine</p>
-          </div>
+          <!-- niveau 2 : ateliers complémentaires du week-end -->
+          <p class="atelier-tier-label">Aussi pendant le week-end</p>
+          <div class="atelier-row atelier-row--duo">
           <div class="atelier-card atelier-wide" data-reveal style="--c: #4A6FB5">
             <div class="atelier-wide-main">
               <div class="atelier-head"><span class="atelier-tag">Sc&eacute;nario &middot; R&eacute;alisation</span></div>
@@ -385,13 +390,30 @@
               <span class="atelier-info-free">Gratuit &middot; Sans engagement</span>
             </div>
           </div>
-          <div class="atelier-card" data-reveal style="grid-column: 1 / -1; border: 1.5px solid #5F7A3A; background: #F3F6EC">
+          <div class="atelier-card" data-reveal style="border: 1.5px solid #5F7A3A; background: #F3F6EC">
             <div class="atelier-head" style="justify-content: space-between">
               <span class="atelier-tag" style="color: #4C6330; background: rgba(95,122,58,0.12)">En anglais</span>
               <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #5F7A3A">Profils internationaux</span>
             </div>
             <h4 class="atelier-name">Acting in English</h4>
             <p>Allez loin dans l&rsquo;&eacute;motion et l&rsquo;utiliser dans de courts exercices sc&eacute;niques, int&eacute;gralement en anglais. Id&eacute;al pour les profils internationaux ou s&rsquo;exporter &agrave; l&rsquo;&eacute;tranger.</p>
+          </div>
+          </div>
+          <!-- niveau 3 : cours de la semaine ouverts aux visiteurs -->
+          <p class="atelier-tier-label">Cours de la semaine, ouverts exceptionnellement aux visiteurs des JPO</p>
+          <div class="atelier-row atelier-row--compact">
+          <div class="atelier-card atelier-c atelier-compact" data-reveal style="--c: #6B655C">
+            <div class="atelier-head"><span class="atelier-tag">Acting Amateur</span></div>
+            <h4 class="atelier-name">Oser vous lib&eacute;rer</h4>
+            <p>Pas encore s&ucirc;r de vouloir vous lancer&nbsp;? Un atelier pour d&eacute;passer la peur du ridicule, vous lib&eacute;rer et r&eacute;v&eacute;ler votre potentiel. Beaucoup encha&icirc;nent ensuite sur la formation professionnelle.</p>
+            <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Mercredi 9 d&eacute;cembre &middot; 19h30&ndash;22h30 &middot; cours de la semaine</p>
+          </div>
+          <div class="atelier-card atelier-c atelier-compact" data-reveal style="--c: #B8842E">
+            <div class="atelier-head"><span class="atelier-tag">Improvisation</span></div>
+            <h4 class="atelier-name">Gagner en spontan&eacute;it&eacute;</h4>
+            <p>Spontan&eacute;it&eacute;, &eacute;coute, r&eacute;ceptivit&eacute;, r&eacute;activit&eacute;&nbsp;: vous testez diff&eacute;rentes situations d&rsquo;improvisation avec diff&eacute;rents partenaires de jeu.</p>
+            <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Vendredi 11 d&eacute;cembre &middot; 10h&ndash;13h &middot; cours de la semaine</p>
+          </div>
           </div>
         </div>
       </div>
@@ -495,7 +517,7 @@
           <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Et apr&egrave;s&nbsp;? &middot; Rentr&eacute;e d&eacute;cal&eacute;e de janvier 2027</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">Pr&ecirc;t &agrave; construire<br>votre carri&egrave;re&nbsp;?</h2>
-        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Les Journ&eacute;es Portes Ouvertes sont une premi&egrave;re occasion d&rsquo;exp&eacute;rimenter la M&eacute;thode. Si vous souhaitez aller plus loin, Method Acting Center vous propose deux formations professionnelles accessibles d&egrave;s janvier 2027, gr&acirc;ce &agrave; un parcours de rentr&eacute;e d&eacute;cal&eacute;e.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Les Journ&eacute;es Portes Ouvertes sont une premi&egrave;re occasion d&rsquo;exp&eacute;rimenter la M&eacute;thode. Si vous souhaitez poursuivre l&rsquo;exp&eacute;rience, vous pouvez int&eacute;grer l&rsquo;une de nos deux formations d&egrave;s janvier 2027. Un dispositif de rattrapage adapt&eacute; &agrave; chaque parcours vous permet de rejoindre les &eacute;l&egrave;ves d&eacute;j&agrave; en formation et de reprendre les notions abord&eacute;es depuis la rentr&eacute;e de septembre.</p>
       </div>
 
       <div class="form-cards">
@@ -503,11 +525,10 @@
           <span class="form-card-num">01</span>
           <span class="form-card-kicker">Formation Acting</span>
           <h3>Apprendre &agrave; jouer vrai</h3>
-          <p>D&eacute;veloppez votre technique d&rsquo;acteur &agrave; travers les ateliers hebdomadaires et un programme intensif con&ccedil;u pour rejoindre la formation en janvier.</p>
+          <p>Rejoignez les ateliers hebdomadaires d&egrave;s janvier et b&eacute;n&eacute;ficiez de deux week-ends intensifs sp&eacute;cialement consacr&eacute;s au rattrapage des notions du premier trimestre. Vous pourrez ainsi int&eacute;grer la formation dans de bonnes conditions et poursuivre votre progression avec les autres &eacute;l&egrave;ves.</p>
           <ul class="form-card-info">
             <li>Rentr&eacute;e&nbsp;: janvier 2027.</li>
-            <li>Deux week-ends intensifs&nbsp;: 9&ndash;10 et 16&ndash;17 janvier.</li>
-            <li>Parcours de rentr&eacute;e d&eacute;cal&eacute;e&nbsp;: <strong>2&nbsp;880&nbsp;&euro;</strong>.</li>
+            <li class="form-card-key"><strong>Deux week-ends intensifs de rattrapage&nbsp;:</strong> 9&ndash;10 et 16&ndash;17 janvier 2027.</li>
           </ul>
         </article>
         <article class="form-card" data-reveal style="--c: #4A6FB5">
@@ -517,8 +538,7 @@
           <p>Apprenez &agrave; &eacute;crire, r&eacute;aliser et diriger des acteurs gr&acirc;ce &agrave; une p&eacute;dagogie qui associe les techniques de cr&eacute;ation cin&eacute;matographique et le travail du jeu d&rsquo;acteur.</p>
           <ul class="form-card-info">
             <li>Rentr&eacute;e&nbsp;: janvier 2027.</li>
-            <li>20 heures de rattrapage en visioconf&eacute;rence.</li>
-            <li>Parcours de rentr&eacute;e d&eacute;cal&eacute;e&nbsp;: <strong>2&nbsp;650&nbsp;&euro;</strong>.</li>
+            <li class="form-card-key"><strong>20 heures de rattrapage en visioconf&eacute;rence</strong>, pour faciliter l&rsquo;int&eacute;gration au programme commenc&eacute; en septembre.</li>
           </ul>
         </article>
       </div>

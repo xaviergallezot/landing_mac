@@ -58,7 +58,7 @@ signalée avant usage.
 | Frais annexes | 200 € de frais d'inscription annuels ; semaine intensive de rentrée en supplément : 300 € | Page tarifs | Vérifié |
 | Modalités de paiement | Mensualités ; aucun paiement en ligne, finalisation avec le bureau | Page tarifs | Vérifié |
 | Dates et horaires | Rentrée de septembre ; rentrée décalée le 4 janvier 2027 ; fin des ateliers le 2 juillet 2027 | Page planning, llms.txt | Vérifié |
-| Parcours de rentrée décalée (janvier 2027) | Rentrée en janvier 2027 ; deux week-ends intensifs les 9–10 et 16–17 janvier ; prix du parcours : 2 880 € | Brief du propriétaire « BRIEF FINAL — MISE À JOUR LANDING JPO », reçu le 2026-11-19 ; publié sur `/jpo/` | Vérifié (propriétaire, 2026-11-19) |
+| Parcours de rentrée décalée (janvier 2027) | Rentrée en janvier 2027 ; deux week-ends intensifs les 9–10 et 16–17 janvier ; prix du parcours : 2 880 € (non publié : la landing `/jpo/` ne doit pas afficher de tarif, ajustements du 2026-11-19) ; les deux week-ends sont des week-ends de rattrapage des notions du premier trimestre | Brief du propriétaire « BRIEF FINAL — MISE À JOUR LANDING JPO », reçu le 2026-11-19 ; brief « Ajustements finaux », même jour | Vérifié (propriétaire, 2026-11-19) |
 | Modalités d'admission | Demande de rendez-vous d'inscription via le formulaire | Page inscription | Vérifié |
 | Cours d'essai | 2 cours d'essai gratuits, toute l'année, dans les ateliers avec les élèves | Page cours-essai | Vérifié |
 | Lien d'inscription | https://www.methodacting.fr/inscription | Site | Vérifié |
@@ -78,7 +78,7 @@ signalée avant usage.
 | Frais annexes | 200 € de frais d'inscription annuels | Page tarifs | Vérifié |
 | Modalités de paiement | Mensualités ; aucun paiement en ligne | Page tarifs | Vérifié |
 | Dates et horaires | Rentrée de septembre ; rentrée décalée en janvier 2027 | Page planning | Vérifié |
-| Parcours de rentrée décalée (janvier 2027) | Rentrée en janvier 2027 ; 20 heures de rattrapage en visioconférence ; prix du parcours : 2 650 € | Brief du propriétaire « BRIEF FINAL — MISE À JOUR LANDING JPO », reçu le 2026-11-19 ; publié sur `/jpo/` | Vérifié (propriétaire, 2026-11-19) |
+| Parcours de rentrée décalée (janvier 2027) | Rentrée en janvier 2027 ; 20 heures de rattrapage en visioconférence ; prix du parcours : 2 650 € (non publié, idem) ; les 20 h de visioconférence servent au rattrapage du programme commencé en septembre | Brief du propriétaire « BRIEF FINAL — MISE À JOUR LANDING JPO », reçu le 2026-11-19 ; brief « Ajustements finaux », même jour | Vérifié (propriétaire, 2026-11-19) |
 | Modalités d'admission | Rendez-vous d'inscription via le formulaire | Page inscription | Vérifié |
 | Cours d'essai | Cours d'essai gratuit disponible | Page cours-essai | Vérifié |
 | Lien d'inscription | https://www.methodacting.fr/inscription?programme=scenario | Site | Vérifié |
@@ -111,7 +111,7 @@ de prix pour les intensifs tant qu'ils ne sont pas confirmés.
 Note du 2026-11-19 : le premier week-end intensif du parcours de rentrée décalée Acting (9–10 janvier 2027)
 est le « stage intensif d'hiver ». Confirmé par le propriétaire le 2026-11-19. Le second week-end (16–17 janvier)
 est un stage distinct, réservable séparément, tarif sur demande (propriétaire, 2026-11-19). Les prix 2 880 € et 2 650 € concernent l'ensemble du parcours de rentrée décalée,
-pas les mensualités annuelles. Ils ne sont publiés que sur `/jpo/` à ce jour.
+pas les mensualités annuelles. Ils ne sont publiés nulle part : le propriétaire a demandé le 2026-11-19 de les retirer de `/jpo/`. Ils sont communiqués lors des échanges ou sur demande.
 
 ### Journées Portes Ouvertes
 
@@ -217,7 +217,7 @@ publier**.
 | X-2 | Rythme 4ᵉ année Acting | 1 atelier / 2 ateliers de 3 h | planning vs inscription | information fausse sur une des deux pages | **Tranché le 2026-10-31 par le planning officiel V3 : 1 atelier de 3 h, le lundi 15h30–18h30 (Acting Caméra & Tournages). Scènes 4 n'y figure plus.**
 | X-3 | 3ᵉ temps de la Méthode | Reproduire / Composer | acting vs reste du site | description de la pédagogie incohérente |
 | X-4 | Nom des stages | Stage A, Stage B / Actors Studio A, B | site vs landing `/stages/` | confusion avec The Actors Studio (New York) |
-| X-5 | Offre 100 € | expirée le 31/08/2026 / proposée pour janvier 2027 | landings JPO | offre commerciale non valide affichée | **2026-11-19 : retirée de `/jpo/` (brief du propriétaire : ne pas la réintroduire tant que ses conditions ne sont pas confirmées). Encore présente sur `/jposr/`, laissée en l'état : le propriétaire n'utilise pas cette landing (2026-11-19).**
+| X-5 | Offre 100 € | expirée le 31/08/2026 / proposée pour janvier 2027 | landings JPO | offre commerciale non valide affichée | **2026-11-19 : reconduction de la remise encore en discussion dans l'équipe ; ne l'afficher nulle part sur `/jpo/` (formation, formulaire, CTA) avant décision. Retirée de `/jpo/` (brief du propriétaire : ne pas la réintroduire tant que ses conditions ne sont pas confirmées). Encore présente sur `/jposr/`, laissée en l'état : le propriétaire n'utilise pas cette landing (2026-11-19).**
 | X-6 | Cours ados / enfants | annoncé 100 €/mois (Spectable), mentionné `/jpo/` / absent du site et du registre | tiers vs site | prospects induits en erreur |
 | X-7 | Filiation pédagogique | « descendant direct » de Stanislavski, liste Brando/Streep/DiCaprio / Robert Lewis (Spectable) / livre du fondateur (BnF) | site vs tiers | affirmations invérifiables sur le site alors qu'une preuve solide (ouvrage) existe |
 
