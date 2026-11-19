@@ -112,6 +112,50 @@
   #mac-landing .atelier-tag { font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; color:#E0261F; background:rgba(224,38,31,0.08); padding:6px 12px; border-radius:999px; }
   #mac-landing .atelier-name { font-family:'Oswald',sans-serif; font-size:24px; text-transform:uppercase; margin:0; color:#14120F; line-height:1.1; }
   #mac-landing .atelier-card p { margin:0; font-size:15px; line-height:1.65; color:#6B655C; }
+  /* Indicateurs de couleur discrets (bande latérale + étiquette), mêmes couleurs que le planning et le formulaire */
+  #mac-landing .atelier-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+  #mac-landing .atelier-c { box-shadow:inset 4px 0 0 var(--c); }
+  #mac-landing .atelier-c .atelier-tag, #mac-landing .atelier-wide .atelier-tag { color:var(--c); background:color-mix(in srgb, var(--c) 10%, transparent); }
+  #mac-landing .atelier-c:hover { box-shadow:inset 4px 0 0 var(--c), 0 24px 48px rgba(20,18,15,0.08); border-color:color-mix(in srgb, var(--c) 35%, #EEE9DF); }
+  #mac-landing .atelier-wide:hover { border-color:var(--c); }
+  #mac-landing .atelier-wide { grid-column:1 / -1; flex-direction:row; align-items:center; justify-content:space-between; gap:28px; border:1.5px solid var(--c); background:#EEF2FA; }
+  #mac-landing .atelier-wide-main { display:flex; flex-direction:column; gap:14px; flex:1 1 auto; min-width:0; max-width:72ch; }
+  #mac-landing .atelier-wide-info { display:flex; flex-direction:column; gap:8px; flex:0 0 auto; padding:18px 22px; border-radius:16px; background:#FFFFFF; border:1px solid color-mix(in srgb, var(--c) 30%, #EEE9DF); }
+  #mac-landing .atelier-info-date { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:var(--c); }
+  #mac-landing .atelier-info-free { font-family:'Oswald',sans-serif; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
+  @media (max-width:1100px){ #mac-landing .atelier-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:640px){ #mac-landing .atelier-grid { grid-template-columns:1fr; gap:18px; } #mac-landing .atelier-wide { flex-direction:column; align-items:stretch; gap:18px; } #mac-landing .atelier-wide-info { padding:14px 16px; } }
+  /* Formations de la rentrée décalée de janvier 2027 */
+  #mac-landing .form-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+  #mac-landing .form-card { background:#FFFFFF; border:1px solid #EEE9DF; border-top:4px solid var(--c); border-radius:24px; padding:clamp(28px,3.4vw,44px); display:flex; flex-direction:column; gap:16px; min-width:0; }
+  #mac-landing .form-card-num { font-family:'Oswald',sans-serif; font-size:44px; font-weight:700; line-height:1; color:var(--c); }
+  #mac-landing .form-card-kicker { font-family:'Oswald',sans-serif; font-size:12.5px; letter-spacing:1.8px; text-transform:uppercase; font-weight:600; color:var(--c); line-height:1.4; }
+  #mac-landing .form-card h3 { font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(28px,3vw,40px); text-transform:uppercase; line-height:1.04; margin:0; color:#14120F; }
+  #mac-landing .form-card p { margin:0; font-size:16.5px; line-height:1.7; color:#3B362F; }
+  #mac-landing .form-card-info { list-style:none; margin:auto 0 0; padding:16px 0 0; border-top:1px solid #EEE9DF; display:flex; flex-direction:column; gap:10px; }
+  #mac-landing .form-card-info li { position:relative; padding-left:24px; font-size:15.5px; line-height:1.5; color:#3B362F; }
+  #mac-landing .form-card-info li::before { content:"\2713"; position:absolute; left:0; top:0; color:var(--c); font-weight:700; }
+  #mac-landing .form-card-info strong { color:#14120F; }
+  #mac-landing .form-transition { display:flex; flex-direction:column; align-items:center; gap:22px; text-align:center; }
+  #mac-landing .form-transition p { margin:0; font-size:18px; line-height:1.7; color:#3B362F; max-width:62ch; }
+  #mac-landing .form-transition-cta { font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:2px; text-transform:uppercase; font-weight:600; background:#E0261F; color:#FFFFFF; text-decoration:none; padding:19px 38px; border-radius:999px; transition:background .15s ease, transform .15s ease; }
+  #mac-landing .form-transition-cta:hover { background:#14120F; color:#FFFFFF; transform:translateY(-2px); }
+  @media (max-width:760px){ #mac-landing .form-cards { grid-template-columns:1fr; } #mac-landing .form-transition-cta { width:100%; text-align:center; box-sizing:border-box; padding:18px 22px; } }
+  /* Formulaire : couleur de chaque atelier + intérêt rentrée décalée */
+  #mac-landing .book-atelier { border-left:4px solid var(--c,#EEE9DF); }
+  #mac-landing .book-atelier.is-on { background:#FFFFFF; border-color:color-mix(in srgb, var(--c) 40%, #EEE9DF); border-left-color:var(--c); }
+  #mac-landing .book-dot { display:inline-block; width:10px; height:10px; border-radius:999px; background:var(--c); margin-right:8px; vertical-align:middle; flex:0 0 auto; }
+  #mac-landing .book-recap .book-dot { margin:0 6px 0 2px; width:9px; height:9px; }
+  #mac-landing .book-select { min-height:44px; }
+  #mac-landing .rentree-box { margin:0; min-width:0; border:1px solid #EEE9DF; border-radius:14px; padding:14px 16px 16px; background:#F7F4EE; display:flex; flex-direction:column; gap:10px; }
+  #mac-landing .rentree-box legend { padding:0 6px; font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:1.2px; text-transform:uppercase; font-weight:600; color:#14120F; }
+  #mac-landing .rentree-desc, #mac-landing .rentree-note { margin:0; font-size:14px; line-height:1.55; color:#6B655C; }
+  #mac-landing .rentree-note { font-size:13px; }
+  #mac-landing .rentree-opt { display:flex; align-items:center; gap:12px; cursor:pointer; background:#FFFFFF; border:1px solid #EEE9DF; border-left:4px solid var(--c); border-radius:10px; padding:12px 14px; min-height:48px; box-sizing:border-box; font-size:15px; line-height:1.4; color:#14120F; }
+  #mac-landing .rentree-opt input { width:20px; height:20px; margin:0; accent-color:var(--c); flex:0 0 auto; }
+  #mac-landing .rentree-opt:has(input:checked) { box-shadow:0 0 0 2px var(--c); }
+  #mac-landing a:focus-visible, #mac-landing button:focus-visible, #mac-landing select:focus-visible, #mac-landing summary:focus-visible { outline:2px solid #E0261F; outline-offset:3px; }
+  #mac-landing input[type="checkbox"]:focus-visible { outline:2px solid var(--c,#E0261F); outline-offset:2px; }
 
   /* JPO booking form */
   #mac-landing .book-atelier { display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#F7F4EE; border:1px solid #EEE9DF; border-radius:12px; padding:12px 14px; }
@@ -153,9 +197,6 @@
     /* Titre « Ce n'est pas le talent… » : pas de sticky sur mobile (sinon il chevauche le texte au scroll) */
     #mac-landing .talent-title { position:static !important; top:auto !important; }
 
-    /* Offre « 100 € de remise » : passage en colonne, bouton recentré qui ne déborde plus */
-    #mac-landing .formation-offer { flex-direction:column !important; align-items:stretch !important; text-align:center; padding:34px 24px !important; gap:22px !important; }
-    #mac-landing .formation-offer-btn { white-space:normal !important; width:100%; text-align:center; padding:17px 22px !important; box-sizing:border-box; }
   }
   /* Par où commencer : 4 portes d'entrée */
   #mac-landing .start-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
@@ -274,7 +315,7 @@
           <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Dosez, canalisez et dirigez vos &eacute;motions pour rester juste, m&ecirc;me sous la pression d&rsquo;un plateau. Votre &eacute;motion devient un outil. Plus le fruit du hasard.</p>
         </div>
         <div data-reveal style="background: #2B2622; border: 1px solid rgba(244,241,236,0.16); border-radius: 24px; padding: 44px 36px; display: flex; flex-direction: column; gap: 18px; transition: border-color .2s ease" style-hover="border-color: rgba(224,38,31,0.6)">
-          <div style="width: 100%; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden"><img data-img="methode_3" alt="Actrice en jeu, &eacute;motion juste" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
+          <div style="width: 100%; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden"><img data-img="methode_3" alt="Une actrice enlace un acteur en pleurs pendant une sc&egrave;ne" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
           <span style="font-family: 'Oswald', sans-serif; font-size: clamp(56px, 6vw, 84px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px #E0261F; line-height: 1">03</span>
           <h3 style="font-family: 'Oswald', sans-serif; font-size: 30px; text-transform: uppercase; margin: 0">Reproduire</h3>
           <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #B7B0A6">Retrouvez les m&ecirc;mes &eacute;motions avec pr&eacute;cision, autant de fois que n&eacute;cessaire. C&rsquo;est ce qui distingue un acteur juste et plus ou moins naturel&hellip; d&rsquo;un acteur syst&eacute;matiquement juste et percutant.</p>
@@ -311,27 +352,38 @@
       <!-- ateliers a tester -->
       <div data-reveal style="display: flex; flex-direction: column; gap: 24px">
         <div class="atelier-grid">
-          <div class="atelier-card" data-reveal>
+          <div class="atelier-card atelier-c" data-reveal style="--c: #E0261F">
             <div class="atelier-head"><span class="atelier-tag">Travail &Eacute;motionnel</span></div>
             <h4 class="atelier-name">Faire jaillir de vraies &eacute;motions</h4>
             <p>La base de l&rsquo;acting&nbsp;: creuser en soi, dans votre v&eacute;cu et votre imaginaire, pour faire surgir de vraies &eacute;motions. Bien guid&eacute;s, la plupart des d&eacute;butants sont surpris d&rsquo;y arriver &mdash; et on vous apprend aussi &agrave; redescendre une fois la sc&egrave;ne finie.</p>
           </div>
-          <div class="atelier-card" data-reveal>
+          <div class="atelier-card atelier-c" data-reveal style="--c: #14120F">
             <div class="atelier-head"><span class="atelier-tag">Travail de Sc&egrave;ne</span></div>
             <h4 class="atelier-name">Donner vie &agrave; un texte</h4>
             <p>Donner vie &agrave; un texte sans jamais l&rsquo;apprendre par c&oelig;ur. Vous d&eacute;couvrez le sous-texte&nbsp;: en changeant les circonstances d&rsquo;une m&ecirc;me r&eacute;plique, vous entendez le ton, la diction et l&rsquo;&eacute;motion changer d&rsquo;eux-m&ecirc;mes.</p>
           </div>
-          <div class="atelier-card" data-reveal>
+          <div class="atelier-card atelier-c" data-reveal style="--c: #6B655C">
             <div class="atelier-head"><span class="atelier-tag">Acting Amateur</span></div>
             <h4 class="atelier-name">Oser vous lib&eacute;rer</h4>
             <p>Pas encore s&ucirc;r de vouloir vous lancer&nbsp;? Un atelier pour d&eacute;passer la peur du ridicule, vous lib&eacute;rer et r&eacute;v&eacute;ler votre potentiel. Beaucoup encha&icirc;nent ensuite sur la formation professionnelle.</p>
             <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Mercredi 9 d&eacute;cembre &middot; 19h30&ndash;22h30 &middot; cours de la semaine</p>
           </div>
-          <div class="atelier-card" data-reveal>
+          <div class="atelier-card atelier-c" data-reveal style="--c: #B8842E">
             <div class="atelier-head"><span class="atelier-tag">Improvisation</span></div>
             <h4 class="atelier-name">Gagner en spontan&eacute;it&eacute;</h4>
             <p>Spontan&eacute;it&eacute;, &eacute;coute, r&eacute;ceptivit&eacute;, r&eacute;activit&eacute;&nbsp;: vous testez diff&eacute;rentes situations d&rsquo;improvisation avec diff&eacute;rents partenaires de jeu.</p>
             <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Vendredi 11 d&eacute;cembre &middot; 10h&ndash;13h &middot; cours de la semaine</p>
+          </div>
+          <div class="atelier-card atelier-wide" data-reveal style="--c: #4A6FB5">
+            <div class="atelier-wide-main">
+              <div class="atelier-head"><span class="atelier-tag">Sc&eacute;nario &middot; R&eacute;alisation</span></div>
+              <h4 class="atelier-name">&Eacute;crire &amp; r&eacute;aliser vos films</h4>
+              <p>D&eacute;couvrez comment associer &eacute;criture et jeu d&rsquo;acteur pour cr&eacute;er des personnages cr&eacute;dibles, d&eacute;velopper votre vision de r&eacute;alisateur et apprendre &agrave; diriger des acteurs.</p>
+            </div>
+            <div class="atelier-wide-info">
+              <span class="atelier-info-date">Samedi 12 d&eacute;cembre 2026 &middot; 18&nbsp;h&nbsp;&ndash;&nbsp;20&nbsp;h</span>
+              <span class="atelier-info-free">Gratuit &middot; Sans engagement</span>
+            </div>
           </div>
           <div class="atelier-card" data-reveal style="grid-column: 1 / -1; border: 1.5px solid #5F7A3A; background: #F3F6EC">
             <div class="atelier-head" style="justify-content: space-between">
@@ -352,11 +404,12 @@
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 12px 22px">
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E0261F; display: inline-block"></span>Faire jaillir de vraies &eacute;motions</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #14120F; display: inline-block"></span>Donner vie &agrave; un texte</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #B8842E; display: inline-block"></span>Gagner en spontan&eacute;it&eacute;</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #6B655C; display: inline-block"></span>Oser vous lib&eacute;rer</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E0261F; display: inline-block"></span>Travail &eacute;motionnel</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #14120F; display: inline-block"></span>Travail de sc&egrave;ne</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #4A6FB5; display: inline-block"></span>Sc&eacute;nario, R&eacute;alisation &amp; Direction d&rsquo;acteurs</span>
           <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #5F7A3A; display: inline-block"></span>Acting in English</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #6B655C; display: inline-block"></span>Acting Amateur</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #B8842E; display: inline-block"></span>Improvisation</span>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 20px">
@@ -388,6 +441,7 @@
             <div style="display: flex; flex-direction: column; gap: 12px">
               <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">13h&ndash;15h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #E0261F; padding: 6px 12px; border-radius: 999px">&Eacute;motions</span></div>
               <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">15h30&ndash;17h30</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #14120F; padding: 6px 12px; border-radius: 999px">Sc&egrave;ne</span></div>
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">18h&ndash;20h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #4A6FB5; padding: 6px 12px; border-radius: 999px">Sc&eacute;nario &middot; R&eacute;alisation</span></div>
             </div>
           </div>
           <div style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 20px; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px">
@@ -432,42 +486,46 @@
     </div>
   </section>
 
-  <!-- ============ FORMATION ANNUELLE ============ -->
-  <section id="formation" data-screen-label="Formation annuelle" style="background: #F7F4EE">
+  <!-- ============ FORMATIONS · RENTREE DECALEE JANVIER 2027 ============ -->
+  <section id="formation" data-screen-label="Formations rentree decalee" style="background: #F7F4EE">
     <div style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 100px; display: flex; flex-direction: column; gap: 40px">
       <div data-reveal style="display: flex; flex-direction: column; gap: 18px; max-width: 70ch">
         <div style="display: flex; align-items: center; gap: 12px">
           <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Et apr&egrave;s&nbsp;? &middot; La formation annuelle</span>
+          <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Et apr&egrave;s&nbsp;? &middot; Rentr&eacute;e d&eacute;cal&eacute;e de janvier 2027</span>
         </div>
         <h2 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(42px, 5.5vw, 80px); text-transform: uppercase; line-height: 0.98; margin: 0">Pr&ecirc;t &agrave; construire<br>votre carri&egrave;re&nbsp;?</h2>
-        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Pour celles et ceux qui veulent en faire leur m&eacute;tier, la M&eacute;thode se d&eacute;ploie sur un parcours complet.</p>
+        <p style="margin: 0; font-size: 18px; line-height: 1.7; color: #6B655C; max-width: 60ch">Les Journ&eacute;es Portes Ouvertes sont une premi&egrave;re occasion d&rsquo;exp&eacute;rimenter la M&eacute;thode. Si vous souhaitez aller plus loin, Method Acting Center vous propose deux formations professionnelles accessibles d&egrave;s janvier 2027, gr&acirc;ce &agrave; un parcours de rentr&eacute;e d&eacute;cal&eacute;e.</p>
       </div>
 
-      <div data-reveal style="background: #FFFFFF; border-radius: 28px; padding: clamp(32px, 4vw, 56px); display: flex; flex-direction: column; gap: 36px">
-        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap">
-          <div style="display: flex; flex-direction: column; gap: 12px">
-            <div style="display: flex; align-items: center; gap: 12px">
-              <span style="width: 40px; height: 2px; background: #E0261F; display: inline-block"></span>
-              <span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #6B655C">Le programme Acting Pro &middot; Actors Studio</span>
-            </div>
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: clamp(28px, 3vw, 42px); text-transform: uppercase; margin: 0; line-height: 1.05">4 ann&eacute;es pour devenir<br>un acteur complet</h3>
-          </div>
-          <div id="program-tabs" style="display: flex; gap: 10px; flex-wrap: wrap"></div>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 28px">
-          <p id="program-title" style="margin: 0; font-family: 'Oswald', sans-serif; font-size: clamp(20px, 2vw, 26px); text-transform: uppercase; letter-spacing: 1px; color: #E0261F; font-weight: 500"></p>
-          <div id="program-ateliers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 28px"></div>
-          <div id="program-deliverables"></div>
-        </div>
+      <div class="form-cards">
+        <article class="form-card" data-reveal style="--c: #E0261F">
+          <span class="form-card-num">01</span>
+          <span class="form-card-kicker">Formation Acting</span>
+          <h3>Apprendre &agrave; jouer vrai</h3>
+          <p>D&eacute;veloppez votre technique d&rsquo;acteur &agrave; travers les ateliers hebdomadaires et un programme intensif con&ccedil;u pour rejoindre la formation en janvier.</p>
+          <ul class="form-card-info">
+            <li>Rentr&eacute;e&nbsp;: janvier 2027.</li>
+            <li>Deux week-ends intensifs&nbsp;: 9&ndash;10 et 16&ndash;17 janvier.</li>
+            <li>Parcours de rentr&eacute;e d&eacute;cal&eacute;e&nbsp;: <strong>2&nbsp;880&nbsp;&euro;</strong>.</li>
+          </ul>
+        </article>
+        <article class="form-card" data-reveal style="--c: #4A6FB5">
+          <span class="form-card-num">02</span>
+          <span class="form-card-kicker">Formation Sc&eacute;nario &middot; R&eacute;alisation &middot; Direction d&rsquo;acteurs</span>
+          <h3>Donner vie &agrave; vos histoires</h3>
+          <p>Apprenez &agrave; &eacute;crire, r&eacute;aliser et diriger des acteurs gr&acirc;ce &agrave; une p&eacute;dagogie qui associe les techniques de cr&eacute;ation cin&eacute;matographique et le travail du jeu d&rsquo;acteur.</p>
+          <ul class="form-card-info">
+            <li>Rentr&eacute;e&nbsp;: janvier 2027.</li>
+            <li>20 heures de rattrapage en visioconf&eacute;rence.</li>
+            <li>Parcours de rentr&eacute;e d&eacute;cal&eacute;e&nbsp;: <strong>2&nbsp;650&nbsp;&euro;</strong>.</li>
+          </ul>
+        </article>
       </div>
 
-      <div data-reveal class="formation-offer" style="background: #14120F; color: #FFFFFF; border-radius: 28px; padding: 52px 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap">
-        <div style="display: flex; flex-direction: column; gap: 8px">
-          <div style="font-family: 'Oswald', sans-serif; font-size: clamp(24px, 2.6vw, 34px); text-transform: uppercase; font-weight: 700; line-height: 1.12"><span style="color: #E0261F">100&nbsp;&euro; de remise</span> sur les frais d&rsquo;inscription</div>
-          <div style="font-size: 14px; color: rgba(255,255,255,0.7)">Pour toute inscription &agrave; la rentr&eacute;e 2026&ndash;2027 &mdash; offre valable jusqu&rsquo;au 31/08/2026.</div>
-        </div>
-        <a href="#contact" class="formation-offer-btn" style="font-family: 'Oswald', sans-serif; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; text-decoration: none; padding: 19px 36px; white-space: nowrap; border-radius: 999px; transition: background .15s ease" style-hover="background: #FFFFFF; color: #14120F">Je m&rsquo;inscris &agrave; la formation</a>
+      <div data-reveal class="form-transition">
+        <p>Vous h&eacute;sitez entre les deux parcours&nbsp;? Profitez des Journ&eacute;es Portes Ouvertes pour d&eacute;couvrir les ateliers, &eacute;changer avec nos coaches et choisir la formation qui vous correspond.</p>
+        <a href="#contact" class="form-transition-cta">R&eacute;server mes ateliers gratuits</a>
       </div>
     </div>
   </section>
@@ -634,10 +692,13 @@
             <div id="booking-list" style="display: flex; flex-direction: column; gap: 12px"></div>
             <div id="booking-recap" class="book-recap">Aucun atelier s&eacute;lectionn&eacute; pour l&rsquo;instant.</div>
           </div>
-          <label style="display: flex; gap: 12px; align-items: flex-start; cursor: pointer; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; padding: 14px 16px">
-            <input type="checkbox" id="want-formation" name="formation_annuelle" style="margin-top: 3px; width: 18px; height: 18px; accent-color: #E0261F; flex: 0 0 auto">
-            <span style="font-size: 15px; line-height: 1.5; color: #6B655C">Je souhaite aussi <strong style="color: #14120F">m&rsquo;inscrire &agrave; la formation annuelle</strong> (rentr&eacute;e d&eacute;cal&eacute;e de janvier 2027, 100&nbsp;&euro; de remise).</span>
-          </label>
+          <fieldset class="rentree-box">
+            <legend>La rentr&eacute;e d&eacute;cal&eacute;e de janvier 2027 m&rsquo;int&eacute;resse</legend>
+            <p class="rentree-desc">Vous pouvez s&eacute;lectionner une ou plusieurs formations, sans engagement.</p>
+            <label class="rentree-opt" style="--c: #E0261F"><input type="checkbox" name="formation" value="Formation Acting"><span>Formation Acting</span></label>
+            <label class="rentree-opt" style="--c: #4A6FB5"><input type="checkbox" name="formation" value="Formation Sc&eacute;nario, R&eacute;alisation &amp; Direction d&rsquo;acteurs"><span>Formation Sc&eacute;nario, R&eacute;alisation &amp; Direction d&rsquo;acteurs</span></label>
+            <p class="rentree-note">Cette s&eacute;lection permet &agrave; l&rsquo;&eacute;quipe du Method Acting Center de vous renseigner pendant les JPO. Elle ne constitue pas une inscription &agrave; la formation.</p>
+          </fieldset>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 22px">
             <label style="display: flex; flex-direction: column; gap: 8px; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #6B655C">Pr&eacute;nom
               <input name="prenom" type="text" required placeholder="Votre pr&eacute;nom" style="font-family: 'Archivo', sans-serif; font-size: 16px; background: #F7F4EE; border: 1px solid #EEE9DF; border-radius: 12px; color: #14120F; padding: 14px 16px; outline: none; box-sizing: border-box; width: 100%" style-focus="border-color: #E0261F">
@@ -684,7 +745,7 @@
             </select>
           </label>
           <button type="submit" style="font-family: 'Oswald', sans-serif; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; background: #E0261F; color: #FFFFFF; border: none; cursor: pointer; padding: 19px 0; border-radius: 999px; transition: background .15s ease" style-hover="background: #14120F; color: #FFFFFF">Je r&eacute;serve mes ateliers</button>
-          <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne sont jamais partag&eacute;es.</p>
+          <p style="margin: 0; font-size: 13px; color: #6B655C; line-height: 1.5">En envoyant ce formulaire, vous acceptez d&rsquo;&ecirc;tre recontact&eacute;(e) par Method Acting Center. Vos donn&eacute;es ne seront jamais partag&eacute;es.</p>
         </form>
         <div id="contact-success" style="display:none">
           <div style="background: #FFFFFF; border: 1px solid #E0261F; border-radius: 28px; padding: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
@@ -786,7 +847,7 @@
     hero_scene: { url: "/uploads/scene-a-deux-acteurs-method-acting-center.jpg", label: "Sc\u00e8ne \u00e0 deux en cours d'acting \u2014 Method Acting Center" },
     methode_1: { url: "/uploads/methode-declencher.jpg", label: "M\u00e9thode \u00b7 \u00e9motion d\u00e9clench\u00e9e (D\u00e9clencher)" },
     methode_2: { url: "/uploads/methode-maitriser.jpg", label: "M\u00e9thode \u00b7 \u00e9motion ma\u00eetris\u00e9e (Ma\u00eetriser)" },
-    methode_3: { url: "/uploads/methode-reproduire.jpg", label: "M\u00e9thode \u00b7 jeu expressif (Reproduire)" },
+    methode_3: { url: "/uploads/etreinte-emotion-scene-a-deux-method-acting-center.jpg", label: "M\u00e9thode \u00b7 sc\u00e8ne \u00e0 deux, \u00e9motion reproduite (Reproduire)" },
     stage_1: { url: "/uploads/jpo-atelier-scene.jpg", label: "JPO \u00b7 atelier travail de sc\u00e8ne" },
     stage_2: { url: "/uploads/jpo-atelier-echange.jpg", label: "JPO \u00b7 atelier, \u00e9change avec les coachs" },
     stage_3: { url: "/uploads/jpo-atelier-diner.jpg", label: "JPO \u00b7 atelier, sc\u00e8ne de d\u00eener" },
@@ -818,39 +879,18 @@
      ATELIERS JPO — ⚠️ remplacez les créneaux par vos vraies dates/heures.
      Chaque atelier est réservable indépendamment ; plusieurs possibles.
      ============================================================ */
-  /* JPO de décembre (rentrée de janvier 2027) : week-end des 12 & 13 décembre, plus deux cours
-     de la semaine ouverts comme des cours d'essai (Acting Amateur le 9, Improvisation le 11). */
+  /* JPO des 12 & 13 décembre 2026 + deux cours de la semaine ouverts aux visiteurs
+     (Acting Amateur le 9, Improvisation le 11). Couleurs = légende du planning. */
   var ATELIERS = [
-    { id:"emotionnel", name:"Faire jaillir de vraies émotions", slots:["Samedi 12 déc. · 13h–15h","Dimanche 13 déc. · 13h–15h"] },
-    { id:"scene",      name:"Donner vie à un texte",           slots:["Samedi 12 déc. · 15h30–17h30","Dimanche 13 déc. · 15h30–17h30"] },
-    { id:"english",    name:"Acting in English — jouer vrai en anglais", slots:["Dimanche 13 déc. · 18h–20h"] },
-    { id:"amateur",    name:"Oser, vous libérer, vous révéler (cours de la semaine)", slots:["Mercredi 9 déc. · 19h30–22h30"] },
-    { id:"impro",      name:"Gagner en spontanéité (cours de la semaine)", slots:["Vendredi 11 déc. · 10h–13h"] }
+    { id:"emotionnel", color:"#E0261F", name:"Faire jaillir de vraies émotions", slots:["Samedi 12 déc. · 13h–15h","Dimanche 13 déc. · 13h–15h"] },
+    { id:"scene",      color:"#14120F", name:"Donner vie à un texte",           slots:["Samedi 12 déc. · 15h30–17h30","Dimanche 13 déc. · 15h30–17h30"] },
+    { id:"srda",       color:"#4A6FB5", name:"Écrire & réaliser vos films",     slots:["Samedi 12 déc. · 18h–20h"] },
+    { id:"amateur",    color:"#6B655C", name:"Oser vous libérer",               slots:["Mercredi 9 déc. · 19h30–22h30"] },
+    { id:"impro",      color:"#B8842E", name:"Gagner en spontanéité",           slots:["Vendredi 11 déc. · 10h–13h"] },
+    { id:"english",    color:"#5F7A3A", name:"Acting in English",               slots:["Dimanche 13 déc. · 18h–20h"] }
   ];
 
   var HERO_KEYS = ["hero_scene"];
-
-  var PROGRAM = [
-    { label: "1ère année", title: "Les bases de la Méthode", ateliers: [
-      { name: "Exploration 1", tagline: "Le training de fond de l’acting", desc: "Faire surgir vos émotions, enrichir votre imaginaire, vous débarrasser du trac, aiguiser votre concentration et votre écoute." },
-      { name: "Backstory", tagline: "Vivre réellement des situations imaginaires", desc: "La première approche des scènes à deux : de l’improvisation vers la scène écrite, jusqu’aux scènes tirées de pièces et de scénarios." },
-      { name: "Scènes 1", tagline: "Sculpter le silence", desc: "Le travail de fond du sous-texte : construire une scène seul, sans texte ni mime, portée par le langage du corps et des émotions." }
-    ] },
-    { label: "2ème année", title: "Faire de la Méthode sa méthode", ateliers: [
-      { name: "Exploration 2", tagline: "Approfondir corps, imaginaire et émotions", desc: "Le training aborde des thématiques spécifiques : l’horreur, la séduction, la comédie…" },
-      { name: "Scènes 2", tagline: "La science du jeu", desc: "Un atelier exclusif, partagé seulement avec le HB Studio de New York : de nouveaux outils pour enrichir vos performances." },
-      { name: "Scènes 3", tagline: "De la scène à la caméra", desc: "Apprendre à structurer vos performances dans des scènes tirées de pièces et de films, début du jeu face caméra." }
-    ] },
-    { label: "3ème année", title: "Maîtriser la composition de personnages", ateliers: [
-      { name: "Composition A & Exploration 3", tagline: "L’art de la métamorphose", desc: "Enquête minutieuse et exploration profonde de votre personnage. L’ultime stade de l’acting : devenir quelqu’un d’autre." },
-      { name: "Composition B", tagline: "L’incarnation de votre personnage", desc: "Composer votre personnage scène après scène, dans la perspective du rôle tout entier." },
-      { name: "Suivi de carrière & développement personnel", tagline: "Aborder les marchés professionnels", desc: "Comprendre les marchés, s’outiller (book photos, bande démo) et trouver les ressources pour donner le meilleur de vous-même en casting." }
-    ] },
-    { label: "4ème année", title: "La touche finale : vous aiguisez vos performances, nous produisons vos outils pour démarcher", ateliers: [
-      { name: "Acting Caméra & Tournages", tagline: "Gérer les impératifs du cinéma dans votre jeu", desc: "Un atelier de scènes tournées dans les conditions réelles d’un plateau : les réflexes qui manquent trop souvent aux acteurs débutants." },
-      { name: "Scènes 4", tagline: "Le plus haut niveau d’exigence", desc: "Un approfondissement de tous les outils vus les années précédentes avec une exigence encore plus élevée." }
-    ], deliverables: ["3 scènes filmées et montées", "1 book photos", "1 CV", "1 bande démo", "1 vidéo de présentation"] }
-  ];
 
   var ROOT = document.getElementById("mac-landing");
   if (!ROOT) return;
@@ -927,36 +967,6 @@
     paint(); restart();
   }
 
-  /* program (4-year tabs) */
-  function initProgram(){
-    var tabsEl=document.getElementById("program-tabs"), titleEl=document.getElementById("program-title"),
-        atEl=document.getElementById("program-ateliers"), delEl=document.getElementById("program-deliverables");
-    if(!tabsEl||!titleEl||!atEl||!delEl) return;
-    var active=0, tabs=[];
-    function tabStyle(on){ return "font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:12px 20px;border-radius:999px;cursor:pointer;transition:all .2s ease;border:1px solid "+(on?"#E0261F":"rgba(20,18,15,0.2)")+";background:"+(on?"#E0261F":"transparent")+";color:"+(on?"#FFFFFF":"#6B655C")+";"; }
-    PROGRAM.forEach(function(y,i){ var b=document.createElement("button"); b.type="button"; b.textContent=y.label; b.style.cssText=tabStyle(i===0); b.addEventListener("click",function(){ active=i; render(); }); tabsEl.appendChild(b); tabs.push(b); });
-    function render(){
-      var y=PROGRAM[active];
-      tabs.forEach(function(b,i){ b.style.cssText=tabStyle(i===active); });
-      titleEl.textContent=y.title;
-      atEl.innerHTML=y.ateliers.map(function(a){
-        return '<div style="display:flex;flex-direction:column;gap:10px;border-top:2px solid #E0261F;padding-top:18px">'+
-          '<h4 style="font-family:\'Oswald\',sans-serif;font-size:20px;text-transform:uppercase;margin:0">'+esc(a.name)+'</h4>'+
-          '<p style="margin:0;font-size:14px;font-style:italic;color:#E0261F">'+esc(a.tagline)+'</p>'+
-          '<p style="margin:0;font-size:15px;line-height:1.65;color:#6B655C">'+esc(a.desc)+'</p></div>';
-      }).join("");
-      if(y.deliverables&&y.deliverables.length){
-        delEl.style.display="";
-        delEl.innerHTML='<div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid #EEE9DF;padding-top:24px">'+
-          '<p style="margin:0;font-size:15px;font-weight:600;color:#14120F">À la sortie de cet atelier, vous repartez avec&nbsp;:</p>'+
-          '<div style="display:flex;gap:10px;flex-wrap:wrap">'+
-          y.deliverables.map(function(d){ return '<span style="font-family:\'Oswald\',sans-serif;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;background:#F7F4EE;color:#14120F;padding:10px 16px;border-radius:999px">'+esc(d)+'</span>'; }).join("")+
-          '</div></div>';
-      } else { delEl.style.display="none"; delEl.innerHTML=""; }
-    }
-    render();
-  }
-
   /* JPO accordion (one open at a time) */
   function initJpo(){
     var cards=[].slice.call(ROOT.querySelectorAll(".jpo-card"));
@@ -1022,33 +1032,49 @@
     if(!form||!list) return;
     list.innerHTML = ATELIERS.map(function(a){
       var opts='<option value="">— Je ne réserve pas cet atelier —</option>'+a.slots.map(function(s){return '<option value="'+esc(s)+'">'+esc(s)+'</option>';}).join("");
-      return '<div class="book-atelier">'+
-        '<span class="book-name">'+esc(a.name)+'</span>'+
-        '<select class="book-select" name="atelier_'+a.id+'" data-name="'+esc(a.name)+'">'+opts+'</select>'+
+      return '<div class="book-atelier" style="--c:'+a.color+'">'+
+        '<span class="book-name"><i class="book-dot" aria-hidden="true"></i>'+esc(a.name)+'</span>'+
+        '<select class="book-select" name="atelier_'+a.id+'" data-name="'+esc(a.name)+'" data-color="'+a.color+'" aria-label="Créneau — '+esc(a.name)+'">'+opts+'</select>'+
         '</div>';
     }).join("");
     var selects=[].slice.call(list.querySelectorAll("select"));
-    var formationCb=document.getElementById("want-formation");
-    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), slot:s.value};}); }
-    function wantsFormation(){ return !!(formationCb && formationCb.checked); }
+    var formationCbs=[].slice.call(form.querySelectorAll('input[name="formation"]'));
+    function chosen(){ return selects.filter(function(s){return s.value;}).map(function(s){return {name:s.getAttribute("data-name"), color:s.getAttribute("data-color"), slot:s.value};}); }
+    /* formations cochées volontairement (jamais ajoutées automatiquement) */
+    function formations(){ return formationCbs.filter(function(c){ return c.checked; }).map(function(c){ return c.value; }); }
+    /* conflit horaire : deux ateliers le même jour sur des heures qui se chevauchent */
+    function span(slot){ var m=String(slot).match(/^(\S+\s+\d+).*·\s*(\d+)\s*h\s*(\d*)\s*–\s*(\d+)\s*h\s*(\d*)\s*$/); if(!m) return null; return {day:m[1], a:(+m[2])*60+(+m[3]||0), b:(+m[4])*60+(+m[5]||0)}; }
+    function conflicts(ch){ var out=[]; for(var i=0;i<ch.length;i++) for(var j=i+1;j<ch.length;j++){ var x=span(ch[i].slot), y=span(ch[j].slot); if(x&&y&&x.day===y.day&&x.a<y.b&&y.a<x.b) out.push([ch[i],ch[j]]); } return out; }
+    function dot(c){ return '<i class="book-dot" style="--c:'+c+'" aria-hidden="true"></i>'; }
     function updateRecap(){
-      var ch=chosen(), f=wantsFormation();
-      if(!ch.length && !f){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
-      recap.className="book-recap active";
+      var ch=chosen(), f=formations();
+      selects.forEach(function(s){ s.closest(".book-atelier").classList.toggle("is-on", !!s.value); });
+      if(!ch.length && !f.length){ recap.className="book-recap"; recap.textContent="Aucun atelier sélectionné pour l’instant."; return; }
       var parts=[];
-      if(ch.length) parts.push(ch.length+" atelier"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return "<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · "));
-      if(f) parts.push("<strong>Formation annuelle 2026–2027</strong>");
+      if(ch.length) parts.push(ch.length+" atelier"+(ch.length>1?"s":"")+" : "+ch.map(function(c){return dot(c.color)+"<strong>"+esc(c.name)+"</strong> ("+esc(c.slot)+")";}).join(" · "));
+      else parts.push("Aucun atelier sélectionné pour l’instant.");
+      if(f.length) parts.push("Rentrée décalée de janvier 2027 (intérêt) : "+f.map(function(x){ return "<strong>"+esc(x)+"</strong>"; }).join(" · "));
+      var cf=conflicts(ch);
+      if(cf.length) parts.push("Conflit horaire : "+cf.map(function(p){ return esc(p[0].name)+" et "+esc(p[1].name); }).join(" ; ")+" ont lieu en même temps. Choisissez un autre créneau.");
+      recap.className="book-recap "+(cf.length?"warn":"active");
       recap.innerHTML=parts.join("<br>");
     }
     selects.forEach(function(s){ s.addEventListener("change",updateRecap); });
-    if(formationCb) formationCb.addEventListener("change",updateRecap);
+    formationCbs.forEach(function(c){ c.addEventListener("change",updateRecap); });
     updateRecap();
+    /* suivi de conversion : appelé uniquement après un envoi confirmé par Web3Forms */
+    function track(ch,f){
+      try{
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event:"jpo_form_success", ateliers:ch.map(function(c){return c.name;}), atelier_count:ch.length, formations:f});
+        if(typeof window.gtag==="function"){ window.gtag("event","generate_lead",{event_category:"jpo", event_label:ch.map(function(c){return c.name;}).join(" | "), value:ch.length}); }
+      }catch(e){}
+    }
     function showSuccess(ch,f){
       if(successRecap){
-        var msg=[];
-        if(ch.length) msg.push("votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":""));
-        if(f) msg.push("votre inscription à la formation annuelle");
-        successRecap.innerHTML="Merci&nbsp;! Nous avons bien reçu "+msg.join(" et ")+". Un membre de l’équipe vous recontacte sous 48h.";
+        var msg="Merci&nbsp;! Nous avons bien reçu votre demande pour "+ch.length+" atelier"+(ch.length>1?"s":"");
+        if(f.length) msg+=", ainsi que votre intérêt pour la rentrée décalée ("+f.map(esc).join(", ")+")";
+        successRecap.innerHTML=msg+". Un membre de l’équipe vous recontacte sous 48h.";
       }
       form.style.display="none"; ok.style.display=""; ok.scrollIntoView({behavior:"smooth",block:"center"});
     }
@@ -1087,8 +1113,9 @@
     function field(n){ var el=form.querySelector('[name="'+n+'"]'); return el?String(el.value||"").trim():""; }
     form.addEventListener("submit",function(e){
       e.preventDefault();
-      var ch=chosen(), f=wantsFormation();
-      if(!ch.length && !f){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier, ou cochez la formation annuelle, avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      var ch=chosen(), f=formations();
+      if(!ch.length){ recap.className="book-recap warn"; recap.textContent="Choisissez au moins un atelier et son créneau avant d’envoyer."; recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
+      if(conflicts(ch).length){ updateRecap(); recap.scrollIntoView({behavior:"smooth",block:"center"}); return; }
       if(!checkIdentity(form)) return;
       var btn=form.querySelector('button[type="submit"]'), btnLabel=btn?btn.innerHTML:"";
       var ateliersTxt = ch.length ? ch.map(function(c){return "• "+c.name+" — "+c.slot;}).join("\n") : "Aucun";
@@ -1101,7 +1128,7 @@
         "Email": field("email"),
         "Téléphone": field("telephone")||"—",
         "Ateliers réservés": ateliersTxt,
-        "Formation annuelle 2026-2027": f?"OUI":"Non",
+        "Rentrée décalée janvier 2027 (intérêt, sans inscription)": f.length?f.join(" + "):"Aucune formation cochée",
         "Comment nous a connus": field("source")||"—",
         "Message": field("message")||"—",
         botcheck: (function(){ var b=form.querySelector('[name="botcheck"]'); return b?b.checked:false; })()
@@ -1113,7 +1140,7 @@
         headers:{"Content-Type":"application/json","Accept":"application/json"},
         body: JSON.stringify(payload)
       }).then(function(r){return r.json();}).then(function(d){
-        if(d&&d.success){ showSuccess(ch,f); }
+        if(d&&d.success){ showSuccess(ch,f); track(ch,f); }
         else { throw new Error((d&&d.message)||"echec"); }
       }).catch(function(){
         if(btn){ btn.disabled=false; btn.innerHTML=btnLabel; }
@@ -1156,7 +1183,7 @@
     update();
   }
 
-  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initProgram(); initJpo(); initReviews(); initBooking(); initAnchors(); initMobileCta(); }
+  function init(){ applyImages(); bindState("style-hover","mouseenter","mouseleave"); bindState("style-focus","focus","blur"); initReveal(); initHero(); initJpo(); initReviews(); initBooking(); initAnchors(); initMobileCta(); }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 </script>

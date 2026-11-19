@@ -259,5 +259,53 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   à la demande du propriétaire. Bouton du hero de `/jposr/` dirigé vers le formulaire de la landing.
 - Tests : desktop et mobile sans erreur ni débordement, 3 images chargées, bouton du hero toujours sur le formulaire.
 
+### 2026-11-19 — [JPO-LP-003]
+
+- Catégorie : landing commerciale / formulaire / mesure
+- Problème initial : la landing `/jpo/` ne présentait pas l'atelier Scénario, Réalisation & Direction d'acteurs
+  des Portes Ouvertes, ni les deux formations ouvertes à la rentrée décalée de janvier 2027. Elle affichait
+  encore l'offre « 100 € de remise » expirée le 31/08/2026.
+- Fichier : `newsite/static/jpo/index.html` (seul fichier source modifié ; `dist/` régénéré).
+- Source : « BRIEF FINAL — MISE À JOUR LANDING JPO » (PDF du propriétaire, 2026-11-19).
+- Modifications :
+  - carte 03 « Reproduire » : photo remplacée par celle de l'étreinte déjà utilisée sur `/stages/`
+    (numéro, titre, texte et cadrage inchangés) ;
+  - 4 cartes Acting sur une ligne en desktop, avec une bande latérale discrète aux couleurs du planning,
+    puis le nouvel encadré bleu « Écrire & réaliser vos films » (sam. 12 déc. 18 h–20 h), puis
+    l'encadré vert Acting in English, inchangé ;
+  - planning : légende à 6 couleurs ; créneau Scénario · Réalisation le samedi 18h–20h ;
+  - section « Prêt à construire votre carrière ? » : nouvelle introduction, deux cartes de formation
+    (Acting 2 880 €, SRDA 2 650 €), texte de transition et CTA « Réserver mes ateliers gratuits » ;
+    programme sur 4 ans et offre 100 € supprimés ;
+  - formulaire :
+    - 6 ateliers dans l'ordre du brief, avec une pastille de couleur ;
+    - créneaux identiques au planning ;
+    - contrôle des conflits horaires ;
+    - case « Formation annuelle » remplacée par le bloc facultatif « La rentrée décalée de janvier 2027
+      m'intéresse », avec deux cases indépendantes, non cochées par défaut, et une mention « pas une
+      inscription » ;
+    - au moins un atelier est désormais obligatoire ;
+    - les formations cochées sont transmises dans l'email Web3Forms ;
+    - mention de confidentialité au futur ;
+  - suivi de conversion ajouté : `dataLayer` `jpo_form_success` et `gtag generate_lead` si présent,
+    déclenchés uniquement après une réponse `success` de Web3Forms ;
+  - styles de focus visibles.
+- Non modifié :
+  - hero, footer, FAQ, avis, « Comment se déroule une JPO ? » et autres photos ;
+  - autres pages et landings ;
+  - `/stages/`, vérifiée identique octet pour octet.
+- Tests (Playwright, Web3Forms simulé) : tous réussis.
+  - Les 10 tests obligatoires du brief.
+  - Conflit horaire bloqué (test avec un créneau injecté).
+  - Envoi refusé sans atelier ou sans identité ; sélection conservée.
+  - Aucun événement de conversion sur un envoi en échec.
+  - Ancres du menu et des CTA sous le header (96 px).
+  - Aucun débordement en mobile (iPhone 13) ni en tablette (820 px) ; cibles tactiles ≥ 44 px.
+- Écart assumé : le créneau SRDA s'affiche « Samedi 12 déc. · 18h–20h » dans le menu déroulant, comme les autres
+  créneaux. La forme longue du brief était tronquée sur mobile. La forme longue reste affichée sur la carte SRDA.
+- À valider : lien entre le week-end intensif du 9–10 janvier et le « stage intensif d'hiver » ; offre 100 €
+  encore présente sur `/jposr/`.
+- Retour arrière : `git revert` du commit, puis `python3 build.py`.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.
