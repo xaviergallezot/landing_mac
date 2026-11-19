@@ -303,8 +303,8 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   - Aucun débordement en mobile (iPhone 13) ni en tablette (820 px) ; cibles tactiles ≥ 44 px.
 - Écart assumé : le créneau SRDA s'affiche « Samedi 12 déc. · 18h–20h » dans le menu déroulant, comme les autres
   créneaux. La forme longue du brief était tronquée sur mobile. La forme longue reste affichée sur la carte SRDA.
-- À valider : lien entre le week-end intensif du 9–10 janvier et le « stage intensif d'hiver » ; offre 100 €
-  encore présente sur `/jposr/`.
+- Validé par le propriétaire le 2026-11-19 : le week-end intensif du 9–10 janvier est le « stage intensif
+  d'hiver ». L'offre 100 € reste sur `/jposr/`, qui ne sera pas utilisée.
 - Retour arrière : `git revert` du commit, puis `python3 build.py`.
 
 Les entrées doivent être ajoutées au fur et à mesure.

@@ -108,9 +108,8 @@ Formulation autorisée : « stages week-end dès 160 € ». Ne pas annoncer
 de prix pour les intensifs tant qu'ils ne sont pas confirmés.
 
 Note du 2026-11-19 : le premier week-end intensif du parcours de rentrée décalée Acting (9–10 janvier 2027)
-tombe aux mêmes dates que le « stage intensif d'hiver ». Il s'agit probablement du même intensif, ouvert aux
-deux publics. [À VALIDER] par le propriétaire. Le second week-end (16–17 janvier) n'apparaît pas encore sur les
-pages stages et planning. Les prix 2 880 € et 2 650 € concernent l'ensemble du parcours de rentrée décalée,
+est le « stage intensif d'hiver ». Confirmé par le propriétaire le 2026-11-19. Le second week-end (16–17 janvier)
+n'apparaît pas encore sur les pages stages et planning. Les prix 2 880 € et 2 650 € concernent l'ensemble du parcours de rentrée décalée,
 pas les mensualités annuelles. Ils ne sont publiés que sur `/jpo/` à ce jour.
 
 ### Journées Portes Ouvertes
@@ -217,7 +216,7 @@ publier**.
 | X-2 | Rythme 4ᵉ année Acting | 1 atelier / 2 ateliers de 3 h | planning vs inscription | information fausse sur une des deux pages | **Tranché le 2026-10-31 par le planning officiel V3 : 1 atelier de 3 h, le lundi 15h30–18h30 (Acting Caméra & Tournages). Scènes 4 n'y figure plus.**
 | X-3 | 3ᵉ temps de la Méthode | Reproduire / Composer | acting vs reste du site | description de la pédagogie incohérente |
 | X-4 | Nom des stages | Stage A, Stage B / Actors Studio A, B | site vs landing `/stages/` | confusion avec The Actors Studio (New York) |
-| X-5 | Offre 100 € | expirée le 31/08/2026 / proposée pour janvier 2027 | landings JPO | offre commerciale non valide affichée | **2026-11-19 : retirée de `/jpo/` (brief du propriétaire : ne pas la réintroduire tant que ses conditions ne sont pas confirmées). Encore présente sur `/jposr/`.**
+| X-5 | Offre 100 € | expirée le 31/08/2026 / proposée pour janvier 2027 | landings JPO | offre commerciale non valide affichée | **2026-11-19 : retirée de `/jpo/` (brief du propriétaire : ne pas la réintroduire tant que ses conditions ne sont pas confirmées). Encore présente sur `/jposr/`, laissée en l'état : le propriétaire n'utilise pas cette landing (2026-11-19).**
 | X-6 | Cours ados / enfants | annoncé 100 €/mois (Spectable), mentionné `/jpo/` / absent du site et du registre | tiers vs site | prospects induits en erreur |
 | X-7 | Filiation pédagogique | « descendant direct » de Stanislavski, liste Brando/Streep/DiCaprio / Robert Lewis (Spectable) / livre du fondateur (BnF) | site vs tiers | affirmations invérifiables sur le site alors qu'une preuve solide (ouvrage) existe |
 
