@@ -140,6 +140,22 @@
   #mac-landing .atelier-info-date { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:var(--c); }
   #mac-landing .atelier-info-free { font-family:'Oswald',sans-serif; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
   @media (max-width:760px){ #mac-landing .atelier-row { grid-template-columns:1fr; gap:18px; } #mac-landing .atelier-main { padding:30px 26px; } #mac-landing .atelier-wide-info, #mac-landing .atelier-card > .atelier-wide-info { align-self:stretch; } }
+  /* Planning des ateliers : même mise en forme que le planning de jpo.html */
+  #mac-landing .sch-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+  #mac-landing .sch-day { background:#FFFFFF; border:1px solid #EEE9DF; border-radius:16px; overflow:hidden; }
+  #mac-landing .sch-head { background:#14120F; color:#FFFFFF; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:1px; text-align:center; padding:13px; font-weight:600; font-size:17px; }
+  #mac-landing .sch-slot { padding:14px; border-bottom:1px solid #EEE9DF; }
+  #mac-landing .sch-slot:last-child { border-bottom:none; }
+  #mac-landing .sch-time { display:block; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:1px; color:#6B655C; margin-bottom:8px; }
+  #mac-landing .sch-block { color:#FFFFFF; border-radius:10px; padding:11px 13px; font-family:'Oswald',sans-serif; text-transform:uppercase; font-size:14px; line-height:1.2; }
+  #mac-landing .sch-block small { display:block; font-family:'Archivo',sans-serif; text-transform:none; font-size:12px; opacity:.9; margin-top:3px; letter-spacing:0; }
+  #mac-landing .sch-emo { background:#E0261F; } #mac-landing .sch-scene { background:#14120F; } #mac-landing .sch-srda { background:#4A6FB5; }
+  #mac-landing .sch-en { background:#5F7A3A; } #mac-landing .sch-amateur { background:#6B655C; } #mac-landing .sch-impro { background:#B8842E; }
+  #mac-landing .sch-sub { font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(22px,2.4vw,30px); text-transform:uppercase; line-height:1.1; margin:0; color:#14120F; }
+  #mac-landing .sch-legend { display:flex; flex-wrap:wrap; gap:12px 20px; font-size:14px; color:#6B655C; }
+  #mac-landing .sch-legend span { display:inline-flex; align-items:center; gap:8px; }
+  #mac-landing .sch-legend i { width:16px; height:16px; border-radius:4px; display:inline-block; }
+  @media (max-width:760px){ #mac-landing .sch-grid { grid-template-columns:1fr; gap:18px; } }
   /* Formations de la rentrée décalée de janvier 2027 */
   #mac-landing .form-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
   #mac-landing .form-card { background:#FFFFFF; border:1px solid #EEE9DF; border-top:4px solid var(--c); border-radius:24px; padding:clamp(28px,3.4vw,44px); display:flex; flex-direction:column; gap:16px; min-width:0; }
@@ -442,65 +458,47 @@
         </div>
       </div>
 
-      <!-- planning JPO -->
+      <!-- planning JPO (même mise en forme que le planning de jpo.html ; couleurs = cartes et formulaire) -->
       <div data-reveal style="display: flex; flex-direction: column; gap: 28px">
         <div style="display: flex; flex-direction: column; gap: 10px">
           <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(28px, 3.4vw, 46px); text-transform: uppercase; line-height: 1.05; margin: 0">Le <span style="color: #E0261F">planning</span> des ateliers</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #6B655C; max-width: 56ch">Choisissez vos ateliers selon vos disponibilit&eacute;s. Chaque couleur correspond &agrave; une typologie d&rsquo;atelier. L&rsquo;Acting Amateur et l&rsquo;Improvisation se d&eacute;couvrent dans le cours de la semaine, juste avant le week-end.</p>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #6B655C; max-width: 56ch">Chaque atelier est r&eacute;servable ind&eacute;pendamment&nbsp;: composez votre parcours sur le week-end, et rejoignez si vous le souhaitez un cours de la semaine.</p>
         </div>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 12px 22px">
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #E0261F; display: inline-block"></span>Travail &eacute;motionnel</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #14120F; display: inline-block"></span>Travail de sc&egrave;ne</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #4A6FB5; display: inline-block"></span>Sc&eacute;nario, R&eacute;alisation &amp; Direction d&rsquo;acteurs</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #5F7A3A; display: inline-block"></span>Acting in English</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #6B655C; display: inline-block"></span>Acting Amateur</span>
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: #3B362F"><span style="width: 14px; height: 14px; border-radius: 4px; background: #B8842E; display: inline-block"></span>Improvisation</span>
+        <div class="sch-grid">
+          <div class="sch-day" data-reveal>
+            <div class="sch-head">Samedi 12 d&eacute;cembre</div>
+            <div class="sch-slot"><span class="sch-time">13h &ndash; 15h</span><div class="sch-block sch-emo">Travail &eacute;motionnel<small>Faire jaillir de vraies &eacute;motions</small></div></div>
+            <div class="sch-slot"><span class="sch-time">15h30 &ndash; 17h30</span><div class="sch-block sch-scene">Travail de sc&egrave;ne<small>Donner vie &agrave; un texte</small></div></div>
+            <div class="sch-slot"><span class="sch-time">18h &ndash; 20h</span><div class="sch-block sch-srda">Sc&eacute;nario, R&eacute;alisation &amp; Direction d&rsquo;acteurs<small>&Eacute;crire &amp; r&eacute;aliser vos films</small></div></div>
+          </div>
+          <div class="sch-day" data-reveal>
+            <div class="sch-head">Dimanche 13 d&eacute;cembre</div>
+            <div class="sch-slot"><span class="sch-time">13h &ndash; 15h</span><div class="sch-block sch-emo">Travail &eacute;motionnel<small>Faire jaillir de vraies &eacute;motions</small></div></div>
+            <div class="sch-slot"><span class="sch-time">15h30 &ndash; 17h30</span><div class="sch-block sch-scene">Travail de sc&egrave;ne<small>Donner vie &agrave; un texte</small></div></div>
+            <div class="sch-slot"><span class="sch-time">18h &ndash; 20h</span><div class="sch-block sch-en">Acting in English<small>Jouer vrai, en anglais</small></div></div>
+          </div>
         </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 20px">
-          <div style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 20px; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px">
-            <div style="display: flex; flex-direction: column; gap: 2px">
-              <span style="font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; font-weight: 600; color: #14120F">Mercredi 9</span>
-              <span style="font-size: 13px; color: #6B655C">d&eacute;cembre 2026</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 12px">
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">19h30&ndash;22h30</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #6B655C; padding: 6px 12px; border-radius: 999px">Amateur</span></div>
-            </div>
-            <span style="font-size: 12.5px; line-height: 1.5; color: #6B655C">Cours de la semaine, ouvert aux visiteurs des Portes Ouvertes.</span>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px">
+          <h4 class="sch-sub">Avant le week-end&nbsp;: int&eacute;grez un cours de la semaine</h4>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #6B655C; max-width: 72ch">L&rsquo;Acting Amateur et l&rsquo;Improvisation se d&eacute;couvrent directement dans le cours hebdomadaire, avec les &eacute;l&egrave;ves, exceptionnellement ouverts aux visiteurs des Portes Ouvertes.</p>
+        </div>
+        <div class="sch-grid">
+          <div class="sch-day" data-reveal>
+            <div class="sch-head">Mercredi 9 d&eacute;cembre</div>
+            <div class="sch-slot"><span class="sch-time">19h30 &ndash; 22h30</span><div class="sch-block sch-amateur">Acting Amateur<small>Oser vous lib&eacute;rer</small></div></div>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 20px; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px">
-            <div style="display: flex; flex-direction: column; gap: 2px">
-              <span style="font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; font-weight: 600; color: #14120F">Vendredi 11</span>
-              <span style="font-size: 13px; color: #6B655C">d&eacute;cembre 2026</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 12px">
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">10h&ndash;13h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #B8842E; padding: 6px 12px; border-radius: 999px">Impro</span></div>
-            </div>
-            <span style="font-size: 12.5px; line-height: 1.5; color: #6B655C">Cours de la semaine, ouvert aux visiteurs des Portes Ouvertes.</span>
+          <div class="sch-day" data-reveal>
+            <div class="sch-head">Vendredi 11 d&eacute;cembre</div>
+            <div class="sch-slot"><span class="sch-time">10h &ndash; 13h</span><div class="sch-block sch-impro">Improvisation<small>Gagner en spontan&eacute;it&eacute;</small></div></div>
           </div>
-          <div style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 20px; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px">
-            <div style="display: flex; flex-direction: column; gap: 2px">
-              <span style="font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; font-weight: 600; color: #14120F">Samedi 12</span>
-              <span style="font-size: 13px; color: #6B655C">d&eacute;cembre 2026</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 12px">
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">13h&ndash;15h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #E0261F; padding: 6px 12px; border-radius: 999px">&Eacute;motions</span></div>
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">15h30&ndash;17h30</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #14120F; padding: 6px 12px; border-radius: 999px">Sc&egrave;ne</span></div>
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">18h&ndash;20h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #4A6FB5; padding: 6px 12px; border-radius: 999px">Sc&eacute;nario &middot; R&eacute;alisation</span></div>
-            </div>
-          </div>
-          <div style="background: #FFFFFF; border: 1px solid #EEE9DF; border-radius: 20px; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px">
-            <div style="display: flex; flex-direction: column; gap: 2px">
-              <span style="font-family: 'Oswald', sans-serif; font-size: 20px; text-transform: uppercase; font-weight: 600; color: #14120F">Dimanche 13</span>
-              <span style="font-size: 13px; color: #6B655C">d&eacute;cembre 2026</span>
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 12px">
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">13h&ndash;15h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #E0261F; padding: 6px 12px; border-radius: 999px">&Eacute;motions</span></div>
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">15h30&ndash;17h30</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #14120F; padding: 6px 12px; border-radius: 999px">Sc&egrave;ne</span></div>
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap"><span style="font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 1px; color: #14120F; flex: 0 0 96px">18h&ndash;20h</span><span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #5F7A3A; padding: 6px 12px; border-radius: 999px">English</span></div>
-            </div>
-          </div>
+        </div>
+        <div class="sch-legend">
+          <span><i style="background:#E0261F"></i>Travail &eacute;motionnel</span>
+          <span><i style="background:#14120F"></i>Travail de sc&egrave;ne</span>
+          <span><i style="background:#4A6FB5"></i>Sc&eacute;nario, R&eacute;alisation &amp; Direction d&rsquo;acteurs</span>
+          <span><i style="background:#5F7A3A"></i>Acting in English</span>
+          <span><i style="background:#6B655C"></i>Acting Amateur</span>
+          <span><i style="background:#B8842E"></i>Improvisation</span>
         </div>
       </div>
 

@@ -382,5 +382,31 @@ après avoir écrit ses quatre livrables ; ils sont complets.
 - Tests : suite Playwright de la landing (36 contrôles) réussie ; captures desktop et mobile vérifiées ; `/stages/` identique.
 - Retour arrière : `git revert` du commit, puis `python3 build.py`.
 
+### 2026-11-19 — [JPO-LP-006]
+
+- Demande du propriétaire : reprendre sur la landing `/jpo/` le design du planning de la page `jpo.html` du site,
+  jugé plus lisible.
+- Fichier : `newsite/static/jpo/index.html`.
+- Planning :
+  - une carte par jour avec un bandeau noir et des créneaux en blocs de couleur ;
+  - week-end (samedi, dimanche) d'abord, puis « Avant le week-end : intégrez un cours de la semaine »
+    (mercredi, vendredi) ;
+  - légende en bas ;
+  - introduction reprise du site.
+- Couleurs : celles de la landing, identiques aux cartes et au formulaire, plutôt que le rouge « Acting » unique
+  du site :
+  - rouge : Travail émotionnel ;
+  - noir : Travail de scène ;
+  - bleu : Scénario/Réalisation ;
+  - vert : English ;
+  - gris : Amateur ;
+  - ocre : Impro.
+- Mention « comme un cours d'essai » du site non reprise : l'offre cours d'essai a été retirée de la landing
+  à la demande du propriétaire. Elle est remplacée par « exceptionnellement ouverts aux visiteurs des Portes
+  Ouvertes ».
+- Créneaux inchangés. Tests : suite Playwright de la landing (36 contrôles) réussie ; captures desktop et mobile
+  vérifiées ; `/stages/` identique.
+- Retour arrière : `git revert` du commit, puis `python3 build.py`.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.
