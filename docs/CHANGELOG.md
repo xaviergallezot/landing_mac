@@ -364,5 +364,23 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   `/stages/` identique.
 - Retour arrière : `git revert` du commit, puis `python3 build.py`.
 
+### 2026-11-19 — [JPO-LP-005]
+
+- Demande du propriétaire : afficher les dates et horaires sur toutes les cartes d'ateliers de `/jpo/`, comme sur
+  la carte « Écrire & réaliser vos films ».
+- Fichier : `newsite/static/jpo/index.html`.
+- Chaque carte porte le même encadré, aux couleurs de son atelier :
+  - Travail émotionnel : samedi 12 ou dimanche 13 décembre 2026, 13 h – 15 h, deux sessions au choix.
+  - Travail de scène : mêmes jours, 15 h 30 – 17 h 30, deux sessions au choix.
+  - Acting in English : dimanche 13 décembre 2026, 18 h – 20 h.
+  - Acting Amateur : mercredi 9 décembre 2026, 19 h 30 – 22 h 30, cours de la semaine.
+  - Improvisation : vendredi 11 décembre 2026, 10 h – 13 h, cours de la semaine.
+  - Horaires identiques au planning et au formulaire.
+  - Mention « Gratuit · Sans engagement ».
+  - Sur les cartes Amateur et Improvisation, l'encadré remplace l'ancienne ligne de date.
+  - Les horaires ne se coupent plus en fin de ligne sur mobile.
+- Tests : suite Playwright de la landing (36 contrôles) réussie ; captures desktop et mobile vérifiées ; `/stages/` identique.
+- Retour arrière : `git revert` du commit, puis `python3 build.py`.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

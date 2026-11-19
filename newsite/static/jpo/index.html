@@ -124,6 +124,12 @@
   #mac-landing .atelier-compact { padding:22px 24px; gap:10px; }
   #mac-landing .atelier-compact .atelier-name { font-size:20px; }
   #mac-landing .atelier-compact p { font-size:14px; line-height:1.6; }
+  #mac-landing .atelier-card > .atelier-wide-info { margin-top:auto; align-self:flex-start; }
+  #mac-landing .atelier-c .atelier-wide-info { border-color:color-mix(in srgb, var(--c) 30%, #EEE9DF); }
+  #mac-landing .atelier-compact .atelier-wide-info { padding:10px 14px; gap:4px; }
+  #mac-landing .atelier-compact .atelier-info-date { font-size:13.5px; }
+  #mac-landing .atelier-info-date .nw { white-space:nowrap; }
+  #mac-landing .atelier-compact .atelier-info-free { font-size:11.5px; }
   #mac-landing .atelier-c { box-shadow:inset 4px 0 0 var(--c); }
   #mac-landing .atelier-c .atelier-tag, #mac-landing .atelier-wide .atelier-tag { color:var(--c); background:color-mix(in srgb, var(--c) 10%, transparent); }
   #mac-landing .atelier-c:hover { box-shadow:inset 4px 0 0 var(--c), 0 24px 48px rgba(20,18,15,0.08); border-color:color-mix(in srgb, var(--c) 35%, #EEE9DF); }
@@ -133,7 +139,7 @@
   #mac-landing .atelier-wide-info { display:flex; flex-direction:column; gap:8px; flex:0 0 auto; align-self:flex-start; padding:14px 18px; border-radius:16px; background:#FFFFFF; border:1px solid color-mix(in srgb, var(--c) 30%, #EEE9DF); }
   #mac-landing .atelier-info-date { font-family:'Oswald',sans-serif; font-size:15px; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:var(--c); }
   #mac-landing .atelier-info-free { font-family:'Oswald',sans-serif; font-size:12.5px; letter-spacing:1.5px; text-transform:uppercase; color:#6B655C; }
-  @media (max-width:760px){ #mac-landing .atelier-row { grid-template-columns:1fr; gap:18px; } #mac-landing .atelier-main { padding:30px 26px; } #mac-landing .atelier-wide-info { align-self:stretch; } }
+  @media (max-width:760px){ #mac-landing .atelier-row { grid-template-columns:1fr; gap:18px; } #mac-landing .atelier-main { padding:30px 26px; } #mac-landing .atelier-wide-info, #mac-landing .atelier-card > .atelier-wide-info { align-self:stretch; } }
   /* Formations de la rentrée décalée de janvier 2027 */
   #mac-landing .form-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
   #mac-landing .form-card { background:#FFFFFF; border:1px solid #EEE9DF; border-top:4px solid var(--c); border-radius:24px; padding:clamp(28px,3.4vw,44px); display:flex; flex-direction:column; gap:16px; min-width:0; }
@@ -369,11 +375,19 @@
             <div class="atelier-head"><span class="atelier-tag">Travail &Eacute;motionnel</span></div>
             <h4 class="atelier-name">Faire jaillir de vraies &eacute;motions</h4>
             <p>La base de l&rsquo;acting&nbsp;: creuser en soi, dans votre v&eacute;cu et votre imaginaire, pour faire surgir de vraies &eacute;motions. Bien guid&eacute;s, la plupart des d&eacute;butants sont surpris d&rsquo;y arriver &mdash; et on vous apprend aussi &agrave; redescendre une fois la sc&egrave;ne finie.</p>
+            <div class="atelier-wide-info">
+              <span class="atelier-info-date">Samedi 12 ou dimanche 13 d&eacute;cembre 2026<br><span class="nw">13&nbsp;h&nbsp;&ndash;&nbsp;15&nbsp;h</span></span>
+              <span class="atelier-info-free">Deux sessions au choix &middot; Gratuit &middot; Sans engagement</span>
+            </div>
           </div>
           <div class="atelier-card atelier-c atelier-main" data-reveal style="--c: #14120F">
             <div class="atelier-head"><span class="atelier-tag">Travail de Sc&egrave;ne</span></div>
             <h4 class="atelier-name">Donner vie &agrave; un texte</h4>
             <p>Donner vie &agrave; un texte sans jamais l&rsquo;apprendre par c&oelig;ur. Vous d&eacute;couvrez le sous-texte&nbsp;: en changeant les circonstances d&rsquo;une m&ecirc;me r&eacute;plique, vous entendez le ton, la diction et l&rsquo;&eacute;motion changer d&rsquo;eux-m&ecirc;mes.</p>
+            <div class="atelier-wide-info">
+              <span class="atelier-info-date">Samedi 12 ou dimanche 13 d&eacute;cembre 2026<br><span class="nw">15&nbsp;h&nbsp;30&nbsp;&ndash;&nbsp;17&nbsp;h&nbsp;30</span></span>
+              <span class="atelier-info-free">Deux sessions au choix &middot; Gratuit &middot; Sans engagement</span>
+            </div>
           </div>
           </div>
           <!-- niveau 2 : ateliers complémentaires du week-end -->
@@ -386,17 +400,21 @@
               <p>D&eacute;couvrez comment associer &eacute;criture et jeu d&rsquo;acteur pour cr&eacute;er des personnages cr&eacute;dibles, d&eacute;velopper votre vision de r&eacute;alisateur et apprendre &agrave; diriger des acteurs.</p>
             </div>
             <div class="atelier-wide-info">
-              <span class="atelier-info-date">Samedi 12 d&eacute;cembre 2026 &middot; 18&nbsp;h&nbsp;&ndash;&nbsp;20&nbsp;h</span>
+              <span class="atelier-info-date">Samedi 12 d&eacute;cembre 2026 &middot; <span class="nw">18&nbsp;h&nbsp;&ndash;&nbsp;20&nbsp;h</span></span>
               <span class="atelier-info-free">Gratuit &middot; Sans engagement</span>
             </div>
           </div>
-          <div class="atelier-card" data-reveal style="border: 1.5px solid #5F7A3A; background: #F3F6EC">
+          <div class="atelier-card" data-reveal style="--c: #5F7A3A; border: 1.5px solid #5F7A3A; background: #F3F6EC">
             <div class="atelier-head" style="justify-content: space-between">
               <span class="atelier-tag" style="color: #4C6330; background: rgba(95,122,58,0.12)">En anglais</span>
               <span style="font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #5F7A3A">Profils internationaux</span>
             </div>
             <h4 class="atelier-name">Acting in English</h4>
             <p>Allez loin dans l&rsquo;&eacute;motion et l&rsquo;utiliser dans de courts exercices sc&eacute;niques, int&eacute;gralement en anglais. Id&eacute;al pour les profils internationaux ou s&rsquo;exporter &agrave; l&rsquo;&eacute;tranger.</p>
+            <div class="atelier-wide-info">
+              <span class="atelier-info-date">Dimanche 13 d&eacute;cembre 2026 &middot; <span class="nw">18&nbsp;h&nbsp;&ndash;&nbsp;20&nbsp;h</span></span>
+              <span class="atelier-info-free">Gratuit &middot; Sans engagement</span>
+            </div>
           </div>
           </div>
           <!-- niveau 3 : cours de la semaine ouverts aux visiteurs -->
@@ -406,13 +424,19 @@
             <div class="atelier-head"><span class="atelier-tag">Acting Amateur</span></div>
             <h4 class="atelier-name">Oser vous lib&eacute;rer</h4>
             <p>Pas encore s&ucirc;r de vouloir vous lancer&nbsp;? Un atelier pour d&eacute;passer la peur du ridicule, vous lib&eacute;rer et r&eacute;v&eacute;ler votre potentiel. Beaucoup encha&icirc;nent ensuite sur la formation professionnelle.</p>
-            <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Mercredi 9 d&eacute;cembre &middot; 19h30&ndash;22h30 &middot; cours de la semaine</p>
+            <div class="atelier-wide-info">
+              <span class="atelier-info-date">Mercredi 9 d&eacute;cembre 2026 &middot; <span class="nw">19&nbsp;h&nbsp;30&nbsp;&ndash;&nbsp;22&nbsp;h&nbsp;30</span></span>
+              <span class="atelier-info-free">Cours de la semaine &middot; Gratuit &middot; Sans engagement</span>
+            </div>
           </div>
           <div class="atelier-card atelier-c atelier-compact" data-reveal style="--c: #B8842E">
             <div class="atelier-head"><span class="atelier-tag">Improvisation</span></div>
             <h4 class="atelier-name">Gagner en spontan&eacute;it&eacute;</h4>
             <p>Spontan&eacute;it&eacute;, &eacute;coute, r&eacute;ceptivit&eacute;, r&eacute;activit&eacute;&nbsp;: vous testez diff&eacute;rentes situations d&rsquo;improvisation avec diff&eacute;rents partenaires de jeu.</p>
-            <p style="font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #6B655C; margin: 0">Vendredi 11 d&eacute;cembre &middot; 10h&ndash;13h &middot; cours de la semaine</p>
+            <div class="atelier-wide-info">
+              <span class="atelier-info-date">Vendredi 11 d&eacute;cembre 2026 &middot; <span class="nw">10&nbsp;h&nbsp;&ndash;&nbsp;13&nbsp;h</span></span>
+              <span class="atelier-info-free">Cours de la semaine &middot; Gratuit &middot; Sans engagement</span>
+            </div>
           </div>
           </div>
         </div>
