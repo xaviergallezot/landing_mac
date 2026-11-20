@@ -341,7 +341,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   font-size:13px; line-height:1.2; margin-bottom:8px; }
 .sch-block:last-child{ margin-bottom:0; }
 .sch-block small{ display:block; font-family:'Archivo',sans-serif; text-transform:none; font-size:11px; opacity:.9; margin-top:3px; letter-spacing:0; }
-.sch-acting{ background:#cf5a54; } .sch-amateur{ background:#4b4b4b; } .sch-srda{ background:#4a6fb5; } .sch-en{ background:#5f7a3a; }
+/* une couleur par atelier JPO, identique sur jpo.html, la landing /jpo/ et les formulaires */
+.sch-emo{ background:#E0261F; } .sch-scene{ background:#14120F; } .sch-srda{ background:#4A6FB5; } .sch-en{ background:#5F7A3A; } .sch-amateur{ background:#6B655C; } .sch-impro{ background:#B8842E; }
 .sch-legend{ display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; font-size:13px; color:var(--muted); }
 .sch-legend span{ display:inline-flex; align-items:center; gap:8px; }
 .sch-legend i{ width:16px; height:16px; border-radius:4px; display:inline-block; }

@@ -408,5 +408,28 @@ après avoir écrit ses quatre livrables ; ils sont complets.
   vérifiées ; `/stages/` identique.
 - Retour arrière : `git revert` du commit, puis `python3 build.py`.
 
+### 2026-11-20 — [JPO-COLORS-001]
+
+- Demande du propriétaire : une couleur distincte par atelier, harmonisée entre le site et la landing.
+- Palette commune :
+  - Travail émotionnel `#E0261F` (rouge) ;
+  - Travail de scène `#14120F` (noir) ;
+  - Scénario/Réalisation `#4A6FB5` (bleu) ;
+  - Acting in English `#5F7A3A` (vert) ;
+  - Acting Amateur `#6B655C` (gris) ;
+  - Improvisation `#B8842E` (ocre).
+- Fichiers :
+  - `pages/jpo.html` : liseré de chaque carte d'atelier, blocs du planning, légende à 6 entrées.
+  - `assets/style.css` : classes `.sch-emo`, `.sch-scene` et `.sch-impro` ; `.sch-amateur` ajusté ;
+    `.sch-acting`, qui n'est plus utilisée, est supprimée.
+  - `assets/site.js` : couleurs du formulaire JPO (`JPO_ATELIERS`).
+  - La landing `/jpo/` utilisait déjà cette palette.
+- Non modifié :
+  - le planning hebdomadaire (`planning.html`, classes `c-*`), qui a son propre code couleur par année ;
+  - la landing `/jposr/`, non utilisée.
+- Tests : couleurs calculées vérifiées sur les cartes, le planning et le formulaire de `jpo.html` ; aucune erreur JS ;
+  `/stages/` identique.
+- Retour arrière : `git revert` du commit, puis `python3 build.py`.
+
 Les entrées doivent être ajoutées au fur et à mesure.
 Ne pas réécrire l'historique pour donner une impression de succès.

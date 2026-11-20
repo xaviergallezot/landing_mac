@@ -365,7 +365,8 @@ table.grid-table{ width:100%; border-collapse:collapse; min-width:560px; }
   font-size:13px; line-height:1.2; margin-bottom:8px; }
 .sch-block:last-child{ margin-bottom:0; }
 .sch-block small{ display:block; font-family:'Archivo',sans-serif; text-transform:none; font-size:11px; opacity:.9; margin-top:3px; letter-spacing:0; }
-.sch-acting{ background:#cf5a54; } .sch-amateur{ background:#4b4b4b; } .sch-srda{ background:#4a6fb5; } .sch-en{ background:#5f7a3a; }
+/* une couleur par atelier JPO, identique sur jpo.html, la landing /jpo/ et les formulaires */
+.sch-emo{ background:#E0261F; } .sch-scene{ background:#14120F; } .sch-srda{ background:#4A6FB5; } .sch-en{ background:#5F7A3A; } .sch-amateur{ background:#6B655C; } .sch-impro{ background:#B8842E; }
 .sch-legend{ display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; font-size:13px; color:var(--muted); }
 .sch-legend span{ display:inline-flex; align-items:center; gap:8px; }
 .sch-legend i{ width:16px; height:16px; border-radius:4px; display:inline-block; }
@@ -1067,12 +1068,12 @@ a.rating-badge:hover{ border-color:var(--red); color:var(--ink); }
   /* JPO de décembre (rentrée de janvier 2027) : week-end des 12 & 13 décembre, plus deux cours
      de la semaine ouverts comme des cours d'essai (Acting Amateur le 9, Improvisation le 11). */
   var JPO_ATELIERS = [
-    { id:"emotionnel", seg:"#cf5a54", name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                 slots:["Samedi 12 déc. · 13h–15h","Dimanche 13 déc. · 13h–15h"] },
-    { id:"scene",      seg:"#cf5a54", name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                   slots:["Samedi 12 déc. · 15h30–17h30","Dimanche 13 déc. · 15h30–17h30"] },
-    { id:"srda",       seg:"#4a6fb5", name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs", slots:["Samedi 12 déc. · 18h–20h"] },
-    { id:"english",    seg:"#5f7a3a", name:"Jouer vrai, en anglais",           tech:"Acting in English",                           slots:["Dimanche 13 déc. · 18h–20h"] },
-    { id:"amateur",    seg:"#4b4b4b", name:"Oser vous libérer",                tech:"Acting Amateur · cours de la semaine",        slots:["Mercredi 9 déc. · 19h30–22h30"] },
-    { id:"impro",      seg:"#cf5a54", name:"Inventer dans l'instant",          tech:"Improvisation · cours de la semaine",         slots:["Vendredi 11 déc. · 10h–13h"] }
+    { id:"emotionnel", seg:"#E0261F", name:"Faire jaillir de vraies émotions", tech:"Acting · Travail Émotionnel",                 slots:["Samedi 12 déc. · 13h–15h","Dimanche 13 déc. · 13h–15h"] },
+    { id:"scene",      seg:"#14120F", name:"Donner vie à un texte",            tech:"Acting · Travail de Scène",                   slots:["Samedi 12 déc. · 15h30–17h30","Dimanche 13 déc. · 15h30–17h30"] },
+    { id:"srda",       seg:"#4A6FB5", name:"Écrire & réaliser vos films",      tech:"Scénario, Réalisation & Direction d'acteurs", slots:["Samedi 12 déc. · 18h–20h"] },
+    { id:"english",    seg:"#5F7A3A", name:"Jouer vrai, en anglais",           tech:"Acting in English",                           slots:["Dimanche 13 déc. · 18h–20h"] },
+    { id:"amateur",    seg:"#6B655C", name:"Oser vous libérer",                tech:"Acting Amateur · cours de la semaine",        slots:["Mercredi 9 déc. · 19h30–22h30"] },
+    { id:"impro",      seg:"#B8842E", name:"Inventer dans l'instant",          tech:"Improvisation · cours de la semaine",         slots:["Vendredi 11 déc. · 10h–13h"] }
   ];
   function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
   function initJpo(){
